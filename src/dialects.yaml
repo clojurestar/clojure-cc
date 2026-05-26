@@ -1,0 +1,139 @@
+- name: JVM and GraalVM
+  list:
+  - name: Clojure
+    site: https://clojure.org/
+    host: JVM
+    desc: The original; dynamic, functional Lisp on the Java Virtual Machine
+  - name: Babashka
+    site: https://book.babashka.org/
+    host: GraalVM native
+    desc: Fast-starting Clojure interpreter for shell scripting
+  - name: Cream
+    site: https://github.com/borkdude/cream
+    host: GraalVM
+    desc: Fast-starting Clojure runtime built on Crema
+
+- name: .NET
+  list:
+  - name: ClojureCLR
+    site: https://github.com/clojure/clojure-clr
+    host: .NET
+    desc: Port of Clojure to the Common Language Runtime
+  - name: clojure-clr-next
+    site: https://github.com/dmiller/clojure-clr-next
+    host: .NET (F#)
+    desc: Next-generation ClojureCLR under development
+
+- name: JavaScript and the Browser
+  list:
+  - name: ClojureScript
+    site: https://www.clojurescript.org/
+    host: JavaScript
+    desc: Clojure compiled to JavaScript via Google Closure
+  - name: Squint
+    site: https://github.com/squint-cljs/squint
+    host: JavaScript
+    desc: Light-weight ClojureScript dialect transpiling to mutable JS
+  - name: Cherry
+    site: https://github.com/squint-cljs/cherry
+    host: JavaScript (ES6)
+    desc: Experimental ClojureScript to ES6 module compiler
+  - name: Scittle
+    site: https://github.com/babashka/scittle
+    host: JavaScript (browser)
+    desc: Run Clojure directly from `<script>` tags via SCI
+  - name: nbb
+    site: https://github.com/babashka/nbb
+    host: Node.js
+    desc: Scripting in Clojure on Node.js via SCI
+  - name: Joyride
+    site: https://github.com/BetterThanTomorrow/joyride
+    host: VS Code
+    desc: Make VS Code hackable like Emacs, with Clojure
+
+- name: Go
+  list:
+  - name: Joker
+    site: https://github.com/candid82/joker
+    host: Go
+    desc: Small Clojure interpreter, linter and formatter
+  - name: Glojure
+    site: https://github.com/glojurelang/glojure
+    host: Go
+    desc: Clojure interpreter hosted on Go with seamless Go interop
+  - name: Gloat
+    site: https://github.com/gloathub/gloat
+    host: Go
+    desc: Compile Clojure (and YAMLScript) to Go, native binaries and Wasm
+  - name: let-go
+    site: https://github.com/nooga/let-go
+    host: Go
+    desc: '"Almost Clojure" written in Go'
+  - name: go-joker
+    site: https://github.com/rcarmo/go-joker
+    host: Go
+    desc: Optimized fork of Joker for coding-agent infrastructure
+
+- name: Python
+  list:
+  - name: Basilisp
+    site: https://github.com/basilisp-lang/basilisp
+    host: Python 3
+    desc: Clojure-compatible Lisp dialect with seamless Python interop
+  - name: Hy
+    site: https://github.com/hylang/hy
+    host: Python
+    desc: A Lisp dialect embedded in Python (Clojure-adjacent)
+
+- name: Native and Systems
+  list:
+  - name: Jank
+    site: https://jank-lang.org/
+    host: C++ / LLVM
+    desc: Native Clojure dialect with seamless C++ interop
+  - name: Janet
+    site: https://github.com/janet-lang/janet
+    host: C
+    desc: Dynamic language and bytecode VM (Clojure-adjacent)
+  - name: Ferret
+    site: https://github.com/nakkaya/ferret
+    host: C++11
+    desc: Free-software Lisp for real-time embedded control
+
+- name: Rust
+  list:
+  - name: ClojureRS
+    site: https://github.com/clojure-rs/ClojureRS
+    host: Rust
+    desc: Clojure implementation atop Rust
+  - name: cljrs
+    site: https://tytrdev.github.io/cljrs/
+    host: Rust + MLIR/LLVM
+    desc: Clojure with MLIR/LLVM compilation and GPU support
+
+- name: Other Hosts
+  list:
+  - name: Clojerl
+    site: https://github.com/clojerl/clojerl
+    host: Erlang VM
+    desc: Clojure for the BEAM
+  - name: Lingy
+    site: https://github.com/lingy-lang/lingy
+    host: Perl
+    desc: Clojure-like Lisp dialect implemented in Perl
+  - name: Phel
+    site: https://phel-lang.org/
+    host: PHP
+    desc: Functional Lisp-inspired language compiling to PHP
+  - name: ClojureDart
+    site: https://github.com/Tensegritics/ClojureDart
+    host: Dart / Flutter
+    desc: Clojure for Flutter and Dart with native and Wasm targets
+  - name: ClojureWasm
+    site: https://github.com/clojurewasm/ClojureWasm
+    host: WebAssembly (Zig)
+    desc: Independent Clojure runtime optimized for Wasm
+  - name: ClojureFnl
+    site: https://gitlab.com/andreyorst/clojurefnl
+    host: Fennel / Lua
+    desc: Early Clojure-to-Fennel transpiler

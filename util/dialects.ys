@@ -1,0 +1,30 @@
+#!/usr/bin/env ys-0
+
+defn main():
+  data =: read('src/dialects.yaml'):yaml/load
+  template =: read('src/dialects.md')
+  body =: data.reduce(replace-group template)
+  preamble =: |+
+    <!-- DO NOT EDIT. THIS FILE IS GENERATED FROM 'src/dialects.yaml' -->
+
+  print: preamble + body
+
+defn replace-group(text group):
+  placeholder =: "+++$(group-key(group.name))+++"
+  text:
+    .replace(placeholder render-table(group.list))
+
+defn group-key(name):
+  name:uc:
+    .replace(' ' '-')
+    .replace(/[^A-Z0-9-]/)
+
+defn render-table(rows):
+  header =: |
+    | Dialect | Host | Description |
+    |---------|------|-------------|
+
+  header +: rows.map(render-row):text
+
+defn render-row(row): |-
+  [$(row.name)]($(row.site)) | $(row.host) | $(row.desc) |
