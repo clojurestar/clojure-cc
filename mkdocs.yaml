@@ -1,0 +1,100 @@
+site_name: Clojure.cc
+site_url: https://clojure.cc/
+site_description:
+  The home of Clojure dialects. Catalog, comparison and instant REPLs for
+  every Clojure-family language.
+site_author: Ingy dot Net
+
+repo_name: clojurestar/clojure-cc
+repo_url: https://github.com/clojurestar/clojure-cc
+edit_uri: ""
+
+theme:
+  name: material
+  custom_dir: theme
+  favicon: img/logo.png
+  features:
+  - navigation.instant
+  - navigation.tracking
+  - navigation.tabs
+  - navigation.sections
+  - navigation.expand
+  - navigation.top
+  - search.suggest
+  - search.highlight
+  - content.code.copy
+  - content.code.annotate
+  palette:
+  - media: "(prefers-color-scheme: light)"
+    scheme: default
+    primary: indigo
+    accent: amber
+    toggle:
+      icon: material/brightness-7
+      name: Switch to dark mode
+  - media: "(prefers-color-scheme: dark)"
+    scheme: slate
+    primary: indigo
+    accent: amber
+    toggle:
+      icon: material/brightness-4
+      name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+- css/extra.css
+
+extra_javascript:
+- javascripts/external-links.js
+- javascripts/repl.js
+
+nav:
+- Clojure.cc: index.md
+- Clojure Dialects: dialects.md
+- Try REPLs: cli.md
+- Browser REPL: repl.md
+
+markdown_extensions:
+- abbr
+- admonition
+- attr_list
+- def_list
+- footnotes
+- md_in_html
+- toc:
+    permalink: true
+- pymdownx.betterem:
+    smart_enable: all
+- pymdownx.caret
+- pymdownx.details
+- pymdownx.emoji:
+    emoji_index: !!python/name:material.extensions.emoji.twemoji
+    emoji_generator: !!python/name:material.extensions.emoji.to_svg
+- pymdownx.highlight:
+    anchor_linenums: true
+    line_spans: __span
+    pygments_lang_class: true
+- pymdownx.inlinehilite
+- pymdownx.keys
+- pymdownx.mark
+- pymdownx.smartsymbols
+- pymdownx.superfences
+- pymdownx.tabbed:
+    alternate_style: true
+- pymdownx.tasklist:
+    custom_checkbox: true
+- pymdownx.tilde
+
+plugins:
+- search:
+    separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+
+extra:
+  social:
+  - icon: fontawesome/brands/github
+    link: https://github.com/clojurestar/clojure-cc
+    name: Clojure.cc on GitHub

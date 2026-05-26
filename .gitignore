@@ -1,0 +1,8 @@
+/site/
+/venv/
+/.cache/
+/docs/repl/glj.wasm
+/docs/repl/wasm_exec.js
+/docs/dialects.md
+__pycache__/
+*.pyc
