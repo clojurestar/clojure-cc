@@ -71,6 +71,7 @@ article > h1:first-of-type {
   margin: 0 0 1rem 0;
   color: var(--cc-accent);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
 }
 
 .hero-subtitle {
@@ -228,7 +229,7 @@ table tr:hover {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .hero-title {
+  .md-typeset .hero-title {
     font-size: 2.5rem;
   }
 
@@ -248,5 +249,11 @@ table tr:hover {
 
   .features {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .md-typeset .hero-title {
+    font-size: 2rem;
   }
 }
