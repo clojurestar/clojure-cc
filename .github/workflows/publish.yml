@@ -1,0 +1,43 @@
+name: Publish
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install system deps
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libcairo2-dev fonts-roboto
+
+    - name: Cache Makes-installed tools
+      uses: actions/cache@v4
+      with:
+        path: |
+          .cache
+          venv
+        key: makes-${{ runner.os }}-${{ hashFiles('Makefile', 'requirements.txt') }}
+
+    - name: Build site
+      run: make site
+
+    - name: Deploy to gh-pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./site
+        force_orphan: true
+        cname: clojure.cc
