@@ -53,10 +53,6 @@ DEPS := \
 
 default::
 
-# Generate social card image from mkdocs.yaml metadata
-social-card: $(DEPS)
-	$(PYTHON-VENV)/bin/python3 bin/gen-social-card.py
-
 GLJ-WASM := docs/repl/glj.wasm
 GLJ-WASM-EXEC := docs/repl/wasm_exec.js
 

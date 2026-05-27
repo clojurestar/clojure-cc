@@ -92,6 +92,11 @@ markdown_extensions:
 plugins:
 - search:
     separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+- social:
+    cards_layout_options:
+      background_color: "#3949AB"
+      color: "#FFC107"
+      logo: docs/img/logo.svg
 
 extra:
   social:
