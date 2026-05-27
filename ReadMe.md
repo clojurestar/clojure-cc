@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://clojure.cc">
+    <img src="docs/img/logo.svg" alt="Clojure.cc" width="200">
+  </a>
+</p>
+
 # Clojure.cc
 
 Source for [clojure.cc](https://clojure.cc), a site dedicated to the family of
