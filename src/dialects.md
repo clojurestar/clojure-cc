@@ -5,6 +5,8 @@ description:
   links.
 ---
 
+<!-- DO NOT EDIT. THIS FILE IS GENERATED FROM 'src/dialects.yaml' -->
+
 # Clojure Dialects
 
 A curated list of languages in the Clojure family, organized by host
