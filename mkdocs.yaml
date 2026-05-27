@@ -12,7 +12,7 @@ edit_uri: ""
 theme:
   name: material
   custom_dir: theme
-  favicon: img/logo.png
+  favicon: img/favicon.svg
   features:
   - navigation.instant
   - navigation.tracking

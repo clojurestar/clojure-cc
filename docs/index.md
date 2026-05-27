@@ -1,5 +1,5 @@
 <div class="hero">
-  <img src="img/logo.png" alt="Clojure.cc" class="hero-logo">
+  <img src="img/logo.svg" alt="Clojure.cc" class="hero-logo">
   <h1 class="hero-title">Clojure.cc</h1>
   <p class="hero-subtitle">
     Compare the family of Clojure dialects, and try them in your browser.
