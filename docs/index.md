@@ -1,8 +1,13 @@
+---
+title: Clojure's Covey
+---
+
 <div class="hero">
-  <img src="img/logo.svg" alt="Clojure.cc" class="hero-logo">
-  <h1 class="hero-title">Clojure.cc</h1>
+  <img src="img/logo.svg" alt="Clojure's Covey" class="hero-logo">
+  <h1 class="hero-title">Clojure's Covey</h1>
   <p class="hero-subtitle">
-    Compare the family of Clojure dialects, and try them in your browser.
+    A covey of Clojure dialects.
+    Catalog, comparison and instant REPLs for Clojure-family languages.
   </p>
   <div class="hero-cta">
     <a href="dialects/" class="cta-button cta-primary">Clojure Dialects</a>

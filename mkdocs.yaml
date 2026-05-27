@@ -1,8 +1,8 @@
 site_name: Clojure.cc
 site_url: https://clojure.cc/
 site_description:
-  The home of Clojure dialects. Catalog, comparison and instant REPLs for
-  every Clojure-family language.
+  A covey of Clojure dialects.
+  Catalog, comparison and instant REPLs for Clojure-family languages.
 site_author: Ingy dot Net
 
 repo_name: clojurestar/clojure-cc
@@ -89,10 +89,15 @@ markdown_extensions:
     custom_checkbox: true
 - pymdownx.tilde
 
+hooks:
+- hooks/og_cache_bust.py
+
 plugins:
 - search:
     separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
 - social:
+    cards_layout_dir: layouts
+    cards_layout: clojure-cc
     cards_layout_options:
       background_color: "#3949AB"
       color: "#FFC107"
