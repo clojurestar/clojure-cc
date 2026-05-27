@@ -4,12 +4,14 @@
 
 defn main():
   data =: read('src/dialects.yaml'):yaml/load
-  shaped =: data.mapcat(get-list).filter(has-ext).map(entry)
-  say: "window.CC_LOGO_DIALECTS = $(json/dump shaped);"
+  json =:
+    json/dump: data
+      .mapcat(\(_.list))
+      .filter(\(_.ext))
+      .map(entry)
+  say: "window.CC_LOGO_DIALECTS = $json;"
 
-defn get-list(g): g.list
-
-defn has-ext(d): d.ext
-
-defn entry(d):
-  =>: hash-map("ext" d.ext "name" d.name "site" d.site)
+defn entry(d)::
+  ext  :: d.ext
+  name :: d.name
+  site :: d.site
