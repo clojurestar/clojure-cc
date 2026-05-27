@@ -3,7 +3,7 @@ title: Clojure's Covey
 ---
 
 <div class="hero">
-  <img src="img/logo.svg" alt="Clojure's Covey" class="hero-logo">
+  <img src="img/logo.svg" alt="Clojure's Covey" class="hero-logo" data-cc-logo>
   <h1 class="hero-title">Clojure's Covey</h1>
   <p class="hero-subtitle">
     A covey of Clojure dialects.

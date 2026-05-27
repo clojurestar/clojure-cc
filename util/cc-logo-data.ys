@@ -1,0 +1,15 @@
+#!/usr/bin/env ys-0
+
+# Generate cc-logo-data.js from src/dialects.yaml.
+
+defn main():
+  data =: read('src/dialects.yaml'):yaml/load
+  shaped =: data.mapcat(get-list).filter(has-ext).map(entry)
+  say: "window.CC_LOGO_DIALECTS = $(json/dump shaped);"
+
+defn get-list(g): g.list
+
+defn has-ext(d): d.ext
+
+defn entry(d):
+  =>: hash-map("ext" d.ext "name" d.name "site" d.site)

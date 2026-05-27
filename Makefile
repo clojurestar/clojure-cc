@@ -38,6 +38,7 @@ REPO ?= git@github.com:clojurestar/clojure-cc
 
 MAKES-CLEAN := \
   docs/dialects.md \
+  docs/javascripts/cc-logo-data.js \
   docs/repl/wasm_exec.js \
   site \
 
@@ -77,12 +78,16 @@ glj-wasm: $(GLJ-WASM) $(GLJ-WASM-EXEC)
 docs/dialects.md: util/dialects.ys src/dialects.yaml src/dialects.md $(YS)
 	ys $< > $@
 
+# Generate logo dialect data JS from YAML data
+docs/javascripts/cc-logo-data.js: util/cc-logo-data.ys src/dialects.yaml $(YS)
+	ys $< > $@
+
 # Build main site (production)
-site: $(DEPS) glj-wasm docs/dialects.md
+site: $(DEPS) glj-wasm docs/dialects.md docs/javascripts/cc-logo-data.js
 	mkdocs build -d $@
 
 # Serve locally with MkDocs
-serve: $(DEPS) glj-wasm docs/dialects.md
+serve: $(DEPS) glj-wasm docs/dialects.md docs/javascripts/cc-logo-data.js
 	mkdocs serve --livereload
 
 # Build alias

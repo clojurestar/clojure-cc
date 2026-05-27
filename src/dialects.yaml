@@ -3,10 +3,12 @@
   - name: Clojure
     site: https://clojure.org/
     host: JVM
+    ext: .clj
     desc: The original; dynamic, functional Lisp on the Java Virtual Machine
   - name: Babashka
     site: https://book.babashka.org/
     host: GraalVM native
+    ext: .bb
     desc: Fast-starting Clojure interpreter for shell scripting
   - name: Cream
     site: https://github.com/borkdude/cream
@@ -18,6 +20,7 @@
   - name: ClojureCLR
     site: https://github.com/clojure/clojure-clr
     host: .NET
+    ext: .cljr
     desc: Port of Clojure to the Common Language Runtime
   - name: clojure-clr-next
     site: https://github.com/dmiller/clojure-clr-next
@@ -29,6 +32,7 @@
   - name: ClojureScript
     site: https://www.clojurescript.org/
     host: JavaScript
+    ext: .cljs
     desc: Clojure compiled to JavaScript via Google Closure
   - name: Squint
     site: https://github.com/squint-cljs/squint
@@ -56,10 +60,12 @@
   - name: Joker
     site: https://github.com/candid82/joker
     host: Go
+    ext: .joke
     desc: Small Clojure interpreter, linter and formatter
   - name: Glojure
     site: https://github.com/glojurelang/glojure
     host: Go
+    ext: .glj
     desc: Clojure interpreter hosted on Go with seamless Go interop
   - name: Gloat
     site: https://github.com/gloathub/gloat
@@ -68,6 +74,7 @@
   - name: let-go
     site: https://github.com/nooga/let-go
     host: Go
+    ext: .lg
     desc: '"Almost Clojure" written in Go'
   - name: go-joker
     site: https://github.com/rcarmo/go-joker
@@ -79,10 +86,12 @@
   - name: Basilisp
     site: https://github.com/basilisp-lang/basilisp
     host: Python 3
+    ext: .lpy
     desc: Clojure-compatible Lisp dialect with seamless Python interop
   - name: Hy
     site: https://github.com/hylang/hy
     host: Python
+    ext: .hy
     desc: A Lisp dialect embedded in Python (Clojure-adjacent)
 
 - name: Native and Systems
@@ -90,14 +99,17 @@
   - name: Jank
     site: https://jank-lang.org/
     host: C++ / LLVM
+    ext: .jank
     desc: Native Clojure dialect with seamless C++ interop
   - name: Janet
     site: https://github.com/janet-lang/janet
     host: C
+    ext: .janet
     desc: Dynamic language and bytecode VM (Clojure-adjacent)
   - name: Ferret
     site: https://github.com/nakkaya/ferret
     host: C++11
+    ext: .fer
     desc: Free-software Lisp for real-time embedded control
 
 - name: Rust
@@ -116,6 +128,7 @@
   - name: Clojerl
     site: https://github.com/clojerl/clojerl
     host: Erlang VM
+    ext: .clje
     desc: Clojure for the BEAM
   - name: Lingy
     site: https://github.com/lingy-lang/lingy
@@ -124,10 +137,12 @@
   - name: Phel
     site: https://phel-lang.org/
     host: PHP
+    ext: .phel
     desc: Functional Lisp-inspired language compiling to PHP
   - name: ClojureDart
     site: https://github.com/Tensegritics/ClojureDart
     host: Dart / Flutter
+    ext: .cljd
     desc: Clojure for Flutter and Dart with native and Wasm targets
   - name: ClojureWasm
     site: https://github.com/clojurewasm/ClojureWasm
@@ -136,6 +151,7 @@
   - name: Fennel
     site: https://fennel-lang.org/
     host: Lua
+    ext: .fnl
     desc: Clojure-like Lisp dialect with seamless interop
   - name: ClojureFnl
     site: https://gitlab.com/andreyorst/clojurefnl

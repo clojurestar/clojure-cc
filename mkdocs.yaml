@@ -51,6 +51,8 @@ extra_css:
 extra_javascript:
 - javascripts/external-links.js
 - javascripts/repl.js
+- javascripts/cc-logo-data.js
+- javascripts/cc-logo.js
 
 nav:
 - Clojure.cc: index.md
