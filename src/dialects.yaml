@@ -133,6 +133,10 @@
     site: https://github.com/clojurewasm/ClojureWasm
     host: WebAssembly (Zig)
     desc: Independent Clojure runtime optimized for Wasm
+  - name: Fennel
+    site: https://fennel-lang.org/
+    host: Lua
+    desc: Clojure-like Lisp dialect with seamless interop
   - name: ClojureFnl
     site: https://gitlab.com/andreyorst/clojurefnl
     host: Fennel / Lua
