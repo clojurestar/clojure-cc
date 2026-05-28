@@ -10,14 +10,16 @@
   var HEX = '0,-100 86.6,-50 86.6,50 0,100 -86.6,50 -86.6,-50';
   var HOME_URL = '/';
   var FALLBACK_CENTER = {
-    ext: '.clj', name: 'Clojure', site: 'https://clojure.org/'
+    fext: 'clj', name: 'Clojure', site: 'https://clojure.org/'
   };
 
   function data() { return window.CC_LOGO_DIALECTS || []; }
 
+  function label(d) { return '.' + d.fext; }
+
   function findCenter(all) {
     for (var i = 0; i < all.length; i++) {
-      if (all[i].ext === '.clj') return all[i];
+      if (all[i].fext === 'clj') return all[i];
     }
     return FALLBACK_CENTER;
   }
@@ -30,8 +32,8 @@
     return out;
   }
 
-  function fontSize(ext) {
-    var len = ext.length;
+  function fontSize(text) {
+    var len = text.length;
     if (len <= 5) return 44;
     if (len === 6) return 36;
     if (len === 7) return 30;
@@ -47,31 +49,33 @@
   }
 
   function outerHex(x, y, fill, d) {
-    var fs = fontSize(d.ext);
+    var text = label(d);
+    var fs = fontSize(text);
     return '<g transform="translate(' + x + ' ' + y + ')">' +
       '<a href="' + esc(d.site) + '" target="_blank" rel="noopener noreferrer">' +
       '<title>' + esc(d.name) + '</title>' +
       '<polygon points="' + HEX + '" fill="' + fill +
       '" stroke="#ffffff" stroke-width="3"/>' +
-      '<text font-size="' + fs + '">' + esc(d.ext) + '</text>' +
+      '<text font-size="' + fs + '">' + esc(text) + '</text>' +
       '</a></g>';
   }
 
   function centerHex(d) {
-    var fs = fontSize(d.ext);
+    var text = label(d);
+    var fs = fontSize(text);
     return '<g transform="translate(300 300)">' +
       '<a href="' + esc(HOME_URL) + '" data-cc-center>' +
       '<title>Clojure.cc</title>' +
       '<polygon points="' + HEX + '" fill="#3949AB"' +
       ' stroke="#ffffff" stroke-width="3"/>' +
-      '<text font-size="' + fs + '">' + esc(d.ext) + '</text>' +
+      '<text font-size="' + fs + '">' + esc(text) + '</text>' +
       '</a></g>';
   }
 
   function markup(className) {
     var all = data();
     var center = findCenter(all);
-    var pool = all.filter(function (d) { return d.ext !== '.clj'; });
+    var pool = all.filter(function (d) { return d.fext !== 'clj'; });
     var picks = pickN(pool, 6);
     while (picks.length < 6) picks.push(center);
 
