@@ -46,6 +46,7 @@ MAKES-CLEAN := \
 MAKES-REALCLEAN := \
   $(PYTHON-VENV) \
   docs/repl/glj.wasm \
+  hooks/__pycache__/ \
 
 MAKES-DISTCLEAN := .cache/
 
