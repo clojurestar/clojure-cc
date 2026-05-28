@@ -7,13 +7,14 @@ site_author: Ingy dot Net
 
 repo_name: clojurestar/clojure-cc
 repo_url: https://github.com/clojurestar/clojure-cc
-edit_uri: ""
+edit_uri: edit/main/
 
 theme:
   name: material
   custom_dir: theme
   favicon: img/favicon.svg
   features:
+  - content.action.edit
   - navigation.instant
   - navigation.tracking
   - navigation.tabs

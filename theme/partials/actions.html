@@ -1,0 +1,15 @@
+{#-
+  Render an "edit this page" button when the page declares an `edit:`
+  source path in its frontmatter. The path is resolved against
+  `repo_url` + `edit_uri`. Pages without `edit:` get no button (the
+  default `page.edit_url` for them would point at generated files).
+-#}
+{% if page.meta and page.meta.edit %}
+  {% set url = config.repo_url ~ "/" ~ config.edit_uri ~ page.meta.edit %}
+  <a href="{{ url }}"
+     title="{{ lang.t('action.edit') }}"
+     class="md-content__button md-icon">
+    {% set icon = config.theme.icon.edit or "material/pencil" %}
+    {% include ".icons/" ~ icon ~ ".svg" %}
+  </a>
+{% endif %}

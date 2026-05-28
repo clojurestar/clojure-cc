@@ -11,6 +11,9 @@ Additions, corrections and improvements are welcome.
 The dialect catalog is data-driven.
 To add or correct a dialect, edit
 [`src/dialects.yaml`](src/dialects.yaml) and open a pull request.
+The pencil icon in the top-right of the
+[Clojure Dialects](https://clojure.cc/dialects/) page links straight to that
+file on GitHub.
 
 Each entry looks like:
 

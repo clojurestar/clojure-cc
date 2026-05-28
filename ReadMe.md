@@ -4,6 +4,12 @@ Clojure.cc
 Source for [clojure.cc](https://clojure.cc), a site dedicated to the family of
 Clojure dialects.
 
+Spotted a missing or incorrect dialect?
+Click the pencil icon on the
+[Clojure Dialects](https://clojure.cc/dialects/) page to edit
+[`src/dialects.yaml`](src/dialects.yaml) on GitHub.
+See [Contributing.md](Contributing.md) for details.
+
 <p align="center">
   <a href="https://clojure.cc">
     <img src="docs/img/logo.svg" alt="Clojure.cc" width="200">

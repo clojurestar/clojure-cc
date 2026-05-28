@@ -3,6 +3,7 @@ title: Clojure Dialects
 description:
   A curated catalog of Clojure dialects, their host platforms and project
   links.
+edit: src/dialects.yaml
 ---
 
 <!-- DO NOT EDIT. THIS FILE IS GENERATED FROM 'src/dialects.yaml' -->
