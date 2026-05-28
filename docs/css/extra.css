@@ -237,15 +237,15 @@ table tr:hover {
   width: 1.1em;
 }
 
-.badge-repl     { color: #43A047 !important; } /* green */
-.badge-faithful { color: #3949AB !important; } /* indigo */
-.badge-inspired { color: #8E24AA !important; } /* purple */
-.badge-native   { color: #FB8C00 !important; } /* orange */
+.badge-clojure { color: #3949AB !important; } /* indigo */
+.badge-lisp    { color: #8E24AA !important; } /* purple */
+.badge-native  { color: #FB8C00 !important; } /* orange */
+.badge-repl    { color: #43A047 !important; } /* green */
 
-[data-md-color-scheme="slate"] .badge-repl     { color: #66BB6A !important; }
-[data-md-color-scheme="slate"] .badge-faithful { color: #7986CB !important; }
-[data-md-color-scheme="slate"] .badge-inspired { color: #BA68C8 !important; }
-[data-md-color-scheme="slate"] .badge-native   { color: #FFB74D !important; }
+[data-md-color-scheme="slate"] .badge-clojure { color: #7986CB !important; }
+[data-md-color-scheme="slate"] .badge-lisp    { color: #BA68C8 !important; }
+[data-md-color-scheme="slate"] .badge-native  { color: #FFB74D !important; }
+[data-md-color-scheme="slate"] .badge-repl    { color: #66BB6A !important; }
 
 .badge-legend {
   padding: 0.75em 1em;

@@ -24,16 +24,19 @@ Suggest additions or corrections via
 [clj-easy]: https://github.com/clj-easy/clojure-dialects-docs
 [clojure-like]: https://github.com/ilevd/clojure-like
 
-<div class="badge-legend" markdown>
-  [:material-console-line:](/cli){ .badge .badge-repl }
-  [Instant REPL](/cli) support<br>
-  :simple-clojure:{ .badge .badge-faithful }
-  Faithful Clojure implementation<br>
-  :material-code-parentheses:{ .badge .badge-inspired }
-  Clojure-inspired Lisp<br>
-  :material-lightning-bolt:{ .badge .badge-native }
-  Compiles your code to a native binary
-</div>
+<details class="badge-legend" markdown>
+<summary>Tag legend &nbsp;&nbsp;<i>(click to expand)</i></summary>
+
+:simple-clojure:{ .badge .badge-clojure }
+Faithful Clojure implementation<br>
+:material-code-parentheses:{ .badge .badge-lisp }
+Clojure-inspired Lisp<br>
+:material-lightning-bolt:{ .badge .badge-native }
+Compiles your code to a native binary<br>
+[:material-console-line:](/cli){ .badge .badge-repl }
+[Instant REPL](/cli) support
+
+</details>
 
 
 ## JVM and GraalVM

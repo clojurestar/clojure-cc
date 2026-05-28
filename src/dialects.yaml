@@ -5,18 +5,18 @@
     site: https://clojure.org/
     host: JVM
     fext: clj
-    tags: [repl, faithful]
+    tags: [clojure, repl]
   - name: Babashka
     desc: Fast-starting Clojure interpreter for shell scripting
     site: https://book.babashka.org/
     host: GraalVM native
     fext: bb
-    tags: [repl, faithful]
+    tags: [clojure, repl]
   - name: Cream
     desc: Fast-starting Clojure runtime built on Crema
     site: https://github.com/borkdude/cream
     host: GraalVM
-    tags: [faithful]
+    tags: [clojure]
 
 - name: .NET
   list:
@@ -25,12 +25,12 @@
     site: https://github.com/clojure/clojure-clr
     host: .NET
     fext: cljr
-    tags: [faithful]
+    tags: [clojure]
   - name: clojure-clr-next
     desc: Next-generation ClojureCLR under development
     site: https://github.com/dmiller/clojure-clr-next
     host: .NET (F#)
-    tags: [faithful]
+    tags: [clojure]
 
 - name: JavaScript and the Browser
   list:
@@ -39,32 +39,32 @@
     site: https://www.clojurescript.org/
     host: JavaScript
     fext: cljs
-    tags: [faithful]
+    tags: [clojure]
   - name: Squint
     desc: Light-weight ClojureScript dialect transpiling to mutable JS
     site: https://github.com/squint-cljs/squint
     host: JavaScript
-    tags: [inspired]
+    tags: [lisp]
   - name: Cherry
     desc: Experimental ClojureScript to ES6 module compiler
     site: https://github.com/squint-cljs/cherry
     host: JavaScript (ES6)
-    tags: [inspired]
+    tags: [lisp]
   - name: Scittle
     desc: Run Clojure directly from `<script>` tags via SCI
     site: https://github.com/babashka/scittle
     host: JavaScript (browser)
-    tags: [faithful]
+    tags: [clojure]
   - name: nbb
     desc: Scripting in Clojure on Node.js via SCI
     site: https://github.com/babashka/nbb
     host: Node.js
-    tags: [faithful]
+    tags: [clojure]
   - name: Joyride
     desc: Make VS Code hackable like Emacs, with Clojure
     site: https://github.com/BetterThanTomorrow/joyride
     host: VS Code
-    tags: [faithful]
+    tags: [clojure]
 
 - name: Go
   list:
@@ -73,29 +73,29 @@
     site: https://github.com/candid82/joker
     host: Go
     fext: joke
-    tags: [repl, inspired]
+    tags: [lisp, repl]
   - name: Glojure
     desc: Clojure interpreter hosted on Go with seamless Go interop
     site: https://github.com/glojurelang/glojure
     host: Go
     fext: glj
-    tags: [repl, faithful]
+    tags: [clojure, repl]
   - name: Gloat
     desc: Compile Clojure (and YAMLScript) to Go, native binaries and Wasm
     site: https://github.com/gloathub/gloat
     host: Go
-    tags: [repl, faithful, native]
+    tags: [clojure, native, repl]
   - name: let-go
     desc: '"Almost Clojure" written in Go'
     site: https://github.com/nooga/let-go
     host: Go
     fext: lg
-    tags: [repl, inspired]
+    tags: [lisp, repl]
   - name: go-joker
     desc: Optimized fork of Joker for coding-agent infrastructure
     site: https://github.com/rcarmo/go-joker
     host: Go
-    tags: [inspired]
+    tags: [lisp]
 
 - name: Python
   list:
@@ -104,13 +104,13 @@
     site: https://github.com/basilisp-lang/basilisp
     host: Python 3
     fext: lpy
-    tags: [faithful]
+    tags: [clojure]
   - name: Hy
     desc: A Lisp dialect embedded in Python (Clojure-adjacent)
     site: https://github.com/hylang/hy
     host: Python
     fext: hy
-    tags: [repl, inspired]
+    tags: [lisp, repl]
 
 - name: Native and Systems
   list:
@@ -119,19 +119,19 @@
     site: https://jank-lang.org/
     host: C++ / LLVM
     fext: jank
-    tags: [faithful, native]
+    tags: [clojure, native]
   - name: Janet
     desc: Dynamic language and bytecode VM (Clojure-adjacent)
     site: https://github.com/janet-lang/janet
     host: C
     fext: janet
-    tags: [repl, inspired]
+    tags: [lisp, repl]
   - name: Ferret
     desc: Free-software Lisp for real-time embedded control
     site: https://github.com/nakkaya/ferret
     host: C++11
     fext: fer
-    tags: [inspired, native]
+    tags: [lisp, native]
 
 - name: Rust
   list:
@@ -139,12 +139,12 @@
     desc: Clojure implementation atop Rust
     site: https://github.com/clojure-rs/ClojureRS
     host: Rust
-    tags: [faithful]
+    tags: [clojure]
   - name: cljrs
     desc: Clojure with MLIR/LLVM compilation and GPU support
     site: https://tytrdev.github.io/cljrs/
     host: Rust + MLIR/LLVM
-    tags: [faithful, native]
+    tags: [clojure, native]
 
 - name: Other Hosts
   list:
@@ -153,37 +153,37 @@
     site: https://github.com/clojerl/clojerl
     host: Erlang VM
     fext: clje
-    tags: [faithful]
+    tags: [clojure]
   - name: Lingy
     desc: Clojure-like Lisp dialect implemented in Perl
     site: https://github.com/lingy-lang/lingy
     host: Perl
-    tags: [inspired]
+    tags: [lisp]
   - name: Phel
     desc: Functional Lisp-inspired language compiling to PHP
     site: https://phel-lang.org/
     host: PHP
     fext: phel
-    tags: [repl, inspired]
+    tags: [lisp, repl]
   - name: ClojureDart
     desc: Clojure for Flutter and Dart with native and Wasm targets
     site: https://github.com/Tensegritics/ClojureDart
     host: Dart / Flutter
     fext: cljd
-    tags: [faithful, native]
+    tags: [clojure, native]
   - name: ClojureWasm
     desc: Independent Clojure runtime optimized for Wasm
     site: https://github.com/clojurewasm/ClojureWasm
     host: WebAssembly (Zig)
-    tags: [faithful]
+    tags: [clojure]
   - name: Fennel
     desc: Clojure-like Lisp dialect with seamless interop
     site: https://fennel-lang.org/
     host: Lua
     fext: fnl
-    tags: [inspired]
+    tags: [lisp]
   - name: ClojureFnl
     desc: Early Clojure-to-Fennel transpiler
     site: https://gitlab.com/andreyorst/clojurefnl
     host: Fennel / Lua
-    tags: [faithful]
+    tags: [clojure]
