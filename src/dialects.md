@@ -33,8 +33,8 @@ Faithful Clojure implementation<br>
 Clojure-inspired Lisp<br>
 :material-lightning-bolt:{ .badge .badge-native }
 Compiles your code to a native binary<br>
-[:material-console-line:](/cli){ .badge .badge-repl }
-[Instant REPL](/cli) support
+[:material-console-line:](cli.md){ .badge .badge-repl }
+[Instant REPL](cli.md) support
 
 </details>
 

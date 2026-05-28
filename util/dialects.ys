@@ -35,4 +35,4 @@ defn tag-badge(tag):
     (tag == 'clojure'): ':simple-clojure:{ .badge .badge-clojure title="Faithful Clojure implementation" } '
     (tag == 'lisp'):    ':material-code-parentheses:{ .badge .badge-lisp title="Clojure-inspired Lisp" } '
     (tag == 'native'):  ':material-lightning-bolt:{ .badge .badge-native title="Compiles your code to a native binary" } '
-    (tag == 'repl'):    '[:material-console-line:](/cli "Instant REPL support"){ .badge .badge-repl } '
+    (tag == 'repl'):    '[:material-console-line:](cli.md "Instant REPL support"){ .badge .badge-repl } '
