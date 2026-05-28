@@ -7,11 +7,11 @@ defn main():
   json =:
     json/dump: data
       .mapcat(\(_.list))
-      .filter(\(_.ext))
+      .filter(\(_.fext))
       .map(entry)
   say: "window.CC_LOGO_DIALECTS = $json;"
 
 defn entry(d)::
-  ext  :: d.ext
+  fext :: d.fext
   name :: d.name
   site :: d.site
