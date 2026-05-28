@@ -24,8 +24,16 @@ defn render-table(rows): |-
 
 defn render-row(row):
   name site =: row.name row.site
-  link host desc =: +
-    "[$name]($site)"
-    row.host
-    row.desc
-  =>: "$link | $host | $desc"
+  link =: "[$name]($site)$(render-badges(row.tags))"
+  =>: "$link | $(row.host) | $(row.desc)"
+
+defn render-badges(tags):
+  when tags:
+    apply(str tags.map(tag-badge))
+
+defn tag-badge(tag):
+  cond:
+    (tag == 'repl'):     ' [:material-console-line:](/cli "Instant REPL support"){ .badge .badge-repl }'
+    (tag == 'native'):   ' :material-lightning-bolt:{ .badge .badge-native title="Compiles your code to a native binary" }'
+    (tag == 'faithful'): ' :simple-clojure:{ .badge .badge-faithful title="Faithful Clojure implementation" }'
+    (tag == 'inspired'): ' :material-code-parentheses:{ .badge .badge-inspired title="Clojure-inspired Lisp" }'

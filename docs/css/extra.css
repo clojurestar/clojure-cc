@@ -217,6 +217,52 @@ table tr:hover {
   background: var(--cc-code-bg);
 }
 
+/* Dialect tag badges */
+.badge {
+  margin-left: 0.35em;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+  text-decoration: none;
+  vertical-align: -0.15em;
+}
+
+.badge:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.badge .twemoji,
+.badge svg {
+  height: 1.1em;
+  width: 1.1em;
+}
+
+.badge-repl     { color: #43A047 !important; } /* green */
+.badge-faithful { color: #3949AB !important; } /* indigo */
+.badge-inspired { color: #8E24AA !important; } /* purple */
+.badge-native   { color: #FB8C00 !important; } /* orange */
+
+[data-md-color-scheme="slate"] .badge-repl     { color: #66BB6A !important; }
+[data-md-color-scheme="slate"] .badge-faithful { color: #7986CB !important; }
+[data-md-color-scheme="slate"] .badge-inspired { color: #BA68C8 !important; }
+[data-md-color-scheme="slate"] .badge-native   { color: #FFB74D !important; }
+
+.badge-legend {
+  padding: 0.75em 1em;
+  margin: 1.5em 0;
+  font-size: 0.95em;
+  background: var(--cc-code-bg);
+  border-left: 4px solid var(--cc-primary);
+  border-radius: 4px;
+  line-height: 1.9;
+}
+
+.badge-legend .badge {
+  margin-left: 0;
+  margin-right: 0.25em;
+  opacity: 1;
+}
+
 /* Footer credit */
 .footer-credit {
   text-align: center;
