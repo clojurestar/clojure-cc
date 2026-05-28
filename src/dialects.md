@@ -4,6 +4,8 @@ description:
   A curated catalog of Clojure dialects, their host platforms and project
   links.
 edit: src/dialects.yaml
+hide:
+- navigation
 ---
 
 <!-- DO NOT EDIT. THIS FILE IS GENERATED FROM 'src/dialects.yaml' -->

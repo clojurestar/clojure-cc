@@ -3,6 +3,8 @@ title: CLI Launcher
 description:
   Launch any supported Clojure dialect REPL locally with a single curl + make
   command. No prerequisites.
+hide:
+- navigation
 ---
 
 # Instant Clojure Dialect REPLs
