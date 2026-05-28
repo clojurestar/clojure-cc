@@ -19,7 +19,7 @@ defn group-key(name):
 
 defn render-table(rows): |-
   | Stars | Tags | Dialect | Host | Description |
-  |------:|------|---------|------|-------------|
+  |:-----:|------|---------|------|-------------|
   $(rows.map(render-row):text:trimr)
 
 defn render-row(row):

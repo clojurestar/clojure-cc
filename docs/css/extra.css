@@ -223,9 +223,38 @@ table tr:hover {
   background: var(--cc-code-bg);
 }
 
-/* Dialect tables: first 3 columns shrink to content; description takes rest */
-.md-typeset table:not([class]) th:nth-child(-n+3),
-.md-typeset table:not([class]) td:nth-child(-n+3) {
+/* Dialect tables (5 columns): explicit narrow widths via fixed layout */
+.md-typeset table:not([class]):has(th:nth-child(5)) {
+  table-layout: fixed;
+}
+
+.md-typeset table:not([class]):has(th:nth-child(5)) th:nth-child(1),
+.md-typeset table:not([class]):has(th:nth-child(5)) td:nth-child(1) {
+  width: 4rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.md-typeset table:not([class]):has(th:nth-child(5)) th:nth-child(2),
+.md-typeset table:not([class]):has(th:nth-child(5)) td:nth-child(2) {
+  width: 3.75rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.md-typeset table:not([class]):has(th:nth-child(5)) th:nth-child(3),
+.md-typeset table:not([class]):has(th:nth-child(5)) td:nth-child(3) {
+  width: 6rem;
+}
+
+.md-typeset table:not([class]):has(th:nth-child(5)) th:nth-child(4),
+.md-typeset table:not([class]):has(th:nth-child(5)) td:nth-child(4) {
+  width: 6rem;
+}
+
+/* Other tables: first 3 columns shrink to content; last takes rest */
+.md-typeset table:not([class]):not(:has(th:nth-child(5))) th:nth-child(-n+3),
+.md-typeset table:not([class]):not(:has(th:nth-child(5))) td:nth-child(-n+3) {
   width: 1%;
   white-space: nowrap;
 }
