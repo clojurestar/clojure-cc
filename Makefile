@@ -106,11 +106,12 @@ build: site
 lint: $(TYPOS)
 	typos
 
-# Deploy to production: build and force-push to gh-pages
-publish: site
-	cd $< && \
+# Deploy to production: refresh stars, build, force-push to gh-pages
+publish: stars
+	$(MAKE) site
+	cd site && \
 	  git init && \
 	  git add -A && \
 	  git commit -m 'Deploy to production' && \
 	  git push -f $(REPO) HEAD:gh-pages
-	$(RM) -r $<
+	$(RM) -r site
