@@ -64,5 +64,5 @@ Most people only know two or three.
 
 
 <div class="footer-credit">
-  Curated by <a href="https://github.com/ingydotnet">Ingy döt Net</a>
+  Curated by <a href="https://clojurians.slack.com/archives/C0B655S3R19">Clojurians</a>!
 </div>
