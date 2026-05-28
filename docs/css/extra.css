@@ -194,9 +194,15 @@ code {
 }
 
 /* Tables */
-table {
-  border-collapse: collapse;
+.md-typeset__table {
+  display: block;
   width: 100%;
+}
+
+.md-typeset table:not([class]) {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
   margin: 2rem 0;
 }
 
@@ -215,6 +221,13 @@ table td {
 
 table tr:hover {
   background: var(--cc-code-bg);
+}
+
+/* Dialect tables: first 3 columns shrink to content; description takes rest */
+.md-typeset table:not([class]) th:nth-child(-n+3),
+.md-typeset table:not([class]) td:nth-child(-n+3) {
+  width: 1%;
+  white-space: nowrap;
 }
 
 /* Dialect tag badges */
