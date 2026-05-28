@@ -15,7 +15,7 @@
     host: GraalVM native
     fext: bb
     tags: [clojure, repl]
-    star: 4518
+    star: 4520
   - name: Cream
     desc: Fast-starting Clojure runtime built on Crema
     repo: https://github.com/borkdude/cream

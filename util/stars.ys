@@ -35,12 +35,14 @@ defn fetch-stars(url):
 
 defn github-stars(url):
   m =: re-find(/github\.com\/([^\/?#]+)\/([^\/?#]+)/ url)
-  =>: sh-out("gh api repos/$(m.1)/$(m.2) --jq .stargazers_count"):parse-long
+  api =: "https://api.github.com/repos/$(m.1)/$(m.2)"
+  json =: http/get(api).body:json/load
+  =>: json.stargazers_count
 
 defn gitlab-stars(url):
   m =: re-find(/gitlab\.com\/([^\/?#]+)\/([^\/?#]+)/ url)
   api =: "https://gitlab.com/api/v4/projects/$(m.1)%2F$(m.2)"
-  json =: sh-out("curl -sf $api"):json/load
+  json =: http/get(api).body:json/load
   =>: json.star_count
 
 defn rewrite(text stars):
