@@ -18,13 +18,13 @@ defn group-key(name):
     .replace(/[^A-Z0-9-]/)
 
 defn render-table(rows): |-
-  | Tags | Dialect | Host | Description |
-  |------|---------|------|-------------|
+  | Stars | Tags | Dialect | Host | Description |
+  |------:|------|---------|------|-------------|
   $(rows.map(render-row):text:trimr)
 
 defn render-row(row):
   url =: row.site ||| row.repo
-  =>: "| $(render-badges(row.tags))| [$(row.name)]($url) | $(row.host) | $(row.desc) |"
+  =>: "| $(row.star) | $(render-badges(row.tags))| [$(row.name)]($url) | $(row.host) | $(row.desc) |"
 
 defn render-badges(tags):
   when tags:
