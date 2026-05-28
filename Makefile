@@ -87,7 +87,10 @@ site: $(DEPS) glj-wasm docs/dialects.md docs/javascripts/cc-logo-data.js
 	mkdocs build -d $@
 
 # Serve locally with MkDocs
+# Kill any other 'mkdocs serve' first so a stale dev server on the same port
+# doesn't block startup.
 serve: $(DEPS) glj-wasm docs/dialects.md docs/javascripts/cc-logo-data.js
+	-pkill -f 'mkdocs serve' 2>/dev/null
 	mkdocs serve --livereload
 
 # Build alias
