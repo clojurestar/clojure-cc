@@ -23,7 +23,8 @@ defn render-table(rows): |-
   $(rows.map(render-row):text:trimr)
 
 defn render-row(row):
-  =>: "| $(render-badges(row.tags))| [$(row.name)]($(row.site)) | $(row.host) | $(row.desc) |"
+  url =: row.site ||| row.repo
+  =>: "| $(render-badges(row.tags))| [$(row.name)]($url) | $(row.host) | $(row.desc) |"
 
 defn render-badges(tags):
   when tags:

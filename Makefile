@@ -75,6 +75,10 @@ $(GLJ-WASM-EXEC): $(GO)
 
 glj-wasm: $(GLJ-WASM) $(GLJ-WASM-EXEC)
 
+# Refresh GitHub star counts in src/dialects.yaml
+stars: $(YS)
+	ys util/stars.ys
+
 # Generate dialect catalog from YAML data
 docs/dialects.md: util/dialects.ys src/dialects.yaml src/dialects.md $(YS)
 	ys $< > $@

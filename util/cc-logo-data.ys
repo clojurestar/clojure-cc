@@ -14,4 +14,4 @@ defn main():
 defn entry(d)::
   fext :: d.fext
   name :: d.name
-  site :: d.site
+  site :: d.site ||| d.repo
