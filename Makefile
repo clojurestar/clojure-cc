@@ -13,11 +13,12 @@ include $M/go.mk
 include $M/glojure.mk
 
 GLOJURE-REPO := https://github.com/gloathub/glojure
-GLOJURE-DIR := $(LOCAL-CACHE)/glojure-$(GLOJURE-VERSION)
+GLOJURE-TAG := v$(patsubst v%,%,$(GLOJURE-VERSION))
+GLOJURE-DIR := $(LOCAL-CACHE)/glojure-$(GLOJURE-TAG)
 
 $(GLOJURE-DIR):
-	@echo "* Cloning glojure v$(GLOJURE-VERSION) locally"
-	git clone -q -b v$(GLOJURE-VERSION) --config advice.detachedHead=false \
+	@echo "* Cloning glojure $(GLOJURE-TAG) locally"
+	git clone -q -b $(GLOJURE-TAG) --config advice.detachedHead=false \
 	  $(GLOJURE-REPO) $@
 SHELL-DEPS += $(PYTHON-VENV)
 include $M/shell.mk
