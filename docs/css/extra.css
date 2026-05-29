@@ -205,7 +205,7 @@ code {
   width: auto;
   overflow: visible;
   border-collapse: collapse;
-  margin: 2rem 0;
+  margin: 0.5rem 0;
   padding: 0 3px;
 }
 
@@ -311,13 +311,14 @@ table tr:hover {
 [data-md-color-scheme="slate"] .badge-repl    { color: #66BB6A !important; }
 
 .badge-legend {
-  padding: 0.75em 1em;
-  margin: 1.5em 0;
+  padding: 0.4em 1em;
+  margin: 0.5em 0;
   font-size: 0.95em;
   background: var(--cc-code-bg);
   border-left: 4px solid var(--cc-primary);
   border-radius: 4px;
   line-height: 1.9;
+  clear: right;
 }
 
 .badge-legend .badge {
