@@ -9,10 +9,12 @@ include $M/python.mk
 include $M/typos.mk
 include $M/ys.mk
 GLOJURE-VERSION := 0.6.5-rc30
+# Set before include: glojure.mk uses `override GLOJURE-REPO`, which silently
+# locks the value and ignores any later plain `:=` assignment.
+GLOJURE-REPO := https://github.com/gloathub/glojure
 include $M/go.mk
 include $M/glojure.mk
 
-GLOJURE-REPO := https://github.com/gloathub/glojure
 GLOJURE-TAG := v$(patsubst v%,%,$(GLOJURE-VERSION))
 GLOJURE-DIR := $(LOCAL-CACHE)/glojure-$(GLOJURE-TAG)
 
