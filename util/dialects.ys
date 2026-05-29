@@ -18,8 +18,8 @@ defn main():
   print: template.replace('+++DIALECTS+++' table)
 
 defn render-table(rows repo-data): |-
-  | Stars | Tags | Dialect | Host | Description | Release |
-  |------:|------|---------|------|-------------|---------|
+  | Stars | Tags | Dialect | Host | Release | Description |
+  |------:|------|---------|------|---------|-------------|
   $(rows.map(fn([r] render-row(r repo-data))):text:trimr)
 
 defn render-row(row repo-data):
@@ -28,11 +28,11 @@ defn render-row(row repo-data):
   star =: info.star ||| ''
   release =: info.release
   rel-cell =: render-release(release)
-  =>: "| $star | $(render-badges(row.tags))| [$(row.name)]($url) | $(row.host) | $(row.desc) | $rel-cell |"
+  =>: "| $star | $(render-badges(row.tags))| [$(row.name)]($url) | $(row.host) | $rel-cell | $(row.desc) |"
 
 defn render-release(release):
   if release:
-    then: "[$(release.date) &nbsp; $(release.version)]($(release.url))"
+    then: "[$(release.date) $(release.version)]($(release.url))"
     else: ''
 
 defn render-badges(tags):

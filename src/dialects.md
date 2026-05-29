@@ -12,14 +12,6 @@ hide:
 
 # Clojure Dialects
 
-A curated list of languages in the Clojure family.
-
-This catalog was seeded from the [clj-easy/clojure-dialects-docs][clj-easy]
-list, with additional entries drawn from the broader
-[clojure-like][clojure-like] community catalog.
-Suggest additions or corrections via
-[GitHub](https://github.com/clojurestar/clojure-cc).
-
 [clj-easy]: https://github.com/clj-easy/clojure-dialects-docs
 [clojure-like]: https://github.com/ilevd/clojure-like
 
@@ -51,3 +43,8 @@ There are many more dialects in the wild, including historical projects
 (Las3r, Scriptjure), niche transpilers (Kalai, cljs2go), and one-off
 experiments.
 The [clojure-like][clojure-like] catalog tracks ~90 of them.
+
+## Other Curated Lists
+
+* [clj-easy/clojure-dialects-docs][clj-easy]
+* [ilevd/clojure-like][clojure-like]

@@ -54,6 +54,7 @@ extra_javascript:
 - javascripts/repl.js
 - javascripts/cc-logo-data.js
 - javascripts/cc-logo.js
+- javascripts/sort.js
 
 nav:
 - Clojure.cc: index.md
