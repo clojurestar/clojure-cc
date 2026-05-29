@@ -199,23 +199,27 @@ code {
   width: 100%;
 }
 
-.md-typeset table:not([class]) {
+.md-typeset table:not([class]),
+.md-typeset__table table {
   display: table;
-  width: 100%;
+  width: auto;
+  overflow: visible;
   border-collapse: collapse;
   margin: 2rem 0;
+  padding: 0 3px;
 }
 
-table th {
+.md-typeset table:not([class]) th {
   background: var(--cc-primary);
   color: white;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 4px;
   text-align: left;
   font-weight: 600;
+  min-width: 0;
 }
 
-table td {
-  padding: 0.6rem 1rem;
+.md-typeset table:not([class]) td {
+  padding: 0.6rem 4px;
   border-bottom: 1px solid var(--cc-border);
 }
 
@@ -223,39 +227,18 @@ table tr:hover {
   background: var(--cc-code-bg);
 }
 
-/* Dialect tables (6 columns): explicit narrow widths via fixed layout */
-.md-typeset table:not([class]):has(th:nth-child(6)) {
-  table-layout: fixed;
+/* Dialect tables (6 columns): every column except Description (col 5)
+   shrinks to its content. */
+.md-typeset table:not([class]):has(th:nth-child(6)) th:not(:nth-child(5)),
+.md-typeset table:not([class]):has(th:nth-child(6)) td:not(:nth-child(5)) {
+  width: 1%;
+  white-space: nowrap;
 }
 
-.md-typeset table:not([class]):has(th:nth-child(6)) th:nth-child(1),
-.md-typeset table:not([class]):has(th:nth-child(6)) td:nth-child(1) {
-  width: 4rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
+/* Tags column: fixed width */
 .md-typeset table:not([class]):has(th:nth-child(6)) th:nth-child(2),
 .md-typeset table:not([class]):has(th:nth-child(6)) td:nth-child(2) {
-  width: 3.75rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.md-typeset table:not([class]):has(th:nth-child(6)) th:nth-child(3),
-.md-typeset table:not([class]):has(th:nth-child(6)) td:nth-child(3) {
-  width: 6rem;
-}
-
-.md-typeset table:not([class]):has(th:nth-child(6)) th:nth-child(4),
-.md-typeset table:not([class]):has(th:nth-child(6)) td:nth-child(4) {
-  width: 6rem;
-}
-
-.md-typeset table:not([class]):has(th:nth-child(6)) th:nth-child(6),
-.md-typeset table:not([class]):has(th:nth-child(6)) td:nth-child(6) {
-  width: 11rem;
-  white-space: nowrap;
+  width: 60px;
 }
 
 /* Other tables: first 3 columns shrink to content; last takes rest */
@@ -266,8 +249,17 @@ table tr:hover {
 }
 
 /* Dialect tag badges */
+.badges {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+}
+
+.badges > * {
+  flex-shrink: 0;
+}
+
 .badge {
-  margin-left: 0.35em;
   opacity: 0.75;
   transition: opacity 0.2s;
   text-decoration: none;

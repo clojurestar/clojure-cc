@@ -37,7 +37,8 @@ defn render-release(release):
 
 defn render-badges(tags):
   when tags:
-    apply(str tags.map(tag-badge))
+    inner =: apply(str tags.map(tag-badge))
+    =>: "<span class=\"badges\">$inner</span>"
 
 defn tag-badge(tag):
   cond:
