@@ -12,13 +12,14 @@ defn main():
   dialects =: read('src/dialects.yaml'):yaml/load
   entries =: dialects.mapcat(\(_.list)).filter(\(_.repo))
   data =: entries.reduce(collect {})
-  write: out yaml/dump(data)
+  # data =: entries.drop(entries.# - 3):butlast.reduce(collect {})
+  write out: yaml/dump(data)
   say: "Refreshed $(data.#) of $(entries.#) entries."
 
 defn collect(acc entry):
   info =: fetch-info(entry.repo)
   if info:
-    then: assoc(acc entry.repo info)
+    assoc acc: entry.repo info
     else: acc
 
 defn fetch-info(url):
@@ -27,31 +28,40 @@ defn fetch-info(url):
     url =~ /gitlab\.com\//: gitlab-info(url)
 
 defn github-info(url):
-  m =: re-find(/github\.com\/([^\/?#]+)\/([^\/?#]+)/ url)
-  owner =: m.1
-  repo =: m.2
+  m =: url =~ /github\.com\/([^\/?#]+)\/([^\/?#]+)/
+  owner repo =: m:rest
   star =: github-stars(owner repo)
   when star:
     build-info: star github-release(owner repo)
 
+defn github-headers():
+  base =::
+    Accept: application/vnd.github+json
+  if ENV.GITHUB_TOKEN:
+    then: base.assoc("Authorization" "Bearer $(ENV.GITHUB_TOKEN)")
+    else: base
+
+defn github-get(api):
+  http/get api::
+    :headers:: github-headers()
+
 defn github-stars(owner repo):
   api =: "https://api.github.com/repos/$owner/$repo"
   try:
-    =>: http/get(api).body:json/load.stargazers_count
+    get _ 'stargazers_count':
+      github-get(api).body:json/load
     catch Exception e:
-      =>: nil
 
 defn github-release(owner repo):
   api =: "https://api.github.com/repos/$owner/$repo/releases/latest"
-  json =:
+  data =:
     try:
-      =>: http/get(api).body:json/load
+      json/load: github-get(api).body
       catch Exception e:
-        =>: nil
-  when json:
-    d =: json.published_at.subs(0 10)
-    v =: json.tag_name
-    u =: json.html_url
+  when data:
+    d =: data.published_at.subs(0 10)
+    v =: data.tag_name
+    u =: data.html_url
     =>: +{:date d, :version v, :url u}
 
 defn gitlab-info(url):
@@ -64,18 +74,16 @@ defn gitlab-info(url):
 defn gitlab-stars(proj):
   api =: "https://gitlab.com/api/v4/projects/$proj"
   try:
-    =>: http/get(api).body:json/load.star_count
+    get _ 'star_count': http/get(api).body:json/load
     catch Exception e:
-      =>: nil
 
 defn gitlab-release(proj):
   api =: "https://gitlab.com/api/v4/projects/$proj/releases"
   releases =:
     try:
-      =>: http/get(api).body:json/load
+      json/load: http/get(api).body
       catch Exception e:
-        =>: nil
-  when releases.#.truey?:
+  when releases.#.?:
     rel =: releases:first
     d =: rel.released_at.subs(0 10)
     v =: rel.tag_name
@@ -83,6 +91,6 @@ defn gitlab-release(proj):
     =>: +{:date d, :version v, :url u}
 
 defn build-info(star release):
-  if release:
-    then: +{:star star, :release release}
-    else: +{:star star}
+  if release: +
+    {:star star, :release release}
+    {:star star}

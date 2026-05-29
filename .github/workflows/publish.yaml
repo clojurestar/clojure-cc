@@ -35,6 +35,8 @@ jobs:
 
     - name: Refresh repo data (stars + latest release)
       run: make repo-data
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build site
       run: make site
