@@ -159,6 +159,13 @@
     host: Erlang VM
     fext: clje
     tags: [clojure]
+  - name: YAMLScript
+    desc: YAML syntax that translates to Clojure code and semantics
+    site: https://yamlscript.org/
+    repo: https://github.com/yaml/yamlscript
+    host: GraalVM native
+    fext: ys
+    tags: [clojure, native]
   - name: Lingy
     desc: Clojure-like Lisp dialect implemented in Perl
     repo: https://github.com/lingy-lang/lingy
