@@ -19,7 +19,7 @@ defn main():
 
 defn render-table(rows repo-data): |-
   | Stars | Tags | Dialect | Host | Description | Release |
-  |:-----:|------|---------|------|-------------|---------|
+  |------:|------|---------|------|-------------|---------|
   $(rows.map(fn([r] render-row(r repo-data))):text:trimr)
 
 defn render-row(row repo-data):
