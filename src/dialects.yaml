@@ -14,6 +14,14 @@
   fext: cljs
   tags: [clojure]
 
+- name: Carp
+  desc: Statically-typed Lisp without a GC, compiles to C
+  site: https://carp-lang.org/
+  repo: https://github.com/carp-lang/Carp
+  host: C
+  fext: carp
+  tags: [lisp, native, repl]
+
 - name: Hy
   desc: A Lisp dialect embedded in Python (Clojure-adjacent)
   repo: https://github.com/hylang/hy
@@ -66,6 +74,13 @@
   fext: clje
   tags: [clojure]
 
+- name: Lux
+  desc: Statically-typed functional Lisp with multiple host targets
+  repo: https://github.com/LuxLang/lux
+  host: JVM (multi-target)
+  fext: lux
+  tags: [lisp]
+
 - name: ClojureCLR
   desc: Port of Clojure to the Common Language Runtime
   repo: https://github.com/clojure/clojure-clr
@@ -86,6 +101,13 @@
   host: C++11
   fext: fer
   tags: [lisp, native]
+
+- name: Planck
+  desc: Stand-alone ClojureScript REPL on JavaScriptCore
+  site: https://planck-repl.org/
+  repo: https://github.com/planck-repl/planck
+  host: JavaScriptCore
+  tags: [clojure, repl]
 
 - name: ClojureRS
   desc: Clojure implementation atop Rust
@@ -160,6 +182,24 @@
   host: JavaScript (browser)
   tags: [clojure]
 
+- name: Cloture
+  desc: Clojure dialect implemented in Common Lisp
+  repo: https://github.com/ruricolist/cloture
+  host: Common Lisp
+  tags: [clojure]
+
+- name: Lokke
+  desc: Clojure dialect hosted on GNU Guile
+  repo: https://github.com/lokke-org/lokke
+  host: GNU Guile
+  tags: [clojure]
+
+- name: JO Clojure
+  desc: Single-header C++ Clojure interpreter
+  repo: https://github.com/Zelex/jo_clojure
+  host: C++
+  tags: [clojure]
+
 - name: Cream
   desc: Fast-starting Clojure runtime built on Crema
   repo: https://github.com/borkdude/cream
@@ -171,6 +211,13 @@
   repo: https://github.com/dmiller/clojure-clr-next
   host: .NET (F#)
   tags: [clojure]
+
+- name: Calcit
+  desc: ClojureScript-inspired scripting language with a structural code format
+  site: http://calcit-lang.org/
+  repo: https://github.com/calcit-lang/calcit
+  host: JavaScript (Rust runtime)
+  tags: [lisp]
 
 - name: ClojureWasm
   desc: Independent Clojure runtime optimized for Wasm

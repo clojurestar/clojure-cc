@@ -4,19 +4,24 @@
 # `repo:` URL in src/dialects.yaml, then write the result to
 # repo-data.yaml keyed by repo URL.
 #
-# Supports GitHub and GitLab. Repos without releases get a `star:` only.
+# Supports GitHub and GitLab. Repos without releases fall back to the
+# latest commit on the default branch (stored under `commit:`).
 # Failures (network, rate limit, missing repo) skip the entry silently.
+
+i =: atom(0)
 
 defn main():
   out =: 'repo-data.yaml'
   dialects =: read('src/dialects.yaml'):yaml/load
-  entries =: dialects.mapcat(\(_.list)).filter(\(_.repo))
+  entries =: dialects.filter(\(_.repo))
   data =: entries.reduce(collect {})
   # data =: entries.drop(entries.# - 3):butlast.reduce(collect {})
   write out: yaml/dump(data)
   say: "Refreshed $(data.#) of $(entries.#) entries."
 
 defn collect(acc entry):
+  swap! i: inc
+  warn: "$(i.@)) $(entry.name)"
   info =: fetch-info(entry.repo)
   if info:
     assoc acc: entry.repo info
@@ -32,7 +37,11 @@ defn github-info(url):
   owner repo =: m:rest
   star =: github-stars(owner repo)
   when star:
-    build-info: star github-release(owner repo)
+    release =: github-release(owner repo)
+    commit =:
+      when-not release:
+        github-commit(owner repo)
+    build-info: star release commit
 
 defn github-headers():
   base =::
@@ -64,12 +73,29 @@ defn github-release(owner repo):
     u =: data.html_url
     =>: +{:date d, :version v, :url u}
 
+defn github-commit(owner repo):
+  api =: "https://api.github.com/repos/$owner/$repo/commits?per_page=1"
+  data =:
+    try:
+      json/load: github-get(api).body
+      catch Exception e:
+  when data.#.?:
+    c =: data:first
+    d =: c.commit.committer.date.subs(0 10)
+    s =: c.sha.subs(0 7)
+    u =: c.html_url
+    =>: +{:date d, :sha s, :url u}
+
 defn gitlab-info(url):
   m =: re-find(/gitlab\.com\/([^\/?#]+)\/([^\/?#]+)/ url)
   proj =: "$(m.1)%2F$(m.2)"
   star =: gitlab-stars(proj)
   when star:
-    build-info: star gitlab-release(proj)
+    release =: gitlab-release(proj)
+    commit =:
+      when-not release:
+        gitlab-commit(proj)
+    build-info: star release commit
 
 defn gitlab-stars(proj):
   api =: "https://gitlab.com/api/v4/projects/$proj"
@@ -90,7 +116,22 @@ defn gitlab-release(proj):
     u =: rel.'_links'.self
     =>: +{:date d, :version v, :url u}
 
-defn build-info(star release):
-  if release: +
-    {:star star, :release release}
-    {:star star}
+defn gitlab-commit(proj):
+  api =: "https://gitlab.com/api/v4/projects/$proj/repository/commits?per_page=1"
+  commits =:
+    try:
+      json/load: http/get(api).body
+      catch Exception e:
+  when commits.#.?:
+    c =: commits:first
+    d =: c.committed_date.subs(0 10)
+    s =: c.short_id
+    u =: c.web_url
+    =>: +{:date d, :sha s, :url u}
+
+defn build-info(star release commit):
+  base =: +{:star star}
+  cond:
+    release: base.assoc(:release release)
+    commit:  base.assoc(:commit commit)
+    else:    base

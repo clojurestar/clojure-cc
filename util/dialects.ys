@@ -24,15 +24,20 @@ defn render-table(rows repo-data): |-
 defn render-row(row repo-data):
   url =: row.site ||| row.repo
   info =: repo-data.(row.repo).or(+{})
-  star =: info.star ||| ''
-  release =: info.release
-  rel-cell =: render-release(release)
-  =>: "| $star | $(render-badges(row.tags))| [$(row.name)]($url) | $(row.host) | $rel-cell | $(row.desc) |"
+  star-cell =: render-star(info.star row.repo)
+  rel-cell =: render-release(info.release info.commit)
+  =>: "| $star-cell | $(render-badges(row.tags))| [$(row.name)]($url) | $(row.host) | $rel-cell | $(row.desc) |"
 
-defn render-release(release):
-  if release:
-    then: "[$(release.date) $(release.version)]($(release.url))"
+defn render-star(star repo):
+  if star:
+    then: "[$star]($repo)"
     else: ''
+
+defn render-release(release commit):
+  cond:
+    release: "**[$(release.date) $(release.version)]($(release.url))**"
+    commit:  "*[$(commit.date) $(commit.sha)]($(commit.url))*"
+    else:    ''
 
 defn render-badges(tags):
   when tags:
