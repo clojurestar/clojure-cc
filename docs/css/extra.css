@@ -327,6 +327,22 @@ table tr:hover {
   opacity: 1;
 }
 
+/*
+  Pin the edit ("pencil") button to the top-right of the article instead of
+  letting it float-right into the content. Floating it reserves a column the
+  table has to flow around; absolute positioning takes it out of flow so the
+  table stays full-width and the pencil sits above it.
+*/
+.md-content__inner {
+  position: relative;
+}
+.md-content__inner > .md-content__button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+}
+
 /* Footer credit */
 .footer-credit {
   text-align: center;
