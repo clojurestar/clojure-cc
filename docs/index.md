@@ -1,13 +1,13 @@
 ---
-title: Clojure's Covey
+title: Clojure & Co
 ---
 
 <div class="hero">
-  <img src="img/logo.svg" alt="Clojure's Covey" class="hero-logo" data-cc-logo>
-  <h1 class="hero-title">Clojure's Covey</h1>
+  <img src="img/logo.svg" alt="Clojure & Co" class="hero-logo" data-cc-logo>
+  <h1 class="hero-title">Clojure & Co</h1>
   <p class="hero-subtitle">
-    A covey of Clojure dialects.
-    Catalog, comparison and instant REPLs for Clojure-family languages.
+    Discover, compare and try out dialects from the Clojure family of
+    languages.
   </p>
   <div class="hero-cta">
     <a href="dialects/" class="cta-button cta-primary">Clojure Dialects</a>
@@ -25,7 +25,7 @@ semantics or spirit, but targets a different host (Go, JavaScript, Python, C,
 PHP, Erlang, the browser via WebAssembly, and more).
 
 There are dozens of them.
-Most people only know two or three.
+Most people only know of two or three.
 **Clojure.cc** exists to put the whole family in one place.
 
 

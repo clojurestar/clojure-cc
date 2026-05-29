@@ -1,8 +1,8 @@
 site_name: Clojure.cc
 site_url: https://clojure.cc/
 site_description:
-  A covey of Clojure dialects.
-  Catalog, comparison and instant REPLs for Clojure-family languages.
+  Discover, compare and try out dialects
+  from the Clojure family of languages.
 site_author: Ingy dot Net
 
 repo_name: clojurestar/clojure-cc
