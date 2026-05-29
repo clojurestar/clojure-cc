@@ -16,6 +16,8 @@ hide:
 [clojure-like]: https://github.com/ilevd/clojure-like
 [awesome-clojure-likes]: https://github.com/chr15m/awesome-clojure-likes
 
++++DIALECTS+++
+
 <details class="badge-legend" markdown>
 <summary>Tag legend &nbsp;&nbsp;<i>(click to expand)</i></summary>
 
@@ -31,8 +33,11 @@ Compiles your code to a native binary<br>
 </details>
 
 
-+++DIALECTS+++
+## Other Curated Lists
 
+* [clj-easy/clojure-dialects-docs][clj-easy]
+* [ilevd/clojure-like][clojure-like]
+* [chr15m/awesome-clojure-likes][awesome-clojure-likes]
 
 ## Notes
 
@@ -44,9 +49,3 @@ There are many more dialects in the wild, including historical projects
 (Las3r, Scriptjure), niche transpilers (Kalai, cljs2go), and one-off
 experiments.
 The [clojure-like][clojure-like] catalog tracks ~90 of them.
-
-## Other Curated Lists
-
-* [clj-easy/clojure-dialects-docs][clj-easy]
-* [ilevd/clojure-like][clojure-like]
-* [chr15m/awesome-clojure-likes][awesome-clojure-likes]
