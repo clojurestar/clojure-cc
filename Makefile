@@ -49,6 +49,7 @@ MAKES-REALCLEAN := \
   $(PYTHON-VENV) \
   docs/repl/glj.wasm \
   hooks/__pycache__/ \
+  repo-data.yaml \
 
 MAKES-DISTCLEAN := .cache/
 
@@ -78,12 +79,15 @@ $(GLJ-WASM-EXEC): $(GO)
 
 glj-wasm: $(GLJ-WASM) $(GLJ-WASM-EXEC)
 
-# Refresh GitHub star counts in src/dialects.yaml
-stars: $(YS)
-	ys util/stars.ys
+# Refresh star counts and latest-release info into repo-data.yaml
+repo-data: $(YS)
+	ys util/repo-data.ys
 
 # Generate dialect catalog from YAML data
-docs/dialects.md: util/dialects.ys src/dialects.yaml src/dialects.md $(YS)
+# repo-data.yaml is optional: if absent the Stars and Release columns render
+# empty. Refresh it with `make repo-data` before publishing.
+docs/dialects.md: util/dialects.ys src/dialects.yaml src/dialects.md \
+                  $(wildcard repo-data.yaml) $(YS)
 	ys $< > $@
 
 # Generate logo dialect data JS from YAML data
@@ -108,8 +112,8 @@ build: site
 lint: $(TYPOS)
 	typos
 
-# Deploy to production: refresh stars, build, force-push to gh-pages
-publish: stars
+# Deploy to production: refresh repo data, build, force-push to gh-pages
+publish: repo-data
 	$(MAKE) site
 	cd site && \
 	  git init && \

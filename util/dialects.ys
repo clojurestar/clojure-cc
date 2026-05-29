@@ -1,15 +1,23 @@
 #!/usr/bin/env ys-0
 
 # Create the dialects page from YAML data injected into a Markdown file.
+#
+# Stars and latest-release info live in repo-data.yaml (gitignored, refreshed
+# by `make repo-data`). When the file is absent, those cells render empty.
 
 defn main():
   data =: read('src/dialects.yaml'):yaml/load
+  data-file =: 'repo-data.yaml'
+  repo-data =:
+    if data-file:fs-e:
+      then: data-file:read:yaml/load
+      else: +{}
   template =: read('src/dialects.md')
-  print: data.reduce(replace-group template)
+  print: data.reduce(fn([t g] replace-group(t g repo-data)) template)
 
-defn replace-group(text group):
+defn replace-group(text group repo-data):
   placeholder =: "+++$(group-key(group.name))+++"
-  table =: group.list:render-table
+  table =: render-table(group.list repo-data)
   replace text: placeholder table
 
 defn group-key(name):
@@ -17,14 +25,23 @@ defn group-key(name):
     .replace(' ' '-')
     .replace(/[^A-Z0-9-]/)
 
-defn render-table(rows): |-
-  | Stars | Tags | Dialect | Host | Description |
-  |:-----:|------|---------|------|-------------|
-  $(rows.map(render-row):text:trimr)
+defn render-table(rows repo-data): |-
+  | Stars | Tags | Dialect | Host | Description | Release |
+  |:-----:|------|---------|------|-------------|---------|
+  $(rows.map(fn([r] render-row(r repo-data))):text:trimr)
 
-defn render-row(row):
+defn render-row(row repo-data):
   url =: row.site ||| row.repo
-  =>: "| $(row.star) | $(render-badges(row.tags))| [$(row.name)]($url) | $(row.host) | $(row.desc) |"
+  info =: repo-data.(row.repo).or(+{})
+  star =: info.star ||| ''
+  release =: info.release
+  rel-cell =: render-release(release)
+  =>: "| $star | $(render-badges(row.tags))| [$(row.name)]($url) | $(row.host) | $(row.desc) | $rel-cell |"
+
+defn render-release(release):
+  if release:
+    then: "[$(release.date) &nbsp; $(release.version)]($(release.url))"
+    else: ''
 
 defn render-badges(tags):
   when tags:
