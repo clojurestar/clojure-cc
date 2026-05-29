@@ -111,6 +111,15 @@
         sortTable(table, sCol, sDir);
       }
     }
+    // Hidden affordance: clicking the Description header clears the saved
+    // sort order and reloads the page.
+    var desc = headers[5];
+    if (desc) {
+      desc.addEventListener('click', function () {
+        document.cookie = COOKIE + '=; path=/; max-age=0; SameSite=Lax';
+        location.reload();
+      });
+    }
   }
 
   function apply() {
