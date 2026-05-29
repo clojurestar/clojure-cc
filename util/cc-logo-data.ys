@@ -6,7 +6,6 @@ defn main():
   data =: read('src/dialects.yaml'):yaml/load
   json =:
     json/dump: data
-      .mapcat(\(_.list))
       .filter(\(_.fext))
       .map(entry)
   say: "window.CC_LOGO_DIALECTS = $json;"

@@ -6,14 +6,13 @@
 # by `make repo-data`). When the file is absent, those cells render empty.
 
 defn main():
-  data =: read('src/dialects.yaml'):yaml/load
+  rows =: read('src/dialects.yaml'):yaml/load
   data-file =: 'repo-data.yaml'
   repo-data =:
     if data-file:fs-e:
       then: data-file:read:yaml/load
       else: +{}
   template =: read('src/dialects.md')
-  rows =: data.mapcat(\(_.list))
   table =: render-table(rows repo-data)
   print: template.replace('+++DIALECTS+++' table)
 
