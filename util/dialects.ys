@@ -13,17 +13,9 @@ defn main():
       then: data-file:read:yaml/load
       else: +{}
   template =: read('src/dialects.md')
-  print: data.reduce(fn([t g] replace-group(t g repo-data)) template)
-
-defn replace-group(text group repo-data):
-  placeholder =: "+++$(group-key(group.name))+++"
-  table =: render-table(group.list repo-data)
-  replace text: placeholder table
-
-defn group-key(name):
-  uc(name)
-    .replace(' ' '-')
-    .replace(/[^A-Z0-9-]/)
+  rows =: data.mapcat(\(_.list))
+  table =: render-table(rows repo-data)
+  print: template.replace('+++DIALECTS+++' table)
 
 defn render-table(rows repo-data): |-
   | Stars | Tags | Dialect | Host | Description | Release |

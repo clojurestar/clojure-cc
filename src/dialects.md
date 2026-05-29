@@ -12,8 +12,7 @@ hide:
 
 # Clojure Dialects
 
-A curated list of languages in the Clojure family, organized by host
-platform.
+A curated list of languages in the Clojure family.
 
 This catalog was seeded from the [clj-easy/clojure-dialects-docs][clj-easy]
 list, with additional entries drawn from the broader
@@ -39,44 +38,7 @@ Compiles your code to a native binary<br>
 </details>
 
 
-## JVM and GraalVM
-
-+++JVM-AND-GRAALVM+++
-
-
-## .NET
-
-+++NET+++
-
-
-## JavaScript and the Browser
-
-+++JAVASCRIPT-AND-THE-BROWSER+++
-
-
-## Go
-
-+++GO+++
-
-
-## Python
-
-+++PYTHON+++
-
-
-## Native and Systems
-
-+++NATIVE-AND-SYSTEMS+++
-
-
-## Rust
-
-+++RUST+++
-
-
-## Other Hosts
-
-+++OTHER-HOSTS+++
++++DIALECTS+++
 
 
 ## Notes
