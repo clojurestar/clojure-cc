@@ -55,7 +55,7 @@
 - name: Fennel
   desc: Clojure-like Lisp dialect with seamless interop
   site: https://fennel-lang.org/
-  repo: https://github.com/bakpakin/Fennel
+  repo: https://git.sr.ht/~technomancy/fennel
   host: Lua
   fext: fnl
   tags: [lisp]

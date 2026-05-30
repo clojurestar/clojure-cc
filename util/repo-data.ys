@@ -4,8 +4,9 @@
 # `repo:` URL in src/dialects.yaml, then write the result to
 # repo-data.yaml keyed by repo URL.
 #
-# Supports GitHub and GitLab. Repos without releases fall back to the
-# latest commit on the default branch (stored under `commit:`).
+# Supports GitHub, GitLab, and sourcehut. GitHub/GitLab repos without
+# releases fall back to the latest commit on the default branch (stored
+# under `commit:`). Sourcehut entries carry only `release:` (no stars).
 # Failures (network, rate limit, missing repo) skip the entry silently.
 
 i =: atom(0)
@@ -31,6 +32,7 @@ defn fetch-info(url):
   cond:
     url =~ /github\.com\//: github-info(url)
     url =~ /gitlab\.com\//: gitlab-info(url)
+    url =~ /sr\.ht\//:      sourcehut-info(url)
 
 defn github-info(url):
   m =: url =~ /github\.com\/([^\/?#]+)\/([^\/?#]+)/
@@ -128,6 +130,39 @@ defn gitlab-commit(proj):
     s =: c.short_id
     u =: c.web_url
     =>: +{:date d, :sha s, :url u}
+
+defn sourcehut-info(url):
+  m =: url =~ /sr\.ht\/(~[^\/?#]+)\/([^\/?#]+)/
+  user proj =: m:rest
+  api =: "https://git.sr.ht/$user/$proj/refs/rss.xml"
+  xml =:
+    try:
+      =>: http/get(api).body
+      catch Exception e:
+  when xml:
+    release =: sourcehut-release(xml)
+    when release:
+      =>: +{:release release}
+
+defn sourcehut-release(xml):
+  item =: (xml =~ /<item>([\s\S]*?)<\/item>/):rest:first
+  when item:
+    l =: (item =~ /<link>([^<]+)<\/link>/):rest:first
+    d =: (item =~ /<pubDate>([^<]+)<\/pubDate>/):rest:first
+    v =: (l =~ /\/refs\/(.+)$/):rest:first
+    when (l && d && v):
+      =>: +{:date rfc822-date(d), :version v, :url l}
+
+defn rfc822-date(s):
+  months =:
+    +{'Jan' '01', 'Feb' '02', 'Mar' '03', 'Apr' '04',
+      'May' '05', 'Jun' '06', 'Jul' '07', 'Aug' '08',
+      'Sep' '09', 'Oct' '10', 'Nov' '11', 'Dec' '12'}
+  m =: s =~ /(\d{1,2}) ([A-Z][a-z]{2}) (\d{4})/
+  when m:
+    d mo y =: m:rest
+    dd =: (d.# == 1).if("0$d" d)
+    =>: "$y-$(months.(mo))-$dd"
 
 defn build-info(star release commit):
   base =: +{:star star}
