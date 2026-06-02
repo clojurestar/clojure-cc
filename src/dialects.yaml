@@ -188,6 +188,12 @@
   host: Common Lisp
   tags: [clojure]
 
+- name: obb
+  desc: SCI ClojureScript scripting of Mac OSX
+  repo: https://github.com/babashka/obb
+  host: Applescript Open Scripting Architecture
+  tags: [clojure]
+
 - name: Lokke
   desc: Clojure dialect hosted on GNU Guile
   repo: https://github.com/lokke-org/lokke
