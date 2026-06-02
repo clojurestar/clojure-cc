@@ -17,16 +17,16 @@ defn main():
   print: template.replace('+++DIALECTS+++' table)
 
 defn render-table(rows repo-data): |-
-  | Stars | Tags | Dialect | Host | Release | Description |
-  |------:|------|---------|------|---------|-------------|
-  $(rows.map(fn([r] render-row(r repo-data))):text:trimr)
+  |   | ★ | Tags | Dialect | Host | Release | Description |
+  |--:|------:|------|---------|------|---------|-------------|
+  $(map-indexed(fn([i r] render-row(r repo-data (inc i))) rows):text:trimr)
 
-defn render-row(row repo-data):
+defn render-row(row repo-data num):
   url =: row.site ||| row.repo
   info =: repo-data.(row.repo).or(+{})
   star-cell =: render-star(info.star row.repo)
   rel-cell =: render-release(info.release info.commit)
-  =>: "| $star-cell | $(render-badges(row.tags))| [$(row.name)]($url) | $(row.host) | $rel-cell | $(row.desc) |"
+  =>: "| **$num** | $star-cell | $(render-badges(row.tags))| [$(row.name)]($url) | $(row.host) | $rel-cell | $(row.desc) |"
 
 defn render-star(star repo):
   if star:

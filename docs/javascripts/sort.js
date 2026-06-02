@@ -5,11 +5,11 @@
   // 1-based column index -> { type, default direction }.
   // Columns not listed are not sortable (e.g. Description).
   var COLS = {
-    1: { type: 'number', def: 'desc' }, // Stars
-    2: { type: 'tags',   def: 'asc'  }, // Tags
-    3: { type: 'text',   def: 'asc'  }, // Dialect
-    4: { type: 'text',   def: 'asc'  }, // Host
-    5: { type: 'text',   def: 'desc' }  // Release (YYYY-MM-DD sorts lexically)
+    2: { type: 'number', def: 'desc' }, // Stars
+    3: { type: 'tags',   def: 'asc'  }, // Tags
+    4: { type: 'text',   def: 'asc'  }, // Dialect
+    5: { type: 'text',   def: 'asc'  }, // Host
+    6: { type: 'text',   def: 'desc' }  // Release (YYYY-MM-DD sorts lexically)
   };
 
   function getCookie(name) {
@@ -70,12 +70,20 @@
       return 0;
     });
     rows.forEach(function (r) { tbody.appendChild(r); });
+    refreshRowNumbers(tbody);
     var headers = table.tHead.rows[0].cells;
     for (var i = 0; i < headers.length; i++) {
       headers[i].removeAttribute('aria-sort');
     }
     headers[col - 1].setAttribute(
       'aria-sort', dir === 'desc' ? 'descending' : 'ascending');
+  }
+
+  function refreshRowNumbers(tbody) {
+    Array.prototype.forEach.call(tbody.rows, function (row, i) {
+      var cell = row.cells[0];
+      if (cell) cell.innerHTML = '<strong>' + (i + 1) + '</strong>';
+    });
   }
 
   function setupTable(table) {
@@ -113,7 +121,7 @@
     }
     // Hidden affordance: clicking the Description header clears the saved
     // sort order and reloads the page.
-    var desc = headers[5];
+    var desc = headers[6];
     if (desc) {
       desc.addEventListener('click', function () {
         document.cookie = COOKIE + '=; path=/; max-age=0; SameSite=Lax';
