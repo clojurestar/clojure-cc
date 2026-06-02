@@ -67,19 +67,19 @@
   fext: joke
   tags: [lisp, repl]
 
-- name: Clojerl
-  desc: Clojure for the BEAM
-  repo: https://github.com/clojerl/clojerl
-  host: Erlang VM
-  fext: clje
-  tags: [clojure]
-
 - name: Lux
   desc: Statically-typed functional Lisp with multiple host targets
   repo: https://github.com/LuxLang/lux
   host: JVM (multi-target)
   fext: lux
   tags: [lisp]
+
+- name: Clojerl
+  desc: Clojure for the BEAM
+  repo: https://github.com/clojerl/clojerl
+  host: Erlang VM
+  fext: clje
+  tags: [clojure]
 
 - name: ClojureCLR
   desc: Port of Clojure to the Common Language Runtime
