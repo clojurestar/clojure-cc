@@ -59,7 +59,7 @@ extra_javascript:
 nav:
 - Clojure.cc: index.md
 - Clojure Dialects: dialects.md
-- Try REPLs: cli.md
+- Try Dialects: cli.md
 - Browser REPL: repl.md
 
 markdown_extensions:
