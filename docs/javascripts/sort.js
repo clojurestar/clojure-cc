@@ -86,12 +86,25 @@
     });
   }
 
+  function isDialectTable(headers) {
+    if (!headers || headers.length !== 7) return false;
+    var names = Array.prototype.map.call(headers, function (h) {
+      return (h.textContent || '').trim();
+    });
+    return names[0] === '' &&
+      names[1] === '★' &&
+      names[2] === 'Tags' &&
+      names[3] === 'Dialect' &&
+      names[4] === 'Host' &&
+      names[5] === 'Release' &&
+      names[6] === 'Description';
+  }
+
   function setupTable(table) {
-    if (table.dataset.sortable) return;
-    table.dataset.sortable = '1';
     var headers = table.tHead && table.tHead.rows[0]
       ? table.tHead.rows[0].cells : null;
-    if (!headers) return;
+    if (!isDialectTable(headers) || table.dataset.sortable) return;
+    table.dataset.sortable = '1';
     for (var i = 0; i < headers.length; i++) {
       var col = i + 1;
       if (!COLS[col]) continue;
