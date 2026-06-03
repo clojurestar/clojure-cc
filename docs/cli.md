@@ -27,8 +27,8 @@ Your system stays clean.
 
 > **NOTE:** The command above should work in the Bash and Zsh shells.
 > Fish users can use this instead:
-> ```
-> (make -f (curl -sL clojure.cc/cmd.mk | psub) <name>) [<arg>...]
+> ```fish
+> bb=(make -f (curl -sL clojure.cc/cmd.mk | psub) bb) $bb [<arg>...]
 > ```
 
 
