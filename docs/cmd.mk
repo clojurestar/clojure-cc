@@ -38,41 +38,57 @@ endif
 
 unexport PERL5LIB PERL5OPT
 
+WRAP-BIN := $T/wrappers/bin
+CLJ_CONFIG ?= $(LOCAL-HOME)/.clojure
+CLJ_CACHE ?= $(CLJ_CONFIG)/.cpcache
+CLJ_JVM_OPTS ?= -Duser.home=$(LOCAL-HOME)
+export UV_CACHE_DIR ?= $(LOCAL-CACHE)/uv
+
+FORCE:
+
+define WRAP-CMD
+$(WRAP-BIN)/$(1): $(2) FORCE
+	@mkdir -p $(WRAP-BIN)
+	@{ \
+	  printf '%s\n' '#!/usr/bin/env bash'; \
+	  printf '%s\n' 'unset PERL5LIB PERL5OPT'; \
+	  printf 'export PATH=%q\n' '$(PATH)'; \
+	  printf 'export LANG=%q\n' '$(LANG)'; \
+	  printf 'export JAVA_HOME=%q\n' '$(JAVA_HOME)'; \
+	  printf 'export CLJ_CONFIG=%q\n' '$(CLJ_CONFIG)'; \
+	  printf 'export CLJ_CACHE=%q\n' '$(CLJ_CACHE)'; \
+	  printf 'export CLJ_JVM_OPTS=%q\n' '$(CLJ_JVM_OPTS)'; \
+	  printf 'export LEIN_HOME=%q\n' '$(LEIN_HOME)'; \
+	  printf 'export LEIN_JVM_OPTS=%q\n' '$(LEIN_JVM_OPTS)'; \
+	  printf 'export MAVEN_OPTS=%q\n' '$(MAVEN_OPTS)'; \
+	  printf 'export UV_CACHE_DIR=%q\n' '$(UV_CACHE_DIR)'; \
+	  printf 'export UV_TOOL_DIR=%q\n' '$(UV_TOOL_DIR)'; \
+	  printf 'export UV_TOOL_BIN_DIR=%q\n' '$(UV_TOOL_BIN_DIR)'; \
+	  printf 'export UV_PYTHON_INSTALL_DIR=%q\n' '$(UV_PYTHON_INSTALL_DIR)'; \
+	  printf 'exec %q "$$$$@"\n' '$(or $(3),$(2))'; \
+	} > $$@
+	@chmod +x $$@
+
+$(1): $(WRAP-BIN)/$(1)
+	@printf '%s\n' '$$<'
+endef
+
 
 default:: help
 
 help:
 	@echo "$$HELP" | $(PAGER)
 
-bb: $(BB)
-	@command -v $@
-
-clj: $(JAVA) $(CLOJURE)
-	@command -v $@
-
-glj: $(GLJ)
-	@command -v $@
-
-gloat: $(GLOAT)
-	@command -v $@
-
-hy: $(HY)
-	@command -v $@
-
-janet: $(JANET)
-	@command -v $@
-
-joker: $(JOKER)
-	@command -v $@
-
-lein: $(LEIN)
-	@command -v $@
-
-lg: $(LG)
-	@command -v $@
-
-phel: $(PHEL)
-	@command -v $@
+$(eval $(call WRAP-CMD,bb,$(BB)))
+$(eval $(call WRAP-CMD,clj,$(CLOJURE),$(dir $(CLOJURE))clj))
+$(eval $(call WRAP-CMD,glj,$(GLJ)))
+$(eval $(call WRAP-CMD,gloat,$(GLOAT)))
+$(eval $(call WRAP-CMD,hy,$(HY)))
+$(eval $(call WRAP-CMD,janet,$(JANET)))
+$(eval $(call WRAP-CMD,joker,$(JOKER)))
+$(eval $(call WRAP-CMD,lein,$(LEIN)))
+$(eval $(call WRAP-CMD,lg,$(LG)))
+$(eval $(call WRAP-CMD,phel,$(PHEL)))
 
 reset:
 	$(RM) -r $T
