@@ -236,7 +236,7 @@
   site: https://github.com/jolt-lang/jolt
   repo: https://github.com/jolt-lang/jolt
   host: Chez Scheme
-  tags: [clojure]
+  tags: [clojure, repl]
 
 - name: Lingy
   desc: Clojure-like Lisp dialect implemented in Perl

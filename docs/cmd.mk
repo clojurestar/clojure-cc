@@ -25,6 +25,7 @@ include $M/glojure.mk
 include $M/hy.mk
 include $M/janet.mk
 include $M/joker.mk
+include $M/jolt.mk
 include $M/lein.mk
 include $M/let-go.mk
 include $M/phel.mk
@@ -73,6 +74,36 @@ $(1): $(WRAP-BIN)/$(1)
 	@printf '%s\n' '$$<'
 endef
 
+define WRAP-CMD-RLWRAP-REPL
+$(WRAP-BIN)/$(1): $(2) FORCE
+	@mkdir -p $(WRAP-BIN)
+	@{ \
+	  printf '%s\n' '#!/usr/bin/env bash'; \
+	  printf '%s\n' 'unset PERL5LIB PERL5OPT'; \
+	  printf 'export PATH=%q\n' '$(PATH)'; \
+	  printf 'export LANG=%q\n' '$(LANG)'; \
+	  printf 'export JAVA_HOME=%q\n' '$(JAVA_HOME)'; \
+	  printf 'export CLJ_CONFIG=%q\n' '$(CLJ_CONFIG)'; \
+	  printf 'export CLJ_CACHE=%q\n' '$(CLJ_CACHE)'; \
+	  printf 'export CLJ_JVM_OPTS=%q\n' '$(CLJ_JVM_OPTS)'; \
+	  printf 'export LEIN_HOME=%q\n' '$(LEIN_HOME)'; \
+	  printf 'export LEIN_JVM_OPTS=%q\n' '$(LEIN_JVM_OPTS)'; \
+	  printf 'export MAVEN_OPTS=%q\n' '$(MAVEN_OPTS)'; \
+	  printf 'export UV_CACHE_DIR=%q\n' '$(UV_CACHE_DIR)'; \
+	  printf 'export UV_TOOL_DIR=%q\n' '$(UV_TOOL_DIR)'; \
+	  printf 'export UV_TOOL_BIN_DIR=%q\n' '$(UV_TOOL_BIN_DIR)'; \
+	  printf 'export UV_PYTHON_INSTALL_DIR=%q\n' '$(UV_PYTHON_INSTALL_DIR)'; \
+	  printf '%b\n' 'if command -v rlwrap >/dev/null 2>&1 && { [ -z "\044{1+x}" ] || [ "\044{1-}" = repl ]; }; then'; \
+	  printf '  exec rlwrap %q "$$$$@"\n' '$(or $(3),$(2))'; \
+	  printf '%s\n' 'fi'; \
+	  printf 'exec %q "$$$$@"\n' '$(or $(3),$(2))'; \
+	} > $$@
+	@chmod +x $$@
+
+$(1): $(WRAP-BIN)/$(1)
+	@printf '%s\n' '$$<'
+endef
+
 
 default:: help
 
@@ -86,9 +117,10 @@ $(eval $(call WRAP-CMD,gloat,$(GLOAT)))
 $(eval $(call WRAP-CMD,hy,$(HY)))
 $(eval $(call WRAP-CMD,janet,$(JANET)))
 $(eval $(call WRAP-CMD,joker,$(JOKER)))
+$(eval $(call WRAP-CMD-RLWRAP-REPL,jolt,$(JOLT)))
 $(eval $(call WRAP-CMD,lein,$(LEIN)))
 $(eval $(call WRAP-CMD,lg,$(LG)))
-$(eval $(call WRAP-CMD,phel,$(PHEL)))
+$(eval $(call WRAP-CMD-RLWRAP-REPL,phel,$(PHEL)))
 
 reset:
 	$(RM) -r $T
@@ -112,6 +144,7 @@ Names of dialect targets and their VERSION variables:
 * hy    - HY-VERSION       - Hy        - Python
 * janet - JANET-VERSION    - Janet     - C
 * joker - JOKER-VERSION    - Joker     - Go
+* jolt  - JOLT-VERSION     - Jolt      - Chez Scheme
 * lein  - LEIN-VERSION     - Leiningen
 * lg    - LET-GO-VERSION   - let-go    - Go
 * phel  - PHEL-VERSION     - Phel      - PHP

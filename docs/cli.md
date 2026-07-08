@@ -43,17 +43,39 @@ Your system stays clean.
 | **`hy`** | [Hy](https://hylang.org/) | Python | **`$(make -f <(curl -sL clojure.cc/cmd.mk) hy)`** |
 | **`janet`** | [Janet](https://janet-lang.org/) | C | **`$(make -f <(curl -sL clojure.cc/cmd.mk) janet)`** |
 | **`joker`** | [Joker](https://github.com/candid82/joker) | Go | **`$(make -f <(curl -sL clojure.cc/cmd.mk) joker)`** |
+| **`jolt`** | [Jolt](https://github.com/jolt-lang/jolt) | Chez Scheme | **`$(make -f <(curl -sL clojure.cc/cmd.mk) jolt) repl`** |
 | **`lein`** | [Leiningen](https://leiningen.org/) | Java | **`$(make -f <(curl -sL clojure.cc/cmd.mk) lein) repl`** |
 | **`lg`** | [let-go](https://github.com/nooga/let-go) | Go | **`$(make -f <(curl -sL clojure.cc/cmd.mk) lg)`** |
 | **`phel`** | [Phel](https://phel-lang.org/) | PHP | **`$(make -f <(curl -sL clojure.cc/cmd.mk) phel)`** |
 
 Plus:
 
-| Name | Purpose |
-|:-----|---------|
-| **`shell`** | Start a shell with all of the above installed |
-| **`reset`** | Delete the installation cache |
-| **`help`** | Print the help text |
+| Command | Purpose |
+|:--------|---------|
+| **`make -f <(curl -sL clojure.cc/cmd.mk) shell`** | Start a shell with all of the above installed |
+| **`make -f <(curl -sL clojure.cc/cmd.mk) reset`** | Delete the installation cache |
+| **`make -f <(curl -sL clojure.cc/cmd.mk) help`** | Print the help text |
+
+
+## Gloat REPL Client
+
+The Gloat REPL client is more featureful than the plain dialect REPLs, with
+many modern fetures including:
+
+* Rainbow syntax highlighting
+* Tab completion
+* Stateful URL sharing
+* Multiline forms and history scrolling
+
+See https://gloathub.org/doc/gloat-repl/ for full details.
+
+`gloat` can connect to dialect nREPL servers started through these launchers:
+
+| Server | Command |
+|:-------|:--------|
+| Babashka | **`$(make -f <(curl -sL clojure.cc/cmd.mk) gloat) --repl=+bb`** |
+| Jolt | **`$(make -f <(curl -sL clojure.cc/cmd.mk) gloat) --repl=+jolt`** |
+| let-go | **`$(make -f <(curl -sL clojure.cc/cmd.mk) gloat) --repl=+lg`** |
 
 
 ## Examples
