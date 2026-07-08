@@ -200,6 +200,12 @@
   host: GNU Guile
   tags: [clojure]
 
+- name: ClojureWasm
+  desc: Independent Clojure runtime optimized for Wasm
+  repo: https://github.com/clojurewasm/ClojureWasm
+  host: WebAssembly (Zig)
+  tags: [clojure]
+
 - name: JO Clojure
   desc: Single-header C++ Clojure interpreter
   repo: https://github.com/Zelex/jo_clojure
@@ -225,10 +231,11 @@
   host: JavaScript (Rust runtime)
   tags: [lisp]
 
-- name: ClojureWasm
-  desc: Independent Clojure runtime optimized for Wasm
-  repo: https://github.com/clojurewasm/ClojureWasm
-  host: WebAssembly (Zig)
+- name: Jolt
+  desc: A Clojure implementation on Chez Scheme
+  site: https://github.com/jolt-lang/jolt
+  repo: https://github.com/jolt-lang/jolt
+  host: Chez Scheme
   tags: [clojure]
 
 - name: Lingy
