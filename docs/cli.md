@@ -67,7 +67,7 @@ many modern fetures including:
 * Stateful URL sharing
 * Multiline forms and history scrolling
 
-See https://gloathub.org/doc/gloat-repl/ for full details.
+See <https://gloathub.org/doc/gloat-repl/> for full details.
 
 `gloat` can connect to dialect nREPL servers started through these launchers:
 
