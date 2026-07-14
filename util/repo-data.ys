@@ -7,7 +7,8 @@
 # Supports GitHub, GitLab, and sourcehut. GitHub/GitLab repos without
 # releases fall back to the latest commit on the default branch (stored
 # under `commit:`). Sourcehut entries carry only `release:` (no stars).
-# Failures (network, rate limit, missing repo) skip the entry silently.
+# GitHub requests use $GITHUB_TOKEN when set, otherwise they read
+# ~/.release-secrets.yaml at .github.token.
 
 i =: atom(0)
 
@@ -15,8 +16,12 @@ defn main():
   out =: 'repo-data.yaml'
   dialects =: read('src/dialects.yaml'):yaml/load
   entries =: dialects.filter(\(_.repo))
+  when-not github-token():
+    die: 'No GitHub token found; unauthenticated rate limit applies.'
   data =: entries.reduce(collect {})
   # data =: entries.drop(entries.# - 3):butlast.reduce(collect {})
+  when data.# != entries.#:
+    die: "Refreshed only $(data.#) of $(entries.#) entries."
   write out: yaml/dump(data)
   say: "Refreshed $(data.#) of $(entries.#) entries."
 
@@ -48,9 +53,26 @@ defn github-info(url):
 defn github-headers():
   base =::
     Accept: application/vnd.github+json
-  if ENV.GITHUB_TOKEN:
-    then: base.assoc("Authorization" "Bearer $(ENV.GITHUB_TOKEN)")
+  token =: github-token()
+  if token:
+    then: base.assoc("Authorization" github-auth(token))
     else: base
+
+defn github-auth(token):
+  token =: token:S:trim
+  if token =~ /^(Bearer|token) /:
+    token
+    "token $token"
+
+defn github-token():
+  ENV.GITHUB_TOKEN ||| release-secret-github-token()
+
+defn release-secret-github-token():
+  when ENV.HOME:
+    path =: "$(ENV.HOME)/.release-secrets.yaml"
+    when path:fs-e:
+      secrets =: read(path):yaml/load
+      secrets.github.token |||: secrets.'.github'.token
 
 defn github-get(api):
   http/get api::
@@ -62,6 +84,7 @@ defn github-stars(owner repo):
     get _ 'stargazers_count':
       github-get(api).body:json/load
     catch Exception e:
+      warn: "GitHub fetch failed for $owner/$repo."
 
 defn github-release(owner repo):
   api =: "https://api.github.com/repos/$owner/$repo/releases/latest"
@@ -119,7 +142,8 @@ defn gitlab-release(proj):
     =>: +{:date d, :version v, :url u}
 
 defn gitlab-commit(proj):
-  api =: "https://gitlab.com/api/v4/projects/$proj/repository/commits?per_page=1"
+  api =: "https://gitlab.com/api/v4/projects/$proj/repository/commits\
+          ?per_page=1"
   commits =:
     try:
       json/load: http/get(api).body
@@ -137,7 +161,7 @@ defn sourcehut-info(url):
   api =: "https://git.sr.ht/$user/$proj/refs/rss.xml"
   xml =:
     try:
-      =>: http/get(api).body
+      http/get(api): .body
       catch Exception e:
   when xml:
     release =: sourcehut-release(xml)
@@ -150,8 +174,8 @@ defn sourcehut-release(xml):
     l =: (item =~ /<link>([^<]+)<\/link>/):rest:first
     d =: (item =~ /<pubDate>([^<]+)<\/pubDate>/):rest:first
     v =: (l =~ /\/refs\/(.+)$/):rest:first
-    when (l && d && v):
-      =>: +{:date rfc822-date(d), :version v, :url l}
+    when l && d && v:
+      M+: :date rfc822-date(d), :version v, :url l
 
 defn rfc822-date(s):
   months =:

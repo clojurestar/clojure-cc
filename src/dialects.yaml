@@ -127,6 +127,13 @@
   host: JavaScript
   tags: [lisp, nrepl]
 
+- name: Glojure
+  desc: Clojure interpreter hosted on Go with seamless Go interop
+  repo: https://github.com/glojurelang/glojure
+  host: Go
+  fext: glj
+  tags: [clojure, repl, nrepl]
+
 - name: Cherry
   desc: Experimental ClojureScript to ES6 module compiler
   repo: https://github.com/squint-cljs/cherry
@@ -147,12 +154,12 @@
   host: VS Code
   tags: [clojure, nrepl]
 
-- name: Glojure
-  desc: Clojure interpreter hosted on Go with seamless Go interop
-  repo: https://github.com/glojurelang/glojure
+- name: let-go
+  desc: '"Almost Clojure" written in Go'
+  repo: https://github.com/nooga/let-go
   host: Go
-  fext: glj
-  tags: [clojure, repl, nrepl]
+  fext: lg
+  tags: [lisp, repl, nrepl]
 
 - name: Phel
   desc: Functional Lisp-inspired language compiling to PHP
@@ -161,13 +168,6 @@
   host: PHP
   fext: phel
   tags: [lisp, repl]
-
-- name: let-go
-  desc: '"Almost Clojure" written in Go'
-  repo: https://github.com/nooga/let-go
-  host: Go
-  fext: lg
-  tags: [lisp, repl, nrepl]
 
 - name: Basilisp
   desc: Clojure-compatible Lisp dialect with seamless Python interop
@@ -238,17 +238,17 @@
   host: Chez Scheme
   tags: [clojure, repl, nrepl]
 
-- name: Lingy
-  desc: Clojure-like Lisp dialect implemented in Perl
-  repo: https://github.com/lingy-lang/lingy
-  host: Perl
-  tags: [lisp]
-
 - name: Gloat
   desc: Compile Clojure (and YAMLScript) to Go, native binaries and Wasm
   repo: https://github.com/gloathub/gloat
   host: Go
   tags: [clojure, native, repl, nrepl]
+
+- name: Lingy
+  desc: Clojure-like Lisp dialect implemented in Perl
+  repo: https://github.com/lingy-lang/lingy
+  host: Perl
+  tags: [lisp]
 
 - name: go-joker
   desc: Optimized fork of Joker for coding-agent infrastructure
