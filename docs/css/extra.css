@@ -247,7 +247,11 @@ table tr:hover {
 /* Tags column: fixed width */
 .md-typeset table:not([class]):has(th:nth-child(7)) th:nth-child(3),
 .md-typeset table:not([class]):has(th:nth-child(7)) td:nth-child(3) {
-  width: 60px;
+  width: 80px;
+}
+
+.md-typeset table:not([class]):has(th:nth-child(7)) td:nth-child(3) {
+  white-space: normal;
 }
 
 /* Host column: fixed width, text wraps */
@@ -284,7 +288,9 @@ table tr:hover {
 .badges {
   display: inline-flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.35em;
+  max-width: 100%;
 }
 
 .badges > * {
@@ -313,11 +319,13 @@ table tr:hover {
 .badge-lisp    { color: #8E24AA !important; } /* purple */
 .badge-native  { color: #FB8C00 !important; } /* orange */
 .badge-repl    { color: #43A047 !important; } /* green */
+.badge-nrepl   { color: #00897B !important; } /* teal */
 
 [data-md-color-scheme="slate"] .badge-clojure { color: #7986CB !important; }
 [data-md-color-scheme="slate"] .badge-lisp    { color: #BA68C8 !important; }
 [data-md-color-scheme="slate"] .badge-native  { color: #FFB74D !important; }
 [data-md-color-scheme="slate"] .badge-repl    { color: #66BB6A !important; }
+[data-md-color-scheme="slate"] .badge-nrepl   { color: #4DB6AC !important; }
 
 .badge-legend {
   padding: 0.4em 1em;

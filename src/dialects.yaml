@@ -35,7 +35,7 @@
   repo: https://github.com/babashka/babashka
   host: GraalVM native
   fext: bb
-  tags: [clojure, repl]
+  tags: [clojure, repl, nrepl]
 
 - name: Janet
   desc: Dynamic language and bytecode VM (Clojure-adjacent)
@@ -50,7 +50,7 @@
   repo: https://github.com/jank-lang/jank
   host: C++ / LLVM
   fext: jank
-  tags: [clojure, native]
+  tags: [clojure, native, nrepl]
 
 - name: Fennel
   desc: Clojure-like Lisp dialect with seamless interop
@@ -119,13 +119,13 @@
   desc: Scripting in Clojure on Node.js via SCI
   repo: https://github.com/babashka/nbb
   host: Node.js
-  tags: [clojure]
+  tags: [clojure, nrepl]
 
 - name: Squint
   desc: Light-weight ClojureScript dialect transpiling to mutable JS
   repo: https://github.com/squint-cljs/squint
   host: JavaScript
-  tags: [lisp]
+  tags: [lisp, nrepl]
 
 - name: Cherry
   desc: Experimental ClojureScript to ES6 module compiler
@@ -145,14 +145,14 @@
   desc: Make VS Code hackable like Emacs, with Clojure
   repo: https://github.com/BetterThanTomorrow/joyride
   host: VS Code
-  tags: [clojure]
+  tags: [clojure, nrepl]
 
 - name: Glojure
   desc: Clojure interpreter hosted on Go with seamless Go interop
   repo: https://github.com/glojurelang/glojure
   host: Go
   fext: glj
-  tags: [clojure, repl]
+  tags: [clojure, repl, nrepl]
 
 - name: Phel
   desc: Functional Lisp-inspired language compiling to PHP
@@ -167,20 +167,20 @@
   repo: https://github.com/nooga/let-go
   host: Go
   fext: lg
-  tags: [lisp, repl]
+  tags: [lisp, repl, nrepl]
 
 - name: Basilisp
   desc: Clojure-compatible Lisp dialect with seamless Python interop
   repo: https://github.com/basilisp-lang/basilisp
   host: Python 3
   fext: lpy
-  tags: [clojure]
+  tags: [clojure, nrepl]
 
 - name: Scittle
   desc: Run Clojure directly from `<script>` tags via SCI
   repo: https://github.com/babashka/scittle
   host: JavaScript (browser)
-  tags: [clojure]
+  tags: [clojure, nrepl]
 
 - name: Cloture
   desc: Clojure dialect implemented in Common Lisp
@@ -204,7 +204,7 @@
   desc: Independent Clojure runtime optimized for Wasm
   repo: https://github.com/clojurewasm/ClojureWasm
   host: WebAssembly (Zig)
-  tags: [clojure]
+  tags: [clojure, nrepl]
 
 - name: JO Clojure
   desc: Single-header C++ Clojure interpreter
@@ -236,7 +236,7 @@
   site: https://github.com/jolt-lang/jolt
   repo: https://github.com/jolt-lang/jolt
   host: Chez Scheme
-  tags: [clojure, repl]
+  tags: [clojure, repl, nrepl]
 
 - name: Lingy
   desc: Clojure-like Lisp dialect implemented in Perl
@@ -248,7 +248,7 @@
   desc: Compile Clojure (and YAMLScript) to Go, native binaries and Wasm
   repo: https://github.com/gloathub/gloat
   host: Go
-  tags: [clojure, native, repl]
+  tags: [clojure, native, repl, nrepl]
 
 - name: go-joker
   desc: Optimized fork of Joker for coding-agent infrastructure

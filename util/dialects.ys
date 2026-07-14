@@ -41,12 +41,18 @@ defn render-release(release commit):
 
 defn render-badges(tags):
   when tags:
-    inner =: apply(str tags.map(tag-badge))
+    inner =: tags.map(tag-badge):join
     =>: "<span class=\"badges\">$inner</span>"
 
 defn tag-badge(tag):
   cond:
-    (tag == 'clojure'): ':simple-clojure:{ .badge .badge-clojure title="Faithful Clojure implementation" } '
-    (tag == 'lisp'):    ':material-code-parentheses:{ .badge .badge-lisp title="Clojure-inspired Lisp" } '
-    (tag == 'native'):  ':material-lightning-bolt:{ .badge .badge-native title="Compiles your code to a native binary" } '
-    (tag == 'repl'):    '[:material-console-line:](cli.md "Instant REPL support"){ .badge .badge-repl } '
+    (tag == 'clojure'): ":simple-clojure:{ .badge .badge-clojure \
+      title=\"Faithful Clojure implementation\" } "
+    (tag == 'lisp'): ":material-code-parentheses:{ .badge .badge-lisp \
+      title=\"Clojure-inspired Lisp\" } "
+    (tag == 'native'): ":material-lightning-bolt:{ .badge .badge-native \
+      title=\"Compiles your code to a native binary\" } "
+    (tag == 'repl'): "[:material-console-line:](cli.md \
+      \"Instant REPL support\"){ .badge .badge-repl } "
+    (tag == 'nrepl'): ":material-lan-connect:{ .badge .badge-nrepl \
+      title=\"Built-in nREPL support\" } "
