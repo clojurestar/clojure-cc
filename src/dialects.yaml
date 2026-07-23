@@ -236,7 +236,7 @@
   site: https://github.com/jolt-lang/jolt
   repo: https://github.com/jolt-lang/jolt
   host: Chez Scheme
-  tags: [clojure, repl, nrepl]
+  tags: [clojure, native, repl, nrepl]
 
 - name: Gloat
   desc: Compile Clojure (and YAMLScript) to Go, native binaries and Wasm
@@ -262,6 +262,13 @@
   repo: https://github.com/tytrdev/cljrs
   host: Rust + MLIR/LLVM
   tags: [clojure, native]
+
+- name: Swish
+  desc: Clojure-inspired Lisp for embedding in Swift apps or compiling to Swift
+  repo: https://github.com/infiniteNIL/swish
+  host: Swift
+  fext: swish
+  tags: [clojure, native, repl]
 
 - name: ClojureFnl
   desc: Early Clojure-to-Fennel transpiler
