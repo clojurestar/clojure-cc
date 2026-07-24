@@ -238,6 +238,12 @@
   host: Chez Scheme
   tags: [clojure, native, repl, nrepl]
 
+- name: Cljbang
+  desc: Clojure-like language that compiles to and runs as Emacs Lisp
+  repo: https://github.com/borkdude/cljbang.el
+  host: Emacs Lisp
+  tags: [lisp]
+
 - name: Sheaf
   desc: Functional Lisp for differentiable machine learning on CPUs and GPUs
   site: https://sheaf-lang.org/
