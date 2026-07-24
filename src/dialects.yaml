@@ -270,6 +270,14 @@
   fext: swish
   tags: [clojure, native, repl]
 
+- name: cljgo
+  desc: Clojure hosted on Go with universal Go interop and native compilation
+  site: https://muthuishere.github.io/cljgo/
+  repo: https://github.com/muthuishere/cljgo
+  host: Go
+  fext: cljgo
+  tags: [clojure, native, repl, nrepl]
+
 - name: ClojureFnl
   desc: Early Clojure-to-Fennel transpiler
   repo: https://gitlab.com/andreyorst/clojurefnl
