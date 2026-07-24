@@ -238,6 +238,14 @@
   host: Chez Scheme
   tags: [clojure, native, repl, nrepl]
 
+- name: Sheaf
+  desc: Functional Lisp for differentiable machine learning on CPUs and GPUs
+  site: https://sheaf-lang.org/
+  repo: https://github.com/sheaf-lang/sheaf
+  host: Rust / IREE
+  fext: shf
+  tags: [lisp, native, repl]
+
 - name: Gloat
   desc: Compile Clojure (and YAMLScript) to Go, native binaries and Wasm
   repo: https://github.com/gloathub/gloat
