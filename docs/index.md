@@ -13,6 +13,7 @@ title: Clojure & Co
     <a href="dialects/" class="cta-button cta-primary">Clojure Dialects</a>
     <a href="cli/" class="cta-button cta-secondary">Try REPLs</a>
     <a href="repl/" class="cta-button cta-secondary">Browser REPL</a>
+    <a href="blog/" class="cta-button cta-secondary">Blog</a>
   </div>
 </div>
 
@@ -57,6 +58,15 @@ Most people only know of two or three.
     <p class="feature-desc">
       An interactive Clojure REPL right on the page, powered by WebAssembly.
       Nothing to install.
+    </p>
+  </a>
+
+  <a href="blog/" class="feature-card">
+    <span class="feature-icon">✍️</span>
+    <h3 class="feature-title">From the Clojure family</h3>
+    <p class="feature-desc">
+      News, discoveries and stories from across the growing family of Clojure
+      dialects.
     </p>
   </a>
 

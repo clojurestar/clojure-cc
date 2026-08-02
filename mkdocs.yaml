@@ -61,6 +61,7 @@ nav:
 - Clojure Dialects: dialects.md
 - Try Dialects: cli.md
 - Browser REPL: repl.md
+- Blog: blog/index.md
 
 markdown_extensions:
 - abbr
@@ -97,6 +98,7 @@ hooks:
 - hooks/og_cache_bust.py
 
 plugins:
+- blog
 - search:
     separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
 - social:
