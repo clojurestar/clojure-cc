@@ -1,10 +1,10 @@
 ---
-title: Clojure & Co
+title: ClojureStar
 ---
 
 <div class="hero">
-  <img src="img/logo.svg" alt="Clojure & Co" class="hero-logo" data-cc-logo>
-  <h1 class="hero-title">Clojure & Co</h1>
+  <img src="img/logo.svg" alt="ClojureStar" class="hero-logo" data-cc-logo>
+  <h1 class="hero-title">ClojureStar</h1>
   <p class="hero-subtitle">
     Discover, compare and try out dialects from the Clojure family of
     languages.
@@ -27,7 +27,7 @@ PHP, Erlang, the browser via WebAssembly, and more).
 
 There are dozens of them.
 Most people only know of two or three.
-**Clojure.cc** exists to put the whole family in one place.
+**ClojureStar** exists to put the whole family in one place.
 
 
 ## What you'll find here

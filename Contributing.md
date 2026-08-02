@@ -1,5 +1,5 @@
-Contributing to Clojure.cc
-==========================
+Contributing to ClojureStar
+===========================
 
 Thanks for your interest in helping out.
 This site exists to catalog and showcase the family of Clojure dialects.

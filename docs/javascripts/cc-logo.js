@@ -65,7 +65,7 @@
     var fs = fontSize(text);
     return '<g transform="translate(300 300)">' +
       '<a href="' + esc(HOME_URL) + '" data-cc-center>' +
-      '<title>Clojure.cc</title>' +
+      '<title>ClojureStar</title>' +
       '<polygon points="' + HEX + '" fill="#3949AB"' +
       ' stroke="#ffffff" stroke-width="3"/>' +
       '<text font-size="' + fs + '">' + esc(text) + '</text>' +
@@ -82,7 +82,7 @@
     var classAttr = className ? ' class="' + esc(className) + '"' : '';
     var s =
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"' +
-      ' data-cc-logo aria-label="Clojure.cc"' + classAttr + '>' +
+      ' data-cc-logo aria-label="ClojureStar"' + classAttr + '>' +
       '<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"' +
       ' font-weight="700" font-size="44" fill="#ffffff"' +
       ' text-anchor="middle" dominant-baseline="central">';

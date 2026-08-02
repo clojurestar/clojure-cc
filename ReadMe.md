@@ -1,7 +1,7 @@
-Clojure.cc
-==========
+ClojureStar
+===========
 
-Source for [clojure.cc](https://clojure.cc), a site dedicated to the family of
+Source for [ClojureStar](https://clojure.cc), a site dedicated to the family of
 Clojure dialects.
 
 Spotted a missing or incorrect dialect?
@@ -12,7 +12,7 @@ See [Contributing.md](Contributing.md) for details.
 
 <p align="center">
   <a href="https://clojure.cc">
-    <img src="docs/img/logo.svg" alt="Clojure.cc" width="200">
+    <img src="docs/img/logo.svg" alt="ClojureStar" width="200">
   </a>
 </p>
 

@@ -1,4 +1,4 @@
-site_name: Clojure.cc
+site_name: ClojureStar
 site_url: https://clojure.cc/
 site_description:
   Discover, compare and try out dialects
@@ -57,7 +57,7 @@ extra_javascript:
 - javascripts/sort.js
 
 nav:
-- Clojure.cc: index.md
+- ClojureStar: index.md
 - Clojure Dialects: dialects.md
 - Try Dialects: cli.md
 - Browser REPL: repl.md
@@ -113,4 +113,4 @@ extra:
   social:
   - icon: fontawesome/brands/github
     link: https://github.com/clojurestar/clojure-cc
-    name: Clojure.cc on GitHub
+    name: ClojureStar on GitHub

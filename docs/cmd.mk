@@ -128,7 +128,7 @@ reset:
 
 define HELP
 
-Instant Clojure Dialect commands from clojure.cc!
+Instant Clojure Dialect commands from ClojureStar!
 
 Run an auto-installed Clojure dialect CLI command:
 

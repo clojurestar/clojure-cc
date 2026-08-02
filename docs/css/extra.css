@@ -1,4 +1,4 @@
-/* Clojure.cc theme - indigo + amber */
+/* ClojureStar theme - indigo + amber */
 
 :root {
   --cc-primary: #3949AB;        /* indigo */
@@ -40,7 +40,7 @@
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
 }
 
-/* Hide first nav tab and sidebar entry (the duplicate "Clojure.cc" home) */
+/* Hide first nav tab and sidebar entry (the duplicate "ClojureStar" home) */
 .md-tabs__list .md-tabs__item:first-child {
   display: none;
 }

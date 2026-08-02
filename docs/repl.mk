@@ -78,7 +78,7 @@ reset:
 
 define HELP
 
-Instant Clojure Dialect REPLs from clojure.cc!
+Instant Clojure Dialect REPLs from ClojureStar!
 
 Start an auto-installed Clojure dialect CLI REPL client:
 
