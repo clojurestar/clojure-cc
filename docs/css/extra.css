@@ -50,7 +50,7 @@
 }
 
 /* Hide auto-generated "Home" h1 on homepage */
-article > h1:first-of-type {
+article:has(> .hero) > h1:first-of-type {
   display: none;
 }
 
