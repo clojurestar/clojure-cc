@@ -159,7 +159,7 @@
   repo: https://github.com/nooga/let-go
   host: Go
   fext: lg
-  tags: [lisp, repl, nrepl]
+  tags: [clojure, repl, nrepl]
 
 - name: Phel
   desc: Functional Lisp-inspired language compiling to PHP
