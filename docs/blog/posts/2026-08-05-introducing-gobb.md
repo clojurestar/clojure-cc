@@ -61,8 +61,8 @@ base.
 Around this time, Gloat reached the point where it could compile YAMLStar's
 Clojure code into shared libraries and make the same 32 language bindings work.
 
-There was just one rather important problem: it was 40 times slower than the
-GraalVM version.
+There was just one rather important problem: it was **40 times slower** than
+the GraalVM version.
 
 That was about 5-6 months ago and Glojure has evolved massively since then.
 The Glojure optimization work at the end of July closed the practical
