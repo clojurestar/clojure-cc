@@ -297,3 +297,9 @@
   repo: https://gitlab.com/andreyorst/clojurefnl
   host: Fennel / Lua
   tags: [clojure]
+
+- name: Choq
+  desc: Lightweight Cherry runtime with an embedded QuickJS engine
+  repo: https://github.com/squint-cljs/choq
+  host: QuickJS (Rust runtime)
+  tags: [lisp, repl, nrepl]
