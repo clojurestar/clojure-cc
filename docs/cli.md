@@ -32,7 +32,18 @@ Your system stays clean.
 > ```
 
 
-## Starting Dialect REPLs
+## Quick Dialect Usage
+
+A command like `make -f <(curl -sL clojure.cc/cmd.mk) foo` quickly installs a
+Clojure dialect "foo" in a `/tmp` directory and prints the absolute path to it.
+
+Therefore (in Bash and Zsh) this command would run the dialect binary:
+`$(make -f <(curl -sL clojure.cc/cmd.mk) foo)`, which for most dialects will
+start a REPL.
+
+This table shows the command for each dialect to start its REPL.
+You can adjust the command to do other things with the dialect like run a
+program with it.
 
 | Name | Dialect | Host | REPL Command |
 |:-----|:--------|:-----|---------|
