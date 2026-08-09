@@ -59,7 +59,7 @@ extra_javascript:
 nav:
 - ClojureStar: index.md
 - Clojure Dialects: dialects.md
-- Try Dialects: cli.md
+- Try Dialects: try.md
 - Browser REPL: repl.md
 - Blog: blog/index.md
 
@@ -99,6 +99,9 @@ hooks:
 
 plugins:
 - blog
+- redirects:
+    redirect_maps:
+      cli.md: try.md
 - search:
     separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
 - social:

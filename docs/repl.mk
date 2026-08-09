@@ -2,7 +2,7 @@
 #
 # Usage:
 #   make -f <(curl -sL clojure.cc/repl.mk) <name>
-# See clojure.cc/cli/ for full documentation.
+# See clojure.cc/try/ for full documentation.
 
 R := https://github.com/makeplus/makes
 T := $(or $(TMPDIR),$(TEMP),$(TMP),/tmp)

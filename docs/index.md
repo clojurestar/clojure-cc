@@ -11,7 +11,7 @@ title: ClojureStar
   </p>
   <div class="hero-cta">
     <a href="dialects/" class="cta-button cta-primary">Clojure Dialects</a>
-    <a href="cli/" class="cta-button cta-secondary">Try REPLs</a>
+    <a href="try/" class="cta-button cta-secondary">Try REPLs</a>
     <a href="repl/" class="cta-button cta-secondary">Browser REPL</a>
     <a href="blog/" class="cta-button cta-secondary">Blog</a>
   </div>
@@ -43,7 +43,7 @@ Most people only know of two or three.
     </p>
   </a>
 
-  <a href="cli/" class="feature-card">
+  <a href="try/" class="feature-card">
     <span class="feature-icon">⚡</span>
     <h3 class="feature-title">Instant REPLs</h3>
     <p class="feature-desc">

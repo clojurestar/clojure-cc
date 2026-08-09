@@ -55,7 +55,7 @@ defn tag-badge(tag):
       title=\"Clojure-inspired Lisp\" } "
     (tag == 'native'): ":material-lightning-bolt:{ .badge .badge-native \
       title=\"Compiles your code to a native binary\" } "
-    (tag == 'repl'): "[:material-console-line:](cli.md \
+    (tag == 'repl'): "[:material-console-line:](try.md \
       \"Instant REPL support\"){ .badge .badge-repl } "
     (tag == 'nrepl'): ":material-lan-connect:{ .badge .badge-nrepl \
       title=\"Built-in nREPL support\" } "

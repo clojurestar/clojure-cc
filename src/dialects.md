@@ -27,8 +27,8 @@ Faithful Clojure implementation<br>
 Clojure-inspired Lisp<br>
 :material-lightning-bolt:{ .badge .badge-native }
 Compiles your code to a native binary<br>
-[:material-console-line:](cli.md){ .badge .badge-repl }
-[Instant REPL](cli.md) support<br>
+[:material-console-line:](try.md){ .badge .badge-repl }
+[Instant REPL](try.md) support<br>
 :material-lan-connect:{ .badge .badge-nrepl }
 Built-in nREPL support
 
