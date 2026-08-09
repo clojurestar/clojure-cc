@@ -23,10 +23,13 @@ defn render-table(rows repo-data): |-
 
 defn render-row(row repo-data num):
   url =: row.site ||| row.repo
+  slug =: lc(row.name).replace(/[^a-z0-9]+/ '-')
   info =: repo-data.(row.repo).or(+{})
   star-cell =: render-star(info.star row.repo)
   rel-cell =: render-release(info.release info.commit)
-  =>: "| **$num** | $star-cell | $(render-badges(row.tags))| [$(row.name)]($url) | $(row.host) | $rel-cell | $(row.desc) |"
+  num-cell =: "**[$num](#$slug){ #$slug }**"
+  =>: "| $num-cell | $star-cell | $(render-badges(row.tags))| \
+        [$(row.name)]($url) | $(row.host) | $rel-cell | $(row.desc) |"
 
 defn render-star(star repo):
   if star:

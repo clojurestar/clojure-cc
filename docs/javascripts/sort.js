@@ -82,7 +82,8 @@
   function refreshRowNumbers(tbody) {
     Array.prototype.forEach.call(tbody.rows, function (row, i) {
       var cell = row.cells[0];
-      if (cell) cell.innerHTML = '<strong>' + (i + 1) + '</strong>';
+      var link = cell && cell.querySelector('a');
+      if (link) link.textContent = i + 1;
     });
   }
 
