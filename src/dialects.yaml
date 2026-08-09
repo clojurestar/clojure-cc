@@ -206,16 +206,16 @@
   host: WebAssembly (Zig)
   tags: [clojure, nrepl]
 
-- name: JO Clojure
-  desc: Single-header C++ Clojure interpreter
-  repo: https://github.com/Zelex/jo_clojure
-  host: C++
-  tags: [clojure]
-
 - name: Cream
   desc: Fast-starting Clojure runtime built on Crema
   repo: https://github.com/borkdude/cream
   host: GraalVM
+  tags: [clojure]
+
+- name: JO Clojure
+  desc: Single-header C++ Clojure interpreter
+  repo: https://github.com/Zelex/jo_clojure
+  host: C++
   tags: [clojure]
 
 - name: clojure-clr-next
