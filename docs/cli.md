@@ -1,7 +1,7 @@
 ---
 title: CLI Launcher
 description:
-  Launch any supported Clojure dialect CLI locally with a single curl + make
+  Install any supported Clojure dialect CLI locally with a single curl + source
   command.
   No prerequisites.
 hide:
@@ -11,35 +11,29 @@ hide:
 # Instant Clojure Dialect Commands
 
 A single command, no prerequisites, a working local Clojure dialect command.
+This installs the dialect _(very quickly!)_ and adds its command directory to
+`PATH`.
+You can then run the command by name.
 
 ```bash
-$(make -f <(curl -sL clojure.cc/cmd.mk) <name>) [<arg>...]
+source <(curl -sL clojure.cc/get) bb && bb
 ```
 
-You can use this to try a dialect REPL or command, or share a command with
-others, regardless of whether they have the dialect installed to run it.
-
-The Makefile is hosted at <a href="https://github.com/clojurestar/clojure-cc/blob/main/docs/cmd.mk"><code>clojure.cc/cmd.mk</code></a>.
+The [`get` script](https://github.com/clojurestar/clojure-cc/blob/main/docs/get)
+delegates installation to the
+[`cmd.mk` Makefile](https://github.com/clojurestar/clojure-cc/blob/main/docs/cmd.mk).
 It uses [Makes](https://github.com/makeplus/makes) to auto-install both the
-dialect *and* its host language (Java, Go, Python, PHP, etc.) into a local
-cache directory.
+dialect *and* its host language (Java, Go, Python, PHP, etc.) into a local cache
+directory.
 Your system stays clean.
 
-> **NOTE:** The command above should work in the Bash and Zsh shells.
-> Fish users can use this instead:
+> **Note:** For the Fish shell, use:
 > ```fish
-> bb=(make -f (curl -sL clojure.cc/cmd.mk | psub) bb) $bb [<arg>...]
+> curl -sL clojure.cc/get | source - bb; and bb
 > ```
 
 
 ## Quick Dialect Usage
-
-A command like `make -f <(curl -sL clojure.cc/cmd.mk) foo` quickly installs a
-Clojure dialect "foo" in a `/tmp` directory and prints the absolute path to it.
-
-Therefore (in Bash and Zsh) this command would run the dialect binary:
-`$(make -f <(curl -sL clojure.cc/cmd.mk) foo)`, which for most dialects will
-start a REPL.
 
 This table shows the command for each dialect to start its REPL.
 You can adjust the command to do other things with the dialect like run a
@@ -47,17 +41,18 @@ program with it.
 
 | Name | Dialect | Host | REPL Command |
 |:-----|:--------|:-----|---------|
-| **`bb`** | [Babashka](https://book.babashka.org/) | GraalVM | **`$(make -f <(curl -sL clojure.cc/cmd.mk) bb)`** |
-| **`clj`** | [Clojure](https://clojure.org/) | Java | **`$(make -f <(curl -sL clojure.cc/cmd.mk) clj)`** |
-| **`glj`** | [Glojure](https://github.com/glojurelang/glojure) | Go | **`$(make -f <(curl -sL clojure.cc/cmd.mk) glj)`** |
-| **`gloat`** | [Gloat](https://gloathub.org/) | Go | **`$(make -f <(curl -sL clojure.cc/cmd.mk) gloat) --repl`** |
-| **`hy`** | [Hy](https://hylang.org/) | Python | **`$(make -f <(curl -sL clojure.cc/cmd.mk) hy)`** |
-| **`janet`** | [Janet](https://janet-lang.org/) | C | **`$(make -f <(curl -sL clojure.cc/cmd.mk) janet)`** |
-| **`joker`** | [Joker](https://github.com/candid82/joker) | Go | **`$(make -f <(curl -sL clojure.cc/cmd.mk) joker)`** |
-| **`jolt`** | [Jolt](https://github.com/jolt-lang/jolt) | Chez Scheme | **`$(make -f <(curl -sL clojure.cc/cmd.mk) jolt) repl`** |
-| **`lein`** | [Leiningen](https://leiningen.org/) | Java | **`$(make -f <(curl -sL clojure.cc/cmd.mk) lein) repl`** |
-| **`lg`** | [let-go](https://github.com/nooga/let-go) | Go | **`$(make -f <(curl -sL clojure.cc/cmd.mk) lg)`** |
-| **`phel`** | [Phel](https://phel-lang.org/) | PHP | **`$(make -f <(curl -sL clojure.cc/cmd.mk) phel)`** |
+| **`bb`** | [Babashka](https://book.babashka.org/) | GraalVM | **`source <(curl -sL clojure.cc/get) bb && bb`** |
+| **`clj`** | [Clojure](https://clojure.org/) | Java | **`source <(curl -sL clojure.cc/get) clj && clj`** |
+| **`glj`** | [Glojure](https://github.com/glojurelang/glojure) | Go | **`source <(curl -sL clojure.cc/get) glj && glj`** |
+| **`gloat`** | [Gloat](https://gloathub.org/) | Go | **`source <(curl -sL clojure.cc/get) gloat && gloat --repl`** |
+| **`gobb`** | [Gobb](https://gobb.site/) | Go | **`source <(curl -sL clojure.cc/get) gobb && gobb`** |
+| **`hy`** | [Hy](https://hylang.org/) | Python | **`source <(curl -sL clojure.cc/get) hy && hy`** |
+| **`janet`** | [Janet](https://janet-lang.org/) | C | **`source <(curl -sL clojure.cc/get) janet && janet`** |
+| **`joker`** | [Joker](https://github.com/candid82/joker) | Go | **`source <(curl -sL clojure.cc/get) joker && joker`** |
+| **`jolt`** | [Jolt](https://github.com/jolt-lang/jolt) | Chez Scheme | **`source <(curl -sL clojure.cc/get) jolt && jolt`** |
+| **`lein`** | [Leiningen](https://leiningen.org/) | Java | **`source <(curl -sL clojure.cc/get) lein && lein repl`** |
+| **`lg`** | [let-go](https://github.com/nooga/let-go) | Go | **`source <(curl -sL clojure.cc/get) lg && lg`** |
+| **`phel`** | [Phel](https://phel-lang.org/) | PHP | **`source <(curl -sL clojure.cc/get) phel && phel`** |
 
 Plus:
 
@@ -84,9 +79,9 @@ See <https://gloathub.org/doc/gloat-repl/> for full details.
 
 | Server | Command |
 |:-------|:--------|
-| Babashka | **`$(make -f <(curl -sL clojure.cc/cmd.mk) gloat) --repl=+bb`** |
-| Jolt | **`$(make -f <(curl -sL clojure.cc/cmd.mk) gloat) --repl=+jolt`** |
-| let-go | **`$(make -f <(curl -sL clojure.cc/cmd.mk) gloat) --repl=+lg`** |
+| Babashka | **`source <(curl -sL clojure.cc/get) gloat && gloat --repl=+bb`** |
+| Jolt | **`source <(curl -sL clojure.cc/get) gloat && gloat --repl=+jolt`** |
+| let-go | **`source <(curl -sL clojure.cc/get) gloat && gloat --repl=+lg`** |
 
 
 ## Examples
@@ -94,45 +89,50 @@ See <https://gloathub.org/doc/gloat-repl/> for full details.
 Launch a Glojure REPL:
 
 ```bash
-$(make -f <(curl -sL clojure.cc/cmd.mk) glj)
+source <(curl -sL clojure.cc/get) glj && glj
 ```
 
 Evaluate a let-go expression:
 
 ```bash
-$(make -f <(curl -sL clojure.cc/cmd.mk) lg) '(+ 1 2 3)'
+source <(curl -sL clojure.cc/get) lg && lg '(+ 1 2 3)'
 ```
 
 Pin a Babashka version:
 
 ```bash
-$(make -f <(curl -sL clojure.cc/cmd.mk) bb BABASHKA-VERSION=1.12.218) -e 'babashka.fs/glob'
+source <(curl -sL clojure.cc/get) bb BABASHKA-VERSION=1.12.218 &&
+  bb -e 'babashka.fs/glob'
 ```
 
 Or simplify with a shell function:
 
 ```bash
-ccc() (
-  dialect=$1; shift
-  $(make -f <(curl -sL clojure.cc/cmd.mk) "$dialect") "$@"
-)
+ccc() {
+  local dialect=$1
+  shift
+  source <(curl -sL clojure.cc/get) "$dialect" && "$dialect" "$@"
+}
 
 ccc clj
-ccc bb BABASHKA-VERSION=1.12.218
-ccc shell
+ccc bb -e '(+ 1 2 3)'
 ```
 
 
 ## How it works
 
-The launcher is a small Makefile that:
+The sourced launcher delegates to a small Makefile that:
 
 1. Clones [makeplus/makes](https://github.com/makeplus/makes) into a temp
    directory (`$TMPDIR/clojure-cc-cmd/`).
 2. Loads the language-specific module for the requested dialect.
 3. Downloads the host language toolchain (Java, Go, Python...).
 4. Downloads and installs the dialect.
-5. Drops you straight into its REPL.
+5. Creates a command wrapper containing the complete runtime environment.
+
+The `get` script adds the wrapper directory to `PATH`. The original Makefile
+form prints the wrapper's absolute path without changing the calling shell's
+environment.
 
 Everything lives under that single temp directory and can be cleared with:
 

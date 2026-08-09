@@ -22,6 +22,7 @@ include $M/babashka.mk
 include $M/clojure.mk
 include $M/gloat.mk
 include $M/glojure.mk
+include $M/gobb.mk
 include $M/hy.mk
 include $M/janet.mk
 include $M/joker.mk
@@ -114,6 +115,7 @@ $(eval $(call WRAP-CMD,bb,$(BB)))
 $(eval $(call WRAP-CMD,clj,$(CLOJURE),$(dir $(CLOJURE))clj))
 $(eval $(call WRAP-CMD,glj,$(GLJ)))
 $(eval $(call WRAP-CMD,gloat,$(GLOAT)))
+$(eval $(call WRAP-CMD,gobb,$(GOBB)))
 $(eval $(call WRAP-CMD,hy,$(HY)))
 $(eval $(call WRAP-CMD,janet,$(JANET)))
 $(eval $(call WRAP-CMD,joker,$(JOKER)))
@@ -141,6 +143,7 @@ Names of dialect targets and their VERSION variables:
 * clj   - CLOJURE-VERSION  - Clojure   - Java
 * glj   - GLOJURE-VERSION  - Glojure   - Go
 * gloat - GLOAT-VERSION    - Gloat     - Go
+* gobb  - GOBB-VERSION     - Gobb      - Go
 * hy    - HY-VERSION       - Hy        - Python
 * janet - JANET-VERSION    - Janet     - C
 * joker - JOKER-VERSION    - Joker     - Go
