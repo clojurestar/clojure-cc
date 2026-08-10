@@ -21,16 +21,24 @@ hide:
 <details class="badge-legend" markdown>
 <summary>Tag legend &nbsp;&nbsp;<i>(click to expand)</i></summary>
 
+**C — Clojure relation**<br>
 :simple-clojure:{ .badge .badge-clojure }
 Faithful Clojure implementation<br>
 :material-code-parentheses:{ .badge .badge-lisp }
-Clojure-inspired Lisp<br>
-:material-lightning-bolt:{ .badge .badge-native }
-Compiles your code to a native binary<br>
+Clojure-inspired Lisp
+
+**A — Author**<br>
+Author avatars link to GitHub profiles; hover an avatar for its username.
+
+**R — REPL support**<br>
 [:material-console-line:](try.md){ .badge .badge-repl }
 [Instant REPL](try.md) support<br>
 :material-lan-connect:{ .badge .badge-nrepl }
 Built-in nREPL support
+
+**Tag — Other tags**<br>
+:material-lightning-bolt:{ .badge .badge-native }
+Compiles your code to a native binary
 
 </details>
 

@@ -18,13 +18,16 @@ file on GitHub.
 Each entry looks like:
 
 ```yaml
-- name: Babashka
-  desc: Fast-starting Clojure interpreter for shell scripting
-  site: https://book.babashka.org/
-  repo: https://github.com/babashka/babashka
-  host: GraalVM native
-  fext: bb
-  tags: [clojure, repl]
+- name: cljgo
+  desc: Clojure hosted on Go with universal Go interop and native compilation
+  site: https://muthuishere.github.io/cljgo/
+  repo: https://github.com/muthuishere/cljgo
+  host: Go
+  fext: cljgo
+  ctag: [clojure]
+  atag: [muthuishere]
+  rtag: [repl, nrepl]
+  tags: [native]
 ```
 
 Fields:
@@ -35,9 +38,14 @@ Fields:
   count and either the latest release or the latest commit on the default
   branch.
 - `fext` is the source file extension (optional).
-- `tags` drives the badge icons. Current values: `clojure` (faithful
-  implementation), `lisp` (Clojure-inspired Lisp), `native` (compiles to a
-  native binary), `repl` (instant REPL via the CLI launcher).
+- `ctag` is required and contains exactly one Clojure relationship:
+  `clojure` (faithful implementation) or `lisp` (Clojure-inspired Lisp).
+- `atag` contains one or more author GitHub usernames. Each supported username
+  maps to its GitHub avatar ID in `util/dialects.ys`.
+- `rtag` contains REPL support: `repl` (instant REPL via the CLI launcher)
+  and/or `nrepl` (built-in nREPL support).
+- `tags` contains other badges such as `native` (compiles to a native binary).
+  Omit `atag`, `rtag`, or `tags` when the category is empty.
 
 The catalog is a single flat list, kept roughly in descending order of repo
 stars.

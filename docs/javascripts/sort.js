@@ -1,15 +1,18 @@
 // Click-to-sort for dialect tables. State persists in a cookie so the
 // table comes back in the same order on the next visit.
 (function () {
-  var COOKIE = 'dialects-sort';
+  var COOKIE = 'dialects-sort-v2';
   // 1-based column index -> { type, default direction }.
   // Columns not listed are not sortable (e.g. Description).
   var COLS = {
     2: { type: 'number', def: 'desc' }, // Stars
-    3: { type: 'tags',   def: 'asc'  }, // Tags
-    4: { type: 'text',   def: 'asc'  }, // Dialect
-    5: { type: 'text',   def: 'asc'  }, // Host
-    6: { type: 'text',   def: 'desc' }  // Release (YYYY-MM-DD sorts lexically)
+    3: { type: 'text',   def: 'asc'  }, // Dialect
+    4: { type: 'tags',   def: 'asc'  }, // Clojure relation
+    5: { type: 'tags',   def: 'asc'  }, // Author
+    6: { type: 'repl',   def: 'asc'  }, // REPL support
+    7: { type: 'tags',   def: 'asc'  }, // Other tags
+    8: { type: 'text',   def: 'asc'  }, // Host
+    9: { type: 'text',   def: 'desc' }  // Release (YYYY-MM-DD sorts lexically)
   };
 
   function getCookie(name) {
@@ -29,16 +32,27 @@
     cell.querySelectorAll('.badge').forEach(function (b) {
       b.classList.forEach(function (c) {
         if (c.indexOf('badge-') === 0 && c !== 'badge') {
-          names.push(c.slice(6));
+          names.push(c.slice(6).toLowerCase());
         }
       });
     });
     return names.sort().join(' ');
   }
 
+  function replValue(cell) {
+    var tags = tagValue(cell).split(' ');
+    var repl = tags.indexOf('repl') !== -1;
+    var nrepl = tags.indexOf('nrepl') !== -1;
+    if (repl && nrepl) return 1;
+    if (nrepl) return 2;
+    if (repl) return 3;
+    return null;
+  }
+
   function cellValue(row, col, type) {
     var cell = row.cells[col - 1];
     if (type === 'tags') return tagValue(cell);
+    if (type === 'repl') return replValue(cell);
     var text = (cell.textContent || '').trim();
     if (type === 'number') {
       if (text === '') return null;
@@ -88,17 +102,20 @@
   }
 
   function isDialectTable(headers) {
-    if (!headers || headers.length !== 7) return false;
+    if (!headers || headers.length !== 10) return false;
     var names = Array.prototype.map.call(headers, function (h) {
       return (h.textContent || '').trim();
     });
     return names[0] === '' &&
       names[1] === '★' &&
-      names[2] === 'Tags' &&
-      names[3] === 'Dialect' &&
-      names[4] === 'Host' &&
-      names[5] === 'Release' &&
-      names[6] === 'Description';
+      names[2] === 'Dialect' &&
+      names[3] === 'C' &&
+      names[4] === 'A' &&
+      names[5] === 'R' &&
+      names[6] === 'Tag' &&
+      names[7] === 'Host' &&
+      names[8] === 'Release' &&
+      names[9] === 'Description';
   }
 
   function setupTable(table) {
@@ -135,7 +152,7 @@
     }
     // Hidden affordance: clicking the Description header clears the saved
     // sort order and reloads the page.
-    var desc = headers[6];
+    var desc = headers[9];
     if (desc) {
       desc.addEventListener('click', function () {
         document.cookie = COOKIE + '=; path=/; max-age=0; SameSite=Lax';

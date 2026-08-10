@@ -227,43 +227,38 @@ table tr:hover {
   background: var(--cc-code-bg);
 }
 
-/* Dialect tables (7 columns): every column except Description (col 7)
+/* Dialect tables (10 columns): every column except Description (col 10)
    shrinks to its content. */
-.md-typeset table:not([class]):has(th:nth-child(7)) th:not(:nth-child(7)),
-.md-typeset table:not([class]):has(th:nth-child(7)) td:not(:nth-child(7)) {
+.md-typeset table:not([class]):has(th:nth-child(10)) th:not(:nth-child(10)),
+.md-typeset table:not([class]):has(th:nth-child(10)) td:not(:nth-child(10)) {
   width: 1%;
   white-space: nowrap;
 }
 
 /* Row number column: thin and bold */
-.md-typeset table:not([class]):has(th:nth-child(7)) th:nth-child(1),
-.md-typeset table:not([class]):has(th:nth-child(7)) td:nth-child(1) {
+.md-typeset table:not([class]):has(th:nth-child(10)) th:nth-child(1),
+.md-typeset table:not([class]):has(th:nth-child(10)) td:nth-child(1) {
   width: 1%;
   min-width: 1.8em;
   text-align: right;
   font-weight: 700;
 }
 
-/* Tags column: fixed width */
-.md-typeset table:not([class]):has(th:nth-child(7)) th:nth-child(3),
-.md-typeset table:not([class]):has(th:nth-child(7)) td:nth-child(3) {
-  width: 80px;
-}
-
-.md-typeset table:not([class]):has(th:nth-child(7)) td:nth-child(3) {
+/* Badge columns allow a category's badges to stack vertically. */
+.md-typeset table:not([class]):has(th:nth-child(10)) td:nth-child(n+4):nth-child(-n+7) {
   white-space: normal;
 }
 
 /* Host column: fixed width, text wraps */
-.md-typeset table:not([class]):has(th:nth-child(7)) th:nth-child(5),
-.md-typeset table:not([class]):has(th:nth-child(7)) td:nth-child(5) {
+.md-typeset table:not([class]):has(th:nth-child(10)) th:nth-child(8),
+.md-typeset table:not([class]):has(th:nth-child(10)) td:nth-child(8) {
   width: 75px;
   white-space: normal;
 }
 
 /* Release column: min-width so it can grow when there's room, wraps when squeezed */
-.md-typeset table:not([class]):has(th:nth-child(7)) th:nth-child(6),
-.md-typeset table:not([class]):has(th:nth-child(7)) td:nth-child(6) {
+.md-typeset table:not([class]):has(th:nth-child(10)) th:nth-child(9),
+.md-typeset table:not([class]):has(th:nth-child(10)) td:nth-child(9) {
   width: auto;
   min-width: 75px;
   white-space: normal;
@@ -278,8 +273,8 @@ table tr:hover {
 }
 
 /* Other tables: first 3 columns shrink to content; last takes rest */
-.md-typeset table:not([class]):not(:has(th:nth-child(7))) th:nth-child(-n+3),
-.md-typeset table:not([class]):not(:has(th:nth-child(7))) td:nth-child(-n+3) {
+.md-typeset table:not([class]):not(:has(th:nth-child(10))) th:nth-child(-n+3),
+.md-typeset table:not([class]):not(:has(th:nth-child(10))) td:nth-child(-n+3) {
   width: 1%;
   white-space: nowrap;
 }
@@ -287,10 +282,11 @@ table tr:hover {
 /* Dialect tag badges */
 .badges {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.35em;
-  max-width: 100%;
+  width: 1.1em;
 }
 
 .badges > * {
@@ -310,9 +306,16 @@ table tr:hover {
 }
 
 .badge .twemoji,
-.badge svg {
+.badge svg,
+.badge img {
   height: 1.1em;
   width: 1.1em;
+}
+
+.badge img {
+  display: inline-block;
+  border-radius: 50%;
+  vertical-align: -0.15em;
 }
 
 .badge-clojure { color: #3949AB !important; } /* indigo */

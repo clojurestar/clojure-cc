@@ -4,7 +4,9 @@
   repo: https://github.com/clojure/clojure
   host: JVM
   fext: clj
-  tags: [clojure, repl]
+  ctag: [clojure]
+  atag: [richhickey]
+  rtag: [repl]
 
 - name: ClojureScript
   desc: Clojure compiled to JavaScript via Google Closure
@@ -12,7 +14,8 @@
   repo: https://github.com/clojure/clojurescript
   host: JavaScript
   fext: cljs
-  tags: [clojure]
+  ctag: [clojure]
+  atag: [richhickey]
 
 - name: Carp
   desc: Statically-typed Lisp without a GC, compiles to C
@@ -20,14 +23,19 @@
   repo: https://github.com/carp-lang/Carp
   host: C
   fext: carp
-  tags: [lisp, native, repl]
+  ctag: [lisp]
+  atag: [eriksvedang]
+  rtag: [repl]
+  tags: [native]
 
 - name: Hy
   desc: A Lisp dialect embedded in Python (Clojure-adjacent)
   repo: https://github.com/hylang/hy
   host: Python
   fext: hy
-  tags: [lisp, repl]
+  ctag: [lisp]
+  atag: [paultag]
+  rtag: [repl]
 
 - name: Babashka
   desc: Fast-starting Clojure interpreter for shell scripting
@@ -35,14 +43,18 @@
   repo: https://github.com/babashka/babashka
   host: GraalVM native
   fext: bb
-  tags: [clojure, repl, nrepl]
+  ctag: [clojure]
+  atag: [borkdude]
+  rtag: [repl, nrepl]
 
 - name: Janet
   desc: Dynamic language and bytecode VM (Clojure-adjacent)
   repo: https://github.com/janet-lang/janet
   host: C
   fext: janet
-  tags: [lisp, repl]
+  ctag: [lisp]
+  atag: [bakpakin]
+  rtag: [repl]
 
 - name: Jank
   desc: Native Clojure dialect with seamless C++ interop
@@ -50,7 +62,10 @@
   repo: https://github.com/jank-lang/jank
   host: C++ / LLVM
   fext: jank
-  tags: [clojure, native, nrepl]
+  ctag: [clojure]
+  atag: [jeaye]
+  rtag: [nrepl]
+  tags: [native]
 
 - name: Fennel
   desc: Clojure-like Lisp dialect with seamless interop
@@ -58,87 +73,107 @@
   repo: https://git.sr.ht/~technomancy/fennel
   host: Lua
   fext: fnl
-  tags: [lisp]
+  ctag: [lisp]
+  atag: [technomancy]
 
 - name: Joker
   desc: Small Clojure interpreter, linter and formatter
   repo: https://github.com/candid82/joker
   host: Go
   fext: joke
-  tags: [lisp, repl]
+  ctag: [lisp]
+  atag: [candid82]
+  rtag: [repl]
 
 - name: Lux
   desc: Statically-typed functional Lisp with multiple host targets
   repo: https://github.com/LuxLang/lux
   host: JVM (multi-target)
   fext: lux
-  tags: [lisp]
+  ctag: [lisp]
+  atag: [eduardoejp]
 
 - name: Clojerl
   desc: Clojure for the BEAM
   repo: https://github.com/clojerl/clojerl
   host: Erlang VM
   fext: clje
-  tags: [clojure]
+  ctag: [clojure]
+  atag: [jfacorro]
 
 - name: ClojureCLR
   desc: Port of Clojure to the Common Language Runtime
   repo: https://github.com/clojure/clojure-clr
   host: .NET
   fext: cljr
-  tags: [clojure]
+  ctag: [clojure]
+  atag: [dmiller]
 
 - name: ClojureDart
   desc: Clojure for Flutter and Dart with native and Wasm targets
   repo: https://github.com/Tensegritics/ClojureDart
   host: Dart / Flutter
   fext: cljd
-  tags: [clojure, native]
+  ctag: [clojure]
+  atag: [cgrand, dupuchba]
+  tags: [native]
 
 - name: Ferret
   desc: Free-software Lisp for real-time embedded control
   repo: https://github.com/nakkaya/ferret
   host: C++11
   fext: fer
-  tags: [lisp, native]
+  ctag: [lisp]
+  atag: [nakkaya]
+  tags: [native]
 
 - name: Planck
   desc: Stand-alone ClojureScript REPL on JavaScriptCore
   site: https://planck-repl.org/
   repo: https://github.com/planck-repl/planck
   host: JavaScriptCore
-  tags: [clojure, repl]
+  ctag: [clojure]
+  atag: [mfikes]
+  rtag: [repl]
 
 - name: ClojureRS
   desc: Clojure implementation atop Rust
   repo: https://github.com/clojure-rs/ClojureRS
   host: Rust
-  tags: [clojure]
+  ctag: [clojure]
+  atag: [Tko1]
 
 - name: nbb
   desc: Scripting in Clojure on Node.js via SCI
   repo: https://github.com/babashka/nbb
   host: Node.js
-  tags: [clojure, nrepl]
+  ctag: [clojure]
+  atag: [borkdude]
+  rtag: [nrepl]
 
 - name: Squint
   desc: Light-weight ClojureScript dialect transpiling to mutable JS
   repo: https://github.com/squint-cljs/squint
   host: JavaScript
-  tags: [lisp, nrepl]
+  ctag: [lisp]
+  atag: [borkdude]
+  rtag: [nrepl]
 
 - name: Glojure
   desc: Clojure interpreter hosted on Go with seamless Go interop
   repo: https://github.com/glojurelang/glojure
   host: Go
   fext: glj
-  tags: [clojure, repl, nrepl]
+  ctag: [clojure]
+  atag: [jfhamlin, ingydotnet]
+  rtag: [repl, nrepl]
 
 - name: Cherry
   desc: Experimental ClojureScript to ES6 module compiler
   repo: https://github.com/squint-cljs/cherry
   host: JavaScript (ES6)
-  tags: [lisp]
+  ctag: [lisp]
+  atag: [borkdude]
 
 - name: YAMLScript
   desc: YAML syntax that translates to Clojure code and semantics
@@ -146,20 +181,26 @@
   repo: https://github.com/yaml/yamlscript
   host: GraalVM native
   fext: ys
-  tags: [clojure, native]
+  ctag: [clojure]
+  atag: [ingydotnet]
+  tags: [native]
 
 - name: Joyride
   desc: Make VS Code hackable like Emacs, with Clojure
   repo: https://github.com/BetterThanTomorrow/joyride
   host: VS Code
-  tags: [clojure, nrepl]
+  ctag: [clojure]
+  atag: [PEZ]
+  rtag: [nrepl]
 
 - name: let-go
   desc: '"Almost Clojure" written in Go'
   repo: https://github.com/nooga/let-go
   host: Go
   fext: lg
-  tags: [clojure, repl, nrepl]
+  ctag: [clojure]
+  atag: [nooga]
+  rtag: [repl, nrepl]
 
 - name: Phel
   desc: Functional Lisp-inspired language compiling to PHP
@@ -167,82 +208,101 @@
   repo: https://github.com/phel-lang/phel-lang
   host: PHP
   fext: phel
-  tags: [lisp, repl]
+  ctag: [lisp]
+  atag: [jenshaase]
+  rtag: [repl]
 
 - name: Basilisp
   desc: Clojure-compatible Lisp dialect with seamless Python interop
   repo: https://github.com/basilisp-lang/basilisp
   host: Python 3
   fext: lpy
-  tags: [clojure, nrepl]
+  ctag: [clojure]
+  atag: [chrisrink10]
+  rtag: [nrepl]
 
 - name: Scittle
   desc: Run Clojure directly from `<script>` tags via SCI
   repo: https://github.com/babashka/scittle
   host: JavaScript (browser)
-  tags: [clojure, nrepl]
+  ctag: [clojure]
+  atag: [borkdude]
+  rtag: [nrepl]
 
 - name: Cloture
   desc: Clojure dialect implemented in Common Lisp
   repo: https://github.com/ruricolist/cloture
   host: Common Lisp
-  tags: [clojure]
+  ctag: [clojure]
+  atag: [ruricolist]
 
 - name: obb
   desc: SCI ClojureScript scripting of Mac OSX
   repo: https://github.com/babashka/obb
   host: Applescript Open Scripting
-  tags: [clojure]
+  ctag: [clojure]
+  atag: [borkdude]
 
 - name: Lokke
   desc: Clojure dialect hosted on GNU Guile
   repo: https://github.com/lokke-org/lokke
   host: GNU Guile
-  tags: [clojure]
+  ctag: [clojure]
+  atag: [rlbdv]
 
 - name: ClojureWasm
   desc: Independent Clojure runtime optimized for Wasm
   repo: https://github.com/clojurewasm/ClojureWasm
   host: WebAssembly (Zig)
-  tags: [clojure, nrepl]
+  ctag: [clojure]
+  atag: [chaploud]
+  rtag: [nrepl]
 
 - name: Cream
   desc: Fast-starting Clojure runtime built on Crema
   repo: https://github.com/borkdude/cream
   host: GraalVM
-  tags: [clojure]
+  ctag: [clojure]
+  atag: [borkdude]
 
 - name: JO Clojure
   desc: Single-header C++ Clojure interpreter
   repo: https://github.com/Zelex/jo_clojure
   host: C++
-  tags: [clojure]
+  ctag: [clojure]
+  atag: [Zelex]
 
 - name: clojure-clr-next
   desc: Next-generation ClojureCLR under development
   repo: https://github.com/dmiller/clojure-clr-next
   host: .NET (F#)
-  tags: [clojure]
+  ctag: [clojure]
+  atag: [dmiller]
 
 - name: Calcit
   desc: ClojureScript-inspired scripting language with a structural code format
   site: http://calcit-lang.org/
   repo: https://github.com/calcit-lang/calcit
   host: JavaScript (Rust runtime)
-  tags: [lisp]
+  ctag: [lisp]
+  atag: [tiye]
 
 - name: Jolt
   desc: A Clojure implementation on Chez Scheme
   site: https://github.com/jolt-lang/jolt
   repo: https://github.com/jolt-lang/jolt
   host: Chez Scheme
-  tags: [clojure, native, repl, nrepl]
+  ctag: [clojure]
+  atag: [yogthos]
+  rtag: [repl, nrepl]
+  tags: [native]
 
 - name: Cljbang
   desc: Clojure-like language that compiles to and runs as Emacs Lisp
   repo: https://github.com/borkdude/cljbang.el
   host: Emacs Lisp
-  tags: [lisp]
+  ctag: [lisp]
+  atag: [borkdude]
 
 - name: Sheaf
   desc: Functional Lisp for differentiable machine learning on CPUs and GPUs
@@ -250,39 +310,52 @@
   repo: https://github.com/sheaf-lang/sheaf
   host: Rust / IREE
   fext: shf
-  tags: [lisp, native, repl]
+  ctag: [lisp]
+  atag: [dbrll]
+  rtag: [repl]
+  tags: [native]
 
 - name: Gloat
   desc: Compile Clojure (and YAMLScript) to Go, native binaries and Wasm
   repo: https://github.com/gloathub/gloat
   host: Go
-  tags: [clojure, native, repl, nrepl]
+  ctag: [clojure]
+  atag: [ingydotnet]
+  rtag: [repl, nrepl]
+  tags: [native]
 
 - name: Lingy
   desc: Clojure-like Lisp dialect implemented in Perl
   repo: https://github.com/lingy-lang/lingy
   host: Perl
-  tags: [lisp]
+  ctag: [lisp]
+  atag: [ingydotnet]
 
 - name: go-joker
   desc: Optimized fork of Joker for coding-agent infrastructure
   repo: https://github.com/rcarmo/go-joker
   host: Go
-  tags: [lisp]
+  ctag: [lisp]
+  atag: [rcarmo]
 
 - name: cljrs
   desc: Clojure with MLIR/LLVM compilation and GPU support
   site: https://tytrdev.github.io/cljrs/
   repo: https://github.com/tytrdev/cljrs
   host: Rust + MLIR/LLVM
-  tags: [clojure, native]
+  ctag: [clojure]
+  atag: [tytrdev]
+  tags: [native]
 
 - name: Swish
   desc: Clojure-inspired Lisp for embedding in Swift apps or compiling to Swift
   repo: https://github.com/infiniteNIL/swish
   host: Swift
   fext: swish
-  tags: [clojure, native, repl]
+  ctag: [clojure]
+  atag: [infiniteNIL]
+  rtag: [repl]
+  tags: [native]
 
 - name: cljgo
   desc: Clojure hosted on Go with universal Go interop and native compilation
@@ -290,16 +363,22 @@
   repo: https://github.com/muthuishere/cljgo
   host: Go
   fext: cljgo
-  tags: [clojure, native, repl, nrepl]
+  ctag: [clojure]
+  atag: [muthuishere]
+  rtag: [repl, nrepl]
+  tags: [native]
 
 - name: ClojureFnl
   desc: Early Clojure-to-Fennel transpiler
   repo: https://gitlab.com/andreyorst/clojurefnl
   host: Fennel / Lua
-  tags: [clojure]
+  ctag: [clojure]
+  atag: [andreyorst]
 
 - name: Choq
   desc: Lightweight Cherry runtime with an embedded QuickJS engine
   repo: https://github.com/squint-cljs/choq
   host: QuickJS (Rust runtime)
-  tags: [lisp, repl, nrepl]
+  ctag: [lisp]
+  atag: [borkdude]
+  rtag: [repl, nrepl]

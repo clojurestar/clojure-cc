@@ -8,18 +8,39 @@
 defn main():
   rows =: read('src/dialects.yaml'):yaml/load
   data-file =: 'repo-data.yaml'
+  empty =: +{}
   repo-data =:
     if data-file:fs-e:
-      then: data-file:read:yaml/load
-      else: +{}
+      data-file:read:yaml/load
+      empty
   template =: read('src/dialects.md')
   table =: render-table(rows repo-data)
   print: template.replace('+++DIALECTS+++' table)
 
-defn render-table(rows repo-data): |-
-  |   | ★ | Tags | Dialect | Host | Release | Description |
-  |--:|------:|------|---------|------|---------|-------------|
-  $(map-indexed(fn([i r] render-row(r repo-data (inc i))) rows):text:trimr)
+defn render-table(rows repo-data):
+  heading =: table-heading()
+  divider =: '|--:|------:|---------|:--:|:--:|'
+  divider +=: ':--:|:---:|------|---------|-------------|'
+  body =: map-indexed(
+    fn([i r] render-row(r repo-data (inc i))) rows):text:trimr
+  =>: "$heading\n$divider\n$body"
+
+defn table-heading():
+  cells =::
+    - ''
+    - ★
+    - Dialect
+    - ! table-abbr('C' 'Clojure relation')
+    - ! table-abbr('A' 'Author')
+    - ! table-abbr('R' 'REPL support')
+    - ! table-abbr('Tag' 'Other tags')
+    - Host
+    - Release
+    - Description
+  =>: "| $(cells.join(' | ')) |"
+
+defn table-abbr(label title):
+  =>: "<abbr title=\"$title\" aria-label=\"$title\">$label</abbr>"
 
 defn render-row(row repo-data num):
   url =: row.site ||| row.repo
@@ -28,8 +49,10 @@ defn render-row(row repo-data num):
   star-cell =: render-star(info.star row.repo)
   rel-cell =: render-release(info.release info.commit)
   num-cell =: "**[$num](#$slug){ #$slug }**"
-  =>: "| $num-cell | $star-cell | $(render-badges(row.tags))| \
-        [$(row.name)]($url) | $(row.host) | $rel-cell | $(row.desc) |"
+  =>: "| $num-cell | $star-cell | [$(row.name)]($url) | \
+        $(render-badges(row.ctag))| $(render-badges(row.atag))| \
+        $(render-badges(row.rtag))| $(render-badges(row.tags))| \
+        $(row.host) | $rel-cell | $(row.desc) |"
 
 defn render-star(star repo):
   if star:
@@ -48,6 +71,7 @@ defn render-badges(tags):
     =>: "<span class=\"badges\">$inner</span>"
 
 defn tag-badge(tag):
+  id =: author-id(tag)
   cond:
     (tag == 'clojure'): ":simple-clojure:{ .badge .badge-clojure \
       title=\"Faithful Clojure implementation\" } "
@@ -59,3 +83,48 @@ defn tag-badge(tag):
       \"Instant REPL support\"){ .badge .badge-repl } "
     (tag == 'nrepl'): ":material-lan-connect:{ .badge .badge-nrepl \
       title=\"Built-in nREPL support\" } "
+    id: author-badge(tag id)
+
+defn author-id(tag):
+  ids =::
+    PEZ: '30010'
+    Tko1: '6475256'
+    Zelex: '410696'
+    andreyorst: '19470159'
+    bakpakin: '6185660'
+    borkdude: '284934'
+    candid82: '882970'
+    cgrand: '47025'
+    chaploud: '19206115'
+    chrisrink10: '5423242'
+    dbrll: '10487787'
+    dmiller: '84709'
+    dupuchba: '911705'
+    eduardoejp: '245700'
+    eriksvedang: '356121'
+    infiniteNIL: '352414'
+    ingydotnet: '21826'
+    jeaye: '1057635'
+    jenshaase: '176220'
+    jfacorro: '1522569'
+    jfhamlin: '375864'
+    mfikes: '1723464'
+    muthuishere: '132564'
+    nakkaya: '88499'
+    nooga: '198496'
+    paultag: '132447'
+    rcarmo: '392683'
+    richhickey: '34045'
+    rlbdv: '2295838'
+    ruricolist: '389160'
+    technomancy: '141'
+    tiye: '449224'
+    tytrdev: '6384618'
+    yogthos: '121208'
+  get ids: tag
+
+defn author-badge(user id):
+  =>: "<a href=\"https://github.com/$user\" class=\"badge badge-$user\" \
+    title=\"Authored by @$user\"><img \
+    src=\"https://avatars.githubusercontent.com/u/$id?s=32&amp;v=4\" \
+    alt=\"@$user\"></a> "
