@@ -1,27 +1,130 @@
+---
+date: 2026-08-10
+slug: portable-libraries
+authors: [yogthos]
+categories: [ClojureStar, Compatibility]
+---
+
 # Toward Truly Portable Clojure Libraries
 
-Now that we have a growing number of [Clojure dialects](https://clojure.cc/dialects) being actively developed, it's a good time to think about what it would take to formalize a portable Clojure layer that library authors can safely target. The ideal would be to have write-once, run-anywhere libraries that would work unmodified on JVM Clojure, ClojureScript, Babashka, Jolt, let-go, and any other dialect that implements Clojure semantics faithfully.
+Now that we have a growing number of
+[Clojure dialects](../../dialects.md) being actively developed, it's a good
+time to think about what it would take to formalize a portable Clojure layer
+that library authors can safely target.
+The ideal would be to have write-once, run-anywhere libraries that would work
+unmodified on [JVM Clojure](https://clojure.org/),
+[ClojureScript](https://clojurescript.org/),
+[Babashka](https://babashka.org/), [Jolt](https://github.com/jolt-lang/jolt),
+[Glojure](https://github.com/glojurelang/glojure),
+[let-go](https://github.com/nooga/let-go), [Gobb](https://gobb.site/), and
+any other dialect that implements Clojure semantics faithfully.
 
-Today, the primary tool we have for that is `.cljc` reader conditionals, and it's easy to see why it's not the right solution. Reader conditionals become a maintenance nightmare the moment you go beyond having a couple of platforms. They push the burden of understanding internal semantics of every new dialect onto library authors, and require libraries to be updated for each new dialect.
+Today, the primary tool we have for that is `.cljc` reader conditionals, and
+it's easy to see why it's not the right solution.
+Reader conditionals become a maintenance nightmare the moment you go beyond
+having a couple of platforms.
+They push the burden of understanding internal semantics of every new dialect
+onto library authors, and require libraries to be updated for each new
+dialect.
 
-There are currently 45 Clojure dialects, and even if we take a subset of those which aim to be largely Clojure compatible, that would still be around a dozen. It's simply not practical to maintain that amount of reader conditionals in a library and expect authors to understand all the internal implementation details for each branch. The library author shouldn’t need to know how each host handles IO or threads. They should be able to target a common API, and the dialect maintainers, who are intimately familiar with their language, should then figure out how to implement it on their platform.
+<!-- more -->
 
-Having a common interface layer to represent host functionality across alternative Clojure implementations points to a much healthier way forward.
+There are currently 45 Clojure dialects, and even if we take a subset of those
+which aim to be largely Clojure compatible, that would still be around a
+dozen.
+It's simply not practical to maintain that amount of reader conditionals in a
+library and expect authors to understand all the internal implementation
+details for each branch.
+The library author shouldn't need to know how each host handles IO or threads.
+They should be able to target a common API, and the dialect maintainers, who
+are intimately familiar with their language, should then figure out how to
+implement it on their platform.
 
-Pure data transformation, which is the essence of Clojure, is already portable, and any dialect that implements Clojure’s semantics can run that code. The friction exists in places where a library needs to reach out to the host to read a file, spawn a thread, make an HTTP request, or use a concurrency primitive. That’s where `.cljc` conditionals typically get injected, and where the abstraction leaks because host interop is the one thing that is inherently platform specific.
+Having a common interface layer to represent host functionality across
+alternative Clojure implementations points to a much healthier way forward.
 
-The solution we are proposing is to define a common host-interop layer modeled on the existing Java interop semantics. Clojure on the JVM already defines a rich set of interop conventions that are well thought out and battle-tested. The Java standard library provides all the core things libraries need such as IO streams, concurrency primitives, basic data structures, and it has a proven design. Instead of inventing brand-new platform abstractions, we can adopt a carefully chosen subset of the Java API as the target. In this world, libraries would be written against that subset, and each dialect would provide its own implementation behind those interfaces, using whatever native capabilities the host offers. It would be up to the maintainers of the specific language to decide how compliant they want to be, and which libraries they wish to support.
+Pure data transformation, which is the essence of Clojure, is already
+portable, and any dialect that implements Clojure's semantics can run that
+code.
+The friction exists in places where a library needs to reach out to the host
+to read a file, spawn a thread, make an HTTP request, or use a concurrency
+primitive.
+That's where `.cljc` conditionals typically get injected, and where the
+abstraction leaks because host interop is the one thing that is inherently
+platform specific.
 
-To be clear, this does not mean reimplementing the entire JDK. The goal is to extract the sliver of host functionality that portable libraries actually need in the form of basic IO, atoms, futures, promises, maybe `core.async` channels, and a few other essentials, with the Java API serving as a blueprint. The aim is to enable new shared libraries to be written portably from the start rather than supporting every existing JVM Clojure library.
+The solution we are proposing is to define a common host-interop layer modeled
+on the existing Java interop semantics.
+Clojure on the JVM already defines a rich set of interop conventions that are
+well thought out and battle-tested.
+The Java standard library provides all the core things libraries need such as
+IO streams, concurrency primitives, basic data structures, and it has a proven
+design.
+Instead of inventing brand-new platform abstractions, we can adopt a carefully
+chosen subset of the Java API as the target.
+In this world, libraries would be written against that subset, and each
+dialect would provide its own implementation behind those interfaces, using
+whatever native capabilities the host offers.
+It would be up to the maintainers of the specific language to decide how
+compliant they want to be, and which libraries they wish to support.
 
-That said, a nice side effect here is that many existing JVM Clojure libraries could run on any dialect that implements the layer. The work dialect authors put into shimming those interfaces ends up paying off twice since it enables future portable libraries and brings a wealth of existing code along for the ride.
+To be clear, this does not mean reimplementing the entire JDK.
+The goal is to extract the sliver of host functionality that portable
+libraries actually need in the form of basic IO, atoms, futures, promises,
+maybe `core.async` channels, and a few other essentials, with the Java API
+serving as a blueprint.
+The aim is to enable new shared libraries to be written portably from the
+start rather than supporting every existing JVM Clojure library.
 
-Rather than having to deal with a combinatorial explosion of `#?(:clj ... :cljs ... :bb ... :jolt ...)`, library writers should be able to say “I need to create a file” and use an `(File. ...)` call that works the same way everywhere. The dialect implementer does the hard work once to map that call to the host’s file system, and then every library benefits. This creates a logical split where dialect authors invest in compatibility, and library authors get portability for free.
+That said, a nice side effect here is that many existing JVM Clojure libraries
+could run on any dialect that implements the layer.
+The work dialect authors put into shimming those interfaces ends up paying off
+twice since it enables future portable libraries and brings a wealth of
+existing code along for the ride.
 
-Dialects themselves would benefit from this approach as well since a shared test harness that runs against multiple dialects could both validate the host layer and build confidence that portable libraries behave identically everywhere. The idea of having an oracle corpus which tests that inputs produce the same outputs as JVM Clojure has already proven valuable in Jolt, let-go, and Glojure. Centralizing those test suites under a common initiative like clojurestar gives dialect authors a clear target to aim for and makes it easy for library authors to see which platforms their code supports.
+Rather than having to deal with a combinatorial explosion of
+`#?(:clj ... :cljs ... :bb ... :jolt ...)`, library writers should be able to
+say "I need to create a file" and use an `(File. ...)` call that works the
+same way everywhere.
+The dialect implementer does the hard work once to map that call to the host's
+file system, and then every library benefits.
+This creates a logical split where dialect authors invest in compatibility,
+and library authors get portability for free.
 
-This is not an attempt to standardize every detail of a Clojure dialect in the way of the Common Lisp HyperSpec that takes decades to finish. The scope here would be deliberately narrow. It would be possible to start by defining interfaces for host services that libraries actually need, and let the set grow organically as new patterns emerge. The goal is to make the long tail of libraries—validators such as routers, logic engines, data models—truly portable, along with the small set of host interactions they require.
+Dialects themselves would benefit from this approach as well since a shared
+test harness that runs against multiple dialects could both validate the host
+layer and build confidence that portable libraries behave identically
+everywhere.
+The idea of having an oracle corpus which tests that inputs produce the same
+outputs as JVM Clojure has already proven valuable in Jolt, let-go, Glojure,
+and the [Grenadine](https://clojurestar.github.io/grenadine/) dialect-agnostic
+dependency resolver.
 
-Every new Clojure dialect faces a chicken-and-egg problem since without libraries, it’s hard to attract users, and without users, it’s hard to justify people starting to build libraries for it. A minimal, Java-inspired host-interop layer would make a wealth of existing libraries immediately available to every dialect that implements the spec. Meanwhile, library authors would be free to write to a clean abstraction without having to worry about dialect specifics.
+Centralizing those test suites under a common initiative like ClojureStar
+gives dialect authors a clear target to aim for and makes it easy for library
+authors to see which platforms their code supports.
 
-Dialects like Jolt, let-go, and Glojure are already independently converging on similar patterns. The conversation to define the smallest set of host interfaces we need is worth having. Coming up with such a spec would pave the way toward a truly portable Clojure commons that can be grown cooperatively.
+This is not an attempt to standardize every detail of a Clojure dialect in the
+way of the Common Lisp HyperSpec that takes decades to finish.
+The scope here would be deliberately narrow.
+It would be possible to start by defining interfaces for host services that
+libraries actually need, and let the set grow organically as new patterns
+emerge.
+The goal is to make the long tail of libraries such as validators, routers,
+logic engines, and data models truly portable, along with the small set of host
+interactions they require.
+
+Every new Clojure dialect faces a chicken-and-egg problem since without
+libraries, it's hard to attract users, and without users, it's hard to justify
+people starting to build libraries for it.
+A minimal, Java-inspired host-interop layer would make a wealth of existing
+libraries immediately available to every dialect that implements the spec.
+Meanwhile, library authors would be free to write to a clean abstraction
+without having to worry about dialect specifics.
+
+Dialects like Jolt, let-go, and Glojure are already independently converging
+on similar patterns.
+The conversation to define the smallest set of host interfaces we need is
+worth having.
+Coming up with such a spec would pave the way toward a truly portable Clojure
+commons that can be grown cooperatively.

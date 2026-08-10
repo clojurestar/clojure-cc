@@ -1,7 +1,7 @@
 ---
 date: 2026-08-03
-categories:
-  - ClojureStar
+authors: [ingydotnet]
+categories: [ClojureStar, Grenadine]
 ---
 
 # Introducing Grenadine

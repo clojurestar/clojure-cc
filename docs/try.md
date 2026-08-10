@@ -66,7 +66,7 @@ Plus:
 ## Gloat REPL Client
 
 The Gloat REPL client is more featureful than the plain dialect REPLs, with
-many modern fetures including:
+many modern features including:
 
 * Rainbow syntax highlighting
 * Tab completion

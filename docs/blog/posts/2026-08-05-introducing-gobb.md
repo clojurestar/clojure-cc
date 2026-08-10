@@ -1,8 +1,8 @@
 ---
 date: 2026-08-05
 slug: introducing-gobb
-categories:
-  - ClojureStar
+authors: [ingydotnet]
+categories: [ClojureStar, Go, Babashka]
 ---
 
 # Introducing Gobb: Go + bb
