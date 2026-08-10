@@ -142,21 +142,24 @@
       })(headers[i], col);
     }
     var saved = getCookie(COOKIE);
+    var restored = false;
     if (saved) {
       var parts = saved.split(':');
       var sCol = parseInt(parts[0], 10);
       var sDir = parts[1];
       if (COLS[sCol] && (sDir === 'asc' || sDir === 'desc')) {
         sortTable(table, sCol, sDir);
+        restored = true;
       }
     }
+    if (!restored) sortTable(table, 2, COLS[2].def);
     // Hidden affordance: clicking the Description header clears the saved
-    // sort order and reloads the page.
+    // sort order and restores the default star-count order.
     var desc = headers[9];
     if (desc) {
       desc.addEventListener('click', function () {
         document.cookie = COOKIE + '=; path=/; max-age=0; SameSite=Lax';
-        location.reload();
+        sortTable(table, 2, COLS[2].def);
       });
     }
   }

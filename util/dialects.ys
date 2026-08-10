@@ -46,7 +46,8 @@ defn render-row(row repo-data num):
   url =: row.site ||| row.repo
   slug =: lc(row.name).replace(/[^a-z0-9]+/ '-')
   info =: repo-data.(row.repo).or(+{})
-  star-cell =: render-star(info.star row.repo)
+  star-url =: row.ghub ||| row.repo
+  star-cell =: render-star(info.star star-url)
   rel-cell =: render-release(info.release info.commit)
   num-cell =: "**[$num](#$slug){ #$slug }**"
   =>: "| $num-cell | $star-cell | [$(row.name)]($url) | \
@@ -54,9 +55,9 @@ defn render-row(row repo-data num):
         $(render-badges(row.rtag))| $(render-badges(row.tags))| \
         $(row.host) | $rel-cell | $(row.desc) |"
 
-defn render-star(star repo):
+defn render-star(star url):
   if star:
-    then: "[$star]($repo)"
+    then: "[$star]($url)"
     else: ''
 
 defn render-release(release commit):

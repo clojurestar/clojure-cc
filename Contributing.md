@@ -34,9 +34,10 @@ Fields:
 
 - `name`, `desc`, `host` are required.
 - `site` is the project homepage; if omitted, the dialect name links to `repo`.
-- `repo` is the GitHub or GitLab URL. The build hits its API for the star
-  count and either the latest release or the latest commit on the default
-  branch.
+- `repo` is the canonical source repository. The build fetches metadata from
+  GitHub, GitLab, or SourceHut.
+- `ghub` is an optional GitHub mirror used for the displayed star count and
+  its link while release information continues to come from `repo`.
 - `fext` is the source file extension (optional).
 - `ctag` is required and contains exactly one Clojure relationship:
   `clojure` (faithful implementation) or `lisp` (Clojure-inspired Lisp).

@@ -2,11 +2,13 @@
 
 # Fetch star counts and latest release info for every dialect with a
 # `repo:` URL in src/dialects.yaml, then write the result to
-# repo-data.yaml keyed by repo URL.
+# repo-data.yaml keyed by repo URL. An optional `ghub:` URL supplies
+# the star count while `repo:` remains the canonical metadata source.
 #
 # Supports GitHub, GitLab, and sourcehut. GitHub/GitLab repos without
 # releases fall back to the latest commit on the default branch (stored
-# under `commit:`). Sourcehut entries carry only `release:` (no stars).
+# under `commit:`). Sourcehut entries carry only `release:` unless a
+# GitHub mirror is specified with `ghub:`.
 # GitHub requests use $GITHUB_TOKEN when set, otherwise they read
 # ~/.release-secrets.yaml at .github.token.
 
@@ -28,16 +30,34 @@ defn main():
 defn collect(acc entry):
   swap! i: inc
   warn: "$(i.@)) $(entry.name)"
-  info =: fetch-info(entry.repo)
+  info =: fetch-info(entry)
   if info:
     assoc acc: entry.repo info
     else: acc
 
-defn fetch-info(url):
-  cond:
-    url =~ /github\.com\//: github-info(url)
-    url =~ /gitlab\.com\//: gitlab-info(url)
-    url =~ /sr\.ht\//:      sourcehut-info(url)
+defn fetch-info(entry):
+  url =: entry.repo
+  info =:
+    cond:
+      url =~ /github\.com\//: github-info(url)
+      url =~ /gitlab\.com\//: gitlab-info(url)
+      url =~ /sr\.ht\//:      sourcehut-info(url)
+  add-ghub-star: info entry.ghub
+
+defn add-ghub-star(info url):
+  empty =: +{}
+  base =: info ||| empty
+  star =:
+    when url:
+      github-star: url
+  if star:
+    then: base.assoc(:star star)
+    else: info
+
+defn github-star(url):
+  m =: url =~ /github\.com\/([^\/?#]+)\/([^\/?#]+)/
+  owner repo =: m:rest
+  github-stars: owner repo
 
 defn github-info(url):
   m =: url =~ /github\.com\/([^\/?#]+)\/([^\/?#]+)/

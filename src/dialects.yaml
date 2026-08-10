@@ -1,3 +1,5 @@
+# Dialects are roughly in descending star count order.
+
 - name: Clojure
   desc: The original; dynamic, functional Lisp on the Java Virtual Machine
   site: https://clojure.org/
@@ -71,6 +73,7 @@
   desc: Clojure-like Lisp dialect with seamless interop
   site: https://fennel-lang.org/
   repo: https://git.sr.ht/~technomancy/fennel
+  ghub: https://github.com/bakpakin/fennel
   host: Lua
   fext: fnl
   ctag: [lisp]
@@ -265,6 +268,16 @@
   ctag: [clojure]
   atag: [borkdude]
 
+- name: Jolt
+  desc: A Clojure implementation on Chez Scheme
+  site: https://github.com/jolt-lang/jolt
+  repo: https://github.com/jolt-lang/jolt
+  host: Chez Scheme
+  ctag: [clojure]
+  atag: [yogthos]
+  rtag: [repl, nrepl]
+  tags: [native]
+
 - name: JO Clojure
   desc: Single-header C++ Clojure interpreter
   repo: https://github.com/Zelex/jo_clojure
@@ -287,22 +300,21 @@
   ctag: [lisp]
   atag: [tiye]
 
-- name: Jolt
-  desc: A Clojure implementation on Chez Scheme
-  site: https://github.com/jolt-lang/jolt
-  repo: https://github.com/jolt-lang/jolt
-  host: Chez Scheme
-  ctag: [clojure]
-  atag: [yogthos]
-  rtag: [repl, nrepl]
-  tags: [native]
-
 - name: Cljbang
   desc: Clojure-like language that compiles to and runs as Emacs Lisp
   repo: https://github.com/borkdude/cljbang.el
   host: Emacs Lisp
   ctag: [lisp]
   atag: [borkdude]
+
+- name: Gloat
+  desc: Compile Clojure (and YAMLScript) to Go, native binaries and Wasm
+  repo: https://github.com/gloathub/gloat
+  host: Go
+  ctag: [clojure]
+  atag: [ingydotnet]
+  rtag: [repl, nrepl]
+  tags: [native]
 
 - name: Sheaf
   desc: Functional Lisp for differentiable machine learning on CPUs and GPUs
@@ -313,15 +325,6 @@
   ctag: [lisp]
   atag: [dbrll]
   rtag: [repl]
-  tags: [native]
-
-- name: Gloat
-  desc: Compile Clojure (and YAMLScript) to Go, native binaries and Wasm
-  repo: https://github.com/gloathub/gloat
-  host: Go
-  ctag: [clojure]
-  atag: [ingydotnet]
-  rtag: [repl, nrepl]
   tags: [native]
 
 - name: Lingy
@@ -347,16 +350,6 @@
   atag: [tytrdev]
   tags: [native]
 
-- name: Swish
-  desc: Clojure-inspired Lisp for embedding in Swift apps or compiling to Swift
-  repo: https://github.com/infiniteNIL/swish
-  host: Swift
-  fext: swish
-  ctag: [clojure]
-  atag: [infiniteNIL]
-  rtag: [repl]
-  tags: [native]
-
 - name: cljgo
   desc: Clojure hosted on Go with universal Go interop and native compilation
   site: https://muthuishere.github.io/cljgo/
@@ -368,13 +361,6 @@
   rtag: [repl, nrepl]
   tags: [native]
 
-- name: ClojureFnl
-  desc: Early Clojure-to-Fennel transpiler
-  repo: https://gitlab.com/andreyorst/clojurefnl
-  host: Fennel / Lua
-  ctag: [clojure]
-  atag: [andreyorst]
-
 - name: Choq
   desc: Lightweight Cherry runtime with an embedded QuickJS engine
   repo: https://github.com/squint-cljs/choq
@@ -382,3 +368,20 @@
   ctag: [lisp]
   atag: [borkdude]
   rtag: [repl, nrepl]
+
+- name: Swish
+  desc: Clojure-inspired Lisp for embedding in Swift apps or compiling to Swift
+  repo: https://github.com/infiniteNIL/swish
+  host: Swift
+  fext: swish
+  ctag: [clojure]
+  atag: [infiniteNIL]
+  rtag: [repl]
+  tags: [native]
+
+- name: ClojureFnl
+  desc: Early Clojure-to-Fennel transpiler
+  repo: https://gitlab.com/andreyorst/clojurefnl
+  host: Fennel / Lua
+  ctag: [clojure]
+  atag: [andreyorst]
