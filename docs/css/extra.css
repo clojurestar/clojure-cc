@@ -256,12 +256,10 @@ table tr:hover {
   white-space: normal;
 }
 
-/* Release column: min-width so it can grow when there's room, wraps when squeezed */
+/* Release column: date and version always stay on one line */
 .md-typeset table:not([class]):has(th:nth-child(10)) th:nth-child(9),
 .md-typeset table:not([class]):has(th:nth-child(10)) td:nth-child(9) {
-  width: auto;
-  min-width: 75px;
-  white-space: normal;
+  white-space: nowrap;
   text-align: left;
   word-spacing: 0.4em;
 }
