@@ -316,6 +316,13 @@
   rtag: [repl, nrepl]
   tags: [native]
 
+- name: Clojurust
+  desc: A Rust-hosted dialect of the Clojure programming language
+  repo: https://github.com/csm/clojurust
+  host: Rust
+  fext: cljrs
+  ctag: [clojure]
+
 - name: Sheaf
   desc: Functional Lisp for differentiable machine learning on CPUs and GPUs
   site: https://sheaf-lang.org/
