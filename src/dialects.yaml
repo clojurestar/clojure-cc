@@ -206,14 +206,14 @@
   rtag: [repl, nrepl]
 
 - name: Phel
-  desc: Functional Lisp-inspired language compiling to PHP
+  desc: Functional Clojure-compatible Lisp compiling to PHP
   site: https://phel-lang.org/
   repo: https://github.com/phel-lang/phel-lang
   host: PHP
   fext: phel
-  ctag: [lisp]
-  atag: [jenshaase]
-  rtag: [repl]
+  ctag: [clojure]
+  atag: [chemaclass]
+  rtag: [repl, nrepl]
 
 - name: Basilisp
   desc: Clojure-compatible Lisp dialect with seamless Python interop
