@@ -16,7 +16,9 @@ This installs the dialect _(very quickly!)_ and adds its command directory to
 You can then run the command by name.
 
 ```bash
-source <(curl -sL clojure.cc/get) bb && bb
+$ source <(curl -sL clojure.cc/get) bb && which bb && bb --version
+/tmp/clojure-cc-cmd/bin/bb
+babashka v1.13.219
 ```
 
 The [`get` script](https://github.com/clojurestar/clojure-cc/blob/main/docs/get)
@@ -26,6 +28,21 @@ It uses [Makes](https://github.com/makeplus/makes) to auto-install both the
 dialect *and* its host language (Java, Go, Python, PHP, etc.) into a local cache
 directory.
 Your system stays clean.
+
+By default, everything is installed under `$TMPDIR/clojure-cc-cmd/` (normally
+`/tmp/clojure-cc-cmd/`). Set `PREFIX` to choose a different self-contained
+location:
+
+```bash
+$ source <(curl -sL clojure.cc/get) jolt JOLT-VERSION=0.7.1 PREFIX=/tmp/foobar && which jolt && jolt --version
+/tmp/foobar/bin/jolt
+jolt v0.7.1
+```
+
+This installs the public command as `/tmp/foobar/bin/jolt` and keeps the
+versioned Jolt installation, Makes checkout, dependencies, and caches under
+`/tmp/foobar/share/`. If `PREFIX` ends in `/bin` or `/bin/`, the launcher strips
+that component and reports the adjusted prefix on standard error.
 
 > **Note:** For the Fish shell, use:
 > ```fish
@@ -43,6 +60,7 @@ program with it.
 |:-----|:--------|:-----|---------|
 | **`bb`** | [Babashka](https://book.babashka.org/) | GraalVM | **`source <(curl -sL clojure.cc/get) bb && bb`** |
 | **`clj`** | [Clojure](https://clojure.org/) | Java | **`source <(curl -sL clojure.cc/get) clj && clj`** |
+| **`cljgo`** | [cljgo](https://muthuishere.github.io/cljgo/) | Go | **`source <(curl -sL clojure.cc/get) cljgo && cljgo repl`** |
 | **`glj`** | [Glojure](https://github.com/glojurelang/glojure) | Go | **`source <(curl -sL clojure.cc/get) glj && glj`** |
 | **`gloat`** | [Gloat](https://gloathub.org/) | Go | **`source <(curl -sL clojure.cc/get) gloat && gloat --repl`** |
 | **`gobb`** | [Gobb](https://gobb.site/) | Go | **`source <(curl -sL clojure.cc/get) gobb && gobb`** |
@@ -59,7 +77,6 @@ Plus:
 | Command | Purpose |
 |:--------|---------|
 | **`make -f <(curl -sL clojure.cc/cmd.mk) shell`** | Start a shell with all of the above installed |
-| **`make -f <(curl -sL clojure.cc/cmd.mk) reset`** | Delete the installation cache |
 | **`make -f <(curl -sL clojure.cc/cmd.mk) help`** | Print the help text |
 
 
@@ -123,22 +140,18 @@ ccc bb -e '(+ 1 2 3)'
 
 The sourced launcher delegates to a small Makefile that:
 
-1. Clones [makeplus/makes](https://github.com/makeplus/makes) into a temp
-   directory (`$TMPDIR/clojure-cc-cmd/`).
+1. Shallow-clones [makeplus/makes](https://github.com/makeplus/makes) into
+   `$PREFIX/share/makes/`.
 2. Loads the language-specific module for the requested dialect.
 3. Downloads the host language toolchain (Java, Go, Python...).
 4. Downloads and installs the dialect.
-5. Creates a command wrapper containing the complete runtime environment.
+5. Creates a command wrapper in `$PREFIX/bin/` containing the complete runtime
+   environment.
 
 The `get` script adds the wrapper directory to `PATH`. The original Makefile
 form prints the wrapper's absolute path without changing the calling shell's
-environment.
-
-Everything lives under that single temp directory and can be cleared with:
-
-```bash
-make -f <(curl -sL clojure.cc/cmd.mk) reset
-```
+environment. Everything lives under the selected prefix; remove that directory
+manually when you no longer need the installation.
 
 See [makeplus/makes](https://github.com/makeplus/makes) for the
 implementation details.

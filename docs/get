@@ -2,6 +2,7 @@
 #
 # Usage:
 #   source <(curl -sL clojure.cc/get) bb  # Bash/Zsh
+#   source <(curl -sL clojure.cc/get) jolt PREFIX=/tmp/foobar
 #   curl -sL clojure.cc/get | source - bb # Fish
 
 test -n "$BASH_VERSION$ZSH_VERSION" && eval '
@@ -13,7 +14,7 @@ _clojure_cc_get_main() {
   if [ "$#" -eq 0 ]; then
     printf "%s\n" \
       "Usage: source <(curl -sL clojure.cc/get) <name>" \
-      "       [MAKE-VARIABLE=VALUE ...]" \
+      "       [PREFIX=DIR] [MAKE-VARIABLE=VALUE ...]" \
       >&2
     return 2
   fi
@@ -57,7 +58,7 @@ function _clojure_cc_get_main
   if test (count $argv) -eq 0
     printf "%s\n" \
       "Usage: curl -sL clojure.cc/get | source - <name>" \
-      "       [MAKE-VARIABLE=VALUE ...]" \
+      "       [PREFIX=DIR] [MAKE-VARIABLE=VALUE ...]" \
       >&2
     return 2
   end
@@ -81,6 +82,7 @@ function _clojure_cc_get_main
 
   set -l bin_dir (path dirname "$binary")
   contains -- "$bin_dir" $PATH; or set -gx PATH "$bin_dir" $PATH
+  return 0
 end
 
 _clojure_cc_get_main $argv
