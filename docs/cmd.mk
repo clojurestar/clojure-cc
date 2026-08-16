@@ -18,6 +18,9 @@ $(shell git -C '$M' pull -q)
 MAKES-QUIET := 1
 include $M/init.mk
 
+# static-php-cli can lag PHP releases; keep Phel on a published build.
+PHP-VERSION ?= 8.5.8
+
 include $M/babashka.mk
 include $M/clojure.mk
 include $M/gloat.mk
