@@ -273,6 +273,7 @@
   site: https://github.com/jolt-lang/jolt
   repo: https://github.com/jolt-lang/jolt
   host: Chez Scheme
+  fext: jolt
   ctag: [clojure]
   atag: [yogthos]
   rtag: [repl, nrepl]
