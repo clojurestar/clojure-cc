@@ -16,37 +16,39 @@ This installs the dialect _(very quickly!)_ and adds its command directory to
 You can then run the command by name.
 
 ```bash
-$ source <(curl -sL clojure.cc/get) bb && which bb && bb --version
-/tmp/clojure-cc-cmd/bin/bb
+$ source <(curl -sL in-1.cc) bb && which bb && bb --version
+/tmp/in-1/local/bin/bb
 babashka v1.13.219
 ```
 
-The [`get` script](https://github.com/clojurestar/clojure-cc/blob/main/docs/get)
-delegates installation to the
-[`cmd.mk` Makefile](https://github.com/clojurestar/clojure-cc/blob/main/docs/cmd.mk).
-It uses [Makes](https://github.com/makeplus/makes) to auto-install both the
-dialect *and* its host language (Java, Go, Python, PHP, etc.) into a local cache
-directory.
+The command is [in-1](https://in-1.cc), which uses
+[Makes](https://github.com/makeplus/makes) to auto-install both the dialect
+*and* its host language (Java, Go, Python, PHP, etc.) into a local directory.
 Your system stays clean.
 
-By default, everything is installed under `$TMPDIR/clojure-cc-cmd/` (normally
-`/tmp/clojure-cc-cmd/`). Set `PREFIX` to choose a different self-contained
-location:
+By default, everything lives under `$TMPDIR/in-1/` (normally `/tmp/in-1/`),
+with the commands in `/tmp/in-1/local/bin/`.
+Set `PREFIX` to choose a different self-contained location:
 
 ```bash
-$ source <(curl -sL clojure.cc/get) jolt JOLT-VERSION=0.7.1 PREFIX=/tmp/foobar && which jolt && jolt --version
+$ source <(curl -sL in-1.cc) jolt JOLT-VERSION=0.7.1 PREFIX=/tmp/foobar && which jolt && jolt --version
 /tmp/foobar/bin/jolt
 jolt v0.7.1
 ```
 
 This installs the public command as `/tmp/foobar/bin/jolt` and keeps the
-versioned Jolt installation, Makes checkout, dependencies, and caches under
-`/tmp/foobar/share/`. If `PREFIX` ends in `/bin` or `/bin/`, the launcher strips
-that component and reports the adjusted prefix on standard error.
+versioned Jolt installation and its dependencies under
+`/tmp/foobar/share/jolt/0.7.1/`.
+
+You can ask for several dialects at once:
+
+```bash
+source <(curl -sL in-1.cc) bb clj glj
+```
 
 > **Note:** For the Fish shell, use:
 > ```fish
-> curl -sL clojure.cc/get | source - bb; and bb
+> curl -sL in-1.cc | source - bb; and bb
 > ```
 
 
@@ -58,26 +60,29 @@ program with it.
 
 | Name | Dialect | Host | REPL Command |
 |:-----|:--------|:-----|---------|
-| **`bb`** | [Babashka](https://book.babashka.org/) | GraalVM | **`source <(curl -sL clojure.cc/get) bb && bb`** |
-| **`clj`** | [Clojure](https://clojure.org/) | Java | **`source <(curl -sL clojure.cc/get) clj && clj`** |
-| **`cljgo`** | [cljgo](https://muthuishere.github.io/cljgo/) | Go | **`source <(curl -sL clojure.cc/get) cljgo && cljgo repl`** |
-| **`glj`** | [Glojure](https://github.com/glojurelang/glojure) | Go | **`source <(curl -sL clojure.cc/get) glj && glj`** |
-| **`gloat`** | [Gloat](https://gloathub.org/) | Go | **`source <(curl -sL clojure.cc/get) gloat && gloat --repl`** |
-| **`gobb`** | [Gobb](https://gobb.site/) | Go | **`source <(curl -sL clojure.cc/get) gobb && gobb`** |
-| **`hy`** | [Hy](https://hylang.org/) | Python | **`source <(curl -sL clojure.cc/get) hy && hy`** |
-| **`janet`** | [Janet](https://janet-lang.org/) | C | **`source <(curl -sL clojure.cc/get) janet && janet`** |
-| **`joker`** | [Joker](https://github.com/candid82/joker) | Go | **`source <(curl -sL clojure.cc/get) joker && joker`** |
-| **`jolt`** | [Jolt](https://github.com/jolt-lang/jolt) | Chez Scheme | **`source <(curl -sL clojure.cc/get) jolt && jolt`** |
-| **`lein`** | [Leiningen](https://leiningen.org/) | Java | **`source <(curl -sL clojure.cc/get) lein && lein repl`** |
-| **`lg`** | [let-go](https://github.com/nooga/let-go) | Go | **`source <(curl -sL clojure.cc/get) lg && lg`** |
-| **`phel`** | [Phel](https://phel-lang.org/) | PHP | **`source <(curl -sL clojure.cc/get) phel && phel`** |
+| **`bb`** | [Babashka](https://book.babashka.org/) | GraalVM | **`source <(curl -sL in-1.cc) bb && bb`** |
+| **`clj`** | [Clojure](https://clojure.org/) | Java | **`source <(curl -sL in-1.cc) clj && clj`** |
+| **`cljgo`** | [cljgo](https://muthuishere.github.io/cljgo/) | Go | **`source <(curl -sL in-1.cc) cljgo && cljgo repl`** |
+| **`glj`** | [Glojure](https://github.com/glojurelang/glojure) | Go | **`source <(curl -sL in-1.cc) glj && glj`** |
+| **`gloat`** | [Gloat](https://gloathub.org/) | Go | **`source <(curl -sL in-1.cc) gloat && gloat --repl`** |
+| **`gobb`** | [Gobb](https://gobb.site/) | Go | **`source <(curl -sL in-1.cc) gobb && gobb`** |
+| **`hy`** | [Hy](https://hylang.org/) | Python | **`source <(curl -sL in-1.cc) hy && hy`** |
+| **`janet`** | [Janet](https://janet-lang.org/) | C | **`source <(curl -sL in-1.cc) janet && janet`** |
+| **`joker`** | [Joker](https://github.com/candid82/joker) | Go | **`source <(curl -sL in-1.cc) joker && joker`** |
+| **`jolt`** | [Jolt](https://github.com/jolt-lang/jolt) | Chez Scheme | **`source <(curl -sL in-1.cc) jolt && jolt`** |
+| **`lein`** | [Leiningen](https://leiningen.org/) | Java | **`source <(curl -sL in-1.cc) lein && lein repl`** |
+| **`lg`** | [let-go](https://github.com/nooga/let-go) | Go | **`source <(curl -sL in-1.cc) lg && lg`** |
+| **`phel`** | [Phel](https://phel-lang.org/) | PHP | **`source <(curl -sL in-1.cc) phel && phel`** |
 
 Plus:
 
 | Command | Purpose |
 |:--------|---------|
-| **`make -f <(curl -sL clojure.cc/cmd.mk) shell`** | Start a shell with all of the above installed |
-| **`make -f <(curl -sL clojure.cc/cmd.mk) help`** | Print the help text |
+| **`source <(curl -sL in-1.cc) -U bb`** | Update in-1 and Makes first, then install |
+| **`in-1 --local bb`** | Keep a dialect for good, under `~/.local` |
+
+The second one needs the `in-1` command installed; see
+<https://in-1.cc/install/>.
 
 
 ## Gloat REPL Client
@@ -96,9 +101,9 @@ See <https://gloathub.org/doc/gloat-repl/> for full details.
 
 | Server | Command |
 |:-------|:--------|
-| Babashka | **`source <(curl -sL clojure.cc/get) gloat && gloat --repl=+bb`** |
-| Jolt | **`source <(curl -sL clojure.cc/get) gloat && gloat --repl=+jolt`** |
-| let-go | **`source <(curl -sL clojure.cc/get) gloat && gloat --repl=+lg`** |
+| Babashka | **`source <(curl -sL in-1.cc) gloat && gloat --repl=+bb`** |
+| Jolt | **`source <(curl -sL in-1.cc) gloat && gloat --repl=+jolt`** |
+| let-go | **`source <(curl -sL in-1.cc) gloat && gloat --repl=+lg`** |
 
 
 ## Examples
@@ -106,19 +111,19 @@ See <https://gloathub.org/doc/gloat-repl/> for full details.
 Launch a Glojure REPL:
 
 ```bash
-source <(curl -sL clojure.cc/get) glj && glj
+source <(curl -sL in-1.cc) glj && glj
 ```
 
 Evaluate a let-go expression:
 
 ```bash
-source <(curl -sL clojure.cc/get) lg && lg '(+ 1 2 3)'
+source <(curl -sL in-1.cc) lg && lg -e '(+ 1 2 3)'
 ```
 
 Pin a Babashka version:
 
 ```bash
-source <(curl -sL clojure.cc/get) bb BABASHKA-VERSION=1.12.218 &&
+source <(curl -sL in-1.cc) bb BABASHKA-VERSION=1.12.218 &&
   bb -e 'babashka.fs/glob'
 ```
 
@@ -128,7 +133,7 @@ Or simplify with a shell function:
 ccc() {
   local dialect=$1
   shift
-  source <(curl -sL clojure.cc/get) "$dialect" && "$dialect" "$@"
+  source <(curl -sL in-1.cc) "$dialect" && "$dialect" "$@"
 }
 
 ccc clj
@@ -138,27 +143,31 @@ ccc bb -e '(+ 1 2 3)'
 
 ## How it works
 
-The sourced launcher delegates to a small Makefile that:
+The sourced script is [in-1](https://in-1.cc), which:
 
-1. Shallow-clones [makeplus/makes](https://github.com/makeplus/makes) into
-   `$PREFIX/share/makes/`.
-2. Loads the language-specific module for the requested dialect.
+1. Clones itself into `/tmp/in-1/` and shallow-clones
+   [makeplus/makes](https://github.com/makeplus/makes) into it.
+2. Loads the Makes module for the requested dialect.
 3. Downloads the host language toolchain (Java, Go, Python...).
-4. Downloads and installs the dialect.
-5. Creates a command wrapper in `$PREFIX/bin/` containing the complete runtime
-   environment.
+4. Downloads and installs the dialect under
+   `/tmp/in-1/local/share/<dialect>/<version>/`.
+5. Creates a command wrapper in `/tmp/in-1/local/bin/` containing the
+   complete runtime environment.
+   Clojure and Leiningen keep their `.clojure` and `.m2` directories inside
+   the installation, and Jolt and Phel start their REPL under `rlwrap` when
+   it is available.
+6. Adds the wrapper directory to `PATH` in your current shell.
 
-The `get` script adds the wrapper directory to `PATH`. The original Makefile
-form prints the wrapper's absolute path without changing the calling shell's
-environment. Everything lives under the selected prefix; remove that directory
-manually when you no longer need the installation.
+Everything lives under the selected prefix; remove that directory manually
+when you no longer need the installation.
 
-See [makeplus/makes](https://github.com/makeplus/makes) for the
-implementation details.
+See [in-1](https://in-1.cc/doc/design/) and
+[makeplus/makes](https://github.com/makeplus/makes) for the implementation
+details.
 
 
 ## Want more dialects?
 
-The launcher currently ships with the dialects listed above.
+in-1 currently ships with the dialects listed above.
 If you'd like to see another Clojure dialect supported here, please open an
 issue on [GitHub](https://github.com/clojurestar/clojure-cc/issues).
