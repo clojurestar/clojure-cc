@@ -1,0 +1,1359 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A curated catalog of Clojure dialects, their host platforms and project links.">
+      
+      
+        <meta name="author" content="Ingy dot Net">
+      
+      
+        <link rel="canonical" href="https://clojure.cc/dialects/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../try/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../img/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Clojure Dialects - ClojureStar</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Clojure Dialects - ClojureStar" />
+<meta property="og:description" content="A curated catalog of Clojure dialects, their host platforms and project links." />
+<meta property="og:image" content="https://clojure.cc/assets/images/social/dialects.png?v=1788683707" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://clojure.cc/dialects/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Clojure Dialects - ClojureStar" />
+<meta property="twitter:description" content="A curated catalog of Clojure dialects, their host platforms and project links." />
+<meta property="twitter:image" content="https://clojure.cc/assets/images/social/dialects.png?v=1788683707" />
+</head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#clojure-dialects" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ClojureStar" class="md-header__button md-logo" aria-label="ClojureStar" data-md-component="logo">
+      <img src="../img/logo.svg" alt="ClojureStar" class="cc-logo" data-cc-logo>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <a href=".." class="md-ellipsis" style="text-decoration: none; color: inherit;">
+            ClojureStar
+          </a>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Clojure Dialects
+            
+          </span>
+        </div>
+      </div>
+      
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/clojurestar/clojure-cc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    clojurestar/clojure-cc
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  ClojureStar
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Clojure Dialects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../try/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Try Dialects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../repl/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Browser REPL
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ClojureStar" class="md-nav__button md-logo" aria-label="ClojureStar" data-md-component="logo">
+      <img src="../img/logo.svg" alt="ClojureStar" class="cc-logo" data-cc-logo>
+    </a>
+    ClojureStar
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/clojurestar/clojure-cc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    clojurestar/clojure-cc
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ClojureStar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clojure Dialects
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clojure Dialects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#other-curated-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Curated Lists
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../try/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Try Dialects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browser REPL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#other-curated-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Curated Lists
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+  
+  <a href="https://github.com/clojurestar/clojure-cc/edit/main/src/dialects.yaml"
+     title="Edit this page"
+     class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+  </a>
+
+
+<!-- DO NOT EDIT. THIS FILE IS GENERATED FROM 'src/dialects.yaml' -->
+
+<h1 id="clojure-dialects">Clojure Dialects<a class="headerlink" href="#clojure-dialects" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;"></th>
+<th style="text-align: right;">★</th>
+<th>Dialect</th>
+<th style="text-align: center;"><abbr title="Clojure relation" aria-label="Clojure relation">C</abbr></th>
+<th style="text-align: center;"><abbr title="Author" aria-label="Author">A</abbr></th>
+<th style="text-align: center;"><abbr title="REPL support" aria-label="REPL support">R</abbr></th>
+<th style="text-align: center;"><abbr title="Other tags" aria-label="Other tags">Tag</abbr></th>
+<th>Host</th>
+<th>Release</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><strong><a href="#clojure" id="clojure">1</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/clojure/clojure">10955</a></td>
+<td><a href="https://clojure.org/">Clojure</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/richhickey" class="badge badge-richhickey" title="Authored by @richhickey"><img src="https://avatars.githubusercontent.com/u/34045?s=32&amp;v=4" alt="@richhickey"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><a class="badge badge-repl" href="../try/" title="Instant REPL support"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19v-3h8v3zm-4.5-6L2.47 7h4.24l4.96 4.95c.58.59.58 1.55 0 2.12L6.74 19H2.5z"/></svg></span></a> </span></td>
+<td style="text-align: center;"></td>
+<td>JVM</td>
+<td><em><a href="https://github.com/clojure/clojure/commit/3ae231b8f2964423ab4bc761f0ed8334c60545ee">2026-09-04 3ae231b</a></em></td>
+<td>The original; dynamic, functional Lisp on the Java Virtual Machine</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#clojurescript" id="clojurescript">2</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/clojure/clojurescript">9393</a></td>
+<td><a href="https://www.clojurescript.org/">ClojureScript</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/richhickey" class="badge badge-richhickey" title="Authored by @richhickey"><img src="https://avatars.githubusercontent.com/u/34045?s=32&amp;v=4" alt="@richhickey"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>JavaScript</td>
+<td><strong><a href="https://github.com/clojure/clojurescript/releases/tag/r1.12.145">2026-05-07 r1.12.145</a></strong></td>
+<td>Clojure compiled to JavaScript via Google Closure</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#carp" id="carp">3</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/carp-lang/Carp">6030</a></td>
+<td><a href="https://carp-lang.org/">Carp</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-lisp" title="Clojure-inspired Lisp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.62 3C19.13 5.27 20 8.55 20 12c0 3.44-.87 6.72-2.38 9L16 19.96c1.26-1.89 2-4.83 2-7.96s-.74-6.08-2-7.97zM6.38 3 8 4.04C6.74 5.92 6 8.87 6 12s.74 6.08 2 7.96L6.38 21C4.87 18.73 4 15.45 4 12s.87-6.73 2.38-9"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/eriksvedang" class="badge badge-eriksvedang" title="Authored by @eriksvedang"><img src="https://avatars.githubusercontent.com/u/356121?s=32&amp;v=4" alt="@eriksvedang"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><a class="badge badge-repl" href="../try/" title="Instant REPL support"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19v-3h8v3zm-4.5-6L2.47 7h4.24l4.96 4.95c.58.59.58 1.55 0 2.12L6.74 19H2.5z"/></svg></span></a> </span></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-native" title="Compiles your code to a native binary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15H6l7-14v8h5l-7 14z"/></svg></span> </span></td>
+<td>C</td>
+<td><strong><a href="https://github.com/carp-lang/Carp/releases/tag/v0.6.0">2026-03-28 v0.6.0</a></strong></td>
+<td>Statically-typed Lisp without a GC, compiles to C</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#hy" id="hy">4</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/hylang/hy">5435</a></td>
+<td><a href="https://github.com/hylang/hy">Hy</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-lisp" title="Clojure-inspired Lisp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.62 3C19.13 5.27 20 8.55 20 12c0 3.44-.87 6.72-2.38 9L16 19.96c1.26-1.89 2-4.83 2-7.96s-.74-6.08-2-7.97zM6.38 3 8 4.04C6.74 5.92 6 8.87 6 12s.74 6.08 2 7.96L6.38 21C4.87 18.73 4 15.45 4 12s.87-6.73 2.38-9"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/paultag" class="badge badge-paultag" title="Authored by @paultag"><img src="https://avatars.githubusercontent.com/u/132447?s=32&amp;v=4" alt="@paultag"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><a class="badge badge-repl" href="../try/" title="Instant REPL support"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19v-3h8v3zm-4.5-6L2.47 7h4.24l4.96 4.95c.58.59.58 1.55 0 2.12L6.74 19H2.5z"/></svg></span></a> </span></td>
+<td style="text-align: center;"></td>
+<td>Python</td>
+<td><strong><a href="https://github.com/hylang/hy/releases/tag/1.3.1">2026-07-31 1.3.1</a></strong></td>
+<td>A Lisp dialect embedded in Python (Clojure-adjacent)</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#babashka" id="babashka">5</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/babashka/babashka">4603</a></td>
+<td><a href="https://book.babashka.org/">Babashka</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/borkdude" class="badge badge-borkdude" title="Authored by @borkdude"><img src="https://avatars.githubusercontent.com/u/284934?s=32&amp;v=4" alt="@borkdude"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><a class="badge badge-repl" href="../try/" title="Instant REPL support"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19v-3h8v3zm-4.5-6L2.47 7h4.24l4.96 4.95c.58.59.58 1.55 0 2.12L6.74 19H2.5z"/></svg></span></a> <span class="twemoji badge badge-nrepl" title="Built-in nREPL support"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2H1v2h12V9h-3c1.11 0 2-.89 2-2V3c0-1.11-.89-2-2-2zm0 2h6v4H4zM3 13v7h7v-2H5v-5zm11 0c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2h-3v2h12v-2h-3c1.11 0 2-.89 2-2v-4c0-1.11-.89-2-2-2zm0 2h6v4h-6z"/></svg></span> </span></td>
+<td style="text-align: center;"></td>
+<td>GraalVM native</td>
+<td><strong><a href="https://github.com/babashka/babashka/releases/tag/v1.13.220">2026-08-31 v1.13.220</a></strong></td>
+<td>Fast-starting Clojure interpreter for shell scripting</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#janet" id="janet">6</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/janet-lang/janet">4407</a></td>
+<td><a href="https://github.com/janet-lang/janet">Janet</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-lisp" title="Clojure-inspired Lisp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.62 3C19.13 5.27 20 8.55 20 12c0 3.44-.87 6.72-2.38 9L16 19.96c1.26-1.89 2-4.83 2-7.96s-.74-6.08-2-7.97zM6.38 3 8 4.04C6.74 5.92 6 8.87 6 12s.74 6.08 2 7.96L6.38 21C4.87 18.73 4 15.45 4 12s.87-6.73 2.38-9"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/bakpakin" class="badge badge-bakpakin" title="Authored by @bakpakin"><img src="https://avatars.githubusercontent.com/u/6185660?s=32&amp;v=4" alt="@bakpakin"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><a class="badge badge-repl" href="../try/" title="Instant REPL support"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19v-3h8v3zm-4.5-6L2.47 7h4.24l4.96 4.95c.58.59.58 1.55 0 2.12L6.74 19H2.5z"/></svg></span></a> </span></td>
+<td style="text-align: center;"></td>
+<td>C</td>
+<td><strong><a href="https://github.com/janet-lang/janet/releases/tag/v1.42.0">2026-08-31 v1.42.0</a></strong></td>
+<td>Dynamic language and bytecode VM (Clojure-adjacent)</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#jank" id="jank">7</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/jank-lang/jank">3326</a></td>
+<td><a href="https://jank-lang.org/">Jank</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/jeaye" class="badge badge-jeaye" title="Authored by @jeaye"><img src="https://avatars.githubusercontent.com/u/1057635?s=32&amp;v=4" alt="@jeaye"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-nrepl" title="Built-in nREPL support"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2H1v2h12V9h-3c1.11 0 2-.89 2-2V3c0-1.11-.89-2-2-2zm0 2h6v4H4zM3 13v7h7v-2H5v-5zm11 0c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2h-3v2h12v-2h-3c1.11 0 2-.89 2-2v-4c0-1.11-.89-2-2-2zm0 2h6v4h-6z"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-native" title="Compiles your code to a native binary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15H6l7-14v8h5l-7 14z"/></svg></span> </span></td>
+<td>C++ / LLVM</td>
+<td><em><a href="https://github.com/jank-lang/jank/commit/bc52e74e39a7e90a73b403cc7201723dda20b4ac">2026-09-06 bc52e74</a></em></td>
+<td>Native Clojure dialect with seamless C++ interop</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#fennel" id="fennel">8</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/bakpakin/fennel">2749</a></td>
+<td><a href="https://fennel-lang.org/">Fennel</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-lisp" title="Clojure-inspired Lisp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.62 3C19.13 5.27 20 8.55 20 12c0 3.44-.87 6.72-2.38 9L16 19.96c1.26-1.89 2-4.83 2-7.96s-.74-6.08-2-7.97zM6.38 3 8 4.04C6.74 5.92 6 8.87 6 12s.74 6.08 2 7.96L6.38 21C4.87 18.73 4 15.45 4 12s.87-6.73 2.38-9"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/technomancy" class="badge badge-technomancy" title="Authored by @technomancy"><img src="https://avatars.githubusercontent.com/u/141?s=32&amp;v=4" alt="@technomancy"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>Lua</td>
+<td><strong><a href="https://git.sr.ht/~technomancy/fennel/refs/1.6.1">2025-12-30 1.6.1</a></strong></td>
+<td>Clojure-like Lisp dialect with seamless interop</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#joker" id="joker">9</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/candid82/joker">1769</a></td>
+<td><a href="https://github.com/candid82/joker">Joker</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-lisp" title="Clojure-inspired Lisp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.62 3C19.13 5.27 20 8.55 20 12c0 3.44-.87 6.72-2.38 9L16 19.96c1.26-1.89 2-4.83 2-7.96s-.74-6.08-2-7.97zM6.38 3 8 4.04C6.74 5.92 6 8.87 6 12s.74 6.08 2 7.96L6.38 21C4.87 18.73 4 15.45 4 12s.87-6.73 2.38-9"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/candid82" class="badge badge-candid82" title="Authored by @candid82"><img src="https://avatars.githubusercontent.com/u/882970?s=32&amp;v=4" alt="@candid82"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><a class="badge badge-repl" href="../try/" title="Instant REPL support"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19v-3h8v3zm-4.5-6L2.47 7h4.24l4.96 4.95c.58.59.58 1.55 0 2.12L6.74 19H2.5z"/></svg></span></a> </span></td>
+<td style="text-align: center;"></td>
+<td>Go</td>
+<td><strong><a href="https://github.com/candid82/joker/releases/tag/v1.10.0">2026-08-23 v1.10.0</a></strong></td>
+<td>Small Clojure interpreter, linter and formatter</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#lux" id="lux">10</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/LuxLang/lux">1740</a></td>
+<td><a href="https://github.com/LuxLang/lux">Lux</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-lisp" title="Clojure-inspired Lisp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.62 3C19.13 5.27 20 8.55 20 12c0 3.44-.87 6.72-2.38 9L16 19.96c1.26-1.89 2-4.83 2-7.96s-.74-6.08-2-7.97zM6.38 3 8 4.04C6.74 5.92 6 8.87 6 12s.74 6.08 2 7.96L6.38 21C4.87 18.73 4 15.45 4 12s.87-6.73 2.38-9"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/eduardoejp" class="badge badge-eduardoejp" title="Authored by @eduardoejp"><img src="https://avatars.githubusercontent.com/u/245700?s=32&amp;v=4" alt="@eduardoejp"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>JVM (multi-target)</td>
+<td><strong><a href="https://github.com/LuxLang/lux/releases/tag/0.9.0">2025-11-01 0.9.0</a></strong></td>
+<td>Statically-typed functional Lisp with multiple host targets</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#clojerl" id="clojerl">11</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/clojerl/clojerl">1714</a></td>
+<td><a href="https://github.com/clojerl/clojerl">Clojerl</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/jfacorro" class="badge badge-jfacorro" title="Authored by @jfacorro"><img src="https://avatars.githubusercontent.com/u/1522569?s=32&amp;v=4" alt="@jfacorro"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>Erlang VM</td>
+<td><em><a href="https://github.com/clojerl/clojerl/commit/4ad14e57df85d30cc3332308f861f4e174383483">2025-01-07 4ad14e5</a></em></td>
+<td>Clojure for the BEAM</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#clojureclr" id="clojureclr">12</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/clojure/clojure-clr">1654</a></td>
+<td><a href="https://github.com/clojure/clojure-clr">ClojureCLR</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/dmiller" class="badge badge-dmiller" title="Authored by @dmiller"><img src="https://avatars.githubusercontent.com/u/84709?s=32&amp;v=4" alt="@dmiller"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>.NET</td>
+<td><em><a href="https://github.com/clojure/clojure-clr/commit/9a9c94b2c190c83ea6314f3cbf0a0a6d2b7879ca">2026-09-02 9a9c94b</a></em></td>
+<td>Port of Clojure to the Common Language Runtime</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#clojuredart" id="clojuredart">13</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/Tensegritics/ClojureDart">1640</a></td>
+<td><a href="https://github.com/Tensegritics/ClojureDart">ClojureDart</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/cgrand" class="badge badge-cgrand" title="Authored by @cgrand"><img src="https://avatars.githubusercontent.com/u/47025?s=32&amp;v=4" alt="@cgrand"></a> <a href="https://github.com/dupuchba" class="badge badge-dupuchba" title="Authored by @dupuchba"><img src="https://avatars.githubusercontent.com/u/911705?s=32&amp;v=4" alt="@dupuchba"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-native" title="Compiles your code to a native binary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15H6l7-14v8h5l-7 14z"/></svg></span> </span></td>
+<td>Dart / Flutter</td>
+<td><strong><a href="https://github.com/Tensegritics/ClojureDart/releases/tag/0.9.20260822a">2026-08-22 0.9.20260822a</a></strong></td>
+<td>Clojure for Flutter and Dart with native and Wasm targets</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#ferret" id="ferret">14</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/nakkaya/ferret">1126</a></td>
+<td><a href="https://github.com/nakkaya/ferret">Ferret</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-lisp" title="Clojure-inspired Lisp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.62 3C19.13 5.27 20 8.55 20 12c0 3.44-.87 6.72-2.38 9L16 19.96c1.26-1.89 2-4.83 2-7.96s-.74-6.08-2-7.97zM6.38 3 8 4.04C6.74 5.92 6 8.87 6 12s.74 6.08 2 7.96L6.38 21C4.87 18.73 4 15.45 4 12s.87-6.73 2.38-9"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/nakkaya" class="badge badge-nakkaya" title="Authored by @nakkaya"><img src="https://avatars.githubusercontent.com/u/88499?s=32&amp;v=4" alt="@nakkaya"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-native" title="Compiles your code to a native binary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15H6l7-14v8h5l-7 14z"/></svg></span> </span></td>
+<td>C++11</td>
+<td><em><a href="https://github.com/nakkaya/ferret/commit/171a5750ec3b1792e5a70dbf77e52edfbdbed0c8">2020-01-29 171a575</a></em></td>
+<td>Free-software Lisp for real-time embedded control</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#planck" id="planck">15</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/planck-repl/planck">1037</a></td>
+<td><a href="https://planck-repl.org/">Planck</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/mfikes" class="badge badge-mfikes" title="Authored by @mfikes"><img src="https://avatars.githubusercontent.com/u/1723464?s=32&amp;v=4" alt="@mfikes"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><a class="badge badge-repl" href="../try/" title="Instant REPL support"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19v-3h8v3zm-4.5-6L2.47 7h4.24l4.96 4.95c.58.59.58 1.55 0 2.12L6.74 19H2.5z"/></svg></span></a> </span></td>
+<td style="text-align: center;"></td>
+<td>JavaScriptCore</td>
+<td><strong><a href="https://github.com/planck-repl/planck/releases/tag/2.28.0">2024-03-24 2.28.0</a></strong></td>
+<td>Stand-alone ClojureScript REPL on JavaScriptCore</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#clojurers" id="clojurers">16</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/clojure-rs/ClojureRS">979</a></td>
+<td><a href="https://github.com/clojure-rs/ClojureRS">ClojureRS</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/Tko1" class="badge badge-Tko1" title="Authored by @Tko1"><img src="https://avatars.githubusercontent.com/u/6475256?s=32&amp;v=4" alt="@Tko1"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>Rust</td>
+<td><em><a href="https://github.com/clojure-rs/ClojureRS/commit/cb64b43409542f575d42d479a9a0b35c2132b950">2023-04-16 cb64b43</a></em></td>
+<td>Clojure implementation atop Rust</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#nbb" id="nbb">17</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/babashka/nbb">964</a></td>
+<td><a href="https://github.com/babashka/nbb">nbb</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/borkdude" class="badge badge-borkdude" title="Authored by @borkdude"><img src="https://avatars.githubusercontent.com/u/284934?s=32&amp;v=4" alt="@borkdude"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-nrepl" title="Built-in nREPL support"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2H1v2h12V9h-3c1.11 0 2-.89 2-2V3c0-1.11-.89-2-2-2zm0 2h6v4H4zM3 13v7h7v-2H5v-5zm11 0c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2h-3v2h12v-2h-3c1.11 0 2-.89 2-2v-4c0-1.11-.89-2-2-2zm0 2h6v4h-6z"/></svg></span> </span></td>
+<td style="text-align: center;"></td>
+<td>Node.js</td>
+<td><em><a href="https://github.com/babashka/nbb/commit/951e62b6fc2434c2f1a9b6d977516dafb98534d5">2026-08-18 951e62b</a></em></td>
+<td>Scripting in Clojure on Node.js via SCI</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#squint" id="squint">18</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/squint-cljs/squint">899</a></td>
+<td><a href="https://github.com/squint-cljs/squint">Squint</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-lisp" title="Clojure-inspired Lisp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.62 3C19.13 5.27 20 8.55 20 12c0 3.44-.87 6.72-2.38 9L16 19.96c1.26-1.89 2-4.83 2-7.96s-.74-6.08-2-7.97zM6.38 3 8 4.04C6.74 5.92 6 8.87 6 12s.74 6.08 2 7.96L6.38 21C4.87 18.73 4 15.45 4 12s.87-6.73 2.38-9"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/borkdude" class="badge badge-borkdude" title="Authored by @borkdude"><img src="https://avatars.githubusercontent.com/u/284934?s=32&amp;v=4" alt="@borkdude"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-nrepl" title="Built-in nREPL support"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2H1v2h12V9h-3c1.11 0 2-.89 2-2V3c0-1.11-.89-2-2-2zm0 2h6v4H4zM3 13v7h7v-2H5v-5zm11 0c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2h-3v2h12v-2h-3c1.11 0 2-.89 2-2v-4c0-1.11-.89-2-2-2zm0 2h6v4h-6z"/></svg></span> </span></td>
+<td style="text-align: center;"></td>
+<td>JavaScript</td>
+<td><strong><a href="https://github.com/squint-cljs/squint/releases/tag/v0.14.208">2026-08-12 v0.14.208</a></strong></td>
+<td>Light-weight ClojureScript dialect transpiling to mutable JS</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#glojure" id="glojure">19</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/glojurelang/glojure">727</a></td>
+<td><a href="https://github.com/glojurelang/glojure">Glojure</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/jfhamlin" class="badge badge-jfhamlin" title="Authored by @jfhamlin"><img src="https://avatars.githubusercontent.com/u/375864?s=32&amp;v=4" alt="@jfhamlin"></a> <a href="https://github.com/ingydotnet" class="badge badge-ingydotnet" title="Authored by @ingydotnet"><img src="https://avatars.githubusercontent.com/u/21826?s=32&amp;v=4" alt="@ingydotnet"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><a class="badge badge-repl" href="../try/" title="Instant REPL support"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19v-3h8v3zm-4.5-6L2.47 7h4.24l4.96 4.95c.58.59.58 1.55 0 2.12L6.74 19H2.5z"/></svg></span></a> <span class="twemoji badge badge-nrepl" title="Built-in nREPL support"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2H1v2h12V9h-3c1.11 0 2-.89 2-2V3c0-1.11-.89-2-2-2zm0 2h6v4H4zM3 13v7h7v-2H5v-5zm11 0c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2h-3v2h12v-2h-3c1.11 0 2-.89 2-2v-4c0-1.11-.89-2-2-2zm0 2h6v4h-6z"/></svg></span> </span></td>
+<td style="text-align: center;"></td>
+<td>Go</td>
+<td><strong><a href="https://github.com/glojurelang/glojure/releases/tag/v0.7.14">2026-08-19 v0.7.14</a></strong></td>
+<td>Clojure interpreter hosted on Go with seamless Go interop</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#cherry" id="cherry">20</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/squint-cljs/cherry">660</a></td>
+<td><a href="https://github.com/squint-cljs/cherry">Cherry</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-lisp" title="Clojure-inspired Lisp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.62 3C19.13 5.27 20 8.55 20 12c0 3.44-.87 6.72-2.38 9L16 19.96c1.26-1.89 2-4.83 2-7.96s-.74-6.08-2-7.97zM6.38 3 8 4.04C6.74 5.92 6 8.87 6 12s.74 6.08 2 7.96L6.38 21C4.87 18.73 4 15.45 4 12s.87-6.73 2.38-9"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/borkdude" class="badge badge-borkdude" title="Authored by @borkdude"><img src="https://avatars.githubusercontent.com/u/284934?s=32&amp;v=4" alt="@borkdude"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>JavaScript (ES6)</td>
+<td><strong><a href="https://github.com/squint-cljs/cherry/releases/tag/v0.6.38">2026-08-10 v0.6.38</a></strong></td>
+<td>Experimental ClojureScript to ES6 module compiler</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#yamlscript" id="yamlscript">21</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/yaml/yamlscript">634</a></td>
+<td><a href="https://yamlscript.org/">YAMLScript</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/ingydotnet" class="badge badge-ingydotnet" title="Authored by @ingydotnet"><img src="https://avatars.githubusercontent.com/u/21826?s=32&amp;v=4" alt="@ingydotnet"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-native" title="Compiles your code to a native binary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15H6l7-14v8h5l-7 14z"/></svg></span> </span></td>
+<td>GraalVM native</td>
+<td><strong><a href="https://github.com/yaml/yamlscript/releases/tag/0.2.32">2026-08-25 0.2.32</a></strong></td>
+<td>YAML syntax that translates to Clojure code and semantics</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#joyride" id="joyride">22</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/BetterThanTomorrow/joyride">592</a></td>
+<td><a href="https://github.com/BetterThanTomorrow/joyride">Joyride</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/PEZ" class="badge badge-PEZ" title="Authored by @PEZ"><img src="https://avatars.githubusercontent.com/u/30010?s=32&amp;v=4" alt="@PEZ"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-nrepl" title="Built-in nREPL support"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2H1v2h12V9h-3c1.11 0 2-.89 2-2V3c0-1.11-.89-2-2-2zm0 2h6v4H4zM3 13v7h7v-2H5v-5zm11 0c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2h-3v2h12v-2h-3c1.11 0 2-.89 2-2v-4c0-1.11-.89-2-2-2zm0 2h6v4h-6z"/></svg></span> </span></td>
+<td style="text-align: center;"></td>
+<td>VS Code</td>
+<td><strong><a href="https://github.com/BetterThanTomorrow/joyride/releases/tag/v0.0.81">2026-08-30 v0.0.81</a></strong></td>
+<td>Make VS Code hackable like Emacs, with Clojure</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#let-go" id="let-go">23</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/nooga/let-go">554</a></td>
+<td><a href="https://github.com/nooga/let-go">let-go</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/nooga" class="badge badge-nooga" title="Authored by @nooga"><img src="https://avatars.githubusercontent.com/u/198496?s=32&amp;v=4" alt="@nooga"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><a class="badge badge-repl" href="../try/" title="Instant REPL support"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19v-3h8v3zm-4.5-6L2.47 7h4.24l4.96 4.95c.58.59.58 1.55 0 2.12L6.74 19H2.5z"/></svg></span></a> <span class="twemoji badge badge-nrepl" title="Built-in nREPL support"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2H1v2h12V9h-3c1.11 0 2-.89 2-2V3c0-1.11-.89-2-2-2zm0 2h6v4H4zM3 13v7h7v-2H5v-5zm11 0c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2h-3v2h12v-2h-3c1.11 0 2-.89 2-2v-4c0-1.11-.89-2-2-2zm0 2h6v4h-6z"/></svg></span> </span></td>
+<td style="text-align: center;"></td>
+<td>Go</td>
+<td><strong><a href="https://github.com/nooga/let-go/releases/tag/v1.12.2">2026-07-20 v1.12.2</a></strong></td>
+<td>"Almost Clojure" written in Go</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#phel" id="phel">24</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/phel-lang/phel-lang">524</a></td>
+<td><a href="https://phel-lang.org/">Phel</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-lisp" title="Clojure-inspired Lisp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.62 3C19.13 5.27 20 8.55 20 12c0 3.44-.87 6.72-2.38 9L16 19.96c1.26-1.89 2-4.83 2-7.96s-.74-6.08-2-7.97zM6.38 3 8 4.04C6.74 5.92 6 8.87 6 12s.74 6.08 2 7.96L6.38 21C4.87 18.73 4 15.45 4 12s.87-6.73 2.38-9"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/jenshaase" class="badge badge-jenshaase" title="Authored by @jenshaase"><img src="https://avatars.githubusercontent.com/u/176220?s=32&amp;v=4" alt="@jenshaase"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><a class="badge badge-repl" href="../try/" title="Instant REPL support"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19v-3h8v3zm-4.5-6L2.47 7h4.24l4.96 4.95c.58.59.58 1.55 0 2.12L6.74 19H2.5z"/></svg></span></a> </span></td>
+<td style="text-align: center;"></td>
+<td>PHP</td>
+<td><strong><a href="https://github.com/phel-lang/phel-lang/releases/tag/v0.51.0">2026-09-05 v0.51.0</a></strong></td>
+<td>Functional Lisp-inspired language compiling to PHP</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#basilisp" id="basilisp">25</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/basilisp-lang/basilisp">477</a></td>
+<td><a href="https://github.com/basilisp-lang/basilisp">Basilisp</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/chrisrink10" class="badge badge-chrisrink10" title="Authored by @chrisrink10"><img src="https://avatars.githubusercontent.com/u/5423242?s=32&amp;v=4" alt="@chrisrink10"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-nrepl" title="Built-in nREPL support"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2H1v2h12V9h-3c1.11 0 2-.89 2-2V3c0-1.11-.89-2-2-2zm0 2h6v4H4zM3 13v7h7v-2H5v-5zm11 0c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2h-3v2h12v-2h-3c1.11 0 2-.89 2-2v-4c0-1.11-.89-2-2-2zm0 2h6v4h-6z"/></svg></span> </span></td>
+<td style="text-align: center;"></td>
+<td>Python 3</td>
+<td><strong><a href="https://github.com/basilisp-lang/basilisp/releases/tag/v0.5.1">2026-04-09 v0.5.1</a></strong></td>
+<td>Clojure-compatible Lisp dialect with seamless Python interop</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#scittle" id="scittle">26</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/babashka/scittle">437</a></td>
+<td><a href="https://github.com/babashka/scittle">Scittle</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/borkdude" class="badge badge-borkdude" title="Authored by @borkdude"><img src="https://avatars.githubusercontent.com/u/284934?s=32&amp;v=4" alt="@borkdude"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-nrepl" title="Built-in nREPL support"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2H1v2h12V9h-3c1.11 0 2-.89 2-2V3c0-1.11-.89-2-2-2zm0 2h6v4H4zM3 13v7h7v-2H5v-5zm11 0c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2h-3v2h12v-2h-3c1.11 0 2-.89 2-2v-4c0-1.11-.89-2-2-2zm0 2h6v4h-6z"/></svg></span> </span></td>
+<td style="text-align: center;"></td>
+<td>JavaScript (browser)</td>
+<td><strong><a href="https://github.com/babashka/scittle/releases/tag/v0.8.33">2026-08-18 v0.8.33</a></strong></td>
+<td>Run Clojure directly from <code>&lt;script&gt;</code> tags via SCI</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#cloture" id="cloture">27</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/ruricolist/cloture">400</a></td>
+<td><a href="https://github.com/ruricolist/cloture">Cloture</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/ruricolist" class="badge badge-ruricolist" title="Authored by @ruricolist"><img src="https://avatars.githubusercontent.com/u/389160?s=32&amp;v=4" alt="@ruricolist"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>Common Lisp</td>
+<td><em><a href="https://github.com/ruricolist/cloture/commit/da0b3b0ec0fdacfbd79d17c32966bf8e5a54b224">2026-08-22 da0b3b0</a></em></td>
+<td>Clojure dialect implemented in Common Lisp</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#obb" id="obb">28</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/babashka/obb">247</a></td>
+<td><a href="https://github.com/babashka/obb">obb</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/borkdude" class="badge badge-borkdude" title="Authored by @borkdude"><img src="https://avatars.githubusercontent.com/u/284934?s=32&amp;v=4" alt="@borkdude"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>Applescript Open Scripting</td>
+<td><strong><a href="https://github.com/babashka/obb/releases/tag/v0.0.3">2022-03-09 v0.0.3</a></strong></td>
+<td>SCI ClojureScript scripting of Mac OSX</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#lokke" id="lokke">29</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/lokke-org/lokke">220</a></td>
+<td><a href="https://github.com/lokke-org/lokke">Lokke</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/rlbdv" class="badge badge-rlbdv" title="Authored by @rlbdv"><img src="https://avatars.githubusercontent.com/u/2295838?s=32&amp;v=4" alt="@rlbdv"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>GNU Guile</td>
+<td><em><a href="https://github.com/lokke-org/lokke/commit/10dfebe0d7e601760802114abb274a3dc889305a">2024-03-18 10dfebe</a></em></td>
+<td>Clojure dialect hosted on GNU Guile</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#clojurewasm" id="clojurewasm">30</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/clojurewasm/ClojureWasm">186</a></td>
+<td><a href="https://github.com/clojurewasm/ClojureWasm">ClojureWasm</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/chaploud" class="badge badge-chaploud" title="Authored by @chaploud"><img src="https://avatars.githubusercontent.com/u/19206115?s=32&amp;v=4" alt="@chaploud"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-nrepl" title="Built-in nREPL support"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2H1v2h12V9h-3c1.11 0 2-.89 2-2V3c0-1.11-.89-2-2-2zm0 2h6v4H4zM3 13v7h7v-2H5v-5zm11 0c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2h-3v2h12v-2h-3c1.11 0 2-.89 2-2v-4c0-1.11-.89-2-2-2zm0 2h6v4h-6z"/></svg></span> </span></td>
+<td style="text-align: center;"></td>
+<td>WebAssembly (Zig)</td>
+<td><strong><a href="https://github.com/clojurewasm/ClojureWasm/releases/tag/v1.10.1">2026-08-12 v1.10.1</a></strong></td>
+<td>Independent Clojure runtime optimized for Wasm</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#cream" id="cream">31</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/borkdude/cream">167</a></td>
+<td><a href="https://github.com/borkdude/cream">Cream</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/borkdude" class="badge badge-borkdude" title="Authored by @borkdude"><img src="https://avatars.githubusercontent.com/u/284934?s=32&amp;v=4" alt="@borkdude"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>GraalVM</td>
+<td><em><a href="https://github.com/borkdude/cream/commit/26fceebbdeeb6140822708451a58dd94e51e0f3e">2026-07-27 26fceeb</a></em></td>
+<td>Fast-starting Clojure runtime built on Crema</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#jolt" id="jolt">32</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/jolt-lang/jolt">279</a></td>
+<td><a href="https://github.com/jolt-lang/jolt">Jolt</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/yogthos" class="badge badge-yogthos" title="Authored by @yogthos"><img src="https://avatars.githubusercontent.com/u/121208?s=32&amp;v=4" alt="@yogthos"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><a class="badge badge-repl" href="../try/" title="Instant REPL support"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19v-3h8v3zm-4.5-6L2.47 7h4.24l4.96 4.95c.58.59.58 1.55 0 2.12L6.74 19H2.5z"/></svg></span></a> <span class="twemoji badge badge-nrepl" title="Built-in nREPL support"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2H1v2h12V9h-3c1.11 0 2-.89 2-2V3c0-1.11-.89-2-2-2zm0 2h6v4H4zM3 13v7h7v-2H5v-5zm11 0c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2h-3v2h12v-2h-3c1.11 0 2-.89 2-2v-4c0-1.11-.89-2-2-2zm0 2h6v4h-6z"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-native" title="Compiles your code to a native binary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15H6l7-14v8h5l-7 14z"/></svg></span> </span></td>
+<td>Chez Scheme</td>
+<td><strong><a href="https://github.com/jolt-lang/jolt/releases/tag/v0.8.3">2026-09-06 v0.8.3</a></strong></td>
+<td>A Clojure implementation on Chez Scheme</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#jo-clojure" id="jo-clojure">33</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/Zelex/jo_clojure">153</a></td>
+<td><a href="https://github.com/Zelex/jo_clojure">JO Clojure</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/Zelex" class="badge badge-Zelex" title="Authored by @Zelex"><img src="https://avatars.githubusercontent.com/u/410696?s=32&amp;v=4" alt="@Zelex"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>C++</td>
+<td><em><a href="https://github.com/Zelex/jo_clojure/commit/6633a8c0963b62bf2eadaa4b076ddf07ef87095d">2025-04-26 6633a8c</a></em></td>
+<td>Single-header C++ Clojure interpreter</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#clojure-clr-next" id="clojure-clr-next">34</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/dmiller/clojure-clr-next">143</a></td>
+<td><a href="https://github.com/dmiller/clojure-clr-next">clojure-clr-next</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/dmiller" class="badge badge-dmiller" title="Authored by @dmiller"><img src="https://avatars.githubusercontent.com/u/84709?s=32&amp;v=4" alt="@dmiller"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>.NET (F#)</td>
+<td><em><a href="https://github.com/dmiller/clojure-clr-next/commit/8d9f95d9aafa98cbb3900bdd3eb01054ea767021">2025-09-23 8d9f95d</a></em></td>
+<td>Next-generation ClojureCLR under development</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#calcit" id="calcit">35</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/calcit-lang/calcit">144</a></td>
+<td><a href="http://calcit-lang.org/">Calcit</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-lisp" title="Clojure-inspired Lisp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.62 3C19.13 5.27 20 8.55 20 12c0 3.44-.87 6.72-2.38 9L16 19.96c1.26-1.89 2-4.83 2-7.96s-.74-6.08-2-7.97zM6.38 3 8 4.04C6.74 5.92 6 8.87 6 12s.74 6.08 2 7.96L6.38 21C4.87 18.73 4 15.45 4 12s.87-6.73 2.38-9"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/tiye" class="badge badge-tiye" title="Authored by @tiye"><img src="https://avatars.githubusercontent.com/u/449224?s=32&amp;v=4" alt="@tiye"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>JavaScript (Rust runtime)</td>
+<td><strong><a href="https://github.com/calcit-lang/calcit/releases/tag/0.13.77">2026-09-04 0.13.77</a></strong></td>
+<td>ClojureScript-inspired scripting language with a structural code format</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#cljbang" id="cljbang">36</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/borkdude/cljbang.el">114</a></td>
+<td><a href="https://github.com/borkdude/cljbang.el">Cljbang</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-lisp" title="Clojure-inspired Lisp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.62 3C19.13 5.27 20 8.55 20 12c0 3.44-.87 6.72-2.38 9L16 19.96c1.26-1.89 2-4.83 2-7.96s-.74-6.08-2-7.97zM6.38 3 8 4.04C6.74 5.92 6 8.87 6 12s.74 6.08 2 7.96L6.38 21C4.87 18.73 4 15.45 4 12s.87-6.73 2.38-9"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/borkdude" class="badge badge-borkdude" title="Authored by @borkdude"><img src="https://avatars.githubusercontent.com/u/284934?s=32&amp;v=4" alt="@borkdude"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>Emacs Lisp</td>
+<td><em><a href="https://github.com/borkdude/cljbang.el/commit/f18da3e525a2b9975b5fd0d476822375448789c9">2026-07-22 f18da3e</a></em></td>
+<td>Clojure-like language that compiles to and runs as Emacs Lisp</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#gloat" id="gloat">37</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/gloathub/gloat">54</a></td>
+<td><a href="https://github.com/gloathub/gloat">Gloat</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/ingydotnet" class="badge badge-ingydotnet" title="Authored by @ingydotnet"><img src="https://avatars.githubusercontent.com/u/21826?s=32&amp;v=4" alt="@ingydotnet"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><a class="badge badge-repl" href="../try/" title="Instant REPL support"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19v-3h8v3zm-4.5-6L2.47 7h4.24l4.96 4.95c.58.59.58 1.55 0 2.12L6.74 19H2.5z"/></svg></span></a> <span class="twemoji badge badge-nrepl" title="Built-in nREPL support"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2H1v2h12V9h-3c1.11 0 2-.89 2-2V3c0-1.11-.89-2-2-2zm0 2h6v4H4zM3 13v7h7v-2H5v-5zm11 0c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2h-3v2h12v-2h-3c1.11 0 2-.89 2-2v-4c0-1.11-.89-2-2-2zm0 2h6v4h-6z"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-native" title="Compiles your code to a native binary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15H6l7-14v8h5l-7 14z"/></svg></span> </span></td>
+<td>Go</td>
+<td><strong><a href="https://github.com/gloathub/gloat/releases/tag/v0.1.79">2026-09-02 v0.1.79</a></strong></td>
+<td>Compile Clojure (and YAMLScript) to Go, native binaries and Wasm</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#clojurust" id="clojurust">38</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/csm/clojurust">61</a></td>
+<td><a href="https://github.com/csm/clojurust">Clojurust</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>Rust</td>
+<td><strong><a href="https://github.com/csm/clojurust/releases/tag/v0.2.10">2026-09-04 v0.2.10</a></strong></td>
+<td>A Rust-hosted dialect of the Clojure programming language</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#sheaf" id="sheaf">39</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/sheaf-lang/sheaf">55</a></td>
+<td><a href="https://sheaf-lang.org/">Sheaf</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-lisp" title="Clojure-inspired Lisp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.62 3C19.13 5.27 20 8.55 20 12c0 3.44-.87 6.72-2.38 9L16 19.96c1.26-1.89 2-4.83 2-7.96s-.74-6.08-2-7.97zM6.38 3 8 4.04C6.74 5.92 6 8.87 6 12s.74 6.08 2 7.96L6.38 21C4.87 18.73 4 15.45 4 12s.87-6.73 2.38-9"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/dbrll" class="badge badge-dbrll" title="Authored by @dbrll"><img src="https://avatars.githubusercontent.com/u/10487787?s=32&amp;v=4" alt="@dbrll"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><a class="badge badge-repl" href="../try/" title="Instant REPL support"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19v-3h8v3zm-4.5-6L2.47 7h4.24l4.96 4.95c.58.59.58 1.55 0 2.12L6.74 19H2.5z"/></svg></span></a> </span></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-native" title="Compiles your code to a native binary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15H6l7-14v8h5l-7 14z"/></svg></span> </span></td>
+<td>Rust / IREE</td>
+<td><strong><a href="https://github.com/sheaf-lang/sheaf/releases/tag/v2.2.0">2026-07-14 v2.2.0</a></strong></td>
+<td>Functional Lisp for differentiable machine learning on CPUs and GPUs</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#lingy" id="lingy">40</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/lingy-lang/lingy">45</a></td>
+<td><a href="https://github.com/lingy-lang/lingy">Lingy</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-lisp" title="Clojure-inspired Lisp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.62 3C19.13 5.27 20 8.55 20 12c0 3.44-.87 6.72-2.38 9L16 19.96c1.26-1.89 2-4.83 2-7.96s-.74-6.08-2-7.97zM6.38 3 8 4.04C6.74 5.92 6 8.87 6 12s.74 6.08 2 7.96L6.38 21C4.87 18.73 4 15.45 4 12s.87-6.73 2.38-9"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/ingydotnet" class="badge badge-ingydotnet" title="Authored by @ingydotnet"><img src="https://avatars.githubusercontent.com/u/21826?s=32&amp;v=4" alt="@ingydotnet"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>Perl</td>
+<td><em><a href="https://github.com/lingy-lang/lingy/commit/defdc856bebc8e8f55d8d781612591c1bc298e45">2023-07-27 defdc85</a></em></td>
+<td>Clojure-like Lisp dialect implemented in Perl</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#go-joker" id="go-joker">41</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/rcarmo/go-joker">27</a></td>
+<td><a href="https://github.com/rcarmo/go-joker">go-joker</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-lisp" title="Clojure-inspired Lisp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.62 3C19.13 5.27 20 8.55 20 12c0 3.44-.87 6.72-2.38 9L16 19.96c1.26-1.89 2-4.83 2-7.96s-.74-6.08-2-7.97zM6.38 3 8 4.04C6.74 5.92 6 8.87 6 12s.74 6.08 2 7.96L6.38 21C4.87 18.73 4 15.45 4 12s.87-6.73 2.38-9"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/rcarmo" class="badge badge-rcarmo" title="Authored by @rcarmo"><img src="https://avatars.githubusercontent.com/u/392683?s=32&amp;v=4" alt="@rcarmo"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>Go</td>
+<td><strong><a href="https://github.com/rcarmo/go-joker/releases/tag/v42.11.0">2026-09-06 v42.11.0</a></strong></td>
+<td>Optimized fork of Joker for coding-agent infrastructure</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#cljrs" id="cljrs">42</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/tytrdev/cljrs">21</a></td>
+<td><a href="https://tytrdev.github.io/cljrs/">cljrs</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/tytrdev" class="badge badge-tytrdev" title="Authored by @tytrdev"><img src="https://avatars.githubusercontent.com/u/6384618?s=32&amp;v=4" alt="@tytrdev"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-native" title="Compiles your code to a native binary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15H6l7-14v8h5l-7 14z"/></svg></span> </span></td>
+<td>Rust + MLIR/LLVM</td>
+<td><em><a href="https://github.com/tytrdev/cljrs/commit/521dc85bfbd9e047af60dd861d2cb34e53fbaf52">2026-04-24 521dc85</a></em></td>
+<td>Clojure with MLIR/LLVM compilation and GPU support</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#cljgo" id="cljgo">43</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/muthuishere/cljgo">23</a></td>
+<td><a href="https://muthuishere.github.io/cljgo/">cljgo</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/muthuishere" class="badge badge-muthuishere" title="Authored by @muthuishere"><img src="https://avatars.githubusercontent.com/u/132564?s=32&amp;v=4" alt="@muthuishere"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><a class="badge badge-repl" href="../try/" title="Instant REPL support"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19v-3h8v3zm-4.5-6L2.47 7h4.24l4.96 4.95c.58.59.58 1.55 0 2.12L6.74 19H2.5z"/></svg></span></a> <span class="twemoji badge badge-nrepl" title="Built-in nREPL support"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2H1v2h12V9h-3c1.11 0 2-.89 2-2V3c0-1.11-.89-2-2-2zm0 2h6v4H4zM3 13v7h7v-2H5v-5zm11 0c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2h-3v2h12v-2h-3c1.11 0 2-.89 2-2v-4c0-1.11-.89-2-2-2zm0 2h6v4h-6z"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-native" title="Compiles your code to a native binary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15H6l7-14v8h5l-7 14z"/></svg></span> </span></td>
+<td>Go</td>
+<td><strong><a href="https://github.com/muthuishere/cljgo/releases/tag/v0.9.0">2026-08-02 v0.9.0</a></strong></td>
+<td>Clojure hosted on Go with universal Go interop and native compilation</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#choq" id="choq">44</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/squint-cljs/choq">22</a></td>
+<td><a href="https://github.com/squint-cljs/choq">Choq</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-lisp" title="Clojure-inspired Lisp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.62 3C19.13 5.27 20 8.55 20 12c0 3.44-.87 6.72-2.38 9L16 19.96c1.26-1.89 2-4.83 2-7.96s-.74-6.08-2-7.97zM6.38 3 8 4.04C6.74 5.92 6 8.87 6 12s.74 6.08 2 7.96L6.38 21C4.87 18.73 4 15.45 4 12s.87-6.73 2.38-9"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/borkdude" class="badge badge-borkdude" title="Authored by @borkdude"><img src="https://avatars.githubusercontent.com/u/284934?s=32&amp;v=4" alt="@borkdude"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><a class="badge badge-repl" href="../try/" title="Instant REPL support"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19v-3h8v3zm-4.5-6L2.47 7h4.24l4.96 4.95c.58.59.58 1.55 0 2.12L6.74 19H2.5z"/></svg></span></a> <span class="twemoji badge badge-nrepl" title="Built-in nREPL support"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2H1v2h12V9h-3c1.11 0 2-.89 2-2V3c0-1.11-.89-2-2-2zm0 2h6v4H4zM3 13v7h7v-2H5v-5zm11 0c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2h-3v2h12v-2h-3c1.11 0 2-.89 2-2v-4c0-1.11-.89-2-2-2zm0 2h6v4h-6z"/></svg></span> </span></td>
+<td style="text-align: center;"></td>
+<td>QuickJS (Rust runtime)</td>
+<td><em><a href="https://github.com/squint-cljs/choq/commit/fdcc1949fe8f1bb20d15731bd6e1a3a8ecba54b1">2026-08-10 fdcc194</a></em></td>
+<td>Lightweight Cherry runtime with an embedded QuickJS engine</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#swish" id="swish">45</a></strong></td>
+<td style="text-align: right;"><a href="https://github.com/infiniteNIL/swish">12</a></td>
+<td><a href="https://github.com/infiniteNIL/swish">Swish</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/infiniteNIL" class="badge badge-infiniteNIL" title="Authored by @infiniteNIL"><img src="https://avatars.githubusercontent.com/u/352414?s=32&amp;v=4" alt="@infiniteNIL"></a> </span></td>
+<td style="text-align: center;"><span class="badges"><a class="badge badge-repl" href="../try/" title="Instant REPL support"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19v-3h8v3zm-4.5-6L2.47 7h4.24l4.96 4.95c.58.59.58 1.55 0 2.12L6.74 19H2.5z"/></svg></span></a> </span></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-native" title="Compiles your code to a native binary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15H6l7-14v8h5l-7 14z"/></svg></span> </span></td>
+<td>Swift</td>
+<td><em><a href="https://github.com/infiniteNIL/swish/commit/05f0de5fe7755ec935dcd693dfb4c333c4cc0c33">2026-09-04 05f0de5</a></em></td>
+<td>Clojure-inspired Lisp for embedding in Swift apps or compiling to Swift</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong><a href="#clojurefnl" id="clojurefnl">46</a></strong></td>
+<td style="text-align: right;"><a href="https://gitlab.com/andreyorst/clojurefnl">6</a></td>
+<td><a href="https://gitlab.com/andreyorst/clojurefnl">ClojureFnl</a></td>
+<td style="text-align: center;"><span class="badges"><span class="twemoji badge badge-clojure" title="Faithful Clojure implementation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span> </span></td>
+<td style="text-align: center;"><span class="badges"><a href="https://github.com/andreyorst" class="badge badge-andreyorst" title="Authored by @andreyorst"><img src="https://avatars.githubusercontent.com/u/19470159?s=32&amp;v=4" alt="@andreyorst"></a> </span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>Fennel / Lua</td>
+<td><em><a href="https://gitlab.com/andreyorst/clojurefnl/-/commit/3cce8dafb0b4c4c2f9ca17c01ea943321ab34a83">2026-05-14 3cce8daf</a></em></td>
+<td>Early Clojure-to-Fennel transpiler</td>
+</tr>
+</tbody>
+</table>
+<details class="badge-legend">
+<summary>Tag legend &nbsp;&nbsp;<i>(click to expand)</i></summary>
+<p><strong>C — Clojure relation</strong><br>
+<span class="twemoji badge badge-clojure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.503 12.216c-.119.259-.251.549-.387.858-.482 1.092-1.016 2.42-1.21 3.271a5 5 0 0 0-.112 1.096q.001.247.022.514c.682.25 1.417.388 2.186.39a6.4 6.4 0 0 0 2.001-.326 4 4 0 0 1-.418-.441c-.854-1.089-1.329-2.682-2.082-5.362M8.355 6.813A6.35 6.35 0 0 0 5.657 12a6.35 6.35 0 0 0 2.625 5.134c.39-1.622 1.366-3.107 2.83-6.084q-.13-.36-.297-.775c-.406-1.018-.991-2.198-1.513-2.733a4.3 4.3 0 0 0-.947-.729m9.172 12.464c-.84-.105-1.533-.232-2.141-.446A7.625 7.625 0 0 1 4.376 12a7.6 7.6 0 0 1 2.6-5.73 5.6 5.6 0 0 0-1.324-.162c-2.236.02-4.597 1.258-5.58 4.602-.092.486-.07.854-.07 1.29 0 6.627 5.373 12 12 12 4.059 0 7.643-2.017 9.815-5.101-1.174.293-2.305.433-3.271.436q-.543 0-1.019-.058m-2.254-2.325c.074.036.242.097.475.163a6.35 6.35 0 0 0 2.6-5.115h-.002a6.354 6.354 0 0 0-6.345-6.345 6.3 6.3 0 0 0-1.992.324c1.289 1.468 1.908 3.566 2.507 5.862l.001.003c.001.002.192.637.518 1.48.326.842.789 1.885 1.293 2.645.332.51.697.876.945.983M12.001 0a11.98 11.98 0 0 0-9.752 5.013c1.134-.71 2.291-.967 3.301-.957 1.394.004 2.491.436 3.017.732q.19.11.366.233A7.625 7.625 0 0 1 19.625 12a7.6 7.6 0 0 1-2.268 5.425c.344.038.709.063 1.084.061 1.328 0 2.766-.293 3.842-1.198.703-.592 1.291-1.458 1.617-2.757q.099-.753.1-1.531c0-6.627-5.371-12-11.999-12"/></svg></span>
+Faithful Clojure implementation<br>
+<span class="twemoji badge badge-lisp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.62 3C19.13 5.27 20 8.55 20 12c0 3.44-.87 6.72-2.38 9L16 19.96c1.26-1.89 2-4.83 2-7.96s-.74-6.08-2-7.97zM6.38 3 8 4.04C6.74 5.92 6 8.87 6 12s.74 6.08 2 7.96L6.38 21C4.87 18.73 4 15.45 4 12s.87-6.73 2.38-9"/></svg></span>
+Clojure-inspired Lisp</p>
+<p><strong>A — Author</strong><br>
+Author avatars link to GitHub profiles; hover an avatar for its username.</p>
+<p><strong>R — REPL support</strong><br>
+<a class="badge badge-repl" href="../try/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19v-3h8v3zm-4.5-6L2.47 7h4.24l4.96 4.95c.58.59.58 1.55 0 2.12L6.74 19H2.5z"/></svg></span></a>
+<a href="../try/">Instant REPL</a> support<br>
+<span class="twemoji badge badge-nrepl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2H1v2h12V9h-3c1.11 0 2-.89 2-2V3c0-1.11-.89-2-2-2zm0 2h6v4H4zM3 13v7h7v-2H5v-5zm11 0c-1.11 0-2 .89-2 2v4c0 1.11.89 2 2 2h-3v2h12v-2h-3c1.11 0 2-.89 2-2v-4c0-1.11-.89-2-2-2zm0 2h6v4h-6z"/></svg></span>
+Built-in nREPL support</p>
+<p><strong>Tag — Other tags</strong><br>
+<span class="twemoji badge badge-native"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15H6l7-14v8h5l-7 14z"/></svg></span>
+Compiles your code to a native binary</p>
+</details>
+<h2 id="other-curated-lists">Other Curated Lists<a class="headerlink" href="#other-curated-lists" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/clj-easy/clojure-dialects-docs">clj-easy/clojure-dialects-docs</a></li>
+<li><a href="https://github.com/ilevd/clojure-like">ilevd/clojure-like</a></li>
+<li><a href="https://github.com/chr15m/awesome-clojure-likes">chr15m/awesome-clojure-likes</a></li>
+</ul>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Clojure-adjacent</strong> dialects (Hy, Janet) are listed because they share
+  Clojure's syntax and spirit even though they predate or branch from the
+  Clojure ecosystem.</li>
+</ul>
+<p>There are many more dialects in the wild, including historical projects
+(Las3r, Scriptjure), niche transpilers (Kalai, cljs2go), and one-off
+experiments.
+The <a href="https://github.com/ilevd/clojure-like">clojure-like</a> catalog tracks ~90 of them.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/clojurestar/clojure-cc" target="_blank" rel="noopener" title="ClojureStar on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.action.edit", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/external-links.js"></script>
+      
+        <script src="../javascripts/repl.js"></script>
+      
+        <script src="../javascripts/cc-logo-data.js"></script>
+      
+        <script src="../javascripts/cc-logo.js"></script>
+      
+        <script src="../javascripts/sort.js"></script>
+      
+    
+  </body>
+</html>

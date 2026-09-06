@@ -1,0 +1,403 @@
+/* ClojureStar theme - indigo + amber */
+
+:root {
+  --cc-primary: #3949AB;        /* indigo */
+  --cc-primary-deep: #1A237E;
+  --cc-primary-light: #C5CAE9;
+  --cc-primary-dark: #283593;
+  --cc-accent: #FFC107;         /* amber */
+  --cc-glow: rgba(57, 73, 171, 0.3);
+
+  --cc-code-bg: #f5f5f5;
+  --cc-border: var(--cc-primary-light);
+}
+
+[data-md-color-scheme="slate"] {
+  --cc-code-bg: #263238;
+  --cc-border: var(--cc-primary-dark);
+}
+
+/* Clickable site title */
+.md-header__topic a {
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* Header logo */
+.cc-logo {
+  height: 32px;
+  width: auto;
+  vertical-align: middle;
+}
+
+/* Hero logo */
+.hero-logo {
+  width: 240px;
+  max-width: 60vw;
+  height: auto;
+  margin: 0 auto 1rem;
+  display: block;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
+}
+
+/* Hide first nav tab and sidebar entry (the duplicate "ClojureStar" home) */
+.md-tabs__list .md-tabs__item:first-child {
+  display: none;
+}
+
+.md-nav--primary .md-nav__list > .md-nav__item:first-child {
+  display: none;
+}
+
+/* Hide auto-generated "Home" h1 on homepage */
+article:has(> .hero) > h1:first-of-type {
+  display: none;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 3rem 2rem 2rem;
+  background: linear-gradient(135deg, var(--cc-primary) 0%, var(--cc-primary-deep) 100%);
+  color: white;
+  margin: 0 1rem 3rem 0;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 4px 20px var(--cc-glow);
+}
+
+.md-typeset .hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: var(--cc-accent);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+}
+
+.hero-subtitle {
+  font-size: 1.4rem;
+  margin: 0 auto 2rem auto;
+  max-width: 800px;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cta-primary {
+  background: var(--cc-accent);
+  color: var(--cc-primary-deep);
+}
+
+.cta-primary:hover {
+  background: #FFD54F;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.cta-secondary {
+  background: white;
+  color: var(--cc-primary-deep);
+  border: 2px solid white;
+}
+
+.cta-secondary:hover {
+  background: var(--cc-primary-light);
+  border-color: var(--cc-primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Feature cards */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.feature-card {
+  display: block;
+  background: var(--cc-code-bg);
+  border: 2px solid var(--cc-border);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  color: inherit;
+  text-decoration: none;
+}
+
+.md-typeset a.feature-card,
+.md-typeset a.feature-card:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px var(--cc-glow);
+  border-color: var(--cc-primary);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.feature-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: var(--cc-primary-deep);
+}
+
+[data-md-color-scheme="slate"] .feature-title {
+  color: var(--cc-primary-light);
+}
+
+.feature-desc {
+  margin: 0;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Code blocks */
+.highlight {
+  border-left: 4px solid var(--cc-primary);
+  border-radius: 4px;
+}
+
+code {
+  background: var(--cc-code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Tables */
+.md-typeset__table {
+  display: block;
+  width: 100%;
+}
+
+.md-typeset table:not([class]),
+.md-typeset__table table {
+  display: table;
+  width: auto;
+  overflow: visible;
+  border-collapse: collapse;
+  margin: 0.5rem 0;
+  padding: 0 3px;
+}
+
+.md-typeset table:not([class]) th {
+  background: var(--cc-primary);
+  color: white;
+  padding: 0.75rem 4px;
+  text-align: left;
+  font-weight: 600;
+  min-width: 0;
+}
+
+.md-typeset table:not([class]) td {
+  padding: 0.6rem 4px;
+  border-bottom: 1px solid var(--cc-border);
+}
+
+table tr:hover {
+  background: var(--cc-code-bg);
+}
+
+/* Dialect tables (10 columns): every column except Description (col 10)
+   shrinks to its content. */
+.md-typeset table:not([class]):has(th:nth-child(10)) th:not(:nth-child(10)),
+.md-typeset table:not([class]):has(th:nth-child(10)) td:not(:nth-child(10)) {
+  width: 1%;
+  white-space: nowrap;
+}
+
+/* Row number column: thin and bold */
+.md-typeset table:not([class]):has(th:nth-child(10)) th:nth-child(1),
+.md-typeset table:not([class]):has(th:nth-child(10)) td:nth-child(1) {
+  width: 1%;
+  min-width: 1.8em;
+  text-align: right;
+  font-weight: 700;
+}
+
+/* Badge columns allow a category's badges to stack vertically. */
+.md-typeset table:not([class]):has(th:nth-child(10)) td:nth-child(n+4):nth-child(-n+7) {
+  white-space: normal;
+}
+
+/* Host column: fixed width, text wraps */
+.md-typeset table:not([class]):has(th:nth-child(10)) th:nth-child(8),
+.md-typeset table:not([class]):has(th:nth-child(10)) td:nth-child(8) {
+  width: 75px;
+  white-space: normal;
+}
+
+/* Release column: date and version always stay on one line */
+.md-typeset table:not([class]):has(th:nth-child(10)) th:nth-child(9),
+.md-typeset table:not([class]):has(th:nth-child(10)) td:nth-child(9) {
+  white-space: nowrap;
+  text-align: left;
+  word-spacing: 0.4em;
+}
+
+/* Faint sort arrow on every sortable header so users see the affordance.
+   Material darkens the arrow on the actively-sorted column. */
+.md-typeset table:not([class]) th[role=columnheader]:after {
+  background-color: rgba(255, 255, 255, 0.55);
+}
+
+/* Other tables: first 3 columns shrink to content; last takes rest */
+.md-typeset table:not([class]):not(:has(th:nth-child(10))) th:nth-child(-n+3),
+.md-typeset table:not([class]):not(:has(th:nth-child(10))) td:nth-child(-n+3) {
+  width: 1%;
+  white-space: nowrap;
+}
+
+/* Dialect tag badges */
+.badges {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.35em;
+  width: 1.1em;
+}
+
+.badges > * {
+  flex-shrink: 0;
+}
+
+.badge {
+  opacity: 0.75;
+  transition: opacity 0.2s;
+  text-decoration: none;
+  vertical-align: -0.15em;
+}
+
+.badge:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.badge .twemoji,
+.badge svg,
+.badge img {
+  height: 1.1em;
+  width: 1.1em;
+}
+
+.badge img {
+  display: inline-block;
+  border-radius: 50%;
+  vertical-align: -0.15em;
+}
+
+.badge-clojure { color: #3949AB !important; } /* indigo */
+.badge-lisp    { color: #8E24AA !important; } /* purple */
+.badge-native  { color: #FB8C00 !important; } /* orange */
+.badge-repl    { color: #43A047 !important; } /* green */
+.badge-nrepl   { color: #00897B !important; } /* teal */
+
+[data-md-color-scheme="slate"] .badge-clojure { color: #7986CB !important; }
+[data-md-color-scheme="slate"] .badge-lisp    { color: #BA68C8 !important; }
+[data-md-color-scheme="slate"] .badge-native  { color: #FFB74D !important; }
+[data-md-color-scheme="slate"] .badge-repl    { color: #66BB6A !important; }
+[data-md-color-scheme="slate"] .badge-nrepl   { color: #4DB6AC !important; }
+
+.badge-legend {
+  padding: 0.4em 1em;
+  margin: 0.5em 0;
+  font-size: 0.95em;
+  background: var(--cc-code-bg);
+  border-left: 4px solid var(--cc-primary);
+  border-radius: 4px;
+  line-height: 1.9;
+  clear: right;
+}
+
+.badge-legend .badge {
+  margin-left: 0;
+  margin-right: 0.25em;
+  opacity: 1;
+}
+
+/*
+  Pin the edit ("pencil") button to the top-right of the article instead of
+  letting it float-right into the content. Floating it reserves a column the
+  table has to flow around; absolute positioning takes it out of flow so the
+  table stays full-width and the pencil sits above it.
+*/
+.md-content__inner {
+  position: relative;
+}
+.md-content__inner > .md-content__button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+}
+
+/* Footer credit */
+.footer-credit {
+  text-align: center;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--cc-border);
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .md-typeset .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .md-typeset .hero-title {
+    font-size: 2rem;
+  }
+}
