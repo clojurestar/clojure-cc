@@ -58,21 +58,30 @@ This table shows the command for each dialect to start its REPL.
 You can adjust the command to do other things with the dialect like run a
 program with it.
 
+Use source `<(curl -sL in-1.cc) bb && bb` to start Babashka directly, or
+`source <(curl -sL in-1.cc) in-1` to install `in-1` first and then use the shorter
+commands below in the same shell.
+
 | Name | Dialect | Host | REPL Command |
 |:-----|:--------|:-----|---------|
-| **`bb`** | [Babashka](https://book.babashka.org/) | GraalVM | **`source <(curl -sL in-1.cc) bb && bb`** |
-| **`clj`** | [Clojure](https://clojure.org/) | Java | **`source <(curl -sL in-1.cc) clj && clj`** |
-| **`cljgo`** | [cljgo](https://muthuishere.github.io/cljgo/) | Go | **`source <(curl -sL in-1.cc) cljgo && cljgo repl`** |
-| **`glj`** | [Glojure](https://github.com/glojurelang/glojure) | Go | **`source <(curl -sL in-1.cc) glj && glj`** |
-| **`gloat`** | [Gloat](https://gloathub.org/) | Go | **`source <(curl -sL in-1.cc) gloat && gloat --repl`** |
-| **`gobb`** | [Gobb](https://gobb.site/) | Go | **`source <(curl -sL in-1.cc) gobb && gobb`** |
-| **`hy`** | [Hy](https://hylang.org/) | Python | **`source <(curl -sL in-1.cc) hy && hy`** |
-| **`janet`** | [Janet](https://janet-lang.org/) | C | **`source <(curl -sL in-1.cc) janet && janet`** |
-| **`joker`** | [Joker](https://github.com/candid82/joker) | Go | **`source <(curl -sL in-1.cc) joker && joker`** |
-| **`jolt`** | [Jolt](https://github.com/jolt-lang/jolt) | Chez Scheme | **`source <(curl -sL in-1.cc) jolt && jolt`** |
-| **`lein`** | [Leiningen](https://leiningen.org/) | Java | **`source <(curl -sL in-1.cc) lein && lein repl`** |
-| **`lg`** | [let-go](https://github.com/nooga/let-go) | Go | **`source <(curl -sL in-1.cc) lg && lg`** |
-| **`phel`** | [Phel](https://phel-lang.org/) | PHP | **`source <(curl -sL in-1.cc) phel && phel`** |
+| **`bb`** | [Babashka](https://book.babashka.org/) | GraalVM | **`in-1 bb && bb`** |
+| **`clj`** | [Clojure](https://clojure.org/) | Java | **`in-1 clj && clj`** |
+| **`cljgo`** | [cljgo](https://muthuishere.github.io/cljgo/) | Go | **`in-1 cljgo && cljgo repl`** |
+| **`glj`** | [Glojure](https://github.com/glojurelang/glojure) | Go | **`in-1 glj && glj`** |
+| **`gloat`** | [Gloat](https://gloathub.org/) | Go | **`in-1 gloat && gloat --repl`** |
+| **`gobb`** | [Gobb](https://gobb.site/) | Go | **`in-1 gobb && gobb`** |
+| **`hy`** | [Hy](https://hylang.org/) | Python | **`in-1 hy && hy`** |
+| **`janet`** | [Janet](https://janet-lang.org/) | C | **`in-1 janet && janet`** |
+| **`joker`** | [Joker](https://github.com/candid82/joker) | Go | **`in-1 joker && joker`** |
+| **`jolt`** | [Jolt](https://github.com/jolt-lang/jolt) | Chez Scheme | **`in-1 jolt && jolt`** |
+| **`lein`** | [Leiningen](https://leiningen.org/) | Java | **`in-1 lein && lein repl`** |
+| **`lg`** | [let-go](https://github.com/nooga/let-go) | Go | **`in-1 lg && lg`** |
+| **`phel`** | [Phel](https://phel-lang.org/) | PHP | **`in-1 phel && phel`** |
+
+!!! note "Try out [jus](https://github.com/paintparty/jus)"
+
+    Try `in-1 jus && jus` to start a terminal user interface (TUI) launcher
+    for the dialects.
 
 Plus:
 
