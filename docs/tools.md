@@ -20,7 +20,8 @@ See the [in-1 guide](in-1.md) for setup and installation options, or
 | **[4](#gloat){ #gloat }** | **[`gloat`](https://gloathub.org/)** | Clojure and YAMLScript compiler and REPL client | **`in-1 gloat && gloat --repl`** |
 | **[5](#grenadine){ #grenadine }** | **[`grenadine`](https://clojurestar.github.io/grenadine/)** | Dependency resolver | **`in-1 grenadine && grenadine --help`** |
 | **[6](#jus){ #jus }** | **[`jus`](https://github.com/paintparty/jus)** | Terminal launcher for dialects | **`in-1 jus && jus`** |
-| **[7](#zprint){ #zprint }** | **[`zprint`](https://cljdoc.org/d/zprint/zprint/CURRENT)** | Code and data formatter | **`in-1 zprint && zprint --help`** |
+| **[7](#lgx){ #lgx }** | **[`lgx`](https://github.com/abogoyavlensky/lgx)** | Package and project manager for let-go | **`in-1 lgx && lgx help`** |
+| **[8](#zprint){ #zprint }** | **[`zprint`](https://cljdoc.org/d/zprint/zprint/CURRENT)** | Code and data formatter | **`in-1 zprint && zprint --help`** |
 
 
 ## Gloat REPL Client
