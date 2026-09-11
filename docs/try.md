@@ -23,42 +23,20 @@ You can adjust the command to do other things with the dialect like run a progra
 | **[4](#cljgo){ #cljgo }** | **[`cljgo`](https://muthuishere.github.io/cljgo/)** | [cljgo](https://muthuishere.github.io/cljgo/) | Go | **`in-1 cljgo && cljgo repl`** |
 | **[5](#fennel){ #fennel }** | **[`fennel`](https://fennel-lang.org/)** | [Fennel](https://fennel-lang.org/) | Lua | **`in-1 fennel && fennel`** |
 | **[6](#glj){ #glj }** | **[`glj`](https://github.com/glojurelang/glojure)** | [Glojure](https://github.com/glojurelang/glojure) | Go | **`in-1 glj && glj`** |
-| **[7](#gloat){ #gloat }** | **[`gloat`](https://gloathub.org/)** | [Gloat](https://gloathub.org/) | Go | **`in-1 gloat && gloat --repl`** |
-| **[8](#gobb){ #gobb }** | **[`gobb`](https://gobb.site/)** | [Gobb](https://gobb.site/) | Go | **`in-1 gobb && gobb`** |
-| **[9](#hy){ #hy }** | **[`hy`](https://hylang.org/)** | [Hy](https://hylang.org/) | Python | **`in-1 hy && hy`** |
-| **[10](#janet){ #janet }** | **[`janet`](https://janet-lang.org/)** | [Janet](https://janet-lang.org/) | C | **`in-1 janet && janet`** |
-| **[11](#joker){ #joker }** | **[`joker`](https://joker-lang.org/)** | [Joker](https://joker-lang.org/) | Go | **`in-1 joker && joker`** |
-| **[12](#jolt){ #jolt }** | **[`jolt`](https://jolt-lang.net/)** | [Jolt](https://jolt-lang.net/) | Chez Scheme | **`in-1 jolt && jolt`** |
-| **[13](#lein){ #lein }** | **[`lein`](https://leiningen.org/)** | [Leiningen](https://leiningen.org/) | Java | **`in-1 lein && lein repl`** |
-| **[14](#lg){ #lg }** | **[`lg`](https://nooga.github.io/let-go/)** | [let-go](https://nooga.github.io/let-go/) | Go | **`in-1 lg && lg`** |
-| **[15](#nbb){ #nbb }** | **[`nbb`](https://github.com/babashka/nbb)** | [nbb](https://github.com/babashka/nbb) | Node.js | **`in-1 nbb && nbb`** |
-| **[16](#phel){ #phel }** | **[`phel`](https://phel-lang.org/)** | [Phel](https://phel-lang.org/) | PHP | **`in-1 phel && phel`** |
-| **[17](#squint){ #squint }** | **[`squint`](https://squint-cljs.github.io/squint/)** | [Squint](https://squint-cljs.github.io/squint/) | Node.js | **`in-1 squint && squint repl`** |
-| **[18](#ys){ #ys }** | **[`ys`](https://yamlscript.org/)** | [YAMLScript](https://yamlscript.org/) | GraalVM | **`in-1 ys && ys --help`** |
+| **[7](#gobb){ #gobb }** | **[`gobb`](https://gobb.site/)** | [Gobb](https://gobb.site/) | Go | **`in-1 gobb && gobb`** |
+| **[8](#hy){ #hy }** | **[`hy`](https://hylang.org/)** | [Hy](https://hylang.org/) | Python | **`in-1 hy && hy`** |
+| **[9](#janet){ #janet }** | **[`janet`](https://janet-lang.org/)** | [Janet](https://janet-lang.org/) | C | **`in-1 janet && janet`** |
+| **[10](#joker){ #joker }** | **[`joker`](https://joker-lang.org/)** | [Joker](https://joker-lang.org/) | Go | **`in-1 joker && joker`** |
+| **[11](#jolt){ #jolt }** | **[`jolt`](https://jolt-lang.net/)** | [Jolt](https://jolt-lang.net/) | Chez Scheme | **`in-1 jolt && jolt`** |
+| **[12](#lein){ #lein }** | **[`lein`](https://leiningen.org/)** | [Leiningen](https://leiningen.org/) | Java | **`in-1 lein && lein repl`** |
+| **[13](#lg){ #lg }** | **[`lg`](https://nooga.github.io/let-go/)** | [let-go](https://nooga.github.io/let-go/) | Go | **`in-1 lg && lg`** |
+| **[14](#nbb){ #nbb }** | **[`nbb`](https://github.com/babashka/nbb)** | [nbb](https://github.com/babashka/nbb) | Node.js | **`in-1 nbb && nbb`** |
+| **[15](#phel){ #phel }** | **[`phel`](https://phel-lang.org/)** | [Phel](https://phel-lang.org/) | PHP | **`in-1 phel && phel`** |
+| **[16](#squint){ #squint }** | **[`squint`](https://squint-cljs.github.io/squint/)** | [Squint](https://squint-cljs.github.io/squint/) | Node.js | **`in-1 squint && squint repl`** |
+| **[17](#ys){ #ys }** | **[`ys`](https://yamlscript.org/)** | [YAMLScript](https://yamlscript.org/) | GraalVM | **`in-1 ys && ys --help`** |
 
 The YAMLScript command shows its CLI options for evaluating expressions,
 running programs, and transforming data.
-
-
-## Gloat REPL Client
-
-The Gloat REPL client is more featureful than the plain dialect REPLs, with
-many modern features including:
-
-* Rainbow syntax highlighting
-* Tab completion
-* Stateful URL sharing
-* Multiline forms and history scrolling
-
-See <https://gloathub.org/doc/gloat-repl/> for full details.
-
-`gloat` can connect to dialect nREPL servers started through these launchers:
-
-| | Server | Command |
-|--:|:-------|:--------|
-| **[1](#server-babashka){ #server-babashka }** | Babashka | **`source <(curl -sL in-1.cc) gloat && gloat --repl=+bb`** |
-| **[2](#server-jolt){ #server-jolt }** | Jolt | **`source <(curl -sL in-1.cc) gloat && gloat --repl=+jolt`** |
-| **[3](#server-let-go){ #server-let-go }** | let-go | **`source <(curl -sL in-1.cc) gloat && gloat --repl=+lg`** |
 
 
 ## Want more dialects?

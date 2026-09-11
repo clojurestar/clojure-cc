@@ -320,16 +320,6 @@
   ctag: [lisp]
   atag: [borkdude]
 
-- name: Gloat
-  desc: Compile Clojure (and YAMLScript) to Go, native binaries and Wasm
-  site: https://gloathub.org/
-  repo: https://github.com/gloathub/gloat
-  host: Go
-  ctag: [clojure]
-  atag: [ingydotnet]
-  rtag: [repl, nrepl]
-  tags: [native]
-
 - name: Clojurust
   desc: A Rust-hosted dialect of the Clojure programming language
   site: https://clj.rs/
