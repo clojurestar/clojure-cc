@@ -1,4 +1,4 @@
-// Click-to-sort for dialect tables. State persists in a cookie so the
+// Click-to-sort for catalog, launcher, and tool tables. State persists so the
 // table comes back in the same order on the next visit.
 (function () {
   var COOKIE = 'dialects-sort-v2';
@@ -66,8 +66,8 @@
     return v === null || v === '';
   }
 
-  function sortTable(table, col, dir) {
-    var cfg = COLS[col];
+  function sortTable(table, config, col, dir) {
+    var cfg = config.cols[col];
     if (!cfg) return;
     var tbody = table.tBodies[0];
     var rows = Array.prototype.slice.call(tbody.rows);
@@ -118,48 +118,70 @@
       names[9] === 'Description';
   }
 
+  function tableConfig(headers) {
+    if (isDialectTable(headers)) {
+      return { cols: COLS, cookie: COOKIE, reset: 10 };
+    }
+    if (!headers) return null;
+    var names = Array.prototype.map.call(headers, function (h) {
+      return (h.textContent || '').trim();
+    }).join('|');
+    var cookies = {
+      '|Name|Dialect|Host|Command': 'try-sort-v1',
+      '|Name|Purpose|Command': 'tools-sort-v1',
+      '|Server|Command': 'repl-servers-sort-v1'
+    };
+    if (!cookies[names]) return null;
+    var cols = {};
+    for (var col = 2; col <= headers.length; col++) {
+      cols[col] = { type: 'text', def: 'asc' };
+    }
+    return { cols: cols, cookie: cookies[names] };
+  }
+
   function setupTable(table) {
     var headers = table.tHead && table.tHead.rows[0]
       ? table.tHead.rows[0].cells : null;
-    if (!isDialectTable(headers) || table.dataset.sortable) return;
+    var config = tableConfig(headers);
+    if (!config || table.dataset.sortable) return;
     table.dataset.sortable = '1';
     for (var i = 0; i < headers.length; i++) {
       var col = i + 1;
-      if (!COLS[col]) continue;
+      if (!config.cols[col]) continue;
       headers[i].setAttribute('role', 'columnheader');
       (function (th, c) {
         th.addEventListener('click', function () {
           var current = th.getAttribute('aria-sort');
           var dir;
           if (!current) {
-            dir = COLS[c].def;
+            dir = config.cols[c].def;
           } else {
             dir = current === 'ascending' ? 'desc' : 'asc';
           }
-          sortTable(table, c, dir);
-          setCookie(COOKIE, c + ':' + dir);
+          sortTable(table, config, c, dir);
+          setCookie(config.cookie, c + ':' + dir);
         });
       })(headers[i], col);
     }
-    var saved = getCookie(COOKIE);
+    var saved = getCookie(config.cookie);
     var restored = false;
     if (saved) {
       var parts = saved.split(':');
       var sCol = parseInt(parts[0], 10);
       var sDir = parts[1];
-      if (COLS[sCol] && (sDir === 'asc' || sDir === 'desc')) {
-        sortTable(table, sCol, sDir);
+      if (config.cols[sCol] && (sDir === 'asc' || sDir === 'desc')) {
+        sortTable(table, config, sCol, sDir);
         restored = true;
       }
     }
-    if (!restored) sortTable(table, 2, COLS[2].def);
+    if (!restored) sortTable(table, config, 2, config.cols[2].def);
     // Hidden affordance: clicking the Description header clears the saved
     // sort order and restores the default star-count order.
-    var desc = headers[9];
+    var desc = config.reset && headers[config.reset - 1];
     if (desc) {
       desc.addEventListener('click', function () {
-        document.cookie = COOKIE + '=; path=/; max-age=0; SameSite=Lax';
-        sortTable(table, 2, COLS[2].def);
+        document.cookie = config.cookie + '=; path=/; max-age=0; SameSite=Lax';
+        sortTable(table, config, 2, config.cols[2].def);
       });
     }
   }

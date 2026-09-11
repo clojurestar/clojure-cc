@@ -1,97 +1,43 @@
 ---
-title: CLI Launcher
+title: Try Dialects
 description:
-  Install any supported Clojure dialect CLI locally with a single curl + source
-  command.
-  No prerequisites.
+  Install and try Clojure dialect REPLs and CLIs locally.
 hide:
 - navigation
+- title
 ---
 
-# Instant Clojure Dialect Commands
+## Quick Clojure Dialect Usage
 
-A single command, no prerequisites, a working local Clojure dialect command.
-This installs the dialect _(very quickly!)_ and adds its command directory to
-`PATH`.
-You can then run the command by name.
+Use [in-1](in-1.md) to install and run these dialects with no prerequisites.
+For formatters, linters, and other utilities, see [Clojure Tools](tools.md).
 
-```bash
-$ source <(curl -sL in-1.cc) bb && which bb && bb --version
-/tmp/in-1/local/bin/bb
-babashka v1.13.219
-```
+This table shows how to start each dialect's REPL or CLI.
+You can adjust the command to do other things with the dialect like run a program with it.
 
-The command is [in-1](https://in-1.cc), which uses
-[Makes](https://github.com/makeplus/makes) to auto-install both the dialect
-*and* its host language (Java, Go, Python, PHP, etc.) into a local directory.
-Your system stays clean.
+| | Name | Dialect | Host | Command |
+|--:|:-----|:--------|:-----|---------|
+| **[1](#basilisp){ #basilisp }** | **[`basilisp`](https://docs.basilisp.org/en/latest/)** | [Basilisp](https://docs.basilisp.org/en/latest/) | Python | **`in-1 basilisp && basilisp repl`** |
+| **[2](#bb){ #bb }** | **[`bb`](https://book.babashka.org/)** | [Babashka](https://book.babashka.org/) | GraalVM | **`in-1 bb && bb`** |
+| **[3](#clj){ #clj }** | **[`clj`](https://clojure.org/)** | [Clojure](https://clojure.org/) | Java | **`in-1 clj && clj`** |
+| **[4](#cljgo){ #cljgo }** | **[`cljgo`](https://muthuishere.github.io/cljgo/)** | [cljgo](https://muthuishere.github.io/cljgo/) | Go | **`in-1 cljgo && cljgo repl`** |
+| **[5](#fennel){ #fennel }** | **[`fennel`](https://fennel-lang.org/)** | [Fennel](https://fennel-lang.org/) | Lua | **`in-1 fennel && fennel`** |
+| **[6](#glj){ #glj }** | **[`glj`](https://github.com/glojurelang/glojure)** | [Glojure](https://github.com/glojurelang/glojure) | Go | **`in-1 glj && glj`** |
+| **[7](#gloat){ #gloat }** | **[`gloat`](https://gloathub.org/)** | [Gloat](https://gloathub.org/) | Go | **`in-1 gloat && gloat --repl`** |
+| **[8](#gobb){ #gobb }** | **[`gobb`](https://gobb.site/)** | [Gobb](https://gobb.site/) | Go | **`in-1 gobb && gobb`** |
+| **[9](#hy){ #hy }** | **[`hy`](https://hylang.org/)** | [Hy](https://hylang.org/) | Python | **`in-1 hy && hy`** |
+| **[10](#janet){ #janet }** | **[`janet`](https://janet-lang.org/)** | [Janet](https://janet-lang.org/) | C | **`in-1 janet && janet`** |
+| **[11](#joker){ #joker }** | **[`joker`](https://joker-lang.org/)** | [Joker](https://joker-lang.org/) | Go | **`in-1 joker && joker`** |
+| **[12](#jolt){ #jolt }** | **[`jolt`](https://jolt-lang.net/)** | [Jolt](https://jolt-lang.net/) | Chez Scheme | **`in-1 jolt && jolt`** |
+| **[13](#lein){ #lein }** | **[`lein`](https://leiningen.org/)** | [Leiningen](https://leiningen.org/) | Java | **`in-1 lein && lein repl`** |
+| **[14](#lg){ #lg }** | **[`lg`](https://nooga.github.io/let-go/)** | [let-go](https://nooga.github.io/let-go/) | Go | **`in-1 lg && lg`** |
+| **[15](#nbb){ #nbb }** | **[`nbb`](https://github.com/babashka/nbb)** | [nbb](https://github.com/babashka/nbb) | Node.js | **`in-1 nbb && nbb`** |
+| **[16](#phel){ #phel }** | **[`phel`](https://phel-lang.org/)** | [Phel](https://phel-lang.org/) | PHP | **`in-1 phel && phel`** |
+| **[17](#squint){ #squint }** | **[`squint`](https://squint-cljs.github.io/squint/)** | [Squint](https://squint-cljs.github.io/squint/) | Node.js | **`in-1 squint && squint repl`** |
+| **[18](#ys){ #ys }** | **[`ys`](https://yamlscript.org/)** | [YAMLScript](https://yamlscript.org/) | GraalVM | **`in-1 ys && ys --help`** |
 
-By default, everything lives under `$TMPDIR/in-1/` (normally `/tmp/in-1/`),
-with the commands in `/tmp/in-1/local/bin/`.
-Set `PREFIX` to choose a different self-contained location:
-
-```bash
-$ source <(curl -sL in-1.cc) jolt JOLT-VERSION=0.7.1 PREFIX=/tmp/foobar && which jolt && jolt --version
-/tmp/foobar/bin/jolt
-jolt v0.7.1
-```
-
-This installs the public command as `/tmp/foobar/bin/jolt` and keeps the
-versioned Jolt installation and its dependencies under
-`/tmp/foobar/share/jolt/0.7.1/`.
-
-You can ask for several dialects at once:
-
-```bash
-source <(curl -sL in-1.cc) bb clj glj
-```
-
-> **Note:** For the Fish shell, use:
-> ```fish
-> curl -sL in-1.cc | source - bb; and bb
-> ```
-
-
-## Quick Dialect Usage
-
-This table shows the command for each dialect to start its REPL.
-You can adjust the command to do other things with the dialect like run a
-program with it.
-
-Use source `<(curl -sL in-1.cc) bb && bb` to start Babashka directly, or
-`source <(curl -sL in-1.cc) in-1` to install `in-1` first and then use the shorter
-commands below in the same shell.
-
-| Name | Dialect | Host | REPL Command |
-|:-----|:--------|:-----|---------|
-| **`bb`** | [Babashka](https://book.babashka.org/) | GraalVM | **`in-1 bb && bb`** |
-| **`clj`** | [Clojure](https://clojure.org/) | Java | **`in-1 clj && clj`** |
-| **`cljgo`** | [cljgo](https://muthuishere.github.io/cljgo/) | Go | **`in-1 cljgo && cljgo repl`** |
-| **`glj`** | [Glojure](https://github.com/glojurelang/glojure) | Go | **`in-1 glj && glj`** |
-| **`gloat`** | [Gloat](https://gloathub.org/) | Go | **`in-1 gloat && gloat --repl`** |
-| **`gobb`** | [Gobb](https://gobb.site/) | Go | **`in-1 gobb && gobb`** |
-| **`hy`** | [Hy](https://hylang.org/) | Python | **`in-1 hy && hy`** |
-| **`janet`** | [Janet](https://janet-lang.org/) | C | **`in-1 janet && janet`** |
-| **`joker`** | [Joker](https://github.com/candid82/joker) | Go | **`in-1 joker && joker`** |
-| **`jolt`** | [Jolt](https://github.com/jolt-lang/jolt) | Chez Scheme | **`in-1 jolt && jolt`** |
-| **`lein`** | [Leiningen](https://leiningen.org/) | Java | **`in-1 lein && lein repl`** |
-| **`lg`** | [let-go](https://github.com/nooga/let-go) | Go | **`in-1 lg && lg`** |
-| **`phel`** | [Phel](https://phel-lang.org/) | PHP | **`in-1 phel && phel`** |
-
-!!! note "Try out [jus](https://github.com/paintparty/jus)"
-
-    Try `in-1 jus && jus` to start a terminal user interface (TUI) launcher
-    for the dialects.
-
-Plus:
-
-| Command | Purpose |
-|:--------|---------|
-| **`source <(curl -sL in-1.cc) -U bb`** | Update in-1 and Makes first, then install |
-| **`in-1 --local bb`** | Keep a dialect for good, under `~/.local` |
-
-The second one needs the `in-1` command installed; see
-<https://in-1.cc/install/>.
+The YAMLScript command shows its CLI options for evaluating expressions,
+running programs, and transforming data.
 
 
 ## Gloat REPL Client
@@ -108,71 +54,11 @@ See <https://gloathub.org/doc/gloat-repl/> for full details.
 
 `gloat` can connect to dialect nREPL servers started through these launchers:
 
-| Server | Command |
-|:-------|:--------|
-| Babashka | **`source <(curl -sL in-1.cc) gloat && gloat --repl=+bb`** |
-| Jolt | **`source <(curl -sL in-1.cc) gloat && gloat --repl=+jolt`** |
-| let-go | **`source <(curl -sL in-1.cc) gloat && gloat --repl=+lg`** |
-
-
-## Examples
-
-Launch a Glojure REPL:
-
-```bash
-source <(curl -sL in-1.cc) glj && glj
-```
-
-Evaluate a let-go expression:
-
-```bash
-source <(curl -sL in-1.cc) lg && lg -e '(+ 1 2 3)'
-```
-
-Pin a Babashka version:
-
-```bash
-source <(curl -sL in-1.cc) bb BABASHKA-VERSION=1.12.218 &&
-  bb -e 'babashka.fs/glob'
-```
-
-Or simplify with a shell function:
-
-```bash
-ccc() {
-  local dialect=$1
-  shift
-  source <(curl -sL in-1.cc) "$dialect" && "$dialect" "$@"
-}
-
-ccc clj
-ccc bb -e '(+ 1 2 3)'
-```
-
-
-## How it works
-
-The sourced script is [in-1](https://in-1.cc), which:
-
-1. Clones itself into `/tmp/in-1/` and shallow-clones
-   [makeplus/makes](https://github.com/makeplus/makes) into it.
-2. Loads the Makes module for the requested dialect.
-3. Downloads the host language toolchain (Java, Go, Python...).
-4. Downloads and installs the dialect under
-   `/tmp/in-1/local/share/<dialect>/<version>/`.
-5. Creates a command wrapper in `/tmp/in-1/local/bin/` containing the
-   complete runtime environment.
-   Clojure and Leiningen keep their `.clojure` and `.m2` directories inside
-   the installation, and Jolt and Phel start their REPL under `rlwrap` when
-   it is available.
-6. Adds the wrapper directory to `PATH` in your current shell.
-
-Everything lives under the selected prefix; remove that directory manually
-when you no longer need the installation.
-
-See [in-1](https://in-1.cc/doc/design/) and
-[makeplus/makes](https://github.com/makeplus/makes) for the implementation
-details.
+| | Server | Command |
+|--:|:-------|:--------|
+| **[1](#server-babashka){ #server-babashka }** | Babashka | **`source <(curl -sL in-1.cc) gloat && gloat --repl=+bb`** |
+| **[2](#server-jolt){ #server-jolt }** | Jolt | **`source <(curl -sL in-1.cc) gloat && gloat --repl=+jolt`** |
+| **[3](#server-let-go){ #server-let-go }** | let-go | **`source <(curl -sL in-1.cc) gloat && gloat --repl=+lg`** |
 
 
 ## Want more dialects?

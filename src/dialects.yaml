@@ -32,6 +32,7 @@
 
 - name: Hy
   desc: A Lisp dialect embedded in Python (Clojure-adjacent)
+  site: https://hylang.org/
   repo: https://github.com/hylang/hy
   host: Python
   fext: hy
@@ -51,6 +52,7 @@
 
 - name: Janet
   desc: Dynamic language and bytecode VM (Clojure-adjacent)
+  site: https://janet-lang.org/
   repo: https://github.com/janet-lang/janet
   host: C
   fext: janet
@@ -81,6 +83,7 @@
 
 - name: Joker
   desc: Small Clojure interpreter, linter and formatter
+  site: https://joker-lang.org/
   repo: https://github.com/candid82/joker
   host: Go
   fext: joke
@@ -90,6 +93,7 @@
 
 - name: Lux
   desc: Statically-typed functional Lisp with multiple host targets
+  site: https://luxlang.gitbooks.io/the-lux-programming-language/content/
   repo: https://github.com/LuxLang/lux
   host: JVM (multi-target)
   fext: lux
@@ -98,6 +102,7 @@
 
 - name: Clojerl
   desc: Clojure for the BEAM
+  site: https://www.clojerl.io/
   repo: https://github.com/clojerl/clojerl
   host: Erlang VM
   fext: clje
@@ -106,6 +111,7 @@
 
 - name: ClojureCLR
   desc: Port of Clojure to the Common Language Runtime
+  site: https://clojure.org/about/clojureclr
   repo: https://github.com/clojure/clojure-clr
   host: .NET
   fext: cljr
@@ -123,6 +129,7 @@
 
 - name: Ferret
   desc: Free-software Lisp for real-time embedded control
+  site: https://ferret-lang.org/
   repo: https://github.com/nakkaya/ferret
   host: C++11
   fext: fer
@@ -156,6 +163,7 @@
 
 - name: Squint
   desc: Light-weight ClojureScript dialect transpiling to mutable JS
+  site: https://squint-cljs.github.io/squint/
   repo: https://github.com/squint-cljs/squint
   host: JavaScript
   ctag: [lisp]
@@ -173,6 +181,7 @@
 
 - name: Cherry
   desc: Experimental ClojureScript to ES6 module compiler
+  site: https://squint-cljs.github.io/cherry/
   repo: https://github.com/squint-cljs/cherry
   host: JavaScript (ES6)
   ctag: [lisp]
@@ -198,6 +207,7 @@
 
 - name: let-go
   desc: '"Almost Clojure" written in Go'
+  site: https://nooga.github.io/let-go/
   repo: https://github.com/nooga/let-go
   host: Go
   fext: lg
@@ -217,6 +227,7 @@
 
 - name: Basilisp
   desc: Clojure-compatible Lisp dialect with seamless Python interop
+  site: https://docs.basilisp.org/en/latest/
   repo: https://github.com/basilisp-lang/basilisp
   host: Python 3
   fext: lpy
@@ -226,6 +237,7 @@
 
 - name: Scittle
   desc: Run Clojure directly from `<script>` tags via SCI
+  site: https://babashka.org/scittle/
   repo: https://github.com/babashka/scittle
   host: JavaScript (browser)
   ctag: [clojure]
@@ -270,7 +282,7 @@
 
 - name: Jolt
   desc: A Clojure implementation on Chez Scheme
-  site: https://github.com/jolt-lang/jolt
+  site: https://jolt-lang.net/
   repo: https://github.com/jolt-lang/jolt
   host: Chez Scheme
   fext: jolt
@@ -310,6 +322,7 @@
 
 - name: Gloat
   desc: Compile Clojure (and YAMLScript) to Go, native binaries and Wasm
+  site: https://gloathub.org/
   repo: https://github.com/gloathub/gloat
   host: Go
   ctag: [clojure]
@@ -319,6 +332,7 @@
 
 - name: Clojurust
   desc: A Rust-hosted dialect of the Clojure programming language
+  site: https://clj.rs/
   repo: https://github.com/csm/clojurust
   host: Rust
   fext: cljrs
@@ -344,6 +358,7 @@
 
 - name: go-joker
   desc: Optimized fork of Joker for coding-agent infrastructure
+  site: https://rcarmo.github.io/projects/go-joker/
   repo: https://github.com/rcarmo/go-joker
   host: Go
   ctag: [lisp]

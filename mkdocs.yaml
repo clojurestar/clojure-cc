@@ -60,6 +60,7 @@ nav:
 - ClojureStar: index.md
 - Clojure Dialects: dialects.md
 - Try Dialects: try.md
+- Clojure Tools: tools.md
 - Browser REPL: repl.md
 - Blog: blog/index.md
 

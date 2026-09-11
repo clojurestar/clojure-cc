@@ -236,6 +236,8 @@ table tr:hover {
 }
 
 /* Row number column: thin and bold */
+.md-typeset table[data-sortable] th:nth-child(1),
+.md-typeset table[data-sortable] td:nth-child(1),
 .md-typeset table:not([class]):has(th:nth-child(10)) th:nth-child(1),
 .md-typeset table:not([class]):has(th:nth-child(10)) td:nth-child(1) {
   width: 1%;

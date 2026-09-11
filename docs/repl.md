@@ -6,6 +6,7 @@ description:
 hide:
 - navigation
 - toc
+- title
 ---
 
 <style>
