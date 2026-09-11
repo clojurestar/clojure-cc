@@ -7,7 +7,7 @@ include $M/clean.mk
 PYTHON-VENV := $(ROOT)/venv
 include $M/python.mk
 include $M/typos.mk
-include $M/ys.mk
+include $M/yamlscript.mk
 GLOJURE-VERSION := 0.6.5-rc30
 # Set before include: glojure.mk uses `override GLOJURE-REPO`, which silently
 # locks the value and ignores any later plain `:=` assignment.
