@@ -1,0 +1,95 @@
+# shellcheck shell=bash
+#
+# Usage:
+#   source <(curl -sL clojure.cc/get) bb  # Bash/Zsh
+#   source <(curl -sL clojure.cc/get) jolt PREFIX=/tmp/foobar
+#   curl -sL clojure.cc/get | source - bb # Fish
+
+test -n "$BASH_VERSION$ZSH_VERSION" && eval '
+_clojure_cc_get_file=${BASH_SOURCE[0]:-$0}
+
+_clojure_cc_get_main() {
+  local get_file=$1
+  shift
+  if [ "$#" -eq 0 ]; then
+    printf "%s\n" \
+      "Usage: source <(curl -sL clojure.cc/get) <name>" \
+      "       [PREFIX=DIR] [MAKE-VARIABLE=VALUE ...]" \
+      >&2
+    return 2
+  fi
+
+  local cmd_url=${CLOJURE_CC_CMD_URL:-}
+  local get_dir
+  get_dir=$(cd "$(dirname "$get_file")" 2>/dev/null && pwd -P || true)
+  local binary
+  if [ -z "$cmd_url" ] && [ -f "$get_dir/cmd.mk" ]; then
+    binary=$(command make -f "$get_dir/cmd.mk" "$@") || return
+  else
+    cmd_url=${cmd_url:-https://clojure.cc/cmd.mk}
+    binary=$(command make -f <(command curl -fsSL "$cmd_url") "$@") || return
+  fi
+
+  if [ ! -x "$binary" ]; then
+    printf "clojure.cc/get: did not install an executable: %s\n" "$binary" >&2
+    return 1
+  fi
+
+  local bin_dir=${binary%/*}
+  case ":${PATH-}:" in
+    *":$bin_dir:"*) ;;
+    *) PATH="$bin_dir${PATH:+:$PATH}" ;;
+  esac
+  export PATH
+}
+
+_clojure_cc_get_main "$_clojure_cc_get_file" "$@" || {
+  unset -f _clojure_cc_get_main
+  unset _clojure_cc_get_file
+  return 1
+}
+unset -f _clojure_cc_get_main
+unset _clojure_cc_get_file
+return 0
+'
+
+test -n "$FISH_VERSION" && eval '
+function _clojure_cc_get_main
+  if test (count $argv) -eq 0
+    printf "%s\n" \
+      "Usage: curl -sL clojure.cc/get | source - <name>" \
+      "       [PREFIX=DIR] [MAKE-VARIABLE=VALUE ...]" \
+      >&2
+    return 2
+  end
+
+  set -l cmd_url "$CLOJURE_CC_CMD_URL"
+  set -l get_file (status filename)
+  set -l get_dir (cd (dirname "$get_file") 2>/dev/null; and pwd -P)
+  set -l binary
+  if test -z "$cmd_url"; and test -f "$get_dir/cmd.mk"
+    set binary (command make -f "$get_dir/cmd.mk" $argv)
+  else
+    test -n "$cmd_url"; or set cmd_url https://clojure.cc/cmd.mk
+    set binary \
+      (command make -f (command curl -fsSL "$cmd_url" | psub) $argv)
+  end
+
+  if not test -x "$binary"
+    printf "clojure.cc/get: did not install an executable: %s\n" "$binary" >&2
+    return 1
+  end
+
+  set -l bin_dir (path dirname "$binary")
+  contains -- "$bin_dir" $PATH; or set -gx PATH "$bin_dir" $PATH
+  return 0
+end
+
+_clojure_cc_get_main $argv
+set -l _clojure_cc_get_status $status
+functions -e _clojure_cc_get_main
+return $_clojure_cc_get_status
+'
+
+echo "ERROR: clojure.cc/get does not support shell '$0'" >&2
+false
