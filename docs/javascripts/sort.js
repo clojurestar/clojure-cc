@@ -133,10 +133,14 @@
     };
     if (!cookies[names]) return null;
     var cols = {};
-    for (var col = 2; col <= headers.length; col++) {
+    for (var col = 2; col < headers.length; col++) {
       cols[col] = { type: 'text', def: 'asc' };
     }
-    return { cols: cols, cookie: cookies[names] };
+    return {
+      cols: cols,
+      cookie: cookies[names],
+      reset: headers.length
+    };
   }
 
   function setupTable(table) {
@@ -175,11 +179,11 @@
       }
     }
     if (!restored) sortTable(table, config, 2, config.cols[2].def);
-    // Hidden affordance: clicking the Description header clears the saved
-    // sort order and restores the default star-count order.
-    var desc = config.reset && headers[config.reset - 1];
-    if (desc) {
-      desc.addEventListener('click', function () {
+    // Hidden affordance: clicking the reset header clears the saved sort
+    // order and restores the table's default order.
+    var reset = config.reset && headers[config.reset - 1];
+    if (reset) {
+      reset.addEventListener('click', function () {
         document.cookie = config.cookie + '=; path=/; max-age=0; SameSite=Lax';
         sortTable(table, config, 2, config.cols[2].def);
       });

@@ -17,11 +17,12 @@ See the [in-1 guide](in-1.md) for setup and installation options, or
 | **[1](#bbin){ #bbin }** | **[`bbin`](https://github.com/babashka/bbin)** | Babashka script and tool installer | **`in-1 bbin && bbin --help`** |
 | **[2](#clj-kondo){ #clj-kondo }** | **[`clj-kondo`](https://cljdoc.org/d/clj-kondo/clj-kondo/CURRENT)** | Static analyzer and linter | **`in-1 clj-kondo && clj-kondo --help`** |
 | **[3](#cljfmt){ #cljfmt }** | **[`cljfmt`](https://github.com/weavejester/cljfmt)** | Code formatter | **`in-1 cljfmt && cljfmt --help`** |
-| **[4](#gloat){ #gloat }** | **[`gloat`](https://gloathub.org/)** | Clojure and YAMLScript compiler and REPL client | **`in-1 gloat && gloat --repl`** |
+| **[4](#gloat){ #gloat }** | **[`gloat`](https://gloathub.org/)** | Clojure/YS AOT compiler to source/binaries | **`in-1 gloat && gloat --repl`** |
 | **[5](#grenadine){ #grenadine }** | **[`grenadine`](https://clojurestar.github.io/grenadine/)** | Dependency resolver | **`in-1 grenadine && grenadine --help`** |
 | **[6](#jus){ #jus }** | **[`jus`](https://github.com/paintparty/jus)** | Terminal launcher for dialects | **`in-1 jus && jus`** |
-| **[7](#lgx){ #lgx }** | **[`lgx`](https://github.com/abogoyavlensky/lgx)** | Package and project manager for let-go | **`in-1 lgx && lgx help`** |
-| **[8](#zprint){ #zprint }** | **[`zprint`](https://cljdoc.org/d/zprint/zprint/CURRENT)** | Code and data formatter | **`in-1 zprint && zprint --help`** |
+| **[7](#lein){ #lein }** | **[`lein`](https://leiningen.org/)** | Project automation and dependency manager | **`in-1 lein && lein help`** |
+| **[8](#lgx){ #lgx }** | **[`lgx`](https://github.com/abogoyavlensky/lgx)** | Package and project manager for let-go | **`in-1 lgx && lgx help`** |
+| **[9](#zprint){ #zprint }** | **[`zprint`](https://cljdoc.org/d/zprint/zprint/CURRENT)** | Code and data formatter | **`in-1 zprint && zprint --help`** |
 
 
 ## Gloat REPL Client
