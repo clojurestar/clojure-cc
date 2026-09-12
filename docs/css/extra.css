@@ -247,8 +247,30 @@ table tr:hover {
 }
 
 /* Badge columns allow a category's badges to stack vertically. */
+.md-typeset table:not([class]):has(th:nth-child(10))
+  :is(th, td):nth-child(n+4):nth-child(-n+7) {
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
 .md-typeset table:not([class]):has(th:nth-child(10)) td:nth-child(n+4):nth-child(-n+7) {
   white-space: normal;
+}
+
+[dir=ltr] .md-typeset table:not([class]):has(th:nth-child(10))
+  th[role=columnheader]:nth-child(n+4):nth-child(-n+7):after {
+  margin-left: 0.15em;
+}
+
+[dir=rtl] .md-typeset table:not([class]):has(th:nth-child(10))
+  th[role=columnheader]:nth-child(n+4):nth-child(-n+7):after {
+  margin-right: 0.15em;
+}
+
+.md-typeset table:not([class]):has(th:nth-child(10))
+  th[role=columnheader]:nth-child(n+4):nth-child(-n+7):after {
+  height: 0.9em;
+  width: 0.9em;
 }
 
 /* Host column: fixed width, text wraps */

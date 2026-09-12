@@ -10,7 +10,7 @@
     4: { type: 'tags',   def: 'asc'  }, // Clojure relation
     5: { type: 'tags',   def: 'asc'  }, // Author
     6: { type: 'repl',   def: 'asc'  }, // REPL support
-    7: { type: 'tags',   def: 'asc'  }, // Other tags
+    7: { type: 'tags',   def: 'asc'  }, // Compiles to binary
     8: { type: 'text',   def: 'asc'  }, // Host
     9: { type: 'text',   def: 'desc' }  // Release (YYYY-MM-DD sorts lexically)
   };
@@ -112,7 +112,7 @@
       names[3] === 'C' &&
       names[4] === 'A' &&
       names[5] === 'R' &&
-      names[6] === 'Tag' &&
+      names[6] === 'B' &&
       names[7] === 'Host' &&
       names[8] === 'Release' &&
       names[9] === 'Description';

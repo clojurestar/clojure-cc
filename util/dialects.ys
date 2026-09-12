@@ -33,7 +33,7 @@ defn table-heading():
     - ! table-abbr('C' 'Clojure relation')
     - ! table-abbr('A' 'Author')
     - ! table-abbr('R' 'REPL support')
-    - ! table-abbr('Tag' 'Other tags')
+    - ! table-abbr('B' 'Compiles to binary')
     - Host
     - Release
     - Description

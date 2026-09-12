@@ -36,7 +36,7 @@ Author avatars link to GitHub profiles; hover an avatar for its username.
 :material-lan-connect:{ .badge .badge-nrepl }
 Built-in nREPL support
 
-**Tag — Other tags**<br>
+**B (Compiles to binary)**<br>
 :material-lightning-bolt:{ .badge .badge-native }
 Compiles your code to a native binary
 
