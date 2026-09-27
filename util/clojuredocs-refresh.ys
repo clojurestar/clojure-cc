@@ -1,0 +1,133 @@
+#!/usr/bin/env ys-0
+
+# Refresh the tracked subset used by the interactive ClojureDocs prototype.
+
+use: json
+
+pages-file =: 'src/clojuredocs/pages.yaml'
+input-prompt =:
+  /(?m)^(?:[A-Za-z][A-Za-z0-9_.:-]*[ \t]*(?:=>|>)|>)[ \t]?/
+
+defn main():
+  config =: load('../src/clojuredocs/pages.yaml')
+  page-config =: config.del('meta')
+  export =: load('../.cache/local/cache/clojuredocs-export.json')
+  page-index =: index-pages(export.vars)
+  pages =:
+    keys(page-config):V.map(fn([id] normalize-page(id page-index.$id)))
+  validate-runnable-ids: pages page-config
+  update-source-date: config.meta.source.date export.'created-at'
+  err: "Refreshed $(page-config.#) ClojureDocs pages.\n"
+  snapshot =:::
+    source: config.meta.source.url
+    created-at: export.'created-at'
+    description: export.description
+    pages: pages
+  out: json/dump(snapshot)
+
+defn value-or(value fallback):
+  if value:
+    value
+    fallback
+
+defn index-pages(pages):
+  reduce _ hash-map() pages:
+    fn(index page):
+      page-id =: "$(page.ns)/$(page.name)"
+      index: .put(page-id page)
+
+defn validate-runnable-ids(pages page-config):
+  each page pages:
+    page-id =: "$(page.ns)/$(page.name)"
+    runnable-ids =: page-config.$page-id
+    when-not vector?(runnable-ids):
+      die: "ClojureDocs page $page-id must contain a flow sequence."
+    when runnable-ids.# != frequencies(runnable-ids).#:
+      die: "ClojureDocs page $page-id has duplicate example IDs."
+    example-ids =: page.examples.map(\(_.id))
+    example-counts =: frequencies(example-ids)
+    each example-id runnable-ids:
+      when-not string?(example-id):
+        die: "ClojureDocs page $page-id has a non-string example ID."
+      when-not example-counts.$example-id:
+        die: |-
+          Runnable example $example-id does not belong to $page-id.
+
+defn update-source-date(old-date timestamp):
+  old-date =: old-date:S
+  new-date =: pr-str(new(Date timestamp)).subs(7 17)
+  old-line =: "    date: $old-date"
+  new-line =: "    date: $new-date"
+  text =: read(pages-file)
+  updated =: text.replace1(old-line new-line)
+  when old-date != new-date:
+    when updated == text:
+      die: "Could not update source date in $pages-file."
+  write pages-file: updated
+
+defn normalize-page(id page):
+  when-not page:
+    die: "ClojureDocs export has no page for $id."
+  ns =: page.ns
+  name =: page.name
+  examples =: value-or(page.examples []).map(normalize-example-entry)
+  notes =: value-or(page.notes []).map(normalize-entry)
+  see-alsos =: value-or(page.'see-alsos' []).map(normalize-see-also)
+  =>:::
+    ns: ns
+    name: name
+    type: page.type
+    added: page.added
+    arglists: page.arglists
+    doc: clean-text(page.doc)
+    href: page.href
+    file: page.file
+    line: page.line
+    examples: examples
+    notes: notes
+    see-alsos: see-alsos
+
+defn normalize-example-entry(entry):
+  =>:::
+    id: entry.'_id'
+    body: clean-example-text(entry.body)
+    author: normalize-author(entry.author)
+    created-at: entry.'created-at'
+    updated-at: entry.'updated-at'
+
+defn normalize-entry(entry):
+  =>:::
+    id: entry.'_id'
+    body: clean-text(entry.body)
+    author: normalize-author(entry.author)
+    created-at: entry.'created-at'
+    updated-at: entry.'updated-at'
+
+defn normalize-author(author):
+  if author:
+    then:::
+      login: author.login
+      account-source: author.'account-source'
+      avatar-url: author.'avatar-url'
+    else: +{}
+
+defn clean-text(text):
+  text =: value-or(text '')
+  text: .replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/ '')
+    .replace(/\x{2014}/ '--')
+
+defn clean-example-text(text):
+  clean-text(text): .replace(input-prompt remove-input-prompt)
+
+defn remove-input-prompt(match):
+  if match.starts?('output>'):
+    match
+    ''
+
+defn normalize-see-also(item):
+  target =: item.'to-var'
+  =>:::
+    id: item.'_id'
+    ns: target.ns
+    name: target.name
+    author: normalize-author(item.author)

@@ -1,0 +1,378 @@
+#!/usr/bin/env ys-0
+
+# Render the tracked ClojureDocs snapshot as compact interactive pages.
+
+use: fs
+
+output-dir =: 'docs/clojuredocs.org'
+source-base =: 'https://clojuredocs.org'
+clojure-repo =: 'https://github.com/clojure/clojure'
+clojure-tag =: 'clojure-1.12.4'
+
+defn main():
+  snapshot =: load('../src/clojuredocs/snapshot.json')
+  config =: load('../src/clojuredocs/pages.yaml')
+  page-config =: config.del('meta')
+  local-pages =: index-page-ids(keys(page-config))
+  index =: render-index(snapshot config.meta.source.url page-config)
+  write "$output-dir/index.md": index
+  each page snapshot.pages:
+    page-name =: local-page-name(page.name)
+    path =: "$output-dir/$(page.ns)/$page-name.md"
+    fs/mkdir-p: fs/dirname(path)
+    write path: render-page(page page-config local-pages)
+  say: "Generated $(page-config.#) interactive ClojureDocs pages."
+
+defn value-or(value fallback):
+  if value:
+    value
+    fallback
+
+defn index-page-ids(page-ids):
+  reduce _ hash-map() page-ids:
+    fn(index page-id):
+      index: .put(page-id true)
+
+defn render-index(snapshot export-url page-config):
+  rows =:
+    snapshot.pages
+      .map(fn([page] render-row(page page-config)))
+      .join("\n")
+  =>: |
+    ---
+    title: Interactive ClojureDocs
+    hide:
+    - navigation
+    ---
+
+    # Interactive ClojureDocs
+
+    <details class="clojuredocs-about" markdown="1">
+    <summary>About Interactive ClojureDocs</summary>
+
+    ClojureDocs Interactive is an experimental project seeking feedback from
+    the Clojure community.
+
+    The documentation, usage signatures, examples, notes, related links, and
+    contributor information come from the public
+    [ClojureDocs JSON export]($export-url).
+    This site keeps a tracked snapshot of $(snapshot.pages.#) selected pages
+    and generates the index and individual pages from that data.
+    The page selection, interactive interface, and decisions about which
+    examples can run are maintained by this project.
+
+    Runnable examples execute locally in your browser using
+    [Glojure](https://github.com/gloathub/glojure) compiled to WebAssembly.
+    Focusing an editor or selecting its run button creates a fresh WebAssembly
+    instance for that evaluation.
+    All top-level forms run in order in that instance, so later forms can use
+    definitions from earlier ones.
+    The output shows each form's result, including `nil`, together with
+    anything the code prints.
+    Collection results are limited to 100 items and 20 nesting levels, with an
+    ellipsis when truncated.
+    Evaluation stops at the first error.
+    Once active, the editor evaluates changes automatically after a short
+    pause.
+    Examples that are not known to run in this browser-based Glojure
+    environment are marked "May have evaluation errors."
+    They remain editable and runnable, but may depend on REPL state from
+    another session, JVM APIs, external libraries, or other context that is
+    unavailable here.
+
+    The original prose and examples remain attributed to their ClojureDocs
+    contributors, with a link back to the matching source page's example.
+
+    </details>
+
+    <div class="clojuredocs-table-wrap" data-clojuredocs-page>
+    <table class="clojuredocs-table" data-clojuredocs-table>
+      <thead>
+        <tr>
+          <th scope="col" data-sort-key="ns" aria-sort="none"
+            data-tooltip="Sort by namespace">
+            <button type="button" aria-label="Sort by namespace">ns</button>
+          </th>
+          <th scope="col" data-sort-key="name" aria-sort="none"
+            data-tooltip="Sort by name">
+            <button type="button" aria-label="Sort by name">name</button>
+          </th>
+          <th scope="col" data-sort-key="examples"
+            aria-sort="descending"
+            data-tooltip="Sort by total community example count">
+            <button type="button"
+              aria-label="Sort by total community example count">eg #</button>
+          </th>
+          <th scope="col" data-sort-key="runnable" aria-sort="none"
+            data-tooltip="Sort by browser-runnable example count">
+            <button type="button"
+              aria-label="Sort by browser-runnable example count">
+              run #
+            </button>
+          </th>
+          <th scope="col" data-tooltip="Basic usage signatures">usage</th>
+        </tr>
+      </thead>
+      <tbody>
+    $rows
+      </tbody>
+    </table>
+    </div>
+
+defn render-row(page page-config):
+  page-id =: "$(page.ns)/$(page.name)"
+  runnable-ids =: page-config.$page-id
+  usage =: render-usage(page)
+  page-url =: local-page-url(page.ns page.name)
+  example-count =: page.examples.#
+  runnable-count =: runnable-ids.#
+  =>: |
+        <tr>
+          <td><code>$(html(page.ns))</code></td>
+          <td>
+            <a href="$page-url">
+              <code>$(html(page.name))</code>
+            </a>
+          </td>
+          <td>$example-count</td>
+          <td>$runnable-count</td>
+          <td>$usage</td>
+        </tr>
+
+defn render-usage(page):
+  forms =:
+    value-or(page.arglists []).map(
+      fn([args] usage-form(page.name args)))
+  if forms.# > 0:
+    then: forms.map(fn([form] "<code>$(html(form))</code>")).join('<br>')
+    else: '<span>--</span>'
+
+defn usage-form(name args):
+  if args:
+    then: "($name $args)"
+    else: "($name)"
+
+defn render-arglists(arglists):
+  forms =: value-or(arglists []).map(fn([args] "[$args]"))
+  =>: "($(forms:joins))"
+
+defn render-page(page page-config local-pages):
+  page-id =: "$(page.ns)/$(page.name)"
+  runnable-ids =: page-config.$page-id
+  runnable-examples =: frequencies(runnable-ids)
+  title =: "$(page.ns)/$(page.name)"
+  source-url =: source-base + page.href
+  examples =:
+    page.examples.map(
+      fn([e] render-example(e source-url runnable-examples))):join
+  notes =: page.notes.map(render-note):join
+  see-also =:
+    render-see-alsos(page.'see-alsos' page-config local-pages)
+  added =: value-or(page.added 'unknown')
+  type =: render-type(page)
+  arglists =: render-arglists(page.arglists)
+  source-label =: '[:material-open-in-new: View this page on ClojureDocs]'
+  source-link =: source-label +
+    "($source-url){ .clojuredocs-source-link }"
+  =>: |
+    ---
+    title: $title
+    ---
+
+    # `$title`
+
+    $source-link
+
+    <div class="clojuredocs-meta">
+      <span>Type: $type</span>
+      <span>Added: Clojure $added</span>
+      <span>Examples: $(page.examples.#)</span>
+      <span>Runnable: $(runnable-ids.#)</span>
+    </div>
+
+    <div class="clojuredocs-signature">
+
+    ```clojure
+    $arglists
+    ```
+
+    </div>
+
+    $(value-or(page.doc ''))
+
+    ## Examples
+
+    <div data-clojuredocs-page>
+    $examples
+    </div>
+
+    $notes
+    $see-also
+
+    ---
+
+    Content from [the matching ClojureDocs page]($source-url), with authors
+    credited on each contribution.
+
+defn render-type(page):
+  type =: html(value-or(page.type 'var'))
+  url =:
+    "$clojure-repo/blob/$clojure-tag/src/clj/$(page.file)#L$(page.line)"
+  if page.file && page.line && page.added:
+    then: |-
+      <a href="$url" title="View Clojure source code">$type</a>
+    else: type
+
+defn render-example(example source-url runnable-examples):
+  author =: value-or(
+    example.author.login 'ClojureDocs contributor')
+  author-url =: author-url(example.author source-url)
+  date =: created-date(example)
+  date-url =: source-url
+  date-url :if example.id +=: "#example-$(example.id)"
+  example-id =: example.id
+  if runnable-examples.$example-id:
+    then: render-runnable(example author author-url date date-url)
+    else: render-static(example author author-url date date-url)
+
+defn render-runnable(example author author-url date date-url):
+  body =: html(example.body)
+  lines =: example.body.split("\n").#
+  =>: |
+    <section class="clojuredocs-example" data-example-id="$(example.id)">
+      <header class="clojuredocs-example-header">
+        <span>
+          by <a href="$author-url">$(html(author))</a>
+          on <a href="$date-url" title="View the original example">
+            <time datetime="$date">$date</time>
+          </a>
+        </span>
+        <span class="clojuredocs-example-controls">
+          <span class="clojuredocs-status" data-status
+            aria-live="polite"></span>
+          <button type="button" data-run aria-label="Run example"
+            aria-controls="clojuredocs-output-$(example.id)"
+            aria-expanded="false">▶</button>
+        </span>
+      </header>
+      <textarea data-clojuredocs-source rows="$lines">$body</textarea>
+      <div class="clojuredocs-editor" data-editor></div>
+      <pre id="clojuredocs-output-$(example.id)"
+        class="clojuredocs-output" data-output hidden></pre>
+    </section>
+
+defn render-static(example author author-url date date-url):
+  body =: html(example.body)
+  lines =: example.body.split("\n").#
+  =>: |
+    <section class="clojuredocs-example clojuredocs-static"
+      data-example-id="$(example.id)">
+      <header class="clojuredocs-example-header">
+        <span>
+          by <a href="$author-url">$(html(author))</a>
+          on <a href="$date-url" title="View the original example">
+            <time datetime="$date">$date</time>
+          </a>.
+          <span class="clojuredocs-evaluation-warning">
+            May have evaluation errors.
+          </span>
+        </span>
+        <span class="clojuredocs-example-controls">
+          <span class="clojuredocs-status" data-status
+            aria-live="polite"></span>
+          <button type="button" data-run aria-label="Run example"
+            aria-controls="clojuredocs-output-$(example.id)"
+            aria-expanded="false">▶</button>
+        </span>
+      </header>
+      <textarea data-clojuredocs-source rows="$lines">$body</textarea>
+      <div class="clojuredocs-editor" data-editor></div>
+      <pre id="clojuredocs-output-$(example.id)"
+        class="clojuredocs-output" data-output hidden></pre>
+    </section>
+
+defn author-url(author fallback):
+  if author.'account-source' == 'github':
+    then:
+      if author.login:
+        then: "https://github.com/$(author.login)"
+        else: fallback
+    else:
+      if author.login:
+        then: "$source-base/uc/$(author.login)"
+        else: fallback
+
+defn created-date(example):
+  timestamp =: example.'created-at'
+  if timestamp:
+    then: pr-str(new(Date timestamp)).subs(7 17)
+    else: 'unknown'
+
+defn render-note(note):
+  author =: value-or(note.author.login 'ClojureDocs contributor')
+  =>: |
+
+    ### Note by $(html(author))
+
+    $(note.body)
+
+defn render-see-alsos(items page-config local-pages):
+  when items.#.?:
+    links =:
+      items.map(
+        fn([item] render-see-also(item page-config local-pages))):join
+    =>: |
+
+      ## See also
+
+      <ul class="clojuredocs-see-also">
+      $links
+      </ul>
+
+defn render-see-also(item page-config local-pages):
+  label =: "$(item.ns)/$(item.name)"
+  local? =: local-pages.$label
+  local-url =:
+    "/clojuredocs.org/$(local-page-url(item.ns item.name))"
+  external-url =: "$source-base/$(item.ns)/$(item.name)"
+  url =: local?.if(local-url external-url)
+  class =:
+    local?.if(
+      'clojuredocs-see-also-local'
+      'clojuredocs-see-also-external')
+  runnable-count =:
+    if local?:
+      then: render-see-also-count(label page-config)
+      else: ''
+  =>: |
+        <li>
+          <a class="$class" href="$url">$(html(label))</a> $runnable-count
+        </li>
+
+defn render-see-also-count(label page-config):
+  count =: page-config.$label.#
+  =>: |-
+    <span class="clojuredocs-see-also-count">($count)</span>
+
+defn local-page-url(ns name):
+  page-name =: local-page-name(name)
+  =>: "$(url-path-segment(ns))/$(url-path-segment(page-name))/"
+
+defn local-page-name(name):
+  name
+    .replace('/' '_fs')
+    .replace('?' '_q')
+
+defn url-path-segment(value):
+  value
+    .replace('%' '%25')
+    .replace('?' '%3F')
+    .replace('#' '%23')
+    .replace('<' '%3C')
+    .replace('>' '%3E')
+
+defn html(value):
+  value =: value-or(value '')
+  value: .replace('&' '&amp;')
+    .replace('<' '&lt;')
+    .replace('>' '&gt;')

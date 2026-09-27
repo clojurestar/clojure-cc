@@ -1,0 +1,16 @@
+{% import "partials/tabs-item.html" as item with context %}
+{% set show_clojuredocs = page and page.url
+  and page.url.startswith("clojuredocs.org/") %}
+<nav class="md-tabs" aria-label="{{ lang.t('tabs') }}"
+     data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      {% for nav_item in nav.items %}
+        {% if nav_item.title != "Interactive ClojureDocs"
+              or show_clojuredocs %}
+          {{ item.render(nav_item) }}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</nav>

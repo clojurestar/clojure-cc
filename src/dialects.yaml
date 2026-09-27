@@ -395,6 +395,7 @@
 - name: ClojureFnl
   desc: Early Clojure-to-Fennel transpiler
   repo: https://gitlab.com/andreyorst/clojurefnl
+  fetch: false
   host: Fennel / Lua
   ctag: [clojure]
   atag: [andreyorst]

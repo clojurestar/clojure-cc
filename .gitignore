@@ -5,6 +5,8 @@
 /docs/repl/wasm_exec.js
 /docs/dialects.md
 /docs/javascripts/cc-logo-data.js
+/docs/javascripts/clojuredocs.js
+/docs/clojuredocs.org/
 /repo-data.yaml
 __pycache__/
 *.pyc

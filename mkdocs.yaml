@@ -48,9 +48,11 @@ theme:
 
 extra_css:
 - css/extra.css
+- css/clojuredocs.css
 
 extra_javascript:
 - javascripts/external-links.js
+- javascripts/clojuredocs-loader.js
 - javascripts/repl.js
 - javascripts/cc-logo-data.js
 - javascripts/cc-logo.js
@@ -63,6 +65,7 @@ nav:
 - Clojure Tools: tools.md
 - Browser REPL: repl.md
 - Blog: blog/index.md
+- Interactive ClojureDocs: clojuredocs.org/index.md
 
 markdown_extensions:
 - abbr

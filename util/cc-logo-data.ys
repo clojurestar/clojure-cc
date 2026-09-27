@@ -3,14 +3,21 @@
 # Generate cc-logo-data.js from src/dialects.yaml.
 
 defn main():
-  data =: read('src/dialects.yaml'):yaml/load
+  data =: load('../src/dialects.yaml')
   json =:
-    json/dump: data
+    data
       .filter(\(_.fext))
       .map(entry)
+      .join(',')
+  json =: "[$json]"
   say: "window.CC_LOGO_DIALECTS = $json;"
 
-defn entry(d)::
-  fext :: d.fext
-  name :: d.name
-  site :: d.site ||| d.repo
+defn entry(d):
+  fext =: json-string(d.fext)
+  name =: json-string(d.name)
+  site =: json-string(d.site ||| d.repo)
+  =>: "{\"fext\":$fext,\"name\":$name,\"site\":$site}"
+
+defn json-string(value):
+  value =: value.replace('\\' '\\\\').replace('"' '\\"')
+  =>: "\"$value\""

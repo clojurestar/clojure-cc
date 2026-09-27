@@ -6,13 +6,14 @@
 # by `make repo-data`). When the file is absent, those cells render empty.
 
 defn main():
-  rows =: read('src/dialects.yaml'):yaml/load
+  rows =: load('../src/dialects.yaml')
   data-file =: 'repo-data.yaml'
   empty =: +{}
   repo-data =:
-    if data-file:fs-e:
-      data-file:read:yaml/load
-      empty
+    try:
+      load: "../$data-file"
+      catch Exception e:
+        =>: empty
   template =: read('src/dialects.md')
   table =: render-table(rows repo-data)
   print: template.replace('+++DIALECTS+++' table)
@@ -122,7 +123,7 @@ defn author-id(tag):
     tiye: '449224'
     tytrdev: '6384618'
     yogthos: '121208'
-  get ids: tag
+  ids: .$tag
 
 defn author-badge(user id):
   =>: "<a href=\"https://github.com/$user\" class=\"badge badge-$user\" \

@@ -14,6 +14,11 @@ GLOJURE-VERSION := 0.6.5-rc30
 GLOJURE-REPO := https://github.com/gloathub/glojure
 include $M/go.mk
 include $M/glojure.mk
+include $M/node.mk
+
+# glojure.mk installs a prebuilt CLI for shell sessions. This project only
+# uses the source checkout below, because the browser runtime is built as WASM.
+SHELL-DEPS := $(filter-out $(GLJ),$(SHELL-DEPS))
 
 GLOJURE-TAG := v$(patsubst v%,%,$(GLOJURE-VERSION))
 GLOJURE-DIR := $(LOCAL-CACHE)/glojure-$(GLOJURE-TAG)
@@ -27,6 +32,7 @@ include $M/shell.mk
 
 export UV_LINK_MODE := copy
 export UV_CACHE_DIR := $(ROOT)/.cache/uv
+export NPM_CONFIG_CACHE := $(ROOT)/.cache/npm
 export NO_MKDOCS_2_WARNING := 1
 
 # Override python.mk's venv recipe: use uv venv instead of python -m venv
@@ -40,8 +46,10 @@ $(PYTHON-VENV): $(PYTHON)
 REPO ?= git@github.com:clojurestar/clojure-cc
 
 MAKES-CLEAN := \
+  docs/clojuredocs.org/ \
   docs/dialects.md \
   docs/javascripts/cc-logo-data.js \
+  docs/javascripts/clojuredocs.js \
   docs/repl/wasm_exec.js \
   site \
 
@@ -61,6 +69,16 @@ default::
 
 GLJ-WASM := docs/repl/glj.wasm
 GLJ-WASM-EXEC := docs/repl/wasm_exec.js
+CLOJUREDOCS-DIR := docs/clojuredocs.org
+CLOJUREDOCS-JS-DIR := $(LOCAL-CACHE)/clojuredocs-js
+CLOJUREDOCS-JS := docs/javascripts/clojuredocs.js
+CLOJUREDOCS-JS-SOURCES := \
+  src/clojuredocs/editor.js \
+  src/clojuredocs/forms.js \
+  src/clojuredocs/forms.test.js
+CLOJUREDOCS-EXPORT := $(LOCAL-CACHE)/clojuredocs-export.json
+CLOJUREDOCS-GLJ := $(LOCAL-BIN)/glj-check
+CLOJUREDOCS-PAGES := src/clojuredocs/pages.yaml
 
 # Build the in-browser Glojure REPL WebAssembly binary
 $(GLJ-WASM): $(GO) $(GLOJURE-DIR)
@@ -79,6 +97,56 @@ $(GLJ-WASM-EXEC): $(GO)
 
 glj-wasm: $(GLJ-WASM) $(GLJ-WASM-EXEC)
 
+# Refresh the tracked, normalized subset from the public ClojureDocs export.
+clojuredocs-refresh: $(YS) $(PYTHON) $(CLOJUREDOCS-PAGES)
+	clojuredocs_source="$$(ys -e \
+	  "say: load('$(CLOJUREDOCS-PAGES)').meta.source.url")"; \
+	  curl+ "$$clojuredocs_source" > $(CLOJUREDOCS-EXPORT)
+	mkdir -p $(LOCAL-TMP)
+	ys util/clojuredocs-refresh.ys | \
+	  $(PYTHON) -m json.tool --no-ensure-ascii --indent 2 > \
+	  $(LOCAL-TMP)/clojuredocs-snapshot.json
+	mv $(LOCAL-TMP)/clojuredocs-snapshot.json \
+	  src/clojuredocs/snapshot.json
+
+$(CLOJUREDOCS-DIR): util/clojuredocs.ys \
+                       src/clojuredocs/snapshot.json \
+                       $(CLOJUREDOCS-PAGES) $(YS)
+	$(RM) -r $@
+	mkdir -p $@
+	ys util/clojuredocs.ys
+
+$(CLOJUREDOCS-JS-DIR)/node_modules/.ready: \
+    src/clojuredocs/package.json src/clojuredocs/package-lock.json $(NODE)
+	$(RM) -r $(CLOJUREDOCS-JS-DIR)
+	mkdir -p $(CLOJUREDOCS-JS-DIR)
+	cp src/clojuredocs/package.json \
+	  src/clojuredocs/package-lock.json $(CLOJUREDOCS-JS-DIR)/
+	cd $(CLOJUREDOCS-JS-DIR) && \
+	  npm ci --ignore-scripts --no-audit --no-fund
+	touch $@
+
+$(CLOJUREDOCS-JS): $(CLOJUREDOCS-JS-SOURCES) \
+    $(CLOJUREDOCS-JS-DIR)/node_modules/.ready
+	cp $(CLOJUREDOCS-JS-SOURCES) $(CLOJUREDOCS-JS-DIR)/
+	cd $(CLOJUREDOCS-JS-DIR) && \
+	  node_modules/.bin/esbuild editor.js --bundle --format=iife \
+	    --minify --outfile=$(ROOT)/$@
+
+clojuredocs: $(CLOJUREDOCS-DIR) $(CLOJUREDOCS-JS)
+
+$(CLOJUREDOCS-GLJ): $(GO) $(GLOJURE-DIR)
+	cd $(GLOJURE-DIR)/cmd/glj && \
+	  go build -o $@ .
+
+clojuredocs-check: $(CLOJUREDOCS-DIR) $(CLOJUREDOCS-GLJ) \
+                   $(GLJ-WASM) $(GLJ-WASM-EXEC) $(CLOJUREDOCS-JS) $(NODE)
+	cd $(CLOJUREDOCS-JS-DIR) && node --test forms.test.js
+	CLOJUREDOCS_FORMS=$(CLOJUREDOCS-JS-DIR)/forms.js \
+	  GLJ=$(CLOJUREDOCS-GLJ) node util/check-clojuredocs.mjs
+	CLOJUREDOCS_FORMS=$(CLOJUREDOCS-JS-DIR)/forms.js \
+	  node util/check-clojuredocs-wasm.mjs
+
 # Refresh star counts and latest-release info into repo-data.yaml
 repo-data: $(YS)
 	ys util/repo-data.ys
@@ -95,13 +163,15 @@ docs/javascripts/cc-logo-data.js: util/cc-logo-data.ys src/dialects.yaml $(YS)
 	ys $< > $@
 
 # Build main site (production)
-site: $(DEPS) glj-wasm docs/dialects.md docs/javascripts/cc-logo-data.js
+site: $(DEPS) glj-wasm clojuredocs docs/dialects.md \
+      docs/javascripts/cc-logo-data.js
 	mkdocs build -d $@
 
 # Serve locally with MkDocs
 # Kill any other 'mkdocs serve' first so a stale dev server on the same port
 # doesn't block startup.
-serve: $(DEPS) glj-wasm docs/dialects.md docs/javascripts/cc-logo-data.js
+serve: $(DEPS) glj-wasm clojuredocs docs/dialects.md \
+       docs/javascripts/cc-logo-data.js
 	-pkill -f 'mkdocs serve' 2>/dev/null
 	mkdocs serve --livereload
 
@@ -121,3 +191,7 @@ publish: repo-data
 	  git commit -m 'Deploy to production' && \
 	  git push -f $(REPO) HEAD:gh-pages
 	$(RM) -r site
+
+# Deploy to production without refreshing repo data
+publish-quickly:
+	$(MAKE) -o repo-data publish
