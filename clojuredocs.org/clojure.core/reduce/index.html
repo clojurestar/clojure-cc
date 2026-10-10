@@ -1,0 +1,1691 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Discover, compare and try out dialects from the Clojure family of languages.">
+      
+      
+        <meta name="author" content="Ingy dot Net">
+      
+      
+        <link rel="canonical" href="https://clojure.cc/clojuredocs.org/clojure.core/reduce/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../img/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>clojure.core/reduce - ClojureStar</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../../css/clojuredocs.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="clojure.core/reduce - ClojureStar" />
+<meta property="og:description" content="Discover, compare and try out dialects from the Clojure family of languages." />
+<meta property="og:image" content="https://clojure.cc/assets/images/social/clojuredocs.org/clojure.core/reduce.png?v=1791628368" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://clojure.cc/clojuredocs.org/clojure.core/reduce/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="clojure.core/reduce - ClojureStar" />
+<meta property="twitter:description" content="Discover, compare and try out dialects from the Clojure family of languages." />
+<meta property="twitter:image" content="https://clojure.cc/assets/images/social/clojuredocs.org/clojure.core/reduce.png?v=1791628368" />
+</head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#clojurecorereduce" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="ClojureStar" class="md-header__button md-logo" aria-label="ClojureStar" data-md-component="logo">
+      <img src="../../../img/logo.svg" alt="ClojureStar" class="cc-logo" data-cc-logo>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <a href="../../.." class="md-ellipsis" style="text-decoration: none; color: inherit;">
+            ClojureStar
+          </a>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              clojure.core/reduce
+            
+          </span>
+        </div>
+      </div>
+      
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/clojurestar/clojure-cc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    clojurestar/clojure-cc
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+
+<nav class="md-tabs" aria-label="Tabs"
+     data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+          
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  ClojureStar
+
+      </a>
+    </li>
+  
+
+        
+      
+        
+          
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../dialects/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Clojure Dialects
+
+      </a>
+    </li>
+  
+
+        
+      
+        
+          
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../try/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Try Dialects
+
+      </a>
+    </li>
+  
+
+        
+      
+        
+          
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../tools/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Clojure Tools
+
+      </a>
+    </li>
+  
+
+        
+      
+        
+          
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../repl/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Browser REPL
+
+      </a>
+    </li>
+  
+
+        
+      
+        
+          
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+        
+      
+        
+          
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Interactive ClojureDocs
+
+      </a>
+    </li>
+  
+
+        
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation"
+     data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.."
+       title="ClojureStar" class="md-nav__button md-logo"
+       aria-label="ClojureStar" data-md-component="logo">
+      <img src="../../../img/logo.svg" alt="ClojureStar" class="cc-logo" data-cc-logo>
+    </a>
+    ClojureStar
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/clojurestar/clojure-cc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    clojurestar/clojure-cc
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+        
+        
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ClojureStar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+      
+    
+      
+        
+        
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dialects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clojure Dialects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+      
+    
+      
+        
+        
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../try/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Try Dialects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+      
+    
+      
+        
+        
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clojure Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+      
+    
+      
+        
+        
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../repl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browser REPL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+      
+    
+      
+        
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+      
+    
+      
+        
+        
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interactive ClojureDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+      
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note-by-joshuaeckroth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note by JoshuaEckroth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note-by-didibus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note by didibus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note-by-iljaf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note by iljaf
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="clojurecorereduce"><code>clojure.core/reduce</code><a class="headerlink" href="#clojurecorereduce" title="Permanent link">&para;</a></h1>
+<p><a class="clojuredocs-source-link" href="https://clojuredocs.org/clojure.core/reduce"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"/></svg></span> View this page on ClojureDocs</a></p>
+<div class="clojuredocs-meta">
+  <span>Type: <a href="https://github.com/clojure/clojure/blob/clojure-1.12.4/src/clj/clojure/core.clj#L6947" title="View Clojure source code">function</a></span>
+  <span>Added: Clojure 1.0</span>
+  <span>Examples: 25</span>
+  <span>Runnable: 22</span>
+</div>
+
+<div class="clojuredocs-signature">
+
+<div class="language-clojure highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">([</span><span class="nv">f</span><span class="w"> </span><span class="nv">coll</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nv">f</span><span class="w"> </span><span class="nb">val </span><span class="nv">coll</span><span class="p">])</span>
+</span></code></pre></div>
+
+</div>
+
+<p>f should be a function of 2 arguments. If val is not supplied,
+  returns the result of applying f to the first 2 items in coll, then
+  applying f to that result and the 3<sup>rd</sup> item, etc. If coll contains no
+  items, f must accept no arguments as well, and reduce returns the
+  result of calling f with no arguments.  If coll has only 1 item, it
+  is returned and f is not called.  If val is supplied, returns the
+  result of applying f to val and the first item in coll, then
+  applying f to that result and the 2<sup>nd</sup> item, etc. If coll contains no
+  items, returns val and f is not called.</p>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<div data-clojuredocs-page>
+<section class="clojuredocs-example" data-example-id="542692ccc026201cdc326c36">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://clojuredocs.org/uc/cody">cody</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-542692ccc026201cdc326c36" title="View the original example">
+        <time datetime="2010-07-03">2010-07-03</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-542692ccc026201cdc326c36"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="6">(reduce + [1 2 3 4 5])  ;;=&gt; 15
+(reduce + [])           ;;=&gt; 0
+(reduce + [1])          ;;=&gt; 1
+(reduce + [1 2])        ;;=&gt; 3
+(reduce + 1 [])         ;;=&gt; 1
+(reduce + 1 [2 3])      ;;=&gt; 6</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-542692ccc026201cdc326c36"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="542692ccc026201cdc326c39">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://clojuredocs.org/uc/jkkramer">jkkramer</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-542692ccc026201cdc326c39" title="View the original example">
+        <time datetime="2010-07-08">2010-07-08</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-542692ccc026201cdc326c39"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="5">;; Converting a vector to a set:
+
+(reduce conj #{} [:a :b :c])
+;; =&gt; #{:a :c :b}
+</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-542692ccc026201cdc326c39"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example clojuredocs-static"
+  data-example-id="542692ccc026201cdc326c3b">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://github.com/ghoseb">ghoseb</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-542692ccc026201cdc326c3b" title="View the original example">
+        <time datetime="2010-07-13">2010-07-13</time>
+      </a>.
+      <span class="clojuredocs-evaluation-warning">
+        May have evaluation errors.
+      </span>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-542692ccc026201cdc326c3b"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="9">;; Create a word frequency map out of a large string s.
+
+;; `s` is a long string containing a lot of words :)
+(reduce #(assoc %1 %2 (inc (%1 %2 0)))
+        {}
+        (re-seq #"\w+" s))
+
+; (This can also be done using the `frequencies` function.)
+</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-542692ccc026201cdc326c3b"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="542692ccc026201cdc326c40">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://clojuredocs.org/uc/devijvers">devijvers</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-542692ccc026201cdc326c40" title="View the original example">
+        <time datetime="2010-07-14">2010-07-14</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-542692ccc026201cdc326c40"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="21">;; Calculate primes until 1000
+
+(reduce
+  (fn [primes number]
+    (if (some zero? (map (partial mod number) primes))
+      primes
+      (conj primes number)))
+  [2]
+  (take 1000 (iterate inc 3)))
+
+;;=&gt; [2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 
+;;    83 89 97 101 103 107 109 113 127 131 137 139 149 151 157 163 
+;;    167 173 179 181 191 193 197 199 211 223 227 229 233 239 241 251 
+;;    257 263 269 271 277 281 283 293 307 311 313 317 331 337 347 349 
+;;    353 359 367 373 379 383 389 397 401 409 419 421 431 433 439 443 
+;;    449 457 461 463 467 479 487 491 499 503 509 521 523 541 547 557 
+;;    563 569 571 577 587 593 599 601 607 613 617 619 631 641 643 647 
+;;    653 659 661 673 677 683 691 701 709 719 727 733 739 743 751 757 
+;;    761 769 773 787 797 809 811 821 823 827 829 839 853 857 859 863 
+;;    877 881 883 887 907 911 919 929 937 941 947 953 967 971 977 983 
+;;    991 997]</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-542692ccc026201cdc326c40"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="542692ccc026201cdc326c46">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://clojuredocs.org/uc/devijvers">devijvers</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-542692ccc026201cdc326c46" title="View the original example">
+        <time datetime="2010-07-15">2010-07-15</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-542692ccc026201cdc326c46"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="6">;; Add one collection to another (combining sequences is done with cons):
+(reduce conj [1 2 3] [4 5 6])
+;;=&gt; [1 2 3 4 5 6]
+
+(reduce #(cons %2 %1) [1 2 3] [4 5 6])
+;;=&gt; '(6 5 4 1 2 3)</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-542692ccc026201cdc326c46"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="542692d5c026201cdc327064">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://clojuredocs.org/uc/gradysw">gradysw</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-542692d5c026201cdc327064" title="View the original example">
+        <time datetime="2012-01-03">2012-01-03</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-542692d5c026201cdc327064"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="12">;; Combine a vector of collections into a single collection 
+;; of the type of the first collection in the vector.
+(reduce into [[1 2 3] [:a :b :c] '([4 5] 6)])
+;;=&gt; [1 2 3 :a :b :c [4 5] 6]
+
+;; The flatten function can be used to completely fuse 
+;; all of the items of a nested tree into a single sequence.
+;; Sometimes all that is needed is to fuse the first level
+;; of a tree. This can be done with 'reduce' and 'into'.
+(reduce into [] '([] [[10 18]] [[8 18]] [[10 12]] [[0 -6]] [[2 6]]))
+;;=&gt; [[10 18] [8 18] [10 12] [0 -6] [2 6]]
+</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-542692d5c026201cdc327064"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="542692d5c026201cdc327066">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://clojuredocs.org/uc/octopusgrabbus">octopusgrabbus</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-542692d5c026201cdc327066" title="View the original example">
+        <time datetime="2012-04-12">2012-04-12</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-542692d5c026201cdc327066"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="15">(defn key-pres?
+    "This function accepts a value (cmp-val) and a vector of vectors
+    (parsed output from clojure-csv) and returns the match value
+    back if found and nil if not found. 
+
+    Using reduce, the function searches every vector row to see 
+    if cmp-val is at the col-idx location in the vector."
+
+    [cmp-val cmp-idx csv-data]
+    (reduce
+        (fn [ret-rc csv-row]
+            (if (= cmp-val (nth csv-row col-idx nil))
+                    (conj ret-rc cmp-val)))
+        [] 
+        csv-data))</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-542692d5c026201cdc327066"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="542692d5c026201cdc327067">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://clojuredocs.org/uc/octopusgrabbus">octopusgrabbus</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-542692d5c026201cdc327067" title="View the original example">
+        <time datetime="2012-04-12">2012-04-12</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-542692d5c026201cdc327067"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="17">(defn reduce-csv-row
+    "Accepts a csv-row (a vector) a list of columns to extract, 
+     and reduces (and returns) a csv-row to a subset based on 
+     selection using the values in col-nums (a vector of integer 
+     vector positions.)"
+
+    [csv-row col-nums]
+
+    (reduce
+        (fn [out-csv-row col-num]
+            ; Don't consider short vectors containing junk.
+            (if-not (&lt;= (count csv-row) 1)
+                (conj out-csv-row (nth csv-row col-num nil))))
+        []
+        col-nums))
+
+</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-542692d5c026201cdc327067"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="54ff62f5e4b0b716de7a6539">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://github.com/phreed">phreed</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-54ff62f5e4b0b716de7a6539" title="View the original example">
+        <time datetime="2015-03-10">2015-03-10</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-54ff62f5e4b0b716de7a6539"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="9">;; Some functions update a collection with a single item.
+;; A number of functions have a 'more' argument which lets
+;; them work over collections.
+;; These functions can benefit 'reduce' which lets them work 
+;; a collection of items...
+(into {} {:dog :food})
+
+(reduce into {} [{:dog :food} {:cat :chow}])
+;;=&gt; {:dog :food, :cat :chow}</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-54ff62f5e4b0b716de7a6539"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="55e60cdbe4b072d7f27980f5">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://github.com/lwm">lwm</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-55e60cdbe4b072d7f27980f5" title="View the original example">
+        <time datetime="2015-09-01">2015-09-01</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-55e60cdbe4b072d7f27980f5"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="12">;; The reduction will terminate early if an intermediate result uses the 
+;; `reduced` function.
+
+(defn limit [x y] 
+  (let [sum (+ x y)] 
+    (if (&gt; sum 10) (reduced sum) sum)))
+
+(reduce + 0 (range 10))
+;; =&gt; 45
+
+(reduce limit 0 (range 10))
+;; =&gt; 15</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-55e60cdbe4b072d7f27980f5"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="5605c98de4b08e404b6c1c85">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://github.com/teymuri">teymuri</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-5605c98de4b08e404b6c1c85" title="View the original example">
+        <time datetime="2015-09-25">2015-09-25</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-5605c98de4b08e404b6c1c85"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="9">;; This will generate the first 100 Fibonacci numbers
+;; (size of (range) + 2):
+
+(reduce 
+  (fn [a b] (conj a (+' (last a) (last (butlast a)))))  
+  [0 1]                      
+  (range 98))
+
+;; [0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578 5702887 9227465 14930352 24157817 39088169 63245986 102334155 165580141 267914296 433494437 701408733 1134903170 1836311903 2971215073 4807526976 7778742049 12586269025 20365011074 32951280099 53316291173 86267571272 139583862445 225851433717 365435296162 591286729879 956722026041 1548008755920 2504730781961 4052739537881 6557470319842 10610209857723 17167680177565 27777890035288 44945570212853 72723460248141 117669030460994 190392490709135 308061521170129 498454011879264 806515533049393 1304969544928657 2111485077978050 3416454622906707 5527939700884757 8944394323791464 14472334024676221 23416728348467685 37889062373143906 61305790721611591 99194853094755497 160500643816367088 259695496911122585 420196140727489673 679891637638612258 1100087778366101931 1779979416004714189 2880067194370816120 4660046610375530309 7540113804746346429 12200160415121876738N 19740274219868223167N 31940434634990099905N 51680708854858323072N 83621143489848422977N 135301852344706746049N 218922995834555169026N]</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-5605c98de4b08e404b6c1c85"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="564d10bce4b0538444398272">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://github.com/teymuri">teymuri</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-564d10bce4b0538444398272" title="View the original example">
+        <time datetime="2015-11-18">2015-11-18</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-564d10bce4b0538444398272"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="12">;; Reduce can be used to reimplement a map function:
+
+(defn map* [f &amp; c]
+  (let [c* (partition (count c)
+                           (apply interleave c))]
+    (reduce (fn [s k] (conj s (apply f k))) [] c*)))
+
+;; user=&gt; (map* * [0.5 0.5 0.5] (range))
+;; [0.0 0.5 1.0]
+;; user=&gt; (map* str "clojure" (range))
+;; ["c0" "l1" "o2" "j3" "u4" "r5" "e6"]
+</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-564d10bce4b0538444398272"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="57a20b86e4b0bafd3e2a04c5">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://github.com/hadielmougy">hadielmougy</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-57a20b86e4b0bafd3e2a04c5" title="View the original example">
+        <time datetime="2016-08-03">2016-08-03</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-57a20b86e4b0bafd3e2a04c5"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="8">;; Update map entries:
+(defn update-map-entries [m e]
+     (reduce #(update-in %1 [(first %2)] (fn [_] (last %2))) m e))
+
+;; =&gt; (update-map-entries {:a 1 :b 2 :c 3} {:a 5 :b 9})
+;; {:a 5, :b 9, :c 3}
+;; =&gt; (update-map-entries {:a 1 :b 2 :c 3} {:a 5 :b 9 :d 8})
+;; {:a 5, :b 9, :c 3, :d 8}</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-57a20b86e4b0bafd3e2a04c5"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example clojuredocs-static"
+  data-example-id="57afae13e4b02d8da95c26fa">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://github.com/sleyzerzon">sleyzerzon</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-57afae13e4b02d8da95c26fa" title="View the original example">
+        <time datetime="2016-08-13">2016-08-13</time>
+      </a>.
+      <span class="clojuredocs-evaluation-warning">
+        May have evaluation errors.
+      </span>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-57afae13e4b02d8da95c26fa"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="8">;; Flatten values in a map.
+(reduce
+  (fn [flattened [k v]]
+    (clojure.set/union flattened v))
+  #{}
+  {:e #{:m :f}, :c #{:f}, :b #{:c :f}, :d #{:m :f}, :a #{:c :f}})
+
+;; =&gt; #{:m :c :f}</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-57afae13e4b02d8da95c26fa"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="5834bd48e4b0782b632278c7">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://github.com/cloxure">cloxure</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-5834bd48e4b0782b632278c7" title="View the original example">
+        <time datetime="2016-11-22">2016-11-22</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-5834bd48e4b0782b632278c7"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="5">;; A simple factorial function using reduce:
+
+(defn fact
+  [x] 
+  (reduce * (range 1 (inc x))))</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-5834bd48e4b0782b632278c7"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="588a9031e4b01f4add58fe32">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://github.com/mahonbaldwin">mahonbaldwin</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-588a9031e4b01f4add58fe32" title="View the original example">
+        <time datetime="2017-01-27">2017-01-27</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-588a9031e4b01f4add58fe32"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="9">;; Reduce over maps by destructuring keys:
+(def x {:a 1 :b 2})
+
+(reduce (fn [p [k v]]
+          (into p {k (+ 1 v)}))
+        {} ; First value for p
+        x)
+
+;; =&gt; {:a 2, :b 3}</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-588a9031e4b01f4add58fe32"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="59efd6b9e4b0a08026c48c76">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://github.com/phreed">phreed</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-59efd6b9e4b0a08026c48c76" title="View the original example">
+        <time datetime="2017-10-25">2017-10-25</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-59efd6b9e4b0a08026c48c76"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="13">;; conj! over transient array for speed.
+;; This example flattens over one level.
+;; To do so uses reduce twice.
+(persistent!
+  (reduce
+     (fn [acc0 item-vector]
+        (reduce 
+           (fn [acc1 item]
+              (conj! acc1 item))
+           acc0 item-vector))
+     (transient [])
+     [[:foo :bar :baz] [] [:fred :barney]]))
+ ;;=&gt; [:foo :bar :baz :fred :barney]    </textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-59efd6b9e4b0a08026c48c76"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="5a5d1876e4b0a08026c48cf5">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://github.com/ibercode">ibercode</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-5a5d1876e4b0a08026c48cf5" title="View the original example">
+        <time datetime="2018-01-15">2018-01-15</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-5a5d1876e4b0a08026c48cf5"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="17">;;reduce with side effects
+;;given a collection return a new collection
+
+(def initial-coll [1 2 3 4 5])
+
+(defn byten
+  [coll]
+  (reduce (fn [new-coll unit]
+            (into new-coll [(* 10 unit)]))
+          []
+          coll))
+
+(byten initial-coll)
+;;[10 20 30 40 50]
+
+
+</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-5a5d1876e4b0a08026c48cf5"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="5a5d1940e4b0a08026c48cf6">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://github.com/ibercode">ibercode</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-5a5d1940e4b0a08026c48cf6" title="View the original example">
+        <time datetime="2018-01-15">2018-01-15</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-5a5d1940e4b0a08026c48cf6"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="13">;; Reduce with side effects using an anonymous function
+;; given a collection return a new collection:
+
+(def initial-coll [1 2 3 4 5])
+
+(defn byten
+  [coll]
+  (reduce #(into %1 [(* 10 %2)])
+          []
+          coll))
+
+(byten initial-coll)
+;; =&gt; [10 20 30 40 50]</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-5a5d1940e4b0a08026c48cf6"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="5a76dbb9e4b0e2d9c35f7418">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://github.com/ibercode">ibercode</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-5a76dbb9e4b0e2d9c35f7418" title="View the original example">
+        <time datetime="2018-02-04">2018-02-04</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-5a76dbb9e4b0e2d9c35f7418"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="10">;; A practical example of mapping over values
+;; in a hash-map with the `upper-case` function:
+
+(reduce
+ (fn [acc [k v]]
+   (assoc acc k (clojure.string/upper-case v)))
+ {}
+ {:a "aaaaaaa" :b "bbbbbbb"})
+
+;; =&gt; {:a "AAAAAAA", :b "BBBBBBB"}</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-5a76dbb9e4b0e2d9c35f7418"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example clojuredocs-static"
+  data-example-id="5cb7605de4b0ca44402ef70b">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://github.com/ftravers">ftravers</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-5cb7605de4b0ca44402ef70b" title="View the original example">
+        <time datetime="2019-04-17">2019-04-17</time>
+      </a>.
+      <span class="clojuredocs-evaluation-warning">
+        May have evaluation errors.
+      </span>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-5cb7605de4b0ca44402ef70b"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="6">(reduce
+ (fn [accumulator current-item]  ; &lt;-- accumulator is FIRST argument to function
+   ...)                          ; &lt;-- your fn definition goes here
+ []                              ; &lt;-- initial value for your accumulator                          
+ [:a :b])                        ; &lt;-- collection to operate on
+</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-5cb7605de4b0ca44402ef70b"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="5e5be024e4b087629b5a18b0">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://github.com/tanrax">tanrax</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-5e5be024e4b087629b5a18b0" title="View the original example">
+        <time datetime="2020-03-01">2020-03-01</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-5e5be024e4b087629b5a18b0"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="9">(reduce #(str %1 %2) "" ["Woody" "Potato" "Buzz"])
+;;=&gt; "WoodyPotatoBuzz"
+
+;; or
+
+(reduce (fn [accumulator current-item] (str accumulator current-item)) "" ["Woody" "Potato" "Buzz"])
+;;=&gt; "WoodyPotatoBuzz"
+
+</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-5e5be024e4b087629b5a18b0"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="64f3edefe4b08cf8563f4be7">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://github.com/burinc">burinc</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-64f3edefe4b08cf8563f4be7" title="View the original example">
+        <time datetime="2023-09-03">2023-09-03</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-64f3edefe4b08cf8563f4be7"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="22">; Nice use of reduce from some version of medley library 
+; https://github.com/weavejester/medley
+
+(defn assoc-some
+  "Associates a key k, with a value v in a map m, if and only if v is not nil."
+  ([m k v]
+   (if (nil? v) m (assoc m k v)))
+  ([m k v &amp; kvs]
+   (reduce (fn [m [k v]] (assoc-some m k v))
+           (assoc-some m k v)
+           (partition 2 kvs))))
+
+(assoc-some {} :a 1)
+;;=&gt; {:a 1}
+
+(assoc-some {} :a nil :b 2)
+;;=&gt; {:b 2}
+
+(assoc-some {:a 1 :b 2} :a 10 :c 3)
+;;=&gt; {:a 10, :b 2, :c 3}
+
+</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-64f3edefe4b08cf8563f4be7"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="64fd1c07e4b08cf8563f4bf7">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://github.com/burinc">burinc</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-64fd1c07e4b08cf8563f4bf7" title="View the original example">
+        <time datetime="2023-09-10">2023-09-10</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-64fd1c07e4b08cf8563f4bf7"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="12">;; Transform key/value pairs
+(reduce (fn [acc [k v]]
+          (assoc acc (str (name k)) v))
+        {}
+        [[:a 1] [:b 2] [:c 3]])
+;;=&gt; {"a" 1, "b" 2, "c" 3}
+
+(reduce (fn [acc [k v]]
+          (assoc acc (str "k" k) (* v 2)))
+        {}
+        (partition 2 (range 10)))
+;;=&gt; {"k0" 2, "k2" 6, "k4" 10, "k6" 14, "k8" 18}</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-64fd1c07e4b08cf8563f4bf7"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+<section class="clojuredocs-example" data-example-id="677ba2d1cd84df5de54e2068">
+  <header class="clojuredocs-example-header">
+    <span>
+      by <a href="https://github.com/vasanth53">vasanth53</a>
+      on <a href="https://clojuredocs.org/clojure.core/reduce#example-677ba2d1cd84df5de54e2068" title="View the original example">
+        <time datetime="2025-01-06">2025-01-06</time>
+      </a>
+    </span>
+    <span class="clojuredocs-example-controls">
+      <span class="clojuredocs-status" data-status
+        aria-live="polite"></span>
+      <button type="button" data-run aria-label="Run example"
+        aria-controls="clojuredocs-output-677ba2d1cd84df5de54e2068"
+        aria-expanded="false">▶</button>
+    </span>
+  </header>
+  <textarea data-clojuredocs-source rows="15">;; Function to generate permutations using reduce
+(defn permutations [coll]
+  (reduce
+    (fn [acc x]
+      (for [perm acc
+            i (range (inc (count perm)))]
+        (concat (take i perm) [x] (drop i perm))))
+    [[]]  ; Start with an empty permutation
+    coll))
+
+;; Example usage
+(permutations [1 2 3])
+
+;; =&gt; ((3 2 1) (2 3 1) (2 1 3) (3 1 2) (1 3 2) (1 2 3))
+</textarea>
+  <div class="clojuredocs-editor" data-editor></div>
+  <pre id="clojuredocs-output-677ba2d1cd84df5de54e2068"
+    class="clojuredocs-output" data-output hidden></pre>
+</section>
+
+</div>
+
+<h3 id="note-by-joshuaeckroth">Note by JoshuaEckroth<a class="headerlink" href="#note-by-joshuaeckroth" title="Permanent link">&para;</a></h3>
+<p>clojure.core/reduce seems to be a special case of a function that's defined twice in core.clj, and the first definition (at the line cited above: 773) is just a temporary definition; the real definition is later at line 5323, which contains the docstring.</p>
+<h3 id="note-by-didibus">Note by didibus<a class="headerlink" href="#note-by-didibus" title="Permanent link">&para;</a></h3>
+<p>The reducing function f is of shape:</p>
+<p>(f [accumulator next-element] ...)</p>
+<h3 id="note-by-iljaf">Note by iljaf<a class="headerlink" href="#note-by-iljaf" title="Permanent link">&para;</a></h3>
+<p>The 4<sup>th</sup> example (generating prime numbers) is kind of nice conceptually, but running it for the first 1m integers is taking 2 min on i7 2.7GHz machine, so it seems to be a very inefficient way of generating prime numbers. </p>
+<h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<ul class="clojuredocs-see-also">
+<li>
+  <a class="clojuredocs-see-also-local" href="/clojuredocs.org/clojure.core/reductions/">clojure.core/reductions</a> <span class="clojuredocs-see-also-count">(2)</span>
+</li>
+<li>
+  <a class="clojuredocs-see-also-local" href="/clojuredocs.org/clojure.core/apply/">clojure.core/apply</a> <span class="clojuredocs-see-also-count">(14)</span>
+</li>
+<li>
+  <a class="clojuredocs-see-also-local" href="/clojuredocs.org/clojure.core/frequencies/">clojure.core/frequencies</a> <span class="clojuredocs-see-also-count">(2)</span>
+</li>
+<li>
+  <a class="clojuredocs-see-also-local" href="/clojuredocs.org/clojure.core/reduced/">clojure.core/reduced</a> <span class="clojuredocs-see-also-count">(3)</span>
+</li>
+<li>
+  <a class="clojuredocs-see-also-external" href="https://clojuredocs.org/clojure.core/reduced?">clojure.core/reduced?</a> 
+</li>
+<li>
+  <a class="clojuredocs-see-also-local" href="/clojuredocs.org/clojure.core/reduce-kv/">clojure.core/reduce-kv</a> <span class="clojuredocs-see-also-count">(1)</span>
+</li>
+<li>
+  <a class="clojuredocs-see-also-local" href="/clojuredocs.org/clojure.core.reducers/fold/">clojure.core.reducers/fold</a> <span class="clojuredocs-see-also-count">(0)</span>
+</li>
+<li>
+  <a class="clojuredocs-see-also-local" href="/clojuredocs.org/clojure.core/partition-by/">clojure.core/partition-by</a> <span class="clojuredocs-see-also-count">(3)</span>
+</li>
+
+</ul>
+
+<hr />
+<p>Content from <a href="https://clojuredocs.org/clojure.core/reduce">the matching ClojureDocs page</a>, with authors
+credited on each contribution.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/clojurestar/clojure-cc" target="_blank" rel="noopener" title="ClojureStar on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.action.edit", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/external-links.js"></script>
+      
+        <script src="../../../javascripts/clojuredocs-loader.js"></script>
+      
+        <script src="../../../javascripts/repl.js"></script>
+      
+        <script src="../../../javascripts/cc-logo-data.js"></script>
+      
+        <script src="../../../javascripts/cc-logo.js"></script>
+      
+        <script src="../../../javascripts/sort.js"></script>
+      
+    
+  </body>
+</html>

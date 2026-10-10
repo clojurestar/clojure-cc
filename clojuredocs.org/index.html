@@ -1,0 +1,6848 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Discover, compare and try out dialects from the Clojure family of languages.">
+      
+      
+        <meta name="author" content="Ingy dot Net">
+      
+      
+        <link rel="canonical" href="https://clojure.cc/clojuredocs.org/">
+      
+      
+        <link rel="prev" href="../blog/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../img/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Interactive ClojureDocs - ClojureStar</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+      <link rel="stylesheet" href="../css/clojuredocs.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Interactive ClojureDocs - ClojureStar" />
+<meta property="og:description" content="Discover, compare and try out dialects from the Clojure family of languages." />
+<meta property="og:image" content="https://clojure.cc/assets/images/social/clojuredocs.org/index.png?v=1791628368" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://clojure.cc/clojuredocs.org/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Interactive ClojureDocs - ClojureStar" />
+<meta property="twitter:description" content="Discover, compare and try out dialects from the Clojure family of languages." />
+<meta property="twitter:image" content="https://clojure.cc/assets/images/social/clojuredocs.org/index.png?v=1791628368" />
+</head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#interactive-clojuredocs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ClojureStar" class="md-header__button md-logo" aria-label="ClojureStar" data-md-component="logo">
+      <img src="../img/logo.svg" alt="ClojureStar" class="cc-logo" data-cc-logo>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <a href=".." class="md-ellipsis" style="text-decoration: none; color: inherit;">
+            ClojureStar
+          </a>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Interactive ClojureDocs
+            
+          </span>
+        </div>
+      </div>
+      
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/clojurestar/clojure-cc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    clojurestar/clojure-cc
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+
+<nav class="md-tabs" aria-label="Tabs"
+     data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+          
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  ClojureStar
+
+      </a>
+    </li>
+  
+
+        
+      
+        
+          
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../dialects/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Clojure Dialects
+
+      </a>
+    </li>
+  
+
+        
+      
+        
+          
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../try/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Try Dialects
+
+      </a>
+    </li>
+  
+
+        
+      
+        
+          
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../tools/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Clojure Tools
+
+      </a>
+    </li>
+  
+
+        
+      
+        
+          
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../repl/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Browser REPL
+
+      </a>
+    </li>
+  
+
+        
+      
+        
+          
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+        
+      
+        
+          
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Interactive ClojureDocs
+
+      </a>
+    </li>
+  
+
+        
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation"
+     data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".."
+       title="ClojureStar" class="md-nav__button md-logo"
+       aria-label="ClojureStar" data-md-component="logo">
+      <img src="../img/logo.svg" alt="ClojureStar" class="cc-logo" data-cc-logo>
+    </a>
+    ClojureStar
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/clojurestar/clojure-cc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    clojurestar/clojure-cc
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+        
+        
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ClojureStar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+      
+    
+      
+        
+        
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dialects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clojure Dialects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+      
+    
+      
+        
+        
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../try/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Try Dialects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+      
+    
+      
+        
+        
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clojure Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+      
+    
+      
+        
+        
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browser REPL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+      
+    
+      
+        
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+      
+    
+      
+        
+        
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interactive ClojureDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+      
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="interactive-clojuredocs">Interactive ClojureDocs<a class="headerlink" href="#interactive-clojuredocs" title="Permanent link">&para;</a></h1>
+<details class="clojuredocs-about">
+<summary>About Interactive ClojureDocs</summary>
+<p>ClojureDocs Interactive is an experimental project seeking feedback from
+the Clojure community.</p>
+<p>The documentation, usage signatures, examples, notes, related links, and
+contributor information come from the public
+<a href="https://clojuredocs.org/clojuredocs-export.json">ClojureDocs JSON export</a>.
+This site keeps a tracked snapshot of 500 selected pages
+and generates the index and individual pages from that data.
+The page selection, interactive interface, and decisions about which
+examples can run are maintained by this project.</p>
+<p>Runnable examples execute locally in your browser using
+<a href="https://github.com/gloathub/glojure">Glojure</a> compiled to WebAssembly.
+Focusing an editor or selecting its run button creates a fresh WebAssembly
+instance for that evaluation.
+All top-level forms run in order in that instance, so later forms can use
+definitions from earlier ones.
+The output shows each form's result, including <code>nil</code>, together with
+anything the code prints.
+Collection results are limited to 100 items and 20 nesting levels, with an
+ellipsis when truncated.
+Evaluation stops at the first error.
+Once active, the editor evaluates changes automatically after a short
+pause.
+Examples that are not known to run in this browser-based Glojure
+environment are marked "May have evaluation errors."
+They remain editable and runnable, but may depend on REPL state from
+another session, JVM APIs, external libraries, or other context that is
+unavailable here.</p>
+<p>The original prose and examples remain attributed to their ClojureDocs
+contributors, with a link back to the matching source page's example.</p>
+</details>
+<div class="clojuredocs-table-wrap" data-clojuredocs-page>
+<table class="clojuredocs-table" data-clojuredocs-table>
+  <thead>
+    <tr>
+      <th scope="col" data-sort-key="ns" aria-sort="none"
+        data-tooltip="Sort by namespace">
+        <button type="button" aria-label="Sort by namespace">ns</button>
+      </th>
+      <th scope="col" data-sort-key="name" aria-sort="none"
+        data-tooltip="Sort by name">
+        <button type="button" aria-label="Sort by name">name</button>
+      </th>
+      <th scope="col" data-sort-key="examples"
+        aria-sort="descending"
+        data-tooltip="Sort by total community example count">
+        <button type="button"
+          aria-label="Sort by total community example count">eg #</button>
+      </th>
+      <th scope="col" data-sort-key="runnable" aria-sort="none"
+        data-tooltip="Sort by browser-runnable example count">
+        <button type="button"
+          aria-label="Sort by browser-runnable example count">
+          run #
+        </button>
+      </th>
+      <th scope="col" data-tooltip="Basic usage signatures">usage</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/reduce/">
+      <code>reduce</code>
+    </a>
+  </td>
+  <td>25</td>
+  <td>22</td>
+  <td><code>(reduce f coll)</code><br><code>(reduce f val coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/for/">
+      <code>for</code>
+    </a>
+  </td>
+  <td>19</td>
+  <td>14</td>
+  <td><code>(for seq-exprs body-expr)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/apply/">
+      <code>apply</code>
+    </a>
+  </td>
+  <td>18</td>
+  <td>14</td>
+  <td><code>(apply f args)</code><br><code>(apply f x args)</code><br><code>(apply f x y args)</code><br><code>(apply f x y z args)</code><br><code>(apply f a b c d &amp; args)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/comp/">
+      <code>comp</code>
+    </a>
+  </td>
+  <td>18</td>
+  <td>15</td>
+  <td><code>(comp )</code><br><code>(comp f)</code><br><code>(comp f g)</code><br><code>(comp f g &amp; fs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/map/">
+      <code>map</code>
+    </a>
+  </td>
+  <td>18</td>
+  <td>13</td>
+  <td><code>(map f)</code><br><code>(map f coll)</code><br><code>(map f c1 c2)</code><br><code>(map f c1 c2 c3)</code><br><code>(map f c1 c2 c3 &amp; colls)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/defmulti/">
+      <code>defmulti</code>
+    </a>
+  </td>
+  <td>16</td>
+  <td>7</td>
+  <td><code>(defmulti name docstring? attr-map? dispatch-fn &amp; options)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/doseq/">
+      <code>doseq</code>
+    </a>
+  </td>
+  <td>15</td>
+  <td>9</td>
+  <td><code>(doseq seq-exprs &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/partial/">
+      <code>partial</code>
+    </a>
+  </td>
+  <td>15</td>
+  <td>10</td>
+  <td><code>(partial f)</code><br><code>(partial f arg1)</code><br><code>(partial f arg1 arg2)</code><br><code>(partial f arg1 arg2 arg3)</code><br><code>(partial f arg1 arg2 arg3 &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/some/">
+      <code>some</code>
+    </a>
+  </td>
+  <td>15</td>
+  <td>15</td>
+  <td><code>(some pred coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/defrecord/">
+      <code>defrecord</code>
+    </a>
+  </td>
+  <td>14</td>
+  <td>0</td>
+  <td><code>(defrecord name [&amp; fields] &amp; opts+specs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/if-let/">
+      <code>if-let</code>
+    </a>
+  </td>
+  <td>14</td>
+  <td>7</td>
+  <td><code>(if-let bindings then)</code><br><code>(if-let bindings then else &amp; oldform)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/loop/">
+      <code>loop</code>
+    </a>
+  </td>
+  <td>14</td>
+  <td>10</td>
+  <td><code>(loop bindings &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/condp/">
+      <code>condp</code>
+    </a>
+  </td>
+  <td>13</td>
+  <td>10</td>
+  <td><code>(condp pred expr &amp; clauses)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/into/">
+      <code>into</code>
+    </a>
+  </td>
+  <td>13</td>
+  <td>9</td>
+  <td><code>(into )</code><br><code>(into to)</code><br><code>(into to from)</code><br><code>(into to xform from)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/ns/">
+      <code>ns</code>
+    </a>
+  </td>
+  <td>13</td>
+  <td>3</td>
+  <td><code>(ns name docstring? attr-map? references*)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/sort-by/">
+      <code>sort-by</code>
+    </a>
+  </td>
+  <td>13</td>
+  <td>5</td>
+  <td><code>(sort-by keyfn coll)</code><br><code>(sort-by keyfn comp coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/binding/">
+      <code>binding</code>
+    </a>
+  </td>
+  <td>12</td>
+  <td>2</td>
+  <td><code>(binding bindings &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/concat/">
+      <code>concat</code>
+    </a>
+  </td>
+  <td>12</td>
+  <td>7</td>
+  <td><code>(concat )</code><br><code>(concat x)</code><br><code>(concat x y)</code><br><code>(concat x y &amp; zs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/juxt/">
+      <code>juxt</code>
+    </a>
+  </td>
+  <td>12</td>
+  <td>7</td>
+  <td><code>(juxt f)</code><br><code>(juxt f g)</code><br><code>(juxt f g h)</code><br><code>(juxt f g h &amp; fs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.java.shell</code></td>
+  <td>
+    <a href="clojure.java.shell/sh/">
+      <code>sh</code>
+    </a>
+  </td>
+  <td>12</td>
+  <td>1</td>
+  <td><code>(sh &amp; args)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/-%3E%3E/">
+      <code>-&gt;&gt;</code>
+    </a>
+  </td>
+  <td>11</td>
+  <td>7</td>
+  <td><code>(-&gt;&gt; x &amp; forms)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/conj/">
+      <code>conj</code>
+    </a>
+  </td>
+  <td>11</td>
+  <td>9</td>
+  <td><code>(conj )</code><br><code>(conj coll)</code><br><code>(conj coll x)</code><br><code>(conj coll x &amp; xs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/defn/">
+      <code>defn</code>
+    </a>
+  </td>
+  <td>11</td>
+  <td>5</td>
+  <td><code>(defn name doc-string? attr-map? [params*] prepost-map? body)</code><br><code>(defn name doc-string? attr-map? ([params*] prepost-map? body) + attr-map?)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/filter/">
+      <code>filter</code>
+    </a>
+  </td>
+  <td>11</td>
+  <td>6</td>
+  <td><code>(filter pred)</code><br><code>(filter pred coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/keyword/">
+      <code>keyword</code>
+    </a>
+  </td>
+  <td>11</td>
+  <td>7</td>
+  <td><code>(keyword name)</code><br><code>(keyword ns name)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/let/">
+      <code>let</code>
+    </a>
+  </td>
+  <td>11</td>
+  <td>7</td>
+  <td><code>(let bindings &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/merge-with/">
+      <code>merge-with</code>
+    </a>
+  </td>
+  <td>11</td>
+  <td>8</td>
+  <td><code>(merge-with f &amp; maps)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/read-string/">
+      <code>read-string</code>
+    </a>
+  </td>
+  <td>11</td>
+  <td>4</td>
+  <td><code>(read-string s)</code><br><code>(read-string opts s)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/update-in/">
+      <code>update-in</code>
+    </a>
+  </td>
+  <td>11</td>
+  <td>10</td>
+  <td><code>(update-in m ks f &amp; args)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/get/">
+      <code>get</code>
+    </a>
+  </td>
+  <td>10</td>
+  <td>8</td>
+  <td><code>(get map key)</code><br><code>(get map key not-found)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/reduce-kv/">
+      <code>reduce-kv</code>
+    </a>
+  </td>
+  <td>10</td>
+  <td>1</td>
+  <td><code>(reduce-kv f init coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/require/">
+      <code>require</code>
+    </a>
+  </td>
+  <td>10</td>
+  <td>4</td>
+  <td><code>(require &amp; args)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/tree-seq/">
+      <code>tree-seq</code>
+    </a>
+  </td>
+  <td>10</td>
+  <td>6</td>
+  <td><code>(tree-seq branch? children root)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/update/">
+      <code>update</code>
+    </a>
+  </td>
+  <td>10</td>
+  <td>6</td>
+  <td><code>(update m k f)</code><br><code>(update m k f x)</code><br><code>(update m k f x y)</code><br><code>(update m k f x y z)</code><br><code>(update m k f x y z &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/-%3E/">
+      <code>-&gt;</code>
+    </a>
+  </td>
+  <td>9</td>
+  <td>4</td>
+  <td><code>(-&gt; x &amp; forms)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/assoc/">
+      <code>assoc</code>
+    </a>
+  </td>
+  <td>9</td>
+  <td>8</td>
+  <td><code>(assoc map key val)</code><br><code>(assoc map key val &amp; kvs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/assoc-in/">
+      <code>assoc-in</code>
+    </a>
+  </td>
+  <td>9</td>
+  <td>7</td>
+  <td><code>(assoc-in m [k &amp; ks] v)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/compare/">
+      <code>compare</code>
+    </a>
+  </td>
+  <td>9</td>
+  <td>3</td>
+  <td><code>(compare x y)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/cond/">
+      <code>cond</code>
+    </a>
+  </td>
+  <td>9</td>
+  <td>5</td>
+  <td><code>(cond &amp; clauses)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/lazy-seq/">
+      <code>lazy-seq</code>
+    </a>
+  </td>
+  <td>9</td>
+  <td>6</td>
+  <td><code>(lazy-seq &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/mapcat/">
+      <code>mapcat</code>
+    </a>
+  </td>
+  <td>9</td>
+  <td>7</td>
+  <td><code>(mapcat f)</code><br><code>(mapcat f &amp; colls)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/merge/">
+      <code>merge</code>
+    </a>
+  </td>
+  <td>9</td>
+  <td>8</td>
+  <td><code>(merge &amp; maps)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/partition/">
+      <code>partition</code>
+    </a>
+  </td>
+  <td>9</td>
+  <td>6</td>
+  <td><code>(partition n coll)</code><br><code>(partition n step coll)</code><br><code>(partition n step pad coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/recur/">
+      <code>recur</code>
+    </a>
+  </td>
+  <td>9</td>
+  <td>9</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.string</code></td>
+  <td>
+    <a href="clojure.string/replace/">
+      <code>replace</code>
+    </a>
+  </td>
+  <td>9</td>
+  <td>8</td>
+  <td><code>(replace s match replacement)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/case/">
+      <code>case</code>
+    </a>
+  </td>
+  <td>8</td>
+  <td>5</td>
+  <td><code>(case e &amp; clauses)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/def/">
+      <code>def</code>
+    </a>
+  </td>
+  <td>8</td>
+  <td>4</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/deftype/">
+      <code>deftype</code>
+    </a>
+  </td>
+  <td>8</td>
+  <td>1</td>
+  <td><code>(deftype name [&amp; fields] &amp; opts+specs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/get-in/">
+      <code>get-in</code>
+    </a>
+  </td>
+  <td>8</td>
+  <td>5</td>
+  <td><code>(get-in m ks)</code><br><code>(get-in m ks not-found)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/group-by/">
+      <code>group-by</code>
+    </a>
+  </td>
+  <td>8</td>
+  <td>7</td>
+  <td><code>(group-by f coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/identity/">
+      <code>identity</code>
+    </a>
+  </td>
+  <td>8</td>
+  <td>6</td>
+  <td><code>(identity x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/keep/">
+      <code>keep</code>
+    </a>
+  </td>
+  <td>8</td>
+  <td>8</td>
+  <td><code>(keep f)</code><br><code>(keep f coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/partition-by/">
+      <code>partition-by</code>
+    </a>
+  </td>
+  <td>8</td>
+  <td>3</td>
+  <td><code>(partition-by f)</code><br><code>(partition-by f coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/reify/">
+      <code>reify</code>
+    </a>
+  </td>
+  <td>8</td>
+  <td>0</td>
+  <td><code>(reify &amp; opts+specs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/resolve/">
+      <code>resolve</code>
+    </a>
+  </td>
+  <td>8</td>
+  <td>4</td>
+  <td><code>(resolve sym)</code><br><code>(resolve env sym)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/sorted-map/">
+      <code>sorted-map</code>
+    </a>
+  </td>
+  <td>8</td>
+  <td>5</td>
+  <td><code>(sorted-map &amp; keyvals)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/str/">
+      <code>str</code>
+    </a>
+  </td>
+  <td>8</td>
+  <td>7</td>
+  <td><code>(str )</code><br><code>(str x)</code><br><code>(str x &amp; ys)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/when-let/">
+      <code>when-let</code>
+    </a>
+  </td>
+  <td>8</td>
+  <td>6</td>
+  <td><code>(when-let bindings &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/zipmap/">
+      <code>zipmap</code>
+    </a>
+  </td>
+  <td>8</td>
+  <td>7</td>
+  <td><code>(zipmap keys vals)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.string</code></td>
+  <td>
+    <a href="clojure.string/split/">
+      <code>split</code>
+    </a>
+  </td>
+  <td>8</td>
+  <td>4</td>
+  <td><code>(split s re)</code><br><code>(split s re limit)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/=/">
+      <code>=</code>
+    </a>
+  </td>
+  <td>7</td>
+  <td>4</td>
+  <td><code>(= x)</code><br><code>(= x y)</code><br><code>(= x y &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/cond-%3E/">
+      <code>cond-&gt;</code>
+    </a>
+  </td>
+  <td>7</td>
+  <td>4</td>
+  <td><code>(cond-&gt; expr &amp; clauses)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/identical_q/">
+      <code>identical?</code>
+    </a>
+  </td>
+  <td>7</td>
+  <td>3</td>
+  <td><code>(identical? x y)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/interleave/">
+      <code>interleave</code>
+    </a>
+  </td>
+  <td>7</td>
+  <td>7</td>
+  <td><code>(interleave )</code><br><code>(interleave c1)</code><br><code>(interleave c1 c2)</code><br><code>(interleave c1 c2 &amp; colls)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/keep-indexed/">
+      <code>keep-indexed</code>
+    </a>
+  </td>
+  <td>7</td>
+  <td>5</td>
+  <td><code>(keep-indexed f)</code><br><code>(keep-indexed f coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/lazy-cat/">
+      <code>lazy-cat</code>
+    </a>
+  </td>
+  <td>7</td>
+  <td>4</td>
+  <td><code>(lazy-cat &amp; colls)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/re-find/">
+      <code>re-find</code>
+    </a>
+  </td>
+  <td>7</td>
+  <td>3</td>
+  <td><code>(re-find m)</code><br><code>(re-find re s)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/slurp/">
+      <code>slurp</code>
+    </a>
+  </td>
+  <td>7</td>
+  <td>2</td>
+  <td><code>(slurp f &amp; opts)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/sort/">
+      <code>sort</code>
+    </a>
+  </td>
+  <td>7</td>
+  <td>1</td>
+  <td><code>(sort coll)</code><br><code>(sort comp coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/transduce/">
+      <code>transduce</code>
+    </a>
+  </td>
+  <td>7</td>
+  <td>5</td>
+  <td><code>(transduce xform f coll)</code><br><code>(transduce xform f init coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/try/">
+      <code>try</code>
+    </a>
+  </td>
+  <td>7</td>
+  <td>1</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/with-redefs/">
+      <code>with-redefs</code>
+    </a>
+  </td>
+  <td>7</td>
+  <td>1</td>
+  <td><code>(with-redefs bindings &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.pprint</code></td>
+  <td>
+    <a href="clojure.pprint/cl-format/">
+      <code>cl-format</code>
+    </a>
+  </td>
+  <td>7</td>
+  <td>0</td>
+  <td><code>(cl-format writer format-in &amp; args)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/==/">
+      <code>==</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>5</td>
+  <td><code>(== x)</code><br><code>(== x y)</code><br><code>(== x y &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/bigint/">
+      <code>bigint</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>1</td>
+  <td><code>(bigint x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/eduction/">
+      <code>eduction</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>0</td>
+  <td><code>(eduction xform* coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/format/">
+      <code>format</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>2</td>
+  <td><code>(format fmt &amp; args)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/future/">
+      <code>future</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>1</td>
+  <td><code>(future &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/hash-map/">
+      <code>hash-map</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>3</td>
+  <td><code>(hash-map )</code><br><code>(hash-map &amp; keyvals)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/map-indexed/">
+      <code>map-indexed</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>4</td>
+  <td><code>(map-indexed f)</code><br><code>(map-indexed f coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/memoize/">
+      <code>memoize</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>3</td>
+  <td><code>(memoize f)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/name/">
+      <code>name</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>4</td>
+  <td><code>(name x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/or/">
+      <code>or</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>2</td>
+  <td><code>(or )</code><br><code>(or x)</code><br><code>(or x &amp; next)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/pr-str/">
+      <code>pr-str</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>3</td>
+  <td><code>(pr-str &amp; xs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/re-seq/">
+      <code>re-seq</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>4</td>
+  <td><code>(re-seq re s)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/remove/">
+      <code>remove</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>6</td>
+  <td><code>(remove pred)</code><br><code>(remove pred coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/rest/">
+      <code>rest</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>6</td>
+  <td><code>(rest coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/select-keys/">
+      <code>select-keys</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>5</td>
+  <td><code>(select-keys map keyseq)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/sequence/">
+      <code>sequence</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>1</td>
+  <td><code>(sequence coll)</code><br><code>(sequence xform coll)</code><br><code>(sequence xform coll &amp; colls)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/spit/">
+      <code>spit</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>1</td>
+  <td><code>(spit f content &amp; options)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/swap!/">
+      <code>swap!</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>6</td>
+  <td><code>(swap! atom f)</code><br><code>(swap! atom f x)</code><br><code>(swap! atom f x y)</code><br><code>(swap! atom f x y &amp; args)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/vector/">
+      <code>vector</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>3</td>
+  <td><code>(vector )</code><br><code>(vector a)</code><br><code>(vector a b)</code><br><code>(vector a b c)</code><br><code>(vector a b c d)</code><br><code>(vector a b c d e)</code><br><code>(vector a b c d e f)</code><br><code>(vector a b c d e f &amp; args)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.pprint</code></td>
+  <td>
+    <a href="clojure.pprint/pprint/">
+      <code>pprint</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>0</td>
+  <td><code>(pprint object)</code><br><code>(pprint object writer)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.set</code></td>
+  <td>
+    <a href="clojure.set/union/">
+      <code>union</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>0</td>
+  <td><code>(union )</code><br><code>(union s1)</code><br><code>(union s1 s2)</code><br><code>(union s1 s2 &amp; sets)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.walk</code></td>
+  <td>
+    <a href="clojure.walk/postwalk/">
+      <code>postwalk</code>
+    </a>
+  </td>
+  <td>6</td>
+  <td>1</td>
+  <td><code>(postwalk f form)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.async</code></td>
+  <td>
+    <a href="clojure.core.async/pub/">
+      <code>pub</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>0</td>
+  <td><code>(pub ch topic-fn)</code><br><code>(pub ch topic-fn buf-fn)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/add-watch/">
+      <code>add-watch</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>3</td>
+  <td><code>(add-watch reference key fn)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/alter-var-root/">
+      <code>alter-var-root</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>2</td>
+  <td><code>(alter-var-root v f &amp; args)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/array-map/">
+      <code>array-map</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>3</td>
+  <td><code>(array-map )</code><br><code>(array-map &amp; keyvals)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/as-%3E/">
+      <code>as-&gt;</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>4</td>
+  <td><code>(as-&gt; expr name &amp; forms)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/aset/">
+      <code>aset</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>1</td>
+  <td><code>(aset array idx val)</code><br><code>(aset array idx idx2 &amp; idxv)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/atom/">
+      <code>atom</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>2</td>
+  <td><code>(atom x)</code><br><code>(atom x &amp; options)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/char/">
+      <code>char</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>3</td>
+  <td><code>(char x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/cons/">
+      <code>cons</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>4</td>
+  <td><code>(cons x seq)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/count/">
+      <code>count</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>4</td>
+  <td><code>(count coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/defmacro/">
+      <code>defmacro</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>2</td>
+  <td><code>(defmacro name doc-string? attr-map? [params*] body)</code><br><code>(defmacro name doc-string? attr-map? ([params*] body) + attr-map?)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/defprotocol/">
+      <code>defprotocol</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>2</td>
+  <td><code>(defprotocol name &amp; opts+sigs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/dissoc/">
+      <code>dissoc</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>3</td>
+  <td><code>(dissoc map)</code><br><code>(dissoc map key)</code><br><code>(dissoc map key &amp; ks)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/empty_q/">
+      <code>empty?</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>5</td>
+  <td><code>(empty? coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/fn/">
+      <code>fn</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>3</td>
+  <td><code>(fn &amp; sigs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/gen-class/">
+      <code>gen-class</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>0</td>
+  <td><code>(gen-class &amp; options)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/halt-when/">
+      <code>halt-when</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>3</td>
+  <td><code>(halt-when pred)</code><br><code>(halt-when pred retf)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/import/">
+      <code>import</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>2</td>
+  <td><code>(import &amp; import-symbols-or-lists)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/last/">
+      <code>last</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>2</td>
+  <td><code>(last coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/letfn/">
+      <code>letfn</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>1</td>
+  <td><code>(letfn fnspecs &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/list*/">
+      <code>list*</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>3</td>
+  <td><code>(list* args)</code><br><code>(list* a args)</code><br><code>(list* a b args)</code><br><code>(list* a b c args)</code><br><code>(list* a b c d &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/max-key/">
+      <code>max-key</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>5</td>
+  <td><code>(max-key k x)</code><br><code>(max-key k x y)</code><br><code>(max-key k x y &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/pmap/">
+      <code>pmap</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>3</td>
+  <td><code>(pmap f coll)</code><br><code>(pmap f coll &amp; colls)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/proxy/">
+      <code>proxy</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>1</td>
+  <td><code>(proxy class-and-interfaces args &amp; fs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/range/">
+      <code>range</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>4</td>
+  <td><code>(range )</code><br><code>(range end)</code><br><code>(range start end)</code><br><code>(range start end step)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/repeatedly/">
+      <code>repeatedly</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>3</td>
+  <td><code>(repeatedly f)</code><br><code>(repeatedly n f)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/replace/">
+      <code>replace</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>3</td>
+  <td><code>(replace smap)</code><br><code>(replace smap coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/seq/">
+      <code>seq</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>5</td>
+  <td><code>(seq coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/take-while/">
+      <code>take-while</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>3</td>
+  <td><code>(take-while pred)</code><br><code>(take-while pred coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/time/">
+      <code>time</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>3</td>
+  <td><code>(time expr)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/trampoline/">
+      <code>trampoline</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>3</td>
+  <td><code>(trampoline f)</code><br><code>(trampoline f &amp; args)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/use/">
+      <code>use</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>1</td>
+  <td><code>(use &amp; args)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/when-not/">
+      <code>when-not</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>5</td>
+  <td><code>(when-not test &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.data</code></td>
+  <td>
+    <a href="clojure.data/diff/">
+      <code>diff</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>0</td>
+  <td><code>(diff a b)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.pprint</code></td>
+  <td>
+    <a href="clojure.pprint/print-table/">
+      <code>print-table</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>0</td>
+  <td><code>(print-table ks rows)</code><br><code>(print-table rows)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.set</code></td>
+  <td>
+    <a href="clojure.set/difference/">
+      <code>difference</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>0</td>
+  <td><code>(difference s1)</code><br><code>(difference s1 s2)</code><br><code>(difference s1 s2 &amp; sets)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.set</code></td>
+  <td>
+    <a href="clojure.set/intersection/">
+      <code>intersection</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>0</td>
+  <td><code>(intersection s1)</code><br><code>(intersection s1 s2)</code><br><code>(intersection s1 s2 &amp; sets)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.set</code></td>
+  <td>
+    <a href="clojure.set/rename-keys/">
+      <code>rename-keys</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>0</td>
+  <td><code>(rename-keys map kmap)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.string</code></td>
+  <td>
+    <a href="clojure.string/join/">
+      <code>join</code>
+    </a>
+  </td>
+  <td>5</td>
+  <td>4</td>
+  <td><code>(join coll)</code><br><code>(join separator coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/and/">
+      <code>and</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>3</td>
+  <td><code>(and )</code><br><code>(and x)</code><br><code>(and x &amp; next)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/bigdec/">
+      <code>bigdec</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>2</td>
+  <td><code>(bigdec x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/biginteger/">
+      <code>biginteger</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>1</td>
+  <td><code>(biginteger x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/bit-and/">
+      <code>bit-and</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>4</td>
+  <td><code>(bit-and x y)</code><br><code>(bit-and x y &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/bit-shift-right/">
+      <code>bit-shift-right</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>4</td>
+  <td><code>(bit-shift-right x n)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/boolean/">
+      <code>boolean</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>3</td>
+  <td><code>(boolean x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/butlast/">
+      <code>butlast</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>4</td>
+  <td><code>(butlast coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/cat/">
+      <code>cat</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>3</td>
+  <td><code>(cat rf)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/class/">
+      <code>class</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>1</td>
+  <td><code>(class x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/coll_q/">
+      <code>coll?</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>4</td>
+  <td><code>(coll? x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/comment/">
+      <code>comment</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>1</td>
+  <td><code>(comment &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/complement/">
+      <code>complement</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>3</td>
+  <td><code>(complement f)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/constantly/">
+      <code>constantly</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>3</td>
+  <td><code>(constantly x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/create-ns/">
+      <code>create-ns</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>0</td>
+  <td><code>(create-ns sym)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/declare/">
+      <code>declare</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>0</td>
+  <td><code>(declare &amp; names)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/dedupe/">
+      <code>dedupe</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>0</td>
+  <td><code>(dedupe )</code><br><code>(dedupe coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/defmethod/">
+      <code>defmethod</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>2</td>
+  <td><code>(defmethod multifn dispatch-val &amp; fn-tail)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/delay/">
+      <code>delay</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>3</td>
+  <td><code>(delay &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/deliver/">
+      <code>deliver</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>1</td>
+  <td><code>(deliver promise val)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/derive/">
+      <code>derive</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>3</td>
+  <td><code>(derive tag parent)</code><br><code>(derive h tag parent)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/distinct/">
+      <code>distinct</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>3</td>
+  <td><code>(distinct )</code><br><code>(distinct coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/do/">
+      <code>do</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>1</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/doall/">
+      <code>doall</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>0</td>
+  <td><code>(doall coll)</code><br><code>(doall n coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/dorun/">
+      <code>dorun</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>1</td>
+  <td><code>(dorun coll)</code><br><code>(dorun n coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/doto/">
+      <code>doto</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>0</td>
+  <td><code>(doto x &amp; forms)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/every_q/">
+      <code>every?</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>3</td>
+  <td><code>(every? pred coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/ex-info/">
+      <code>ex-info</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>0</td>
+  <td><code>(ex-info msg map)</code><br><code>(ex-info msg map cause)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/first/">
+      <code>first</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>2</td>
+  <td><code>(first coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/gensym/">
+      <code>gensym</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>1</td>
+  <td><code>(gensym )</code><br><code>(gensym prefix-string)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/inc/">
+      <code>inc</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>2</td>
+  <td><code>(inc x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/instance_q/">
+      <code>instance?</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>0</td>
+  <td><code>(instance? c x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/intern/">
+      <code>intern</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>0</td>
+  <td><code>(intern ns name)</code><br><code>(intern ns name val)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/iterate/">
+      <code>iterate</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>0</td>
+  <td><code>(iterate f x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/line-seq/">
+      <code>line-seq</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>0</td>
+  <td><code>(line-seq rdr)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/not-empty/">
+      <code>not-empty</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>4</td>
+  <td><code>(not-empty coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/nthrest/">
+      <code>nthrest</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>4</td>
+  <td><code>(nthrest coll n)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/number_q/">
+      <code>number?</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>4</td>
+  <td><code>(number? x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/partition-all/">
+      <code>partition-all</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>3</td>
+  <td><code>(partition-all n)</code><br><code>(partition-all n coll)</code><br><code>(partition-all n step coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/peek/">
+      <code>peek</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>3</td>
+  <td><code>(peek coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/pop/">
+      <code>pop</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>2</td>
+  <td><code>(pop coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/pr/">
+      <code>pr</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>2</td>
+  <td><code>(pr )</code><br><code>(pr x)</code><br><code>(pr x &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/quote/">
+      <code>quote</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>1</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/rationalize/">
+      <code>rationalize</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>3</td>
+  <td><code>(rationalize num)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/read-line/">
+      <code>read-line</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>0</td>
+  <td><code>(read-line )</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/realized_q/">
+      <code>realized?</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>1</td>
+  <td><code>(realized? x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/reductions/">
+      <code>reductions</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>2</td>
+  <td><code>(reductions f coll)</code><br><code>(reductions f init coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/ref/">
+      <code>ref</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>1</td>
+  <td><code>(ref x)</code><br><code>(ref x &amp; options)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/rseq/">
+      <code>rseq</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>2</td>
+  <td><code>(rseq rev)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/set!/">
+      <code>set!</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>1</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/some-fn/">
+      <code>some-fn</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>2</td>
+  <td><code>(some-fn p)</code><br><code>(some-fn p1 p2)</code><br><code>(some-fn p1 p2 p3)</code><br><code>(some-fn p1 p2 p3 &amp; ps)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/some_q/">
+      <code>some?</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>4</td>
+  <td><code>(some? x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/sorted-map-by/">
+      <code>sorted-map-by</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>2</td>
+  <td><code>(sorted-map-by comparator &amp; keyvals)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/subs/">
+      <code>subs</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>3</td>
+  <td><code>(subs s start)</code><br><code>(subs s start end)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/subseq/">
+      <code>subseq</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>0</td>
+  <td><code>(subseq sc test key)</code><br><code>(subseq sc start-test start-key end-test end-key)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/subvec/">
+      <code>subvec</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>2</td>
+  <td><code>(subvec v start)</code><br><code>(subvec v start end)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/take/">
+      <code>take</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>3</td>
+  <td><code>(take n)</code><br><code>(take n coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/transient/">
+      <code>transient</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>2</td>
+  <td><code>(transient coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/val/">
+      <code>val</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>3</td>
+  <td><code>(val e)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/when/">
+      <code>when</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>3</td>
+  <td><code>(when test &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/with-meta/">
+      <code>with-meta</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>1</td>
+  <td><code>(with-meta obj m)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/with-open/">
+      <code>with-open</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>1</td>
+  <td><code>(with-open bindings &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/with-out-str/">
+      <code>with-out-str</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>2</td>
+  <td><code>(with-out-str &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.async</code></td>
+  <td>
+    <a href="clojure.core.async/alt!/">
+      <code>alt!</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>0</td>
+  <td><code>(alt! &amp; clauses)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.async</code></td>
+  <td>
+    <a href="clojure.core.async/chan/">
+      <code>chan</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>0</td>
+  <td><code>(chan )</code><br><code>(chan buf-or-n)</code><br><code>(chan buf-or-n xform)</code><br><code>(chan buf-or-n xform ex-handler)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.reducers</code></td>
+  <td>
+    <a href="clojure.core.reducers/fold/">
+      <code>fold</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>0</td>
+  <td><code>(fold reducef coll)</code><br><code>(fold combinef reducef coll)</code><br><code>(fold n combinef reducef coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.edn</code></td>
+  <td>
+    <a href="clojure.edn/read/">
+      <code>read</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>2</td>
+  <td><code>(read )</code><br><code>(read stream)</code><br><code>(read opts stream)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.edn</code></td>
+  <td>
+    <a href="clojure.edn/read-string/">
+      <code>read-string</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>0</td>
+  <td><code>(read-string s)</code><br><code>(read-string opts s)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.string</code></td>
+  <td>
+    <a href="clojure.string/escape/">
+      <code>escape</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>3</td>
+  <td><code>(escape s cmap)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.string</code></td>
+  <td>
+    <a href="clojure.string/replace-first/">
+      <code>replace-first</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>3</td>
+  <td><code>(replace-first s match replacement)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.walk</code></td>
+  <td>
+    <a href="clojure.walk/keywordize-keys/">
+      <code>keywordize-keys</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>3</td>
+  <td><code>(keywordize-keys m)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.walk</code></td>
+  <td>
+    <a href="clojure.walk/macroexpand-all/">
+      <code>macroexpand-all</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>1</td>
+  <td><code>(macroexpand-all form)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.zip</code></td>
+  <td>
+    <a href="clojure.zip/zipper/">
+      <code>zipper</code>
+    </a>
+  </td>
+  <td>4</td>
+  <td>0</td>
+  <td><code>(zipper branch? children make-node root)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/*ns*/">
+      <code>*ns*</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/*warn-on-reflection*/">
+      <code>*warn-on-reflection*</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/./">
+      <code>.</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/../">
+      <code>..</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>3</td>
+  <td><code>(.. x form)</code><br><code>(.. x form &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/_fs/">
+      <code>/</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(/ x)</code><br><code>(/ x y)</code><br><code>(/ x y &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/%3C=/">
+      <code>&lt;=</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>3</td>
+  <td><code>(&lt;= x)</code><br><code>(&lt;= x y)</code><br><code>(&lt;= x y &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/ancestors/">
+      <code>ancestors</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(ancestors tag)</code><br><code>(ancestors h tag)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/any_q/">
+      <code>any?</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(any? x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/assert/">
+      <code>assert</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(assert x)</code><br><code>(assert x message)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/bases/">
+      <code>bases</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(bases c)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/bit-and-not/">
+      <code>bit-and-not</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>3</td>
+  <td><code>(bit-and-not x y)</code><br><code>(bit-and-not x y &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/bit-test/">
+      <code>bit-test</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>3</td>
+  <td><code>(bit-test x n)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/byte/">
+      <code>byte</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(byte x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/byte-array/">
+      <code>byte-array</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(byte-array size-or-seq)</code><br><code>(byte-array size init-val-or-seq)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/catch/">
+      <code>catch</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/chars/">
+      <code>chars</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(chars xs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/completing/">
+      <code>completing</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>3</td>
+  <td><code>(completing f)</code><br><code>(completing f cf)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/contains_q/">
+      <code>contains?</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(contains? coll key)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/defonce/">
+      <code>defonce</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(defonce name expr)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/deref/">
+      <code>deref</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(deref ref)</code><br><code>(deref ref timeout-ms timeout-val)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/dotimes/">
+      <code>dotimes</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(dotimes bindings &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/double/">
+      <code>double</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(double x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/empty/">
+      <code>empty</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(empty coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/eval/">
+      <code>eval</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(eval form)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/every-pred/">
+      <code>every-pred</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(every-pred p)</code><br><code>(every-pred p1 p2)</code><br><code>(every-pred p1 p2 p3)</code><br><code>(every-pred p1 p2 p3 &amp; ps)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/ffirst/">
+      <code>ffirst</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(ffirst x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/find/">
+      <code>find</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(find map key)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/float-array/">
+      <code>float-array</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(float-array size-or-seq)</code><br><code>(float-array size init-val-or-seq)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/float_q/">
+      <code>float?</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(float? n)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/fnil/">
+      <code>fnil</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(fnil f x)</code><br><code>(fnil f x y)</code><br><code>(fnil f x y z)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/force/">
+      <code>force</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(force x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/frequencies/">
+      <code>frequencies</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(frequencies coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/future-cancel/">
+      <code>future-cancel</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(future-cancel f)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/future-done_q/">
+      <code>future-done?</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(future-done? f)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/hash/">
+      <code>hash</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(hash x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/if/">
+      <code>if</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/if-not/">
+      <code>if-not</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(if-not test then)</code><br><code>(if-not test then else)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/integer_q/">
+      <code>integer?</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>3</td>
+  <td><code>(integer? n)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/into-array/">
+      <code>into-array</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(into-array aseq)</code><br><code>(into-array type aseq)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/isa_q/">
+      <code>isa?</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(isa? child parent)</code><br><code>(isa? h child parent)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/list/">
+      <code>list</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(list &amp; items)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/load-file/">
+      <code>load-file</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(load-file name)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/load-string/">
+      <code>load-string</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(load-string s)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/long/">
+      <code>long</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(long x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/longs/">
+      <code>longs</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(longs xs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/macroexpand-1/">
+      <code>macroexpand-1</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(macroexpand-1 form)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/make-hierarchy/">
+      <code>make-hierarchy</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(make-hierarchy )</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/mapv/">
+      <code>mapv</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>3</td>
+  <td><code>(mapv f coll)</code><br><code>(mapv f c1 c2)</code><br><code>(mapv f c1 c2 c3)</code><br><code>(mapv f c1 c2 c3 &amp; colls)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/max/">
+      <code>max</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>3</td>
+  <td><code>(max x)</code><br><code>(max x y)</code><br><code>(max x y &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/memfn/">
+      <code>memfn</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(memfn name &amp; args)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/meta/">
+      <code>meta</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(meta obj)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/min-key/">
+      <code>min-key</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>3</td>
+  <td><code>(min-key k x)</code><br><code>(min-key k x y)</code><br><code>(min-key k x y &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/mod/">
+      <code>mod</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>3</td>
+  <td><code>(mod num div)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/neg_q/">
+      <code>neg?</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(neg? num)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/next/">
+      <code>next</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(next coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/not=/">
+      <code>not=</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>3</td>
+  <td><code>(not= x)</code><br><code>(not= x y)</code><br><code>(not= x y &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/ns-map/">
+      <code>ns-map</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(ns-map ns)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/ns-resolve/">
+      <code>ns-resolve</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(ns-resolve ns sym)</code><br><code>(ns-resolve ns env sym)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/ns-unalias/">
+      <code>ns-unalias</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(ns-unalias ns sym)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/pos_q/">
+      <code>pos?</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(pos? num)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/print/">
+      <code>print</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(print &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/prn-str/">
+      <code>prn-str</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(prn-str &amp; xs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/promise/">
+      <code>promise</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(promise )</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/rand-int/">
+      <code>rand-int</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(rand-int n)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/rand-nth/">
+      <code>rand-nth</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(rand-nth coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/re-groups/">
+      <code>re-groups</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(re-groups m)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/re-matches/">
+      <code>re-matches</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>3</td>
+  <td><code>(re-matches re s)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/reduced/">
+      <code>reduced</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>3</td>
+  <td><code>(reduced x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/refer/">
+      <code>refer</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(refer ns-sym &amp; filters)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/reverse/">
+      <code>reverse</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(reverse coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/seq_q/">
+      <code>seq?</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(seq? x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/seque/">
+      <code>seque</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(seque s)</code><br><code>(seque n-or-q s)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/sorted-set/">
+      <code>sorted-set</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>3</td>
+  <td><code>(sorted-set &amp; keys)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/sorted-set-by/">
+      <code>sorted-set-by</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(sorted-set-by comparator &amp; keys)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/split-at/">
+      <code>split-at</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(split-at n coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/split-with/">
+      <code>split-with</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(split-with pred coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/symbol/">
+      <code>symbol</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(symbol name)</code><br><code>(symbol ns name)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/tap%3E/">
+      <code>tap&gt;</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(tap&gt; x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/throw/">
+      <code>throw</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/to-array/">
+      <code>to-array</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(to-array coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/unquote-splicing/">
+      <code>unquote-splicing</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/unsigned-bit-shift-right/">
+      <code>unsigned-bit-shift-right</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>3</td>
+  <td><code>(unsigned-bit-shift-right x n)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/uuid_q/">
+      <code>uuid?</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(uuid? x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/var/">
+      <code>var</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/var-get/">
+      <code>var-get</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(var-get x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/vector_q/">
+      <code>vector?</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(vector? x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/when-first/">
+      <code>when-first</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(when-first bindings &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/when-some/">
+      <code>when-some</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>3</td>
+  <td><code>(when-some bindings &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/with-local-vars/">
+      <code>with-local-vars</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(with-local-vars name-vals-vec &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/with-precision/">
+      <code>with-precision</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(with-precision precision &amp; exprs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/with-redefs-fn/">
+      <code>with-redefs-fn</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(with-redefs-fn binding-map func)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/xml-seq/">
+      <code>xml-seq</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(xml-seq root)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.async</code></td>
+  <td>
+    <a href="clojure.core.async/alts!/">
+      <code>alts!</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(alts! ports &amp; {:as opts})</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.async</code></td>
+  <td>
+    <a href="clojure.core.async/go/">
+      <code>go</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(go &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.async</code></td>
+  <td>
+    <a href="clojure.core.async/pipe/">
+      <code>pipe</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(pipe from to)</code><br><code>(pipe from to close?)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.async</code></td>
+  <td>
+    <a href="clojure.core.async/reduce/">
+      <code>reduce</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(reduce f init ch)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.async</code></td>
+  <td>
+    <a href="clojure.core.async/timeout/">
+      <code>timeout</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(timeout msecs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.logic</code></td>
+  <td>
+    <a href="clojure.core.logic/featurec/">
+      <code>featurec</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(featurec x fs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.logic</code></td>
+  <td>
+    <a href="clojure.core.logic/pred/">
+      <code>pred</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(pred v f)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.logic</code></td>
+  <td>
+    <a href="clojure.core.logic/project/">
+      <code>project</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(project [&amp; vars] &amp; goals)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.datafy</code></td>
+  <td>
+    <a href="clojure.datafy/datafy/">
+      <code>datafy</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(datafy x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.java.io</code></td>
+  <td>
+    <a href="clojure.java.io/copy/">
+      <code>copy</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(copy input output &amp; opts)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.java.io</code></td>
+  <td>
+    <a href="clojure.java.io/file/">
+      <code>file</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(file arg)</code><br><code>(file parent child)</code><br><code>(file parent child &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.java.io</code></td>
+  <td>
+    <a href="clojure.java.io/reader/">
+      <code>reader</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(reader x &amp; opts)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.java.io</code></td>
+  <td>
+    <a href="clojure.java.io/resource/">
+      <code>resource</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(resource n)</code><br><code>(resource n loader)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.java.io</code></td>
+  <td>
+    <a href="clojure.java.io/writer/">
+      <code>writer</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>1</td>
+  <td><code>(writer x &amp; opts)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.java.javadoc</code></td>
+  <td>
+    <a href="clojure.java.javadoc/javadoc/">
+      <code>javadoc</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(javadoc class-or-object)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.reflect</code></td>
+  <td>
+    <a href="clojure.reflect/reflect/">
+      <code>reflect</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(reflect obj &amp; options)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.reflect</code></td>
+  <td>
+    <a href="clojure.reflect/type-reflect/">
+      <code>type-reflect</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(type-reflect typeref &amp; options)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.set</code></td>
+  <td>
+    <a href="clojure.set/index/">
+      <code>index</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(index xrel ks)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.set</code></td>
+  <td>
+    <a href="clojure.set/join/">
+      <code>join</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(join xrel yrel)</code><br><code>(join xrel yrel km)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.set</code></td>
+  <td>
+    <a href="clojure.set/map-invert/">
+      <code>map-invert</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(map-invert m)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.set</code></td>
+  <td>
+    <a href="clojure.set/subset_q/">
+      <code>subset?</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(subset? set1 set2)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.string</code></td>
+  <td>
+    <a href="clojure.string/blank_q/">
+      <code>blank?</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>3</td>
+  <td><code>(blank? s)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.string</code></td>
+  <td>
+    <a href="clojure.string/capitalize/">
+      <code>capitalize</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(capitalize s)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.string</code></td>
+  <td>
+    <a href="clojure.string/split-lines/">
+      <code>split-lines</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(split-lines s)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.string</code></td>
+  <td>
+    <a href="clojure.string/trim/">
+      <code>trim</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(trim s)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.string</code></td>
+  <td>
+    <a href="clojure.string/upper-case/">
+      <code>upper-case</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>2</td>
+  <td><code>(upper-case s)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.test</code></td>
+  <td>
+    <a href="clojure.test/use-fixtures/">
+      <code>use-fixtures</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.walk</code></td>
+  <td>
+    <a href="clojure.walk/prewalk/">
+      <code>prewalk</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(prewalk f form)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.walk</code></td>
+  <td>
+    <a href="clojure.walk/stringify-keys/">
+      <code>stringify-keys</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>3</td>
+  <td><code>(stringify-keys m)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.zip</code></td>
+  <td>
+    <a href="clojure.zip/xml-zip/">
+      <code>xml-zip</code>
+    </a>
+  </td>
+  <td>3</td>
+  <td>0</td>
+  <td><code>(xml-zip root)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/*3/">
+      <code>*3</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/*compile-files*/">
+      <code>*compile-files*</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/*compiler-options*/">
+      <code>*compiler-options*</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/*print-meta*/">
+      <code>*print-meta*</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/*use-context-classloader*/">
+      <code>*use-context-classloader*</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/+'/">
+      <code>+'</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(+' )</code><br><code>(+' x)</code><br><code>(+' x y)</code><br><code>(+' x y &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/-/">
+      <code>-</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(- x)</code><br><code>(- x y)</code><br><code>(- x y &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/%3E=/">
+      <code>&gt;=</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(&gt;= x)</code><br><code>(&gt;= x y)</code><br><code>(&gt;= x y &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/abs/">
+      <code>abs</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(abs a)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/add-tap/">
+      <code>add-tap</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(add-tap f)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/aget/">
+      <code>aget</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(aget array idx)</code><br><code>(aget array idx &amp; idxs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/alength/">
+      <code>alength</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(alength array)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/alias/">
+      <code>alias</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(alias alias namespace-sym)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/all-ns/">
+      <code>all-ns</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(all-ns )</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/assoc!/">
+      <code>assoc!</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(assoc! coll key val)</code><br><code>(assoc! coll key val &amp; kvs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/await/">
+      <code>await</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(await &amp; agents)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/bean/">
+      <code>bean</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(bean x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/bit-or/">
+      <code>bit-or</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(bit-or x y)</code><br><code>(bit-or x y &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/bit-set/">
+      <code>bit-set</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(bit-set x n)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/bit-shift-left/">
+      <code>bit-shift-left</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(bit-shift-left x n)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/bit-xor/">
+      <code>bit-xor</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(bit-xor x y)</code><br><code>(bit-xor x y &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/booleans/">
+      <code>booleans</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(booleans xs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/bound-fn*/">
+      <code>bound-fn*</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(bound-fn* f)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/bounded-count/">
+      <code>bounded-count</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(bounded-count n coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/bytes/">
+      <code>bytes</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(bytes xs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/char-array/">
+      <code>char-array</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(char-array size-or-seq)</code><br><code>(char-array size init-val-or-seq)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/char-escape-string/">
+      <code>char-escape-string</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/char-name-string/">
+      <code>char-name-string</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/chunk/">
+      <code>chunk</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(chunk b)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/chunk-cons/">
+      <code>chunk-cons</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(chunk-cons chunk rest)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/commute/">
+      <code>commute</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(commute ref fun &amp; args)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/compare-and-set!/">
+      <code>compare-and-set!</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(compare-and-set! atom oldval newval)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/compile/">
+      <code>compile</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(compile lib)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/conj!/">
+      <code>conj!</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(conj! )</code><br><code>(conj! coll)</code><br><code>(conj! coll x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/counted_q/">
+      <code>counted?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(counted? coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/cycle/">
+      <code>cycle</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(cycle coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/dec'/">
+      <code>dec'</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(dec' x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/definterface/">
+      <code>definterface</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(definterface name &amp; sigs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/defn-/">
+      <code>defn-</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(defn- name &amp; decls)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/descendants/">
+      <code>descendants</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(descendants tag)</code><br><code>(descendants h tag)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/destructure/">
+      <code>destructure</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(destructure bindings)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/disj/">
+      <code>disj</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(disj set)</code><br><code>(disj set key)</code><br><code>(disj set key &amp; ks)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/disj!/">
+      <code>disj!</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(disj! set)</code><br><code>(disj! set key)</code><br><code>(disj! set key &amp; ks)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/distinct_q/">
+      <code>distinct?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(distinct? x)</code><br><code>(distinct? x y)</code><br><code>(distinct? x y &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/dosync/">
+      <code>dosync</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(dosync &amp; exprs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/double-array/">
+      <code>double-array</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(double-array size-or-seq)</code><br><code>(double-array size init-val-or-seq)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/doubles/">
+      <code>doubles</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(doubles xs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/drop/">
+      <code>drop</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(drop n)</code><br><code>(drop n coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/drop-last/">
+      <code>drop-last</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(drop-last coll)</code><br><code>(drop-last n coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/drop-while/">
+      <code>drop-while</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(drop-while pred)</code><br><code>(drop-while pred coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/ensure-reduced/">
+      <code>ensure-reduced</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(ensure-reduced x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/enumeration-seq/">
+      <code>enumeration-seq</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(enumeration-seq e)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/even_q/">
+      <code>even?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(even? n)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/ex-cause/">
+      <code>ex-cause</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(ex-cause ex)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/ex-data/">
+      <code>ex-data</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(ex-data ex)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/extend/">
+      <code>extend</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(extend atype &amp; proto+mmaps)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/file-seq/">
+      <code>file-seq</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(file-seq dir)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/finally/">
+      <code>finally</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/flatten/">
+      <code>flatten</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(flatten x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/float/">
+      <code>float</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(float x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/floats/">
+      <code>floats</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(floats xs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/fn_q/">
+      <code>fn?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(fn? x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/future-cancelled_q/">
+      <code>future-cancelled?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(future-cancelled? f)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/hash-ordered-coll/">
+      <code>hash-ordered-coll</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(hash-ordered-coll coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/hash-set/">
+      <code>hash-set</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(hash-set )</code><br><code>(hash-set &amp; keys)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/hash-unordered-coll/">
+      <code>hash-unordered-coll</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(hash-unordered-coll coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/in-ns/">
+      <code>in-ns</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(in-ns name)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/inc'/">
+      <code>inc'</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(inc' x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/int_q/">
+      <code>int?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(int? x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/interpose/">
+      <code>interpose</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(interpose sep)</code><br><code>(interpose sep coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/ints/">
+      <code>ints</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(ints xs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/iterator-seq/">
+      <code>iterator-seq</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(iterator-seq iter)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/key/">
+      <code>key</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(key e)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/keys/">
+      <code>keys</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(keys map)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/list_q/">
+      <code>list?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(list? x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/load/">
+      <code>load</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(load &amp; paths)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/locking/">
+      <code>locking</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(locking x &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/macroexpand/">
+      <code>macroexpand</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(macroexpand form)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/make-array/">
+      <code>make-array</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(make-array type len)</code><br><code>(make-array type dim &amp; more-dims)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/map_q/">
+      <code>map?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(map? x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/methods/">
+      <code>methods</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(methods multifn)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/min/">
+      <code>min</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(min x)</code><br><code>(min x y)</code><br><code>(min x y &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/munge/">
+      <code>munge</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(munge s)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/namespace/">
+      <code>namespace</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(namespace x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/nat-int_q/">
+      <code>nat-int?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(nat-int? x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/new/">
+      <code>new</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/nil_q/">
+      <code>nil?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(nil? x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/not/">
+      <code>not</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(not x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/ns-aliases/">
+      <code>ns-aliases</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(ns-aliases ns)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/ns-interns/">
+      <code>ns-interns</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(ns-interns ns)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/ns-publics/">
+      <code>ns-publics</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(ns-publics ns)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/nth/">
+      <code>nth</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(nth coll index)</code><br><code>(nth coll index not-found)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/nthnext/">
+      <code>nthnext</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(nthnext coll n)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/odd_q/">
+      <code>odd?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(odd? n)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/parents/">
+      <code>parents</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(parents tag)</code><br><code>(parents h tag)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/pcalls/">
+      <code>pcalls</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(pcalls &amp; fns)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/persistent!/">
+      <code>persistent!</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(persistent! coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/print-dup/">
+      <code>print-dup</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/print-method/">
+      <code>print-method</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/printf/">
+      <code>printf</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(printf fmt &amp; args)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/println/">
+      <code>println</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(println &amp; more)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/proxy-super/">
+      <code>proxy-super</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(proxy-super meth &amp; args)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/pvalues/">
+      <code>pvalues</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(pvalues &amp; exprs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/quot/">
+      <code>quot</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(quot num div)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/rand/">
+      <code>rand</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(rand )</code><br><code>(rand n)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/ratio_q/">
+      <code>ratio?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(ratio? n)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/rational_q/">
+      <code>rational?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(rational? n)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/re-matcher/">
+      <code>re-matcher</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(re-matcher re s)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/read/">
+      <code>read</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(read )</code><br><code>(read stream)</code><br><code>(read stream eof-error? eof-value)</code><br><code>(read stream eof-error? eof-value recursive?)</code><br><code>(read opts stream)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/reader-conditional_q/">
+      <code>reader-conditional?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(reader-conditional? value)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/ref-history-count/">
+      <code>ref-history-count</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(ref-history-count ref)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/ref-min-history/">
+      <code>ref-min-history</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(ref-min-history ref)</code><br><code>(ref-min-history ref n)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/refer-clojure/">
+      <code>refer-clojure</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(refer-clojure &amp; filters)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/rem/">
+      <code>rem</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(rem num div)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/remove-ns/">
+      <code>remove-ns</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(remove-ns sym)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/repeat/">
+      <code>repeat</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(repeat x)</code><br><code>(repeat n x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/requiring-resolve/">
+      <code>requiring-resolve</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(requiring-resolve sym)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/rsubseq/">
+      <code>rsubseq</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(rsubseq sc test key)</code><br><code>(rsubseq sc start-test start-key end-test end-key)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/run!/">
+      <code>run!</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(run! proc coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/satisfies_q/">
+      <code>satisfies?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(satisfies? protocol x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/send/">
+      <code>send</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(send a f &amp; args)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/send-off/">
+      <code>send-off</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(send-off a f &amp; args)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/seqable_q/">
+      <code>seqable?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(seqable? x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/sequential_q/">
+      <code>sequential?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(sequential? coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/set/">
+      <code>set</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(set coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/set-error-handler!/">
+      <code>set-error-handler!</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(set-error-handler! a handler-fn)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/set-validator!/">
+      <code>set-validator!</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(set-validator! iref validator-fn)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/short/">
+      <code>short</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(short x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/shorts/">
+      <code>shorts</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(shorts xs)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/shutdown-agents/">
+      <code>shutdown-agents</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(shutdown-agents )</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/some-%3E/">
+      <code>some-&gt;</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(some-&gt; expr &amp; forms)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/sorted_q/">
+      <code>sorted?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(sorted? coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/struct/">
+      <code>struct</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(struct s &amp; vals)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/struct-map/">
+      <code>struct-map</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(struct-map s &amp; inits)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/supers/">
+      <code>supers</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(supers class)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/tagged-literal/">
+      <code>tagged-literal</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(tagged-literal tag form)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/take-last/">
+      <code>take-last</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(take-last n coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/take-nth/">
+      <code>take-nth</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(take-nth n)</code><br><code>(take-nth n coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/to-array-2d/">
+      <code>to-array-2d</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(to-array-2d coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/true_q/">
+      <code>true?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><code>(true? x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/type/">
+      <code>type</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(type x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/unchecked-byte/">
+      <code>unchecked-byte</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(unchecked-byte x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/unchecked-dec/">
+      <code>unchecked-dec</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(unchecked-dec x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/unchecked-inc/">
+      <code>unchecked-inc</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(unchecked-inc x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/unquote/">
+      <code>unquote</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>2</td>
+  <td><span>--</span></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/unreduced/">
+      <code>unreduced</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(unreduced x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/uri_q/">
+      <code>uri?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(uri? x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/vals/">
+      <code>vals</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(vals map)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/var-set/">
+      <code>var-set</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(var-set x val)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/var_q/">
+      <code>var?</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(var? v)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/vary-meta/">
+      <code>vary-meta</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(vary-meta obj f &amp; args)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/vec/">
+      <code>vec</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(vec coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core</code></td>
+  <td>
+    <a href="clojure.core/while/">
+      <code>while</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(while test &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.async</code></td>
+  <td>
+    <a href="clojure.core.async/%3C!/">
+      <code>&lt;!</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(&lt;! port)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.async</code></td>
+  <td>
+    <a href="clojure.core.async/alts!!/">
+      <code>alts!!</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(alts!! ports &amp; opts)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.async</code></td>
+  <td>
+    <a href="clojure.core.async/close!/">
+      <code>close!</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(close! chan)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.async</code></td>
+  <td>
+    <a href="clojure.core.async/go-loop/">
+      <code>go-loop</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(go-loop bindings &amp; body)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.async</code></td>
+  <td>
+    <a href="clojure.core.async/mult/">
+      <code>mult</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(mult ch)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.async</code></td>
+  <td>
+    <a href="clojure.core.async/onto-chan/">
+      <code>onto-chan</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(onto-chan ch coll)</code><br><code>(onto-chan ch coll close?)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.async</code></td>
+  <td>
+    <a href="clojure.core.async/pipeline/">
+      <code>pipeline</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(pipeline n to xf from)</code><br><code>(pipeline n to xf from close?)</code><br><code>(pipeline n to xf from close? ex-handler)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.async</code></td>
+  <td>
+    <a href="clojure.core.async/put!/">
+      <code>put!</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(put! port val)</code><br><code>(put! port val fn1)</code><br><code>(put! port val fn1 on-caller?)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.async</code></td>
+  <td>
+    <a href="clojure.core.async/sub/">
+      <code>sub</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(sub p topic ch)</code><br><code>(sub p topic ch close?)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.async</code></td>
+  <td>
+    <a href="clojure.core.async/take!/">
+      <code>take!</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(take! port fn1)</code><br><code>(take! port fn1 on-caller?)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.logic</code></td>
+  <td>
+    <a href="clojure.core.logic/conda/">
+      <code>conda</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(conda &amp; clauses)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.logic</code></td>
+  <td>
+    <a href="clojure.core.logic/defne/">
+      <code>defne</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(defne &amp; rest)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.logic</code></td>
+  <td>
+    <a href="clojure.core.logic/lcons/">
+      <code>lcons</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(lcons a d)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.logic</code></td>
+  <td>
+    <a href="clojure.core.logic/membero/">
+      <code>membero</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(membero x l)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.logic.fd</code></td>
+  <td>
+    <a href="clojure.core.logic.fd/in/">
+      <code>in</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(in &amp; xs-and-dom)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.reducers</code></td>
+  <td>
+    <a href="clojure.core.reducers/foldcat/">
+      <code>foldcat</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(foldcat coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.core.reducers</code></td>
+  <td>
+    <a href="clojure.core.reducers/reduce/">
+      <code>reduce</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>1</td>
+  <td><code>(reduce f coll)</code><br><code>(reduce f init coll)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.inspector</code></td>
+  <td>
+    <a href="clojure.inspector/inspect/">
+      <code>inspect</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(inspect x)</code></td>
+</tr>
+
+<tr>
+  <td><code>clojure.inspector</code></td>
+  <td>
+    <a href="clojure.inspector/inspect-table/">
+      <code>inspect-table</code>
+    </a>
+  </td>
+  <td>2</td>
+  <td>0</td>
+  <td><code>(inspect-table data)</code></td>
+</tr>
+
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/clojurestar/clojure-cc" target="_blank" rel="noopener" title="ClojureStar on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.action.edit", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/external-links.js"></script>
+      
+        <script src="../javascripts/clojuredocs-loader.js"></script>
+      
+        <script src="../javascripts/repl.js"></script>
+      
+        <script src="../javascripts/cc-logo-data.js"></script>
+      
+        <script src="../javascripts/cc-logo.js"></script>
+      
+        <script src="../javascripts/sort.js"></script>
+      
+    
+  </body>
+</html>
