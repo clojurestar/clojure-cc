@@ -346,6 +346,14 @@
   ctag: [lisp]
   atag: [ingydotnet]
 
+- name: ClojureElisp
+  desc: Clojure dialect that compiles to Emacs Lisp
+  repo: https://github.com/BuddhiLW/clojure-elisp
+  host: Emacs Lisp
+  fext: cljel
+  ctag: [clojure]
+  atag: [BuddhiLW]
+
 - name: go-joker
   desc: Optimized fork of Joker for coding-agent infrastructure
   site: https://rcarmo.github.io/projects/go-joker/
