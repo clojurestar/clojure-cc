@@ -328,6 +328,7 @@
   host: Rust
   fext: cljrs
   ctag: [clojure]
+  atag: [csm, BuddhiLW]
 
 - name: Sheaf
   desc: Functional Lisp for differentiable machine learning on CPUs and GPUs
