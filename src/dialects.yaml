@@ -267,10 +267,11 @@
 
 - name: ClojureWasm
   desc: Independent Clojure runtime optimized for Wasm
-  repo: https://github.com/clojurewasm/ClojureWasm
+  repo: https://github.com/BuddhiLW/ClojureWasm
+  ghub: https://github.com/clojurewasm/ClojureWasm
   host: WebAssembly (Zig)
   ctag: [clojure]
-  atag: [chaploud]
+  atag: [chaploud, BuddhiLW]
   rtag: [nrepl]
 
 - name: Cream
@@ -327,6 +328,7 @@
   host: Rust
   fext: cljrs
   ctag: [clojure]
+  atag: [csm, BuddhiLW]
 
 - name: Sheaf
   desc: Functional Lisp for differentiable machine learning on CPUs and GPUs
@@ -345,6 +347,14 @@
   host: Perl
   ctag: [lisp]
   atag: [ingydotnet]
+
+- name: ClojureElisp
+  desc: Clojure dialect that compiles to Emacs Lisp
+  repo: https://github.com/BuddhiLW/clojure-elisp
+  host: Emacs Lisp
+  fext: cljel
+  ctag: [clojure]
+  atag: [BuddhiLW]
 
 - name: go-joker
   desc: Optimized fork of Joker for coding-agent infrastructure
