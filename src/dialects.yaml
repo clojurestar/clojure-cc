@@ -267,10 +267,11 @@
 
 - name: ClojureWasm
   desc: Independent Clojure runtime optimized for Wasm
-  repo: https://github.com/clojurewasm/ClojureWasm
+  repo: https://github.com/BuddhiLW/ClojureWasm
+  ghub: https://github.com/clojurewasm/ClojureWasm
   host: WebAssembly (Zig)
   ctag: [clojure]
-  atag: [chaploud]
+  atag: [chaploud, BuddhiLW]
   rtag: [nrepl]
 
 - name: Cream
