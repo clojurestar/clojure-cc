@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+     font-weight="700" font-size="44" fill="#ffffff"
+     text-anchor="middle" dominant-baseline="central">
+
+    <g transform="translate(300 300)">
+      <polygon points="0,-100 86.6,-50 86.6,50 0,100 -86.6,50 -86.6,-50"
+               fill="#3949AB" stroke="#ffffff" stroke-width="3"/>
+      <text>.clj</text>
+    </g>
+
+    <g transform="translate(386.6 150)">
+      <polygon points="0,-100 86.6,-50 86.6,50 0,100 -86.6,50 -86.6,-50"
+               fill="#E74C3C" stroke="#ffffff" stroke-width="3"/>
+      <text>.cljs</text>
+    </g>
+
+    <g transform="translate(473.2 300)">
+      <polygon points="0,-100 86.6,-50 86.6,50 0,100 -86.6,50 -86.6,-50"
+               fill="#F39C12" stroke="#ffffff" stroke-width="3"/>
+      <text>.cljd</text>
+    </g>
+
+    <g transform="translate(386.6 450)">
+      <polygon points="0,-100 86.6,-50 86.6,50 0,100 -86.6,50 -86.6,-50"
+               fill="#F1C40F" stroke="#ffffff" stroke-width="3"/>
+      <text>.bb</text>
+    </g>
+
+    <g transform="translate(213.4 450)">
+      <polygon points="0,-100 86.6,-50 86.6,50 0,100 -86.6,50 -86.6,-50"
+               fill="#27AE60" stroke="#ffffff" stroke-width="3"/>
+      <text>.fnl</text>
+    </g>
+
+    <g transform="translate(126.8 300)">
+      <polygon points="0,-100 86.6,-50 86.6,50 0,100 -86.6,50 -86.6,-50"
+               fill="#3498DB" stroke="#ffffff" stroke-width="3"/>
+      <text>.jank</text>
+    </g>
+
+    <g transform="translate(213.4 150)">
+      <polygon points="0,-100 86.6,-50 86.6,50 0,100 -86.6,50 -86.6,-50"
+               fill="#9B59B6" stroke="#ffffff" stroke-width="3"/>
+      <text>.glj</text>
+    </g>
+
+  </g>
+</svg>
