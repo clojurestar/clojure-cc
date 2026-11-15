@@ -98,6 +98,7 @@ defn author-id(tag):
     candid82: '882970'
     cgrand: '47025'
     chaploud: '19206115'
+    chemaclass: '5256287'
     chrisrink10: '5423242'
     dbrll: '10487787'
     dmiller: '84709'
@@ -123,7 +124,7 @@ defn author-id(tag):
     tiye: '449224'
     tytrdev: '6384618'
     yogthos: '121208'
-  ids: .$tag
+  get ids: tag
 
 defn author-badge(user id):
   =>: "<a href=\"https://github.com/$user\" class=\"badge badge-$user\" \
